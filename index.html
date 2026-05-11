@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="J4 Legacy Properties — Texas land, ranch, and rural real estate. Helping buyers and sellers in Wharton County, Matagorda County, and the Gulf Coast Brazos Bottom. El Campo, TX.">
+<meta name="keywords" content="Texas ranch land for sale, Wharton County land, Matagorda County farms, 1031 exchange Texas land, El Campo Texas real estate, rural Texas land broker">
+<meta property="og:title" content="J4 Legacy Properties | Texas Land & Ranch Real Estate">
+<meta property="og:description" content="Ranches, farms, rural homes, and 1031 exchange land for families and investors who care about legacy, not hype.">
+<meta property="og:url" content="https://www.j4lp.com">
+<title>J4 Legacy Properties | Texas Land & Ranch Real Estate | El Campo, TX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Nunito:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #131414;
+  background: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== VARIABLES ===== */
+:root {
+  --maroon: #500203;
+  --maroon-dark: #3a0102;
+  --maroon-mid: #6b0304;
+  --gold: #c8a96e;
+  --gold-light: #e8d4a8;
+  --black: #131414;
+  --charcoal: #1e1e1e;
+  --dark-gray: #7F8194;
+  --mid-gray: #a0a0a8;
+  --light-gray: #d3d5e4;
+  --off-white: #f7f5f0;
+  --warm-white: #faf9f6;
+  --white: #ffffff;
+  --nav-height: 80px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.arvo { font-family: 'Arvo', serif; }
+.lora { font-family: 'Lora', serif; }
+.uppercase { text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* ===== TOP BAR ===== */
+.topbar {
+  background: var(--black);
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar-left {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.topbar-right {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.topbar-right a {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.topbar-right a:hover { color: var(--gold); }
+.topbar-phone {
+  color: var(--gold) !important;
+  font-weight: 700;
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+}
+.nav-logo img {
+  height: 48px;
+  width: auto;
+}
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.nav-logo-text .brand-name {
+  font-family: 'Arvo', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.04em;
+}
+.nav-logo-text .brand-name span { color: var(--maroon); }
+.nav-logo-text .brand-sub {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dark-gray);
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--black);
+  padding: 8px 0;
+  transition: color 0.2s;
+  display: block;
+}
+.nav-links > li > a:hover { color: var(--maroon); }
+.nav-links > li > a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--maroon);
+  width: 0;
+  transition: width 0.25s;
+  margin-top: 2px;
+}
+.nav-links > li > a:hover::after { width: 100%; }
+
+/* Dropdown */
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 200px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-top: 3px solid var(--maroon);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  z-index: 100;
+}
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block;
+  padding: 11px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.15s, color 0.15s;
+}
+.dropdown-menu a:hover { background: var(--off-white); color: var(--maroon); }
+
+.nav-cta {
+  background: var(--maroon);
+  color: var(--white) !important;
+  padding: 11px 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--maroon-mid); }
+.nav-cta::after { display: none !important; }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  transition: all 0.3s;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--black);
+  z-index: 2000;
+  flex-direction: column;
+  padding: 40px;
+  overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 28px;
+  color: var(--white);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+.mobile-logo {
+  font-family: 'Arvo', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+.mobile-logo span { color: var(--gold); }
+.mobile-links { display: flex; flex-direction: column; gap: 0; }
+.mobile-links a {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: color 0.2s;
+}
+.mobile-links a:hover { color: var(--gold); }
+.mobile-contact {
+  margin-top: auto;
+  padding-top: 2rem;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+}
+.mobile-contact a { color: var(--gold); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 900px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/ab57952c-5441-4a59-a021-514990ea81b5/IMG_6629.webp');
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.2) 40%,
+    rgba(19,20,20,0.75) 75%,
+    rgba(19,20,20,0.92) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 80px 80px;
+  max-width: 1200px;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font-family: 'Arvo', serif;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+.hero-sub {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 36px;
+  max-width: 520px;
+  line-height: 1.7;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: none;
+}
+.btn-maroon {
+  background: var(--maroon);
+  color: var(--white);
+}
+.btn-maroon:hover { background: var(--maroon-mid); color: var(--white); }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.55);
+}
+.btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+/* Hero stats */
+.hero-stats {
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid var(--maroon);
+  padding-left: 20px;
+}
+.hero-stat-item {}
+.hero-stat-num {
+  font-family: 'Arvo', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 18px;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+}
+.scroll-dot {
+  width: 1px;
+  height: 40px;
+  background: var(--white);
+  animation: scrollpulse 2s ease-in-out infinite;
+}
+@keyframes scrollpulse {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.5); }
+}
+.hero-scroll span {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ===== TICKER ===== */
+.ticker {
+  background: var(--maroon);
+  padding: 0;
+  overflow: hidden;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: ticker-scroll 30s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 28px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.ticker-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== SECTION BASE ===== */
+.section { padding: 90px 80px; }
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--maroon);
+}
+.section-title {
+  font-family: 'Arvo', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--dark-gray);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+.section-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.link-arrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+.link-arrow::after { content: '→'; }
+.link-arrow:hover { gap: 14px; }
+
+/* ===== WHO WE HELP ===== */
+.who { background: var(--off-white); }
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.who-card {
+  background: var(--white);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.who-card:hover { transform: translateY(-4px); }
+.who-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--maroon);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s;
+}
+.who-card:hover::before { transform: scaleX(1); }
+.who-num {
+  font-family: 'Arvo', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(80,2,3,0.07);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.who-card h3 {
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.who-card p {
+  font-size: 14px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.who-card .link-arrow { font-size: 10px; }
+
+/* ===== WHY J4 ===== */
+.why { background: var(--black); }
+.why .section-label { color: var(--gold); }
+.why .section-label::before { background: var(--gold); }
+.why .section-title { color: var(--white); }
+.why .section-sub { color: rgba(255,255,255,0.5); }
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.why-item {
+  padding: 44px 40px;
+  background: var(--black);
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.why-item:hover {
+  border-left-color: var(--maroon);
+  background: rgba(255,255,255,0.025);
+}
+.why-item-num {
+  font-family: 'Arvo', serif;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.why-item h3 {
+  font-family: 'Arvo', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.why-item p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+}
+
+/* ===== FEATURED LISTINGS ===== */
+.listings {}
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+}
+.listing-card {
+  background: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.listing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  z-index: 1;
+  position: relative;
+}
+.listing-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--off-white);
+}
+.listing-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.listing-card:hover .listing-img img { transform: scale(1.06); }
+.listing-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arvo', serif;
+  font-size: 13px;
+  color: var(--mid-gray);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-direction: column;
+  gap: 8px;
+}
+.listing-img-placeholder svg { opacity: 0.2; }
+.listing-badge {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  background: var(--maroon);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+.listing-badge.contract { background: var(--dark-gray); }
+.listing-badge.sold { background: var(--black); }
+.listing-body { padding: 24px; }
+.listing-price {
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--maroon);
+  margin-bottom: 6px;
+}
+.listing-name {
+  font-family: 'Arvo', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.listing-loc {
+  font-size: 12px;
+  color: var(--dark-gray);
+  margin-bottom: 14px;
+}
+.listing-specs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--light-gray);
+  padding-top: 14px;
+}
+.listing-spec {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dark-gray);
+  letter-spacing: 0.06em;
+}
+.listing-spec span {
+  display: block;
+  font-size: 10px;
+  color: var(--mid-gray);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ===== OFF-MARKET STRIP ===== */
+.offmarket {
+  background: var(--maroon);
+  padding: 64px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.offmarket-text h2 {
+  font-family: 'Arvo', serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  max-width: 560px;
+  line-height: 1.25;
+}
+.offmarket-text p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+  line-height: 1.8;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-gold:hover { background: var(--gold-light); }
+
+/* ===== PROCESS ===== */
+.process { background: var(--warm-white); }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: var(--light-gray);
+}
+.process-step { padding: 0 16px; text-align: center; position: relative; }
+.process-step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arvo', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--maroon);
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, border-color 0.3s;
+}
+.process-step:hover .process-step-num {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--white);
+}
+.process-step h4 {
+  font-family: 'Arvo', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.process-step p {
+  font-size: 12px;
+  color: var(--dark-gray);
+  line-height: 1.7;
+}
+
+/* ===== TEAM ===== */
+.team { background: var(--white); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: #eee;
+}
+.team-card {
+  background: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  group: true;
+}
+.team-img {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--off-white);
+  position: relative;
+}
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(20%);
+  transition: transform 0.5s, filter 0.5s;
+}
+.team-card:hover .team-img img {
+  transform: scale(1.04);
+  filter: grayscale(0%);
+}
+.team-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #e8e4dc, #d5d1c7);
+  font-family: 'Arvo', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(80,2,3,0.25);
+}
+.team-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(19,20,20,0.8) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.team-card:hover .team-overlay { opacity: 1; }
+.team-body { padding: 20px; }
+.team-body h4 {
+  font-family: 'Arvo', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+.team-body p { font-size: 11px; color: var(--dark-gray); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ===== TESTIMONIAL ===== */
+.testimonial {
+  background: var(--black);
+  padding: 100px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Lora', serif;
+  font-size: 280px;
+  color: rgba(255,255,255,0.025);
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonial-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 26px);
+  color: var(--white);
+  max-width: 720px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  position: relative;
+}
+.testimonial-attr {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Testimonial dots */
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+.testimonial-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.testimonial-dot.active { background: var(--gold); }
+
+/* ===== SERVE SECTION ===== */
+.serve { background: var(--off-white); }
+.serve-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: #ddd;
+}
+.serve-card {
+  background: var(--white);
+  padding: 48px 36px;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.serve-card:hover {
+  border-bottom-color: var(--maroon);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+.serve-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+}
+.serve-icon svg { width: 100%; height: 100%; }
+.serve-card h3 {
+  font-family: 'Arvo', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.serve-card p {
+  font-size: 14px;
+  color: var(--dark-gray);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* ===== ECOSYSTEM ===== */
+.ecosystem { background: var(--white); }
+.eco-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: #eee;
+  margin-top: 48px;
+}
+.eco-item {
+  background: var(--white);
+  padding: 32px 24px;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.eco-item:hover { border-bottom-color: var(--maroon); background: var(--off-white); }
+.eco-item h4 {
+  font-family: 'Arvo', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.eco-item p { font-size: 12px; color: var(--dark-gray); line-height: 1.6; }
+.eco-item a { font-size: 10px; color: var(--maroon); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-top: 10px; }
+
+/* ===== CONTACT STRIP ===== */
+.contact-strip {
+  background: var(--maroon);
+  padding: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.contact-strip-text h2 {
+  font-family: 'Arvo', serif;
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.contact-strip-text p {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+}
+.contact-strip-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-info-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-info-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.contact-info-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+.contact-info-text strong {
+  display: block;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.contact-info-text a { color: rgba(255,255,255,0.85); }
+.contact-info-text a:hover { color: var(--white); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--charcoal);
+  padding: 64px 80px 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 32px;
+}
+.footer-brand-name {
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.footer-brand-name span { color: var(--gold); }
+.footer-tagline {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.footer-about {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.footer-socials { display: flex; gap: 10px; }
+.footer-social {
+  width: 34px;
+  height: 34px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.footer-social:hover { background: var(--maroon); border-color: var(--maroon); }
+.footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.6); }
+.footer-col h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 9px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.25); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.25); }
+.footer-bottom a:hover { color: rgba(255,255,255,0.5); }
+
+/* ===== TREC DISCLAIMER ===== */
+.trec-bar {
+  background: var(--black);
+  padding: 12px 80px;
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.06em;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .section { padding: 64px 40px; }
+  .hero-content { padding: 0 40px 64px; }
+  .hero-stats { right: 40px; bottom: 64px; }
+  .topbar { padding: 8px 24px; }
+  .nav { padding: 0 24px; }
+  .offmarket { padding: 48px 40px; }
+  .testimonial { padding: 80px 40px; }
+  .contact-strip { padding: 64px 40px; gap: 48px; }
+  .footer { padding: 48px 40px 32px; }
+  .trec-bar { padding: 12px 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .listings-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .eco-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .topbar { display: none; }
+  .nav { padding: 0 20px; height: 64px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero { max-height: 700px; }
+  .hero-content { padding: 0 24px 56px; }
+  .hero-stats { display: none; }
+  .hero-scroll { display: none; }
+  .section { padding: 56px 24px; }
+  .who-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .listings-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-steps::before { display: none; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .serve-grid { grid-template-columns: 1fr; }
+  .eco-strip { grid-template-columns: 1fr 1fr; }
+  .offmarket { flex-direction: column; padding: 48px 24px; }
+  .contact-strip { grid-template-columns: 1fr; padding: 48px 24px; gap: 32px; }
+  .footer { padding: 40px 24px 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .trec-bar { padding: 12px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-left">J4 Legacy Properties, LLC · El Campo, Texas · TREC Licensed Brokerage</span>
+  <div class="topbar-right">
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+    <a href="tel:8335435263" class="topbar-phone">833-543-LAND</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-text">
+      <span class="brand-name">J4 <span>Legacy Properties</span></span>
+      <span class="brand-sub">Texas Land &amp; Ranch Real Estate</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="/properties">Properties</a>
+      <div class="dropdown-menu">
+        <a href="/properties">All Listings</a>
+        <a href="/properties?type=ranch">Ranch &amp; Farm Land</a>
+        <a href="/properties?type=homestead">El Campo Area Homes</a>
+        <a href="/properties?type=1031">1031-Friendly Land</a>
+        <a href="/soldlistings">Sold Listings</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="/buying">Buying</a>
+      <div class="dropdown-menu">
+        <a href="/buying/legacy-builders">Legacy Builders</a>
+        <a href="/buying/community-connectors">Community Connectors</a>
+        <a href="/buying/strategic-exchangers">1031 Exchangers</a>
+        <a href="/buying/off-market">Off-Market Access</a>
+      </div>
+    </li>
+    <li><a href="/selling">Selling</a></li>
+    <li class="dropdown">
+      <a href="/our-team">Our Team</a>
+      <div class="dropdown-menu">
+        <a href="/our-team#j4heritage">J4 Heritage Group</a>
+        <a href="/our-team#siouxsmith">Sioux Smith Group</a>
+        <a href="/our-team#join">Join Our Team</a>
+      </div>
+    </li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/ecosystem">J4 Ecosystem</a></li>
+  </ul>
+  <a href="/contact" class="btn nav-cta">Let's Connect</a>
+  <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  <div class="mobile-logo">J4 <span>Legacy Properties</span></div>
+  <div class="mobile-links">
+    <a href="/properties">Properties</a>
+    <a href="/buying">Buying</a>
+    <a href="/selling">Selling</a>
+    <a href="/our-team">Our Team</a>
+    <a href="/resources">Resources</a>
+    <a href="/ecosystem">J4 Ecosystem</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div class="mobile-contact">
+    <a href="tel:8335435263">833-543-LAND</a><br>
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
+    1379 CR 408, El Campo, TX 77437
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Texas Land &amp; Ranch Real Estate · El Campo, TX</p>
+    <h1 class="arvo">Secure a future in<br>the only thing<br>that lasts — land.</h1>
+    <p class="lora hero-sub">Ranches, farms, rural homes, and 1031 exchange land for families and investors who care about legacy, not hype.</p>
+    <div class="hero-actions">
+      <a href="/properties" class="btn btn-maroon">Explore Properties</a>
+      <a href="/contact" class="btn btn-ghost">Let's Connect</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">30+</div>
+      <div class="hero-stat-label">Years Combined Experience</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">Texas County Focus</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">7+</div>
+      <div class="hero-stat-label">Licensed Agents</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Wharton County<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Matagorda County<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Ranch &amp; Farm Land<span class="ticker-dot"></span></span>
+    <span class="ticker-item">1031 Exchange Ready<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Ag Exempt Properties<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Off-Market Access<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Gulf Coast Brazos Bottom<span class="ticker-dot"></span></span>
+    <span class="ticker-item">TREC Licensed Brokerage<span class="ticker-dot"></span></span>
+    <span class="ticker-item">El Campo, Texas<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Legacy Properties<span class="ticker-dot"></span></span>
+    <!-- Duplicate for seamless loop -->
+    <span class="ticker-item">Wharton County<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Matagorda County<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Ranch &amp; Farm Land<span class="ticker-dot"></span></span>
+    <span class="ticker-item">1031 Exchange Ready<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Ag Exempt Properties<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Off-Market Access<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Gulf Coast Brazos Bottom<span class="ticker-dot"></span></span>
+    <span class="ticker-item">TREC Licensed Brokerage<span class="ticker-dot"></span></span>
+    <span class="ticker-item">El Campo, Texas<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Legacy Properties<span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- WHO WE HELP -->
+<section class="section who">
+  <div class="section-label">Who We Help</div>
+  <div class="section-cta-row">
+    <div>
+      <h2 class="section-title arvo">Three paths.<br>One team.</h2>
+      <p class="section-sub lora">Tell us who you are and we'll match you to the right approach. No generic pitch. No wasted weekends.</p>
+    </div>
+    <a href="/buying" class="link-arrow">See All Buyer Options</a>
+  </div>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-num">01</div>
+      <h3 class="arvo">Legacy Builders</h3>
+      <p>High-end ranches and farm land, 50–500 acres, $1M and up. Water vetted, access confirmed, infrastructure assessed before you ever set foot on it.</p>
+      <a href="/buying/legacy-builders" class="link-arrow">Explore Ranch &amp; Farm Land</a>
+    </div>
+    <div class="who-card">
+      <div class="who-num">02</div>
+      <h3 class="arvo">Community Connectors</h3>
+      <p>0.5–10 acre homes in and around El Campo. Schools, internet, and utilities confirmed before you write an offer. We live here — we know the back roads.</p>
+      <a href="/buying/community-connectors" class="link-arrow">See El Campo Area Homes</a>
+    </div>
+    <div class="who-card">
+      <div class="who-num">03</div>
+      <h3 class="arvo">Strategic Exchangers</h3>
+      <p>1031 exchange-ready ag and recreational land across Texas. Real income projections, plain language numbers, and a team that's actually done exchanges themselves.</p>
+      <a href="/buying/strategic-exchangers" class="link-arrow">See 1031-Friendly Land</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY J4 -->
+<section class="section why">
+  <div class="section-label">Why J4 Legacy Properties</div>
+  <div class="section-cta-row">
+    <div>
+      <h2 class="section-title arvo" style="color:#fff">Texas roots.<br>Ranch wisdom.<br>Straight talk.</h2>
+      <p class="lora" style="font-style:italic;font-size:16px;color:rgba(255,255,255,0.5);max-width:500px;line-height:1.75;margin-bottom:0">No armchair advice. We'd rather lose a deal than let you make a bad one.</p>
+    </div>
+    <a href="/about" class="link-arrow" style="color:var(--gold)">Our Story</a>
+  </div>
+  <div class="why-grid" style="margin-top:40px">
+    <div class="why-item">
+      <div class="why-item-num">01</div>
+      <h3>Boots-in-the-dirt expertise</h3>
+      <p>Cuatro spent decades building fences for Texas ranch owners before he ever hung a real estate sign. He knows where water comes from, how fences fail, and what a property is really worth.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-item-num">02</div>
+      <h3>The J4 Ecosystem</h3>
+      <p>Fencing, water works, prefab homes, and land — all under one roof. You see the full picture before you buy or sell. Not the glossy brochure. The real picture.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-item-num">03</div>
+      <h3>Integrity above the deal</h3>
+      <p>We've walked away from commissions. We'll do it again if that's what's right for you. That's not a slogan. It's how we operate every single transaction.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-item-num">04</div>
+      <h3>Local, not tourist</h3>
+      <p>Wharton County, Matagorda County, the Gulf Coast Brazos Bottom. We live here. We know the counties, the neighbors, the neighbor's neighbors, and the dirt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section class="section listings">
+  <div class="section-label">Current Listings</div>
+  <div class="section-cta-row">
+    <div>
+      <h2 class="section-title arvo">Featured Properties</h2>
+      <p class="section-sub lora" style="margin-bottom:0">Hand-picked. Walked in person. Ready for serious buyers.</p>
+    </div>
+    <a href="/properties" class="link-arrow">View All Properties</a>
+  </div>
+  <div class="listings-grid">
+
+    <!-- Listing 1 -->
+    <div class="listing-card">
+      <div class="listing-img">
+        <img src="https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/ab57952c-5441-4a59-a021-514990ea81b5/IMG_6629.webp"
+             alt="Hilago Ranch — 2,544 acres in Stephens County, TX"
+             loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="listing-img-placeholder" style="display:none">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Hilago Ranch
+        </div>
+        <span class="listing-badge">Ranch Land</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$18,500,000</div>
+        <div class="listing-name arvo">Hilago Ranch</div>
+        <div class="listing-loc">Stephens County, TX · Cisco</div>
+        <div class="listing-specs">
+          <div class="listing-spec">2,544<span>Acres</span></div>
+          <div class="listing-spec">High-Fence<span>Deer Ranch</span></div>
+          <div class="listing-spec">25+<span>Acre Reservoir</span></div>
+          <div class="listing-spec">11<span>Ponds</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Listing 2 -->
+    <div class="listing-card">
+      <div class="listing-img">
+        <div class="listing-img-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          El Campo Mid-Century Home
+        </div>
+        <span class="listing-badge">Home</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$339,900</div>
+        <div class="listing-name arvo">El Campo Mid-Century Home</div>
+        <div class="listing-loc">El Campo, TX · Wharton County</div>
+        <div class="listing-specs">
+          <div class="listing-spec">3,128<span>Sq Ft</span></div>
+          <div class="listing-spec">1±<span>Acre Lot</span></div>
+          <div class="listing-spec">Mid-Century<span>Style</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Listing 3 -->
+    <div class="listing-card">
+      <div class="listing-img">
+        <div class="listing-img-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Highway 60 Frontage Tract
+        </div>
+        <span class="listing-badge contract">Under Contract</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$1,699,900</div>
+        <div class="listing-name arvo">Highway 60 Frontage Tract</div>
+        <div class="listing-loc">Bay City, TX · Matagorda County</div>
+        <div class="listing-specs">
+          <div class="listing-spec">60<span>Acres</span></div>
+          <div class="listing-spec">Hwy 60<span>Frontage</span></div>
+          <div class="listing-spec">Investment<span>Grade</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Listing 4 -->
+    <div class="listing-card">
+      <div class="listing-img">
+        <div class="listing-img-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          Danevang Investment Property
+        </div>
+        <span class="listing-badge">Investment</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$225,000</div>
+        <div class="listing-name arvo">Danevang Investment Property</div>
+        <div class="listing-loc">Danevang, TX · Wharton County</div>
+        <div class="listing-specs">
+          <div class="listing-spec">1.79<span>Acres</span></div>
+          <div class="listing-spec">Duplex<span>2,008 Sq Ft</span></div>
+          <div class="listing-spec">+ House<span>968 Sq Ft</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Listing 5 -->
+    <div class="listing-card">
+      <div class="listing-img">
+        <div class="listing-img-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M3 9h18"/></svg>
+          East Bernard Homestead Tracts
+        </div>
+        <span class="listing-badge">Homestead</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">Contact for Price</div>
+        <div class="listing-name arvo">East Bernard Homestead Tracts</div>
+        <div class="listing-loc">East Bernard, TX · Wharton County</div>
+        <div class="listing-specs">
+          <div class="listing-spec">Multiple<span>Tract Sizes</span></div>
+          <div class="listing-spec">Rural<span>Homestead</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Listing 6 — Off Market Teaser -->
+    <div class="listing-card" style="background:var(--off-white); cursor:default;">
+      <div class="listing-img" style="background:var(--black); display:flex; align-items:center; justify-content:center; aspect-ratio:4/3;">
+        <div style="text-align:center; padding:24px;">
+          <p style="font-family:'Arvo',serif; font-size:13px; color:var(--gold); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px;">Off-Market</p>
+          <p style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.7; margin-bottom:20px;">Some of our best Texas land never hits the open market. Ask us what's available.</p>
+          <a href="/contact" class="btn btn-maroon" style="font-size:10px; padding:10px 20px;">Ask About Off-Market</a>
+        </div>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price" style="color:var(--dark-gray)">Private Inventory</div>
+        <div class="listing-name arvo">Off-Market Properties</div>
+        <div class="listing-loc">Wharton · Matagorda · Surrounding Counties</div>
+        <div class="listing-specs">
+          <div class="listing-spec">Ranches<span>&amp; Farms</span></div>
+          <div class="listing-spec">1031<span>Qualified</span></div>
+          <div class="listing-spec">Private<span>Sales</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OFF-MARKET STRIP -->
+<div class="offmarket">
+  <div class="offmarket-text">
+    <h2 class="arvo">Some of our best Texas land<br>never hits the open market.</h2>
+    <p>For serious ranch buyers and 1031 investors, we maintain a private list of Texas replacement properties — ranches, farms, and income-producing land — that sellers are willing to move quietly. Tell us your acreage, county, price point, or 1031 deadline.</p>
+  </div>
+  <a href="/contact" class="btn btn-gold">Ask About Off-Market</a>
+</div>
+
+<!-- THE J4 PROCESS -->
+<section class="section process">
+  <div class="section-label">How We Work</div>
+  <h2 class="section-title arvo">The J4 Process</h2>
+  <p class="section-sub lora">From first phone call to fence lines. We walk every acre with your legacy in mind.</p>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="process-step-num">1</div>
+      <h4 class="arvo">Listen</h4>
+      <p>Goals, timeline, budget. No property tour happens before this conversation.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">2</div>
+      <h4 class="arvo">Educate</h4>
+      <p>Counties, ag exemptions, development costs — all of it, upfront, in plain language.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">3</div>
+      <h4 class="arvo">Curate</h4>
+      <p>A short list of real contenders. Screened, walked, and confirmed before you see them.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">4</div>
+      <h4 class="arvo">Run Numbers</h4>
+      <p>Income projections, improvement plans, and ag analysis in black and white.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">5</div>
+      <h4 class="arvo">Close &amp; Stay</h4>
+      <p>We don't disappear at closing. Annual check-ins, market updates, and pro bono advice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="section team">
+  <div class="section-label">Our People</div>
+  <div class="section-cta-row">
+    <div>
+      <h2 class="section-title arvo">Real people who live this life.</h2>
+      <p class="section-sub lora" style="margin-bottom:0">Ranch-raised. Client-focused. All in.</p>
+    </div>
+    <a href="/our-team" class="link-arrow">Meet the Full Team</a>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-img">
+        <img src="https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/6720ca72-4d45-476b-b74d-1edc2ee7464e/j4transparent1.png?format=1500w"
+             alt="Cuatro Strack"
+             loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="team-img-placeholder" style="display:none">CS</div>
+        <div class="team-overlay"></div>
+      </div>
+      <div class="team-body">
+        <h4 class="arvo">Cuatro Strack</h4>
+        <p>Broker / Co-Founder</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img">
+        <div class="team-img-placeholder">SS</div>
+        <div class="team-overlay"></div>
+      </div>
+      <div class="team-body">
+        <h4 class="arvo">Stephanie Strack</h4>
+        <p>Broker / Co-Founder</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img">
+        <div class="team-img-placeholder">HS</div>
+        <div class="team-overlay"></div>
+      </div>
+      <div class="team-body">
+        <h4 class="arvo">Harleigh Strack</h4>
+        <p>Agent · J4 Heritage Group</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img">
+        <div class="team-img-placeholder">MA</div>
+        <div class="team-overlay"></div>
+      </div>
+      <div class="team-body">
+        <h4 class="arvo">Mason Abshire</h4>
+        <p>Agent · J4 Heritage Group</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <p class="testimonial-text lora" id="testimonialText">
+    "Kayla is an excellent person. She helped us from beginning to end and was always available whenever we had questions or doubts. If you're looking for someone trustworthy, she is your girl."
+  </p>
+  <p class="testimonial-attr" id="testimonialAttr">Karen M. &nbsp;·&nbsp; J4 Legacy Properties Client</p>
+  <div class="testimonial-dots">
+    <div class="testimonial-dot active" data-index="0"></div>
+    <div class="testimonial-dot" data-index="1"></div>
+    <div class="testimonial-dot" data-index="2"></div>
+  </div>
+</section>
+
+<!-- LET US SERVE YOU -->
+<section class="section serve">
+  <div class="section-label">Let Us Serve You</div>
+  <h2 class="section-title arvo">What can we do for you?</h2>
+  <div class="serve-grid">
+    <div class="serve-card">
+      <div class="serve-icon">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="26" fill="rgba(80,2,3,0.07)"/>
+          <path d="M18 30l8-16 8 16" stroke="#500203" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 26h10" stroke="#500203" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="arvo">List With Us</h3>
+      <p>Looking to sell your Texas ranch, farm, or rural property? We know the buyers — Legacy Builders, Community families, and 1031 investors — and how to reach them fast.</p>
+      <a href="/selling" class="link-arrow">Start the Conversation</a>
+    </div>
+    <div class="serve-card">
+      <div class="serve-icon">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="26" fill="rgba(80,2,3,0.07)"/>
+          <circle cx="24" cy="24" r="8" stroke="#500203" stroke-width="2"/>
+          <path d="M30 30l6 6" stroke="#500203" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="arvo">Find Your Land</h3>
+      <p>Tell us your acreage, county, budget, and timeline. We'll surface options — including off-market properties — that match your goals and save your weekends.</p>
+      <a href="/buying" class="link-arrow">Tell Us What You Need</a>
+    </div>
+    <div class="serve-card">
+      <div class="serve-icon">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="26" fill="rgba(80,2,3,0.07)"/>
+          <path d="M20 32v-6a6 6 0 1112 0v6" stroke="#500203" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 32h20" stroke="#500203" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="26" cy="20" r="3" stroke="#500203" stroke-width="2"/>
+        </svg>
+      </div>
+      <h3 class="arvo">Join Our Team</h3>
+      <p>Faith-grounded, systems-driven, all in on Texas land. If that's you, let's talk. Strong splits, real marketing investment, and the full J4 Ecosystem behind you.</p>
+      <a href="/our-team#join" class="link-arrow">Learn About Joining</a>
+    </div>
+  </div>
+</section>
+
+<!-- J4 ECOSYSTEM -->
+<section class="section ecosystem">
+  <div class="section-label">The J4 Ecosystem</div>
+  <div class="section-cta-row">
+    <div>
+      <h2 class="section-title arvo">One family.<br>Eight companies.</h2>
+      <p class="section-sub lora" style="margin-bottom:0">Born from a single fencing crew in 1994. Now serving land, home, and legacy across the Texas Gulf Coast and beyond.</p>
+    </div>
+    <a href="https://www.j4tx.com" target="_blank" rel="noopener" class="link-arrow">Visit J4TX.com</a>
+  </div>
+  <div class="eco-strip">
+    <div class="eco-item">
+      <h4 class="arvo">J4 Fencing &amp; Services</h4>
+      <p>High-security fencing, coastal construction, and government contracts.</p>
+      <a href="https://www.j4fs.com" target="_blank">j4fs.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">J4 Water Works</h4>
+      <p>Water well drilling, septic systems, and water treatment.</p>
+      <a href="https://www.j4water.com" target="_blank">j4water.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">J4 Prefab Homes</h4>
+      <p>Manufactured home sales and placement.</p>
+      <a href="https://www.j4prefabhomes.com" target="_blank">j4prefabhomes.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">J4 Real Estate</h4>
+      <p>Single family investments and rental properties.</p>
+      <a href="#" target="_blank">j4-properties.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">White Wing Estates</h4>
+      <p>Manufactured home community.</p>
+      <a href="#" target="_blank">whitewingbusinesses.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">White Wing Storage</h4>
+      <p>Storage facility, 10×5 through 10×20 units.</p>
+      <a href="https://www.whitewingstorage.com" target="_blank">whitewingstorage.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">High Standard Power</h4>
+      <p>Residential &amp; commercial turnkey generators.</p>
+      <a href="https://www.hspspower.com" target="_blank">hspspower.com</a>
+    </div>
+    <div class="eco-item">
+      <h4 class="arvo">J4 Cattle</h4>
+      <p>El Campo, TX livestock operations. Est. 2019.</p>
+      <a href="https://www.j4tx.com" target="_blank">j4tx.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <div class="contact-strip-text">
+    <h2 class="arvo">Let's talk about your legacy.</h2>
+    <p class="lora">Call, text, or send a quick note. We'll get back to you as soon as we step out of the pasture.</p>
+    <br>
+    <a href="/contact" class="btn btn-gold" style="display:inline-block;margin-top:8px">Get in Touch</a>
+  </div>
+  <div class="contact-strip-info">
+    <div class="contact-info-item">
+      <div class="contact-info-icon">
+        <svg viewBox="0 0 16 16"><path d="M2 3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm5 2H4v2h3V5zm5 0H9v2h3V5zM4 9h8v2H4V9z"/></svg>
+      </div>
+      <div class="contact-info-text">
+        <strong>Phone / Text</strong>
+        <a href="tel:8335435263">833-543-LAND (5263)</a>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-icon">
+        <svg viewBox="0 0 16 16"><path d="M2 4a1 1 0 011-1h10a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4zm1 2l5 3.5L13 6V5l-5 3L3 5v1z"/></svg>
+      </div>
+      <div class="contact-info-text">
+        <strong>Email</strong>
+        <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-icon">
+        <svg viewBox="0 0 16 16"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 9A4 4 0 118 2a4 4 0 010 8zm0-7a3 3 0 100 6A3 3 0 008 3zm0 1a2 2 0 110 4 2 2 0 010-4z"/></svg>
+      </div>
+      <div class="contact-info-text">
+        <strong>Office Address</strong>
+        1379 CR 408, El Campo, TX 77437
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-icon">
+        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke-width="1.5" fill="none" stroke="currentColor"/><path d="M8 5v3l2 2" stroke-width="1.5" stroke-linecap="round" fill="none" stroke="currentColor"/></svg>
+      </div>
+      <div class="contact-info-text">
+        <strong>Response Time</strong>
+        We'll respond same business day
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name arvo">J4 <span>Legacy Properties</span></div>
+      <div class="footer-tagline lora">Building your legacy, one property at a time.</div>
+      <p class="footer-about">J4 Legacy Properties is a Texas land and ranch real estate brokerage based in El Campo that helps buyers and sellers invest in farms, ranches, and legacy acreage properties across Texas.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1e1e1e"/></svg>
+        </a>
+        <a href="https://www.j4tx.com" target="_blank" rel="noopener" class="footer-social" aria-label="J4TX">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="/">Home</a>
+      <a href="/properties">All Properties</a>
+      <a href="/buying">Buying</a>
+      <a href="/selling">Selling</a>
+      <a href="/our-team">Our Team</a>
+      <a href="/resources">Resources / FAQ</a>
+      <a href="/ecosystem">J4 Ecosystem</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Who We Serve</h4>
+      <a href="/buying/legacy-builders">Legacy Builders</a>
+      <a href="/buying/community-connectors">Community Connectors</a>
+      <a href="/buying/strategic-exchangers">Strategic Exchangers</a>
+      <a href="/contact">Off-Market Inquiry</a>
+      <a href="/selling">List Your Property</a>
+      <a href="/our-team#join">Join Our Team</a>
+    </div>
+    <div class="footer-col">
+      <h4>Service Area</h4>
+      <a href="/properties?county=wharton">Wharton County</a>
+      <a href="/properties?county=matagorda">Matagorda County</a>
+      <a href="/properties?county=austin">Austin County</a>
+      <a href="/properties?county=colorado">Colorado County</a>
+      <a href="/properties?county=lavaca">Lavaca County</a>
+      <a href="/properties?county=jackson">Jackson County</a>
+      <a href="/properties">All Texas Listings</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 J4 Legacy Properties, LLC · All Rights Reserved · El Campo, TX 77437</p>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="https://www.j4tx.com" target="_blank">J4TX.com</a>
+    </div>
+  </div>
+</footer>
+<div class="trec-bar">
+  J4 Legacy Properties, LLC · Texas Real Estate Commission (TREC) Licensed Brokerage · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · info@j4lp.com · j4lp.com
+</div>
+
+<!-- SCRIPTS -->
+<script>
+// Nav scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Hero image pan-in
+const heroBg = document.getElementById('heroBg');
+setTimeout(() => heroBg.classList.add('loaded'), 100);
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') mobileMenu.classList.remove('open');
+});
+
+// Testimonial rotator
+const testimonials = [
+  {
+    text: '"Kayla is an excellent person. She helped us from beginning to end and was always available whenever we had questions or doubts. If you\'re looking for someone trustworthy, she is your girl."',
+    attr: 'Karen M. &nbsp;·&nbsp; J4 Legacy Properties Client'
+  },
+  {
+    text: '"We\'d been looking at land for two years and couldn\'t find an agent who actually knew what they were talking about. J4 was the opposite. They knew the water, the soil, the county — everything."',
+    attr: 'Ranch Buyer &nbsp;·&nbsp; Wharton County'
+  },
+  {
+    text: '"Straight shooters. They told us exactly what the land was worth, what it would cost to improve, and what to watch out for. Closed in 38 days."',
+    attr: '1031 Exchange Client &nbsp;·&nbsp; J4 Legacy Properties'
+  }
+];
+let currentTestimonial = 0;
+const textEl = document.getElementById('testimonialText');
+const attrEl = document.getElementById('testimonialAttr');
+const dots = document.querySelectorAll('.testimonial-dot');
+
+function setTestimonial(index) {
+  currentTestimonial = index;
+  textEl.style.opacity = '0';
+  attrEl.style.opacity = '0';
+  setTimeout(() => {
+    textEl.textContent = testimonials[index].text;
+    attrEl.innerHTML = testimonials[index].attr;
+    textEl.style.opacity = '1';
+    attrEl.style.opacity = '1';
+  }, 300);
+  dots.forEach((d, i) => d.classList.toggle('active', i === index));
+}
+dots.forEach(dot => {
+  dot.addEventListener('click', () => setTestimonial(parseInt(dot.dataset.index)));
+});
+textEl.style.transition = 'opacity 0.3s';
+attrEl.style.transition = 'opacity 0.3s';
+setInterval(() => {
+  setTestimonial((currentTestimonial + 1) % testimonials.length);
+}, 7000);
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.who-card, .why-item, .listing-card, .team-card, .serve-card, .eco-item, .process-step').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+
+<script src="forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Browse Texas ranch land, farms, rural homes, and 1031 exchange properties for sale. J4 Legacy Properties — El Campo, TX. Wharton County, Matagorda County, and across Texas.">
+<meta name="keywords" content="Texas ranch land for sale, Wharton County land, Matagorda County farms, 1031 exchange Texas, El Campo homes, rural Texas acreage">
+<meta property="og:title" content="Properties | J4 Legacy Properties | Texas Land & Ranch Real Estate">
+<meta property="og:description" content="Texas ranches, farms, rural homes, and 1031-ready land. Hand-picked and walked in person by the J4 team.">
+<title>Properties | J4 Legacy Properties | Texas Land, Ranch & Rural Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Nunito:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; color: #131414; background: #fff; overflow-x: hidden; line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+:root {
+  --maroon: #500203;
+  --maroon-dark: #3a0102;
+  --maroon-mid: #6b0304;
+  --gold: #c8a96e;
+  --gold-light: #e8d4a8;
+  --black: #131414;
+  --charcoal: #1e1e1e;
+  --dark-gray: #7F8194;
+  --mid-gray: #a0a0a8;
+  --light-gray: #d3d5e4;
+  --off-white: #f7f5f0;
+  --warm-white: #faf9f6;
+  --white: #ffffff;
+  --nav-height: 80px;
+}
+
+.arvo { font-family: 'Arvo', serif; }
+.lora { font-family: 'Lora', serif; }
+
+/* ===== TOP BAR ===== */
+.topbar { background: var(--black); padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; }
+.topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
+.topbar-right { display: flex; gap: 24px; align-items: center; }
+.topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.topbar-right a:hover { color: var(--gold); }
+.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+
+/* ===== NAV ===== */
+.nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
+.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.12); }
+.nav-logo-text { display: flex; flex-direction: column; }
+.nav-logo-text .brand-name { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); letter-spacing: 0.04em; }
+.nav-logo-text .brand-name span { color: var(--maroon); }
+.nav-logo-text .brand-sub { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dark-gray); margin-top: 2px; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links > li { position: relative; }
+.nav-links > li > a { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black); padding: 8px 0; transition: color 0.2s; display: block; }
+.nav-links > li > a:hover, .nav-links > li > a.active { color: var(--maroon); }
+.nav-links > li > a::after { content: ''; display: block; height: 2px; background: var(--maroon); width: 0; transition: width 0.25s; margin-top: 2px; }
+.nav-links > li > a:hover::after, .nav-links > li > a.active::after { width: 100%; }
+.dropdown { position: relative; }
+.dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 0; min-width: 200px; background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 3px solid var(--maroon); box-shadow: 0 12px 40px rgba(0,0,0,0.12); z-index: 100; }
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a { display: block; padding: 11px 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); border-bottom: 1px solid rgba(0,0,0,0.05); transition: background 0.15s, color 0.15s; }
+.dropdown-menu a:hover { background: var(--off-white); color: var(--maroon); }
+.nav-cta { background: var(--maroon); color: var(--white) !important; padding: 11px 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; }
+.nav-cta:hover { background: var(--maroon-mid); }
+.nav-cta::after { display: none !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--black); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--black); z-index: 2000; flex-direction: column; padding: 40px; overflow-y: auto; }
+.mobile-menu.open { display: flex; }
+.mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; line-height: 1; }
+.mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
+.mobile-logo span { color: var(--gold); }
+.mobile-links { display: flex; flex-direction: column; gap: 0; }
+.mobile-links a { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s; }
+.mobile-links a:hover { color: var(--gold); }
+.mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+.mobile-contact a { color: var(--gold); }
+
+/* ===== PAGE HERO ===== */
+.page-hero {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/ab57952c-5441-4a59-a021-514990ea81b5/IMG_6629.webp');
+  background-size: cover;
+  background-position: center 30%;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(19,20,20,0.85) 100%);
+}
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 80px 48px;
+  width: 100%;
+}
+.breadcrumb {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb-sep { color: rgba(255,255,255,0.25); }
+.page-hero h1 {
+  font-family: 'Arvo', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.page-hero p {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ===== MAIN LAYOUT ===== */
+.page-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 0;
+  max-width: 100%;
+  align-items: start;
+}
+.page-main { padding: 56px 56px 80px 80px; min-width: 0; }
+.page-sidebar { padding: 48px 40px 80px 0; position: sticky; top: calc(var(--nav-height) + 24px); }
+
+/* ===== TABS ===== */
+.tabs-header {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--light-gray);
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dark-gray);
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--black); }
+.tab-btn.active { color: var(--maroon); border-bottom-color: var(--maroon); }
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--off-white);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.tab-btn.active .tab-count { background: var(--maroon); color: var(--white); }
+
+/* ===== RESULTS BAR ===== */
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.results-count {
+  font-size: 12px;
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+.results-count strong { color: var(--black); }
+.sort-select {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 7px 12px;
+  cursor: pointer;
+  appearance: none;
+  padding-right: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237F8194' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* ===== PROPERTY GRID ===== */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.prop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 48px;
+}
+
+/* ===== PROPERTY CARD ===== */
+.prop-card {
+  background: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.prop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.13);
+  z-index: 1;
+}
+.prop-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  background: var(--off-white);
+}
+.prop-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.prop-card:hover .prop-img img { transform: scale(1.06); }
+.prop-img-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(145deg, #ede9e2, #d8d4cc);
+  font-family: 'Arvo', serif;
+  font-size: 12px;
+  color: var(--mid-gray);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.prop-img-ph svg { opacity: 0.25; width: 36px; height: 36px; }
+.prop-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  color: var(--white);
+}
+.badge-ranch { background: var(--maroon); }
+.badge-home { background: #2a5298; }
+.badge-investment { background: #1a5c3a; }
+.badge-contract { background: var(--dark-gray); }
+.badge-sold { background: var(--black); }
+.badge-new {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+.prop-body { padding: 22px 22px 18px; }
+.prop-price {
+  font-family: 'Arvo', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+.prop-price.contact { color: var(--dark-gray); font-size: 16px; }
+.prop-name {
+  font-family: 'Arvo', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+.prop-loc {
+  font-size: 12px;
+  color: var(--dark-gray);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.prop-loc svg { width: 12px; height: 12px; flex-shrink: 0; }
+.prop-specs {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--light-gray);
+  padding-top: 14px;
+}
+.prop-spec {
+  flex: 1;
+  min-width: 60px;
+  text-align: center;
+  padding: 0 8px;
+  border-right: 1px solid var(--light-gray);
+}
+.prop-spec:first-child { padding-left: 0; }
+.prop-spec:last-child { border-right: none; }
+.prop-spec-val {
+  font-family: 'Arvo', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  display: block;
+  line-height: 1.2;
+}
+.prop-spec-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  display: block;
+  margin-top: 2px;
+}
+.prop-agent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--light-gray);
+}
+.prop-agent-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--off-white);
+  border: 1.5px solid var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--maroon);
+  flex-shrink: 0;
+  font-family: 'Arvo', serif;
+}
+.prop-agent-name { font-size: 11px; color: var(--dark-gray); }
+.prop-agent-name strong { font-weight: 700; color: var(--black); display: block; font-size: 12px; }
+
+/* Full-width card (featured) */
+.prop-card.featured {
+  grid-column: 1 / -1;
+}
+.prop-card.featured .prop-img { aspect-ratio: 21/9; }
+.prop-card.featured .prop-body { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
+.prop-card.featured .prop-main { }
+.prop-card.featured .prop-cta-col { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; justify-content: flex-start; padding-top: 4px; }
+
+/* ===== VIEW DETAIL BTN ===== */
+.btn-view {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: var(--maroon);
+  color: var(--white);
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-view:hover { background: var(--maroon-mid); }
+.btn-view-ghost {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--maroon);
+  border: 1.5px solid var(--maroon);
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.btn-view-ghost:hover { background: var(--maroon); color: var(--white); }
+
+/* ===== LOAD MORE ===== */
+.load-more-row {
+  text-align: center;
+  padding: 16px 0 40px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-card {
+  background: var(--off-white);
+  padding: 28px 24px;
+  margin-bottom: 16px;
+}
+.sidebar-card.dark { background: var(--black); }
+.sidebar-card.maroon { background: var(--maroon); }
+.sidebar-card h3 {
+  font-family: 'Arvo', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.sidebar-card.dark h3 { color: var(--white); }
+.sidebar-card.maroon h3 { color: var(--white); }
+.sidebar-card p {
+  font-size: 13px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+.sidebar-card.dark p { color: rgba(255,255,255,0.55); }
+.sidebar-card.maroon p { color: rgba(255,255,255,0.75); }
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+}
+.sidebar-card .btn-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  background: var(--maroon);
+  color: var(--white);
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.sidebar-card .btn-full:hover { background: var(--maroon-mid); }
+.sidebar-card.maroon .btn-full { background: rgba(255,255,255,0.15); }
+.sidebar-card.maroon .btn-full:hover { background: rgba(255,255,255,0.25); }
+.sidebar-card.dark .btn-full { background: var(--gold); color: var(--black); }
+.sidebar-card.dark .btn-full:hover { background: var(--gold-light); }
+
+/* Sidebar contact form */
+.sidebar-form { display: flex; flex-direction: column; gap: 10px; }
+.sidebar-form input,
+.sidebar-form select,
+.sidebar-form textarea {
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.sidebar-form input::placeholder,
+.sidebar-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+.sidebar-form input:focus,
+.sidebar-form select:focus,
+.sidebar-form textarea:focus { border-color: var(--gold); }
+.sidebar-form select { color: rgba(255,255,255,0.6); appearance: none; cursor: pointer; }
+.sidebar-form select option { background: var(--black); color: var(--white); }
+.sidebar-form textarea { resize: vertical; min-height: 80px; }
+
+/* Sidebar county links */
+.county-links { display: flex; flex-direction: column; gap: 0; }
+.county-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.county-link:hover { color: var(--maroon); }
+.county-link-count {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--dark-gray);
+  background: var(--white);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* ===== SOLD SECTION ===== */
+.sold-strip {
+  background: var(--black);
+  padding: 56px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.sold-text {}
+.sold-text p {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.sold-text h2 {
+  font-family: 'Arvo', serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+.sold-stats { display: flex; gap: 48px; flex-wrap: wrap; }
+.sold-stat { border-left: 2px solid var(--maroon); padding-left: 20px; }
+.sold-stat-num { font-family: 'Arvo', serif; font-size: 32px; font-weight: 700; color: var(--white); line-height: 1; }
+.sold-stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+/* ===== OFF MARKET FULL ===== */
+.offmarket {
+  background: var(--maroon);
+  padding: 64px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.offmarket-text h2 { font-family: 'Arvo', serif; font-size: clamp(22px, 2.5vw, 34px); font-weight: 700; color: var(--white); margin-bottom: 12px; max-width: 540px; line-height: 1.25; }
+.offmarket-text p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 480px; line-height: 1.8; }
+.btn-gold { background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 28px; white-space: nowrap; flex-shrink: 0; display: inline-block; transition: background 0.2s; }
+.btn-gold:hover { background: var(--gold-light); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--charcoal); padding: 64px 80px 40px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 32px; }
+.footer-brand-name { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.footer-brand-name span { color: var(--gold); }
+.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 16px; }
+.footer-about { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-bottom: 24px; }
+.footer-socials { display: flex; gap: 10px; }
+.footer-social { width: 34px; height: 34px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.footer-social:hover { background: var(--maroon); border-color: var(--maroon); }
+.footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.6); }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 9px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.25); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.25); }
+.trec-bar { background: var(--black); padding: 12px 80px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .page-body { grid-template-columns: 1fr; }
+  .page-sidebar { position: static; padding: 0 80px 64px; }
+  .page-main { padding: 48px 80px 48px; }
+}
+@media (max-width: 768px) {
+  .topbar { display: none; }
+  .nav { padding: 0 20px; height: 64px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .page-hero-content { padding: 0 24px 36px; }
+  .page-main { padding: 36px 24px 48px; }
+  .page-sidebar { padding: 0 24px 48px; }
+  .prop-grid { grid-template-columns: 1fr; }
+  .prop-card.featured .prop-body { grid-template-columns: 1fr; }
+  .prop-card.featured .prop-cta-col { align-items: flex-start; }
+  .sold-strip { padding: 48px 24px; }
+  .offmarket { padding: 48px 24px; }
+  .footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .trec-bar { padding: 12px 24px; }
+  .tabs-header { gap: 0; }
+  .tab-btn { padding: 12px 12px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-left">J4 Legacy Properties, LLC · El Campo, Texas · TREC Licensed Brokerage</span>
+  <div class="topbar-right">
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+    <a href="tel:8335435263" class="topbar-phone">833-543-LAND</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-text">
+      <span class="brand-name">J4 <span>Legacy Properties</span></span>
+      <span class="brand-sub">Texas Land &amp; Ranch Real Estate</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="properties.html" class="active">Properties</a>
+      <div class="dropdown-menu">
+        <a href="properties.html">All Listings</a>
+        <a href="properties.html?tab=ranch">Ranch &amp; Farm Land</a>
+        <a href="properties.html?tab=homes">El Campo Area Homes</a>
+        <a href="properties.html?tab=1031">1031-Friendly Land</a>
+        <a href="sold.html">Sold Listings</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="buying.html">Buying</a>
+      <div class="dropdown-menu">
+        <a href="buying-legacy.html">Legacy Builders</a>
+        <a href="buying-community.html">Community Connectors</a>
+        <a href="buying-1031.html">1031 Exchangers</a>
+        <a href="off-market.html">Off-Market Access</a>
+      </div>
+    </li>
+    <li><a href="selling.html">Selling</a></li>
+    <li class="dropdown">
+      <a href="team.html">Our Team</a>
+      <div class="dropdown-menu">
+        <a href="team.html#j4heritage">J4 Heritage Group</a>
+        <a href="team.html#siouxsmith">Sioux Smith Group</a>
+        <a href="team.html#join">Join Our Team</a>
+      </div>
+    </li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="ecosystem.html">J4 Ecosystem</a></li>
+  </ul>
+  <a href="contact.html" class="btn nav-cta">Let's Connect</a>
+  <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">×</button>
+  <div class="mobile-logo">J4 <span>Legacy Properties</span></div>
+  <div class="mobile-links">
+    <a href="properties.html">Properties</a>
+    <a href="buying.html">Buying</a>
+    <a href="selling.html">Selling</a>
+    <a href="team.html">Our Team</a>
+    <a href="resources.html">Resources</a>
+    <a href="ecosystem.html">J4 Ecosystem</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="mobile-contact">
+    <a href="tel:8335435263">833-543-LAND</a><br>
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
+    1379 CR 408, El Campo, TX 77437
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Properties</span>
+    </div>
+    <h1 class="arvo">Texas Land &amp; Ranch Properties</h1>
+    <p class="lora">Hand-picked. Walked in person. Ready for serious buyers.</p>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- MAIN CONTENT -->
+  <main class="page-main">
+
+    <!-- TABS -->
+    <div class="tabs-header" role="tablist">
+      <button class="tab-btn active" data-tab="all" role="tab" aria-selected="true">
+        All Listings <span class="tab-count" id="count-all">9</span>
+      </button>
+      <button class="tab-btn" data-tab="ranch" role="tab" aria-selected="false">
+        Ranch &amp; Farm Land <span class="tab-count" id="count-ranch">4</span>
+      </button>
+      <button class="tab-btn" data-tab="homes" role="tab" aria-selected="false">
+        El Campo Area Homes <span class="tab-count" id="count-homes">3</span>
+      </button>
+      <button class="tab-btn" data-tab="1031" role="tab" aria-selected="false">
+        1031-Friendly Land <span class="tab-count" id="count-1031">2</span>
+      </button>
+    </div>
+
+    <!-- RESULTS BAR -->
+    <div class="results-bar">
+      <p class="results-count">Showing <strong id="resultNum">9</strong> properties</p>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Featured First</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="acres">Acreage</option>
+      </select>
+    </div>
+
+    <!-- ALL LISTINGS TAB -->
+    <div class="tab-panel active" id="tab-all">
+      <div class="prop-grid">
+
+        <!-- HILAGO RANCH — FEATURED -->
+        <div class="prop-card featured" data-category="ranch" data-price="18500000" data-acres="2544" data-slug="hilago-ranch">
+          <div class="prop-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/ab57952c-5441-4a59-a021-514990ea81b5/IMG_6629.webp"
+                 alt="Hilago Ranch 2544 acres Stephens County Texas"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="prop-img-ph" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              Hilago Ranch
+            </div>
+            <span class="prop-badge badge-ranch">Ranch Land</span>
+            <span class="badge-new">Featured</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-main">
+              <div class="prop-price">$18,500,000</div>
+              <div class="prop-name arvo">Hilago Ranch</div>
+              <div class="prop-loc">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Stephens County, TX · Cisco
+              </div>
+              <div class="prop-specs">
+                <div class="prop-spec"><span class="prop-spec-val">2,544</span><span class="prop-spec-label">Acres</span></div>
+                <div class="prop-spec"><span class="prop-spec-val">High-Fence</span><span class="prop-spec-label">Deer Ranch</span></div>
+                <div class="prop-spec"><span class="prop-spec-val">25+ Ac</span><span class="prop-spec-label">Reservoir</span></div>
+                <div class="prop-spec"><span class="prop-spec-val">11</span><span class="prop-spec-label">Ponds</span></div>
+                <div class="prop-spec"><span class="prop-spec-val">Multi</span><span class="prop-spec-label">Water Wells</span></div>
+              </div>
+              <div class="prop-agent">
+                <div class="prop-agent-avatar">HS</div>
+                <div class="prop-agent-name"><strong>Harleigh Strack &amp; Mason Abshire</strong>Listing Agents · 833-543-LAND</div>
+              </div>
+            </div>
+            <div class="prop-cta-col">
+              <a href="properties/hilago-ranch.html" class="btn-view">View Property</a>
+              <a href="contact.html?property=hilago-ranch" class="btn-view-ghost">Schedule Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HWY 60 FRONTAGE -->
+        <div class="prop-card" data-category="ranch 1031" data-price="1699900" data-acres="60" data-slug="hwy-60-frontage">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              Highway 60 Frontage Tract
+            </div>
+            <span class="prop-badge badge-contract">Under Contract</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">$1,699,900</div>
+            <div class="prop-name arvo">Highway 60 Frontage Tract</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bay City, TX · Matagorda County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">60</span><span class="prop-spec-label">Acres</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Hwy 60</span><span class="prop-spec-label">Frontage</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">1031</span><span class="prop-spec-label">Qualified</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">CS</div>
+              <div class="prop-agent-name"><strong>J4 Heritage Group</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EL CAMPO MID-CENTURY -->
+        <div class="prop-card" data-category="homes" data-price="339900" data-acres="1" data-slug="el-campo-mid-century">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              El Campo Mid-Century Home
+            </div>
+            <span class="prop-badge badge-home">Home</span>
+            <span class="badge-new">New</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">$339,900</div>
+            <div class="prop-name arvo">El Campo Mid-Century Home</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              El Campo, TX · Wharton County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">3,128</span><span class="prop-spec-label">Sq Ft</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">1±</span><span class="prop-spec-label">Acre Lot</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Mid-Century</span><span class="prop-spec-label">Style</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">SS</div>
+              <div class="prop-agent-name"><strong>Stephanie Strack</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DANEVANG INVESTMENT -->
+        <div class="prop-card" data-category="homes 1031" data-price="225000" data-acres="1.79" data-slug="danevang-investment">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+              Danevang Investment Property
+            </div>
+            <span class="prop-badge badge-investment">Investment</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">$225,000</div>
+            <div class="prop-name arvo">Danevang Investment Property</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Danevang, TX · Wharton County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">1.79</span><span class="prop-spec-label">Acres</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Duplex</span><span class="prop-spec-label">2,008 Sq Ft</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">+ House</span><span class="prop-spec-label">968 Sq Ft</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">SS</div>
+              <div class="prop-agent-name"><strong>Stephanie Strack</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EAST BERNARD HOMESTEAD -->
+        <div class="prop-card" data-category="homes ranch" data-price="0" data-acres="10" data-slug="east-bernard-homestead">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M3 9h18"/></svg>
+              East Bernard Homestead Tracts
+            </div>
+            <span class="prop-badge badge-ranch">Homestead</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price contact">Contact for Price</div>
+            <div class="prop-name arvo">East Bernard Homestead Tracts</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              East Bernard, TX · Wharton County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">Multiple</span><span class="prop-spec-label">Tract Sizes</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Rural</span><span class="prop-spec-label">Homestead</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Ag</span><span class="prop-spec-label">Eligible</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">CS</div>
+              <div class="prop-agent-name"><strong>J4 Heritage Group</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RICHMOND COTTON FARM -->
+        <div class="prop-card" data-category="ranch 1031" data-price="0" data-acres="400" data-slug="richmond-cotton-farm">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              Richmond Cotton Farm
+            </div>
+            <span class="prop-badge badge-ranch">Farm Land</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price contact">Contact for Price</div>
+            <div class="prop-name arvo">Richmond Cotton Farm</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Richmond, TX · Fort Bend County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">400±</span><span class="prop-spec-label">Acres</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Cotton</span><span class="prop-spec-label">Farm</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Ag</span><span class="prop-spec-label">Exempt</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">CS</div>
+              <div class="prop-agent-name"><strong>Cuatro Strack</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDNA FARM 400 AC -->
+        <div class="prop-card" data-category="ranch 1031" data-price="0" data-acres="400" data-slug="edna-farm-400">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              Edna Farm — 400 Acres
+            </div>
+            <span class="prop-badge badge-ranch">Farm Land</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price contact">Contact for Price</div>
+            <div class="prop-name arvo">Edna Farm — 400 Acres</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Edna, TX · Jackson County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">400</span><span class="prop-spec-label">Acres</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Farm</span><span class="prop-spec-label">Land</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">1031</span><span class="prop-spec-label">Qualified</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">CS</div>
+              <div class="prop-agent-name"><strong>J4 Heritage Group</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDNA FARM 293 AC -->
+        <div class="prop-card" data-category="ranch 1031" data-price="0" data-acres="293" data-slug="edna-farm-293">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              Edna Farm — 293 Acres
+            </div>
+            <span class="prop-badge badge-ranch">Farm Land</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price contact">Contact for Price</div>
+            <div class="prop-name arvo">Edna Farm — 293 Acres</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Edna, TX · Jackson County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">293</span><span class="prop-spec-label">Acres</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Farm</span><span class="prop-spec-label">Land</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">1031</span><span class="prop-spec-label">Qualified</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">CS</div>
+              <div class="prop-agent-name"><strong>J4 Heritage Group</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIMO STATION VICTORIA -->
+        <div class="prop-card" data-category="homes" data-price="0" data-acres="0" data-slug="limo-station-victoria">
+          <div class="prop-img">
+            <div class="prop-img-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              Limo Station — Victoria
+            </div>
+            <span class="prop-badge badge-home">Commercial / Home</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price contact">Contact for Price</div>
+            <div class="prop-name arvo">Limo Station — Victoria</div>
+            <div class="prop-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Victoria, TX · Victoria County
+            </div>
+            <div class="prop-specs">
+              <div class="prop-spec"><span class="prop-spec-val">Mixed</span><span class="prop-spec-label">Use</span></div>
+              <div class="prop-spec"><span class="prop-spec-val">Commercial</span><span class="prop-spec-label">+ Residential</span></div>
+            </div>
+            <div class="prop-agent">
+              <div class="prop-agent-avatar">CS</div>
+              <div class="prop-agent-name"><strong>J4 Heritage Group</strong>833-543-LAND</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end prop-grid -->
+    </div><!-- end tab-all -->
+
+    <!-- RANCH TAB -->
+    <div class="tab-panel" id="tab-ranch">
+      <div class="prop-grid" id="grid-ranch"></div>
+    </div>
+
+    <!-- HOMES TAB -->
+    <div class="tab-panel" id="tab-homes">
+      <div class="prop-grid" id="grid-homes"></div>
+    </div>
+
+    <!-- 1031 TAB -->
+    <div class="tab-panel" id="tab-1031">
+      <div class="prop-grid" id="grid-1031"></div>
+    </div>
+
+  </main><!-- end page-main -->
+
+  <!-- SIDEBAR -->
+  <aside class="page-sidebar">
+
+    <!-- Tell Us What You Need -->
+    <div class="sidebar-card dark">
+      <span class="sidebar-label">Not seeing the right property?</span>
+      <h3>Many of our deals start before a sign goes up.</h3>
+      <p>Tell us what you're looking for. Acreage, county, price point, 1031 deadline. We'll surface options that never hit the public market.</p>
+      <form class="sidebar-form" onsubmit="return false;">
+        <input type="text" placeholder="Your Name" autocomplete="name">
+        <input type="tel" placeholder="Phone Number" autocomplete="tel">
+        <input type="email" placeholder="Email Address" autocomplete="email">
+        <select>
+          <option value="">I am a...</option>
+          <option>Legacy Builder (Ranch / Farm $1M+)</option>
+          <option>Community Connector (El Campo Area Home)</option>
+          <option>Strategic Exchanger (1031 Investor)</option>
+          <option>Not sure yet</option>
+        </select>
+        <textarea placeholder="What are you looking for? Acreage, county, timeline, budget..."></textarea>
+        <button type="submit" class="btn-full">Send My Criteria</button>
+      </form>
+    </div>
+
+    <!-- Browse by County -->
+    <div class="sidebar-card">
+      <span class="sidebar-label" style="color:var(--maroon)">Browse by County</span>
+      <h3 style="margin-bottom:16px">Service Area</h3>
+      <div class="county-links">
+        <div class="county-link" onclick="filterByCounty('wharton')">
+          Wharton County
+          <span class="county-link-count">4</span>
+        </div>
+        <div class="county-link" onclick="filterByCounty('matagorda')">
+          Matagorda County
+          <span class="county-link-count">1</span>
+        </div>
+        <div class="county-link" onclick="filterByCounty('jackson')">
+          Jackson County
+          <span class="county-link-count">2</span>
+        </div>
+        <div class="county-link" onclick="filterByCounty('stephens')">
+          Stephens County
+          <span class="county-link-count">1</span>
+        </div>
+        <div class="county-link" onclick="filterByCounty('fort-bend')">
+          Fort Bend County
+          <span class="county-link-count">1</span>
+        </div>
+        <div class="county-link" onclick="filterByCounty('victoria')">
+          Victoria County
+          <span class="county-link-count">1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Off-Market Sidebar -->
+    <div class="sidebar-card maroon">
+      <span class="sidebar-label">Private Inventory</span>
+      <h3>Off-Market Properties</h3>
+      <p>Some of our strongest ranches and farms are never publicly listed. Serious buyers get first access.</p>
+      <a href="off-market.html" class="btn-full">Ask About Off-Market</a>
+    </div>
+
+    <!-- Schedule a Call -->
+    <div class="sidebar-card" style="background:var(--off-white)">
+      <span class="sidebar-label" style="color:var(--maroon)">Ready to Talk?</span>
+      <h3>Schedule a Strategy Call</h3>
+      <p style="font-size:13px;color:var(--dark-gray);line-height:1.75;margin-bottom:16px">No pressure. No pitch. Just straight talk about what you need and whether we can help you find it.</p>
+      <a href="contact.html" class="btn-full">Book a Call</a>
+    </div>
+
+  </aside><!-- end sidebar -->
+
+</div><!-- end page-body -->
+
+<!-- SOLD STRIP -->
+<section class="sold-strip">
+  <div class="sold-text">
+    <p>Track Record</p>
+    <h2 class="arvo">Proven results across<br>Texas land and ranch sales.</h2>
+  </div>
+  <div class="sold-stats">
+    <div class="sold-stat">
+      <div class="sold-stat-num arvo">$30M+</div>
+      <div class="sold-stat-label">In Closed Transactions</div>
+    </div>
+    <div class="sold-stat">
+      <div class="sold-stat-num arvo">3</div>
+      <div class="sold-stat-label">Core Texas Counties</div>
+    </div>
+    <div class="sold-stat">
+      <div class="sold-stat-num arvo">30+</div>
+      <div class="sold-stat-label">Yrs Combined Experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- OFF MARKET STRIP -->
+<section class="offmarket">
+  <div class="offmarket-text">
+    <h2 class="arvo">Some of our best Texas land never hits the open market.</h2>
+    <p>For serious ranch buyers and 1031 investors, we maintain a private list. Tell us your acreage, county, price point, or 1031 deadline — we'll show you what's available before it's gone.</p>
+  </div>
+  <a href="off-market.html" class="btn-gold">Ask About Off-Market</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name arvo">J4 <span>Legacy Properties</span></div>
+      <div class="footer-tagline lora">Building your legacy, one property at a time.</div>
+      <p class="footer-about">J4 Legacy Properties is a Texas land and ranch real estate brokerage based in El Campo that helps buyers and sellers invest in farms, ranches, and legacy acreage properties across Texas.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1e1e1e"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="properties.html">All Properties</a>
+      <a href="buying.html">Buying</a>
+      <a href="selling.html">Selling</a>
+      <a href="team.html">Our Team</a>
+      <a href="resources.html">Resources / FAQ</a>
+      <a href="ecosystem.html">J4 Ecosystem</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Property Types</h4>
+      <a href="properties.html?tab=ranch">Ranch &amp; Farm Land</a>
+      <a href="properties.html?tab=homes">El Campo Area Homes</a>
+      <a href="properties.html?tab=1031">1031-Friendly Land</a>
+      <a href="off-market.html">Off-Market Inquiry</a>
+      <a href="sold.html">Sold Listings</a>
+    </div>
+    <div class="footer-col">
+      <h4>Service Area</h4>
+      <a href="properties.html?county=wharton">Wharton County</a>
+      <a href="properties.html?county=matagorda">Matagorda County</a>
+      <a href="properties.html?county=austin">Austin County</a>
+      <a href="properties.html?county=colorado">Colorado County</a>
+      <a href="properties.html?county=lavaca">Lavaca County</a>
+      <a href="properties.html?county=jackson">Jackson County</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 J4 Legacy Properties, LLC · All Rights Reserved · El Campo, TX 77437</p>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="https://www.j4tx.com" target="_blank">J4TX.com</a>
+    </div>
+  </div>
+</footer>
+<div class="trec-bar">
+  J4 Legacy Properties, LLC · Texas Real Estate Commission (TREC) Licensed Brokerage · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · info@j4lp.com · j4lp.com
+</div>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+// ===== TAB SYSTEM =====
+const allCards = document.querySelectorAll('#tab-all .prop-card');
+
+function buildFilteredGrid(gridId, category) {
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = '';
+  let count = 0;
+  allCards.forEach(card => {
+    const cats = card.dataset.category || '';
+    if (cats.includes(category)) {
+      const clone = card.cloneNode(true);
+      grid.appendChild(clone);
+      count++;
+    }
+  });
+  return count;
+}
+
+// Build filtered grids on load
+const ranchCount = buildFilteredGrid('grid-ranch', 'ranch');
+const homesCount = buildFilteredGrid('grid-homes', 'homes');
+const e1031Count = buildFilteredGrid('grid-1031', '1031');
+document.getElementById('count-ranch').textContent = ranchCount;
+document.getElementById('count-homes').textContent = homesCount;
+document.getElementById('count-1031').textContent = e1031Count;
+
+// Tab switching
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+const countMap = { all: allCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count };
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+    tabPanels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('resultNum').textContent = countMap[tab];
+  });
+});
+
+// URL param tab activation
+const params = new URLSearchParams(window.location.search);
+const tabParam = params.get('tab');
+if (tabParam) {
+  const matchBtn = document.querySelector(`.tab-btn[data-tab="${tabParam}"]`);
+  if (matchBtn) matchBtn.click();
+}
+
+// County filter (scrolls to all tab and could be extended)
+function filterByCounty(county) {
+  document.querySelector('[data-tab="all"]').click();
+  window.scrollTo({ top: document.querySelector('.tabs-header').offsetTop - 100, behavior: 'smooth' });
+}
+
+
+// Make all prop-cards with data-slug clickable
+function wireCardLinks() {
+  document.querySelectorAll('.prop-card[data-slug]').forEach(function(card) {
+    card.style.cursor = 'pointer';
+    // Add a visible "View Property" strip at the bottom of each non-featured card
+    if (!card.classList.contains('featured')) {
+      var existing = card.querySelector('.card-view-link');
+      if (!existing) {
+        var strip = document.createElement('a');
+        strip.href = 'properties/' + card.dataset.slug + '.html';
+        strip.className = 'card-view-link';
+        strip.textContent = 'View Property →';
+        strip.style.cssText = 'display:block;background:#500203;color:#fff;text-align:center;padding:10px;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-top:14px;transition:background 0.2s;';
+        strip.addEventListener('mouseenter', function(){ this.style.background='#6b0304'; });
+        strip.addEventListener('mouseleave', function(){ this.style.background='#500203'; });
+        card.appendChild(strip);
+      }
+    }
+    // Click anywhere on card navigates
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+      window.location.href = 'properties/' + this.dataset.slug + '.html';
+    });
+  });
+}
+wireCardLinks();
+
+// Re-wire after tab switches (cloned cards need links too)
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    setTimeout(wireCardLinks, 50);
+  });
+});
+
+// Scroll fade-in
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.prop-card, .sidebar-card, .sold-stat').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+  observer.observe(el);
+});
+</script>
+
+<script src="forms.js"></script>
+</body>
+</html>
