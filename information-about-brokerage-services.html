@@ -19,11 +19,9 @@ ul { list-style: none; }
 :root {
   --maroon: #500203;
   --maroon-mid: #6b0304;
-  --gold: #c8a96e;
   --black: #131414;
   --charcoal: #1e1e1e;
   --dark-gray: #7F8194;
-  --mid-gray: #a0a0a8;
   --light-gray: #d3d5e4;
   --off-white: #f7f5f0;
   --white: #ffffff;
@@ -31,19 +29,15 @@ ul { list-style: none; }
 }
 .arvo { font-family: 'Arvo', serif; }
 .lora { font-family: 'Lora', serif; }
-
-/* TOP BAR */
 .topbar { background: var(--black); padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; }
 .topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; align-items: center; }
 .topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
-
-/* NAV */
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
 .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.12); }
-.nav-logo-text .brand-name { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); letter-spacing: 0.04em; }
+.nav-logo-text .brand-name { font-family: 'Arvo', serif; font-size: 32px; font-weight: 700; color: var(--maroon); letter-spacing: 0.04em; }
 .nav-logo-text .brand-name span { color: var(--maroon); }
 .nav-logo-text .brand-sub { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dark-gray); margin-top: 2px; }
 .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -66,13 +60,10 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; line-height: 1; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
 .mobile-links a { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s; }
-.mobile-links a:hover { color: var(--gold); }
+.mobile-links a:hover { color: var(--white); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
-
-/* PAGE HERO */
+.mobile-contact a { color: var(--white); }
 .page-hero { position: relative; height: 260px; display: flex; align-items: flex-end; overflow: hidden; }
 .page-hero-bg { position: absolute; inset: 0; background: var(--black); }
 .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(80,2,3,0.4) 0%, rgba(19,20,20,0.95) 100%); }
@@ -83,35 +74,30 @@ ul { list-style: none; }
 .breadcrumb-sep { color: rgba(255,255,255,0.2); }
 .page-hero h1 { font-family: 'Arvo', serif; font-size: clamp(22px, 3vw, 40px); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 8px; }
 .page-hero p { font-family: 'Lora', serif; font-style: italic; font-size: 15px; color: rgba(255,255,255,0.55); }
-
-/* MAIN CONTENT */
 .page-body { max-width: 960px; margin: 0 auto; padding: 64px 80px 80px; }
 .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--maroon); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
 .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--maroon); }
-
-/* INTRO */
 .intro-block { margin-bottom: 48px; }
 .intro-block h2 { font-family: 'Arvo', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 700; color: var(--black); margin-bottom: 12px; line-height: 1.2; }
 .intro-block p { font-family: 'Lora', serif; font-style: italic; font-size: 15px; color: var(--dark-gray); line-height: 1.8; max-width: 620px; }
-
-/* IABS NOTICE */
 .iabs-notice { background: var(--off-white); border-left: 3px solid var(--maroon); padding: 20px 24px; margin-bottom: 48px; font-size: 13px; color: var(--black); line-height: 1.75; }
 .iabs-notice strong { font-weight: 700; }
-
-/* AGENT GRID */
-.agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 56px; }
+.team-section { margin-bottom: 56px; }
+.team-header { background: var(--black); padding: 20px 28px; margin-bottom: 2px; display: flex; align-items: center; gap: 20px; }
+.team-header img { width: 56px; height: 56px; object-fit: cover; border: 2px solid rgba(255,255,255,0.15); }
+.team-header-text .team-name { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
+.team-header-text .team-sub { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
+.agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
 .agent-iabs-card { background: var(--off-white); padding: 28px 32px; border-left: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
 .agent-iabs-card:hover { border-left-color: var(--maroon); background: #f0eeea; }
-.agent-iabs-card .agent-role { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--maroon); margin-bottom: 6px; }
+.agent-role { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--maroon); margin-bottom: 6px; }
 .agent-iabs-card h3 { font-family: 'Arvo', serif; font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
-.agent-iabs-card .agent-license { font-size: 12px; color: var(--dark-gray); margin-bottom: 12px; }
-.agent-iabs-card .agent-contact { font-size: 13px; color: var(--black); margin-bottom: 16px; line-height: 1.6; }
-.agent-iabs-card .agent-contact a { color: var(--maroon); font-weight: 600; }
+.agent-license { font-size: 12px; color: var(--dark-gray); margin-bottom: 12px; }
+.agent-contact { font-size: 13px; color: var(--black); margin-bottom: 16px; line-height: 1.6; }
+.agent-contact a { color: var(--maroon); font-weight: 600; }
 .pdf-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); padding: 10px 18px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; }
 .pdf-btn:hover { background: var(--maroon); }
 .pdf-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
-/* GENERAL IABS */
 .general-iabs { margin-bottom: 56px; }
 .general-iabs h3 { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
 .general-iabs p { font-size: 14px; color: var(--dark-gray); margin-bottom: 20px; line-height: 1.7; }
@@ -119,26 +105,19 @@ ul { list-style: none; }
 .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--black); color: var(--black); padding: 12px 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.2s; }
 .btn-outline:hover { background: var(--black); color: var(--white); }
 .btn-outline svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-/* DIVIDER */
 .divider { border: none; border-top: 1px solid var(--light-gray); margin: 48px 0; }
-
-/* CN LINK */
 .cn-strip { background: var(--off-white); border-left: 3px solid var(--dark-gray); padding: 20px 24px; font-size: 13px; color: var(--black); line-height: 1.75; }
 .cn-strip a { color: var(--maroon); font-weight: 700; }
-
-/* FOOTER */
 .footer { background: var(--charcoal); padding: 64px 80px 40px; }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 32px; }
-.footer-brand-name { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-.footer-brand-name span { color: var(--gold); }
-.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 16px; }
+.footer-brand-name { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
 .footer-about { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-bottom: 24px; }
 .footer-socials { display: flex; gap: 10px; }
 .footer-social { width: 34px; height: 34px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
 .footer-social:hover { background: var(--maroon); border-color: var(--maroon); }
 .footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.6); }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 9px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
@@ -146,7 +125,6 @@ ul { list-style: none; }
 .footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.25); }
 .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
 .trec-bar { background: var(--black); padding: 12px 80px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
-
 @media (max-width: 768px) {
   .topbar { display: none; }
   .nav { padding: 0 20px; height: 64px; }
@@ -164,8 +142,6 @@ ul { list-style: none; }
 </style>
 </head>
 <body>
-
-<!-- TOP BAR -->
 <div class="topbar">
   <span class="topbar-left">J4 Legacy Properties, LLC · El Campo, Texas · TREC Licensed Brokerage</span>
   <div class="topbar-right">
@@ -173,8 +149,6 @@ ul { list-style: none; }
     <a href="tel:8335435263" class="topbar-phone">833-543-LAND</a>
   </div>
 </div>
-
-<!-- NAV -->
 <nav class="nav" id="mainNav">
   <a href="index.html">
     <div class="nav-logo-text">
@@ -183,274 +157,165 @@ ul { list-style: none; }
     </div>
   </a>
   <ul class="nav-links">
-    <li class="dropdown">
-      <a href="properties.html">Properties</a>
-      <div class="dropdown-menu">
-        <a href="properties.html">All Listings</a>
-        <a href="properties.html?tab=ranch">Ranch &amp; Farm Land</a>
-        <a href="properties.html?tab=homes">El Campo Area Homes</a>
-        <a href="properties.html?tab=1031">1031-Friendly Land</a>
-        <a href="sold.html">Sold Listings</a>
-      </div>
-    </li>
-    <li class="dropdown">
-      <a href="buying.html">Buying</a>
-      <div class="dropdown-menu">
-        <a href="buying-legacy.html">Legacy Builders</a>
-        <a href="buying-community.html">Community Connectors</a>
-        <a href="buying-1031.html">1031 Exchangers</a>
-        <a href="off-market.html">Off-Market Access</a>
-      </div>
-    </li>
+    <li class="dropdown"><a href="properties.html">Properties</a><div class="dropdown-menu"><a href="properties.html">All Listings</a><a href="properties.html?tab=ranch">Ranch &amp; Farm Land</a><a href="properties.html?tab=homes">El Campo Area Homes</a><a href="properties.html?tab=1031">1031-Friendly Land</a><a href="sold.html">Sold Listings</a></div></li>
+    <li class="dropdown"><a href="buying.html">Buying</a><div class="dropdown-menu"><a href="buying-legacy.html">Legacy Builders</a><a href="buying-community.html">Community Connectors</a><a href="buying-1031.html">1031 Exchangers</a><a href="off-market.html">Off-Market Access</a></div></li>
     <li><a href="selling.html">Selling</a></li>
-    <li class="dropdown">
-      <a href="team.html">Our Team</a>
-      <div class="dropdown-menu">
-        <a href="team.html#j4heritage">J4 Heritage Group</a>
-        <a href="team.html#join">Join Our Team</a>
-      </div>
-    </li>
+    <li class="dropdown"><a href="team.html">Our Team</a><div class="dropdown-menu"><a href="team.html#j4heritage">J4 Heritage Team</a><a href="team.html#siouxsmith">Sioux Smith Team</a><a href="team.html#join">Join Our Team</a></div></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="ecosystem.html">J4 Ecosystem</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="btn nav-cta">Let's Connect</a>
-  <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open menu"><span></span><span></span><span></span></div>
 </nav>
-
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose">×</button>
-  <div class="mobile-logo">J4 <span>Legacy Properties</span></div>
+  <div class="mobile-logo">J4 Legacy Properties</div>
   <div class="mobile-links">
-    <a href="properties.html">Properties</a>
-    <a href="buying.html">Buying</a>
-    <a href="selling.html">Selling</a>
-    <a href="team.html">Our Team</a>
-    <a href="resources.html">Resources</a>
-    <a href="ecosystem.html">J4 Ecosystem</a>
-    <a href="contact.html">Contact</a>
+    <a href="properties.html">Properties</a><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="resources.html">Resources</a><a href="ecosystem.html">J4 Ecosystem</a><a href="contact.html">Contact</a>
   </div>
-  <div class="mobile-contact">
-    <a href="tel:8335435263">833-543-LAND</a><br>
-    <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
-    1379 CR 408, El Campo, TX 77437
-  </div>
+  <div class="mobile-contact"><a href="tel:8335435263">833-543-LAND</a><br><a href="mailto:info@j4lp.com">info@j4lp.com</a><br>1379 CR 408, El Campo, TX 77437</div>
 </div>
-
-<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="breadcrumb-sep">/</span>
-      <span>Information About Brokerage Services</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Information About Brokerage Services</span></div>
     <h1 class="arvo">Information About Brokerage Services</h1>
     <p class="lora">IABS 1-2 — Required TREC disclosure for all J4 Legacy Properties agents</p>
   </div>
 </section>
-
-<!-- MAIN CONTENT -->
 <main class="page-body">
-
   <div class="section-label">TREC Required Disclosure · IABS 1-2</div>
-
   <div class="intro-block">
     <h2 class="arvo">Agent Disclosure Forms</h2>
     <p class="lora">Texas law requires all real estate license holders to provide this information to prospective buyers, tenants, sellers, and landlords. Download the IABS form for your J4 Legacy Properties agent below.</p>
   </div>
-
   <div class="iabs-notice">
     <strong>Notice:</strong> This disclosure is provided for information purposes only. It does not create an obligation for you to use the broker's services. J4 Legacy Properties, LLC is licensed by the Texas Real Estate Commission (TREC), License No. 9011917. Regulated by the Texas Real Estate Commission — information available at <a href="https://www.trec.texas.gov" target="_blank" rel="noopener" style="color:var(--maroon);font-weight:700;">www.trec.texas.gov</a>
   </div>
 
-  <!-- AGENT CARDS -->
-  <div class="agent-grid">
-
-    <!-- Joe E. Strack IV (Cuatro) -->
-    <div class="agent-iabs-card">
-      <div class="agent-role">Designated Broker / Co-Owner</div>
-      <h3 class="arvo">Joe E. Strack IV (Cuatro)</h3>
-      <div class="agent-license">License No. 9011917</div>
-      <div class="agent-contact">
-        <a href="mailto:cuatro@j4lp.com">cuatro@j4lp.com</a><br>
-        <a href="tel:9795417248">979-541-7248</a>
+  <!-- J4 HERITAGE TEAM -->
+  <div class="team-section">
+    <div class="section-label">The J4 Heritage Team</div>
+    <div class="team-header">
+      <img src="https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/10465fac-c8b6-400f-9505-2bbaf4c7cb8e/download+%281%29.png?format=750w" alt="J4 Heritage Team logo">
+      <div class="team-header-text">
+        <div class="team-name">The J4 Heritage Team</div>
+        <div class="team-sub">J4 Legacy Properties, LLC · El Campo, Texas</div>
       </div>
-      <a href="pdfs/Joe_Strack_IV_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download IABS Form
-      </a>
     </div>
-
-    <!-- Stephanie Strack -->
-    <div class="agent-iabs-card">
-      <div class="agent-role">Broker / Co-Owner</div>
-      <h3 class="arvo">Stephanie Strack</h3>
-      <div class="agent-license">License No. 834781</div>
-      <div class="agent-contact">
-        <a href="mailto:stephanie@j4lp.com">stephanie@j4lp.com</a><br>
-        <a href="tel:9796370211">979-637-0211</a>
+    <div class="agent-grid">
+      <div class="agent-iabs-card">
+        <div class="agent-role">Co-Founder · Broker</div>
+        <h3 class="arvo">Joe E. Strack IV (Cuatro)</h3>
+        <div class="agent-license">License No. 9011917</div>
+        <div class="agent-contact"><a href="mailto:cuatro@j4lp.com">cuatro@j4lp.com</a><br><a href="tel:9795417248">979-541-7248</a></div>
+        <a href="pdfs/Joe_Strack_IV_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
       </div>
-      <a href="pdfs/Stephanie_Strack_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download IABS Form
-      </a>
-    </div>
-
-    <!-- Harleigh Strack -->
-    <div class="agent-iabs-card">
-      <div class="agent-role">Licensed Agent</div>
-      <h3 class="arvo">Harleigh Strack</h3>
-      <div class="agent-license">License No. 810470</div>
-      <div class="agent-contact">
-        <a href="mailto:harleigh@j4lp.com">harleigh@j4lp.com</a><br>
-        <a href="tel:9792534837">979-253-4837</a>
+      <div class="agent-iabs-card">
+        <div class="agent-role">Co-Founder · Licensed Agent</div>
+        <h3 class="arvo">Stephanie Strack</h3>
+        <div class="agent-license">License No. 834781</div>
+        <div class="agent-contact"><a href="mailto:stephanie@j4lp.com">stephanie@j4lp.com</a><br><a href="tel:9796370211">979-637-0211</a></div>
+        <a href="pdfs/Stephanie_Strack_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
       </div>
-      <a href="pdfs/Harleigh_Strack_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download IABS Form
-      </a>
-    </div>
-
-    <!-- Mason Abshire -->
-    <div class="agent-iabs-card">
-      <div class="agent-role">Licensed Agent</div>
-      <h3 class="arvo">Mason Abshire</h3>
-      <div class="agent-license">License No. 834823</div>
-      <div class="agent-contact">
-        <a href="mailto:mason@j4lp.com">mason@j4lp.com</a><br>
-        <a href="tel:9704061187">970-406-1187</a>
+      <div class="agent-iabs-card">
+        <div class="agent-role">Licensed Agent</div>
+        <h3 class="arvo">Harleigh Strack</h3>
+        <div class="agent-license">License No. 810470</div>
+        <div class="agent-contact"><a href="mailto:harleigh@j4lp.com">harleigh@j4lp.com</a><br><a href="tel:9792534837">979-253-4837</a></div>
+        <a href="pdfs/Harleigh_Strack_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
       </div>
-      <a href="pdfs/Mason_Abshire_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download IABS Form
-      </a>
-    </div>
-
-    <!-- Kayla Strack -->
-    <div class="agent-iabs-card">
-      <div class="agent-role">Licensed Agent</div>
-      <h3 class="arvo">Kayla Strack</h3>
-      <div class="agent-license">License No. 829525</div>
-      <div class="agent-contact">
-        <a href="mailto:kayla@j4lp.com">kayla@j4lp.com</a><br>
-        <a href="tel:9793329246">979-332-9246</a>
+      <div class="agent-iabs-card">
+        <div class="agent-role">Licensed Agent</div>
+        <h3 class="arvo">Mason Abshire</h3>
+        <div class="agent-license">License No. 834823</div>
+        <div class="agent-contact"><a href="mailto:mason@j4lp.com">mason@j4lp.com</a><br><a href="tel:9704061187">970-406-1187</a></div>
+        <a href="pdfs/Mason_Abshire_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
       </div>
-      <a href="pdfs/Kayla_Strack_IABS_1-2_Version_1-1-2026_J4_Strack_Group.pdf" target="_blank" rel="noopener" class="pdf-btn">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download IABS Form
-      </a>
-    </div>
-
-    <!-- Julia Ann Velazquez -->
-    <div class="agent-iabs-card">
-      <div class="agent-role">Licensed Agent</div>
-      <h3 class="arvo">Julia Ann Velazquez</h3>
-      <div class="agent-license">License No. 826810</div>
-      <div class="agent-contact">
-        <a href="mailto:julia@j4lp.com">julia@j4lp.com</a><br>
-        <a href="tel:9793207285">979-320-7285</a>
+      <div class="agent-iabs-card">
+        <div class="agent-role">Licensed Agent</div>
+        <h3 class="arvo">Kayla Strack</h3>
+        <div class="agent-license">License No. 829525</div>
+        <div class="agent-contact"><a href="mailto:kayla@j4lp.com">kayla@j4lp.com</a><br><a href="tel:9793329246">979-332-9246</a></div>
+        <a href="pdfs/Kayla_Strack_IABS_1-2_Version_1-1-2026_J4_Strack_Group.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
       </div>
-      <a href="pdfs/Julia_Anne_Velazquez_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download IABS Form
-      </a>
+      <div class="agent-iabs-card">
+        <div class="agent-role">Licensed Agent</div>
+        <h3 class="arvo">Julia Ann Velazquez</h3>
+        <div class="agent-license">License No. 826810</div>
+        <div class="agent-contact"><a href="mailto:julia@j4lp.com">julia@j4lp.com</a><br><a href="tel:9793207285">979-320-7285</a></div>
+        <a href="pdfs/Julia_Anne_Velazquez_IABS_1-2_Version_1-1-2026_J4_Strack_Group_.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
+      </div>
     </div>
-
   </div>
 
-  <!-- GENERAL IABS FORMS -->
+  <!-- SIOUX SMITH TEAM -->
+  <div class="team-section">
+    <div class="section-label">The Sioux Smith Team</div>
+    <div class="team-header">
+      <img src="https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/60bfaa14-ba1c-4aad-8f2a-11474011b21a/download+%288%29.png?format=750w" alt="Sioux Smith Team logo">
+      <div class="team-header-text">
+        <div class="team-name">The Sioux Smith Team</div>
+        <div class="team-sub">J4 Legacy Properties, LLC · Central Texas</div>
+      </div>
+    </div>
+    <div class="agent-grid">
+      <div class="agent-iabs-card">
+        <div class="agent-role">Co-Founder · Broker</div>
+        <h3 class="arvo">Sioux Strack Smith</h3>
+        <div class="agent-license">License No. 650949</div>
+        <div class="agent-contact"><a href="mailto:sioux@j4lp.com">sioux@j4lp.com</a><br><a href="tel:2545416919">254-541-6919</a></div>
+        <a href="pdfs/SIOUX_SMITH_information_about_brokerage_services_buyertenant__126_ts87707.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
+      </div>
+      <div class="agent-iabs-card">
+        <div class="agent-role">Licensed Agent</div>
+        <h3 class="arvo">Alexandra Emmons</h3>
+        <div class="agent-license">License No. 0637684</div>
+        <div class="agent-contact"><a href="mailto:alexa@j4lp.com">alexa@j4lp.com</a><br><a href="tel:2813231000">281-323-1000</a></div>
+        <a href="pdfs/ALEXA_EMMONS_IABS_information_about_brokerage_services_sellerlandlord__126_ts41309.pdf" target="_blank" rel="noopener" class="pdf-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download IABS Form</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GENERAL FORMS -->
   <div class="general-iabs">
-    <div class="section-label">General TREC IABS Forms</div>
-    <h3 class="arvo">Standard TREC Brokerage Service Forms</h3>
-    <p>Download the standard TREC Information About Brokerage Services forms for buyers/tenants and sellers/landlords directly from TREC.</p>
+    <div class="section-label">Standard TREC IABS Forms</div>
+    <h3 class="arvo">General Brokerage Service Forms</h3>
+    <p>Download the standard TREC Information About Brokerage Services forms for buyers/tenants and sellers/landlords.</p>
     <div class="btn-row">
-      <a href="pdfs/information_about_brokerage_services_buyertenant__126_ts87707.pdf" target="_blank" rel="noopener" class="btn-outline">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        IABS — Buyer / Tenant
-      </a>
-      <a href="pdfs/information_about_brokerage_services_sellerlandlord__126_ts41309.pdf" target="_blank" rel="noopener" class="btn-outline">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        IABS — Seller / Landlord
-      </a>
+      <a href="pdfs/information_about_brokerage_services_buyertenant__126_ts87707.pdf" target="_blank" rel="noopener" class="btn-outline"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>IABS — Buyer / Tenant</a>
+      <a href="pdfs/information_about_brokerage_services_sellerlandlord__126_ts41309.pdf" target="_blank" rel="noopener" class="btn-outline"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>IABS — Seller / Landlord</a>
     </div>
   </div>
 
   <hr class="divider">
-
-  <div class="cn-strip">
-    Also required by TREC: <a href="texas-real-estate-consumer-protection-notice.html">Texas Real Estate Consumer Protection Notice (CN 1-5)</a>
-  </div>
-
+  <div class="cn-strip">Also required by TREC: <a href="texas-real-estate-consumer-protection-notice.html">Texas Real Estate Consumer Protection Notice (CN 1-5)</a></div>
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name arvo">J4 <span>Legacy Properties</span></div>
+      <div class="footer-brand-name arvo">J4 Legacy Properties</div>
       <div class="footer-tagline lora">Building your legacy, one property at a time.</div>
       <p class="footer-about">J4 Legacy Properties is a Texas land and ranch real estate brokerage based in El Campo helping buyers and sellers invest in farms, ranches, and legacy acreage across Texas.</p>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube">
-          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1e1e1e"/></svg>
-        </a>
+        <a href="https://www.facebook.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.youtube.com/@j4legacyproperties" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1e1e1e"/></svg></a>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Navigate</h4>
-      <a href="index.html">Home</a>
-      <a href="properties.html">All Properties</a>
-      <a href="buying.html">Buying</a>
-      <a href="selling.html">Selling</a>
-      <a href="team.html">Our Team</a>
-      <a href="resources.html">Resources / FAQ</a>
-      <a href="ecosystem.html">J4 Ecosystem</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Who We Serve</h4>
-      <a href="buying-legacy.html">Legacy Builders</a>
-      <a href="buying-community.html">Community Connectors</a>
-      <a href="buying-1031.html">Strategic Exchangers</a>
-      <a href="off-market.html">Off-Market Inquiry</a>
-      <a href="selling.html">List Your Property</a>
-      <a href="team.html#join">Join Our Team</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="texas-real-estate-consumer-protection-notice.html">Consumer Protection Notice</a>
-      <a href="information-about-brokerage-services.html">IABS Forms</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="https://www.trec.texas.gov" target="_blank" rel="noopener">TREC · trec.texas.gov</a>
-    </div>
+    <div class="footer-col"><h4>Navigate</h4><a href="index.html">Home</a><a href="properties.html">All Properties</a><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="resources.html">Resources / FAQ</a><a href="ecosystem.html">J4 Ecosystem</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Who We Serve</h4><a href="buying-legacy.html">Legacy Builders</a><a href="buying-community.html">Community Connectors</a><a href="buying-1031.html">Strategic Exchangers</a><a href="off-market.html">Off-Market Inquiry</a><a href="selling.html">List Your Property</a><a href="team.html#join">Join Our Team</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="texas-real-estate-consumer-protection-notice.html">Consumer Protection Notice</a><a href="information-about-brokerage-services.html">IABS Forms</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="https://www.trec.texas.gov" target="_blank" rel="noopener">TREC · trec.texas.gov</a></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 J4 Legacy Properties, LLC · All Rights Reserved · El Campo, TX 77437</p>
-    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="texas-real-estate-consumer-protection-notice.html">Consumer Protection Notice</a>
-      <a href="information-about-brokerage-services.html">IABS</a>
-    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="texas-real-estate-consumer-protection-notice.html">Consumer Protection Notice</a><a href="information-about-brokerage-services.html">IABS</a></div>
   </div>
 </footer>
-<div class="trec-bar">
-  J4 Legacy Properties, LLC · Texas Real Estate Commission (TREC) Licensed Brokerage · License No. 9011917 · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · info@j4lp.com · j4lp.com
-</div>
-
+<div class="trec-bar">J4 Legacy Properties, LLC · Texas Real Estate Commission (TREC) Licensed Brokerage · License No. 9011917 · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · info@j4lp.com · j4lp.com</div>
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
