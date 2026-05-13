@@ -44,8 +44,8 @@ ul { list-style: none; }
 .topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; }
 .topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
 .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.12); }
 .brand-name { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); letter-spacing: 0.04em; }
@@ -71,19 +71,19 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
+.mobile-logo span { color: var(--white); }
 .mobile-links a { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
+.mobile-contact a { color: var(--white); }
 
 /* ===== PAGE HERO ===== */
 .page-hero { position: relative; height: 420px; display: flex; align-items: flex-end; overflow: hidden; }
 .page-hero-bg { position: absolute; inset: 0; background-image: url('https://images.squarespace-cdn.com/content/v1/69728b06944d29287adcaacd/ab57952c-5441-4a59-a021-514990ea81b5/IMG_6629.webp'); background-size: cover; background-position: center 20%; }
 .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(19,20,20,0.92) 100%); }
 .page-hero-content { position: relative; z-index: 2; padding: 0 80px 60px; width: 100%; max-width: 800px; }
-.breadcrumb { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.breadcrumb { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
 .breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb a:hover { color: var(--white); }
 .breadcrumb-sep { color: rgba(255,255,255,0.25); }
 .page-hero h1 { font-family: 'Arvo', serif; font-size: clamp(28px, 4vw, 56px); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 14px; }
 .page-hero p { font-family: 'Lora', serif; font-style: italic; font-size: 17px; color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.7; }
@@ -102,7 +102,7 @@ ul { list-style: none; }
 .btn-maroon:hover { background: var(--maroon-mid); color: var(--white); }
 .btn-ghost { display: inline-block; background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.45); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 30px; transition: all 0.2s; }
 .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
-.btn-gold { display: inline-block; background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 30px; transition: background 0.2s; flex-shrink: 0; }
+.btn-gold { display: inline-block; background: var(--white); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 30px; transition: background 0.2s; flex-shrink: 0; }
 .btn-gold:hover { background: var(--gold-light); }
 
 /* ===== INTRO SPLIT ===== */
@@ -111,7 +111,7 @@ ul { list-style: none; }
 .intro-text p strong { color: var(--black); font-weight: 700; }
 .intro-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 .valuation-box { background: var(--black); padding: 40px; }
-.val-box-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
+.val-box-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; display: block; }
 .val-box-title { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 16px; line-height: 1.3; }
 .val-box-body { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 24px; }
 .val-form { display: flex; flex-direction: column; gap: 10px; }
@@ -122,7 +122,7 @@ ul { list-style: none; }
   transition: border-color 0.2s; width: 100%;
 }
 .val-form input::placeholder { color: rgba(255,255,255,0.35); }
-.val-form input:focus, .val-form select:focus { border-color: var(--gold); }
+.val-form input:focus, .val-form select:focus { border-color: var(--white); }
 .val-form select { color: rgba(255,255,255,0.6); appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23c8a96e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
 .val-form select option { background: var(--black); color: var(--white); }
 .val-submit { display: block; width: 100%; padding: 14px; background: var(--maroon); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
@@ -151,14 +151,14 @@ ul { list-style: none; }
 
 /* ===== WHAT WE DO ===== */
 .services { background: var(--black); padding: 80px; }
-.services .section-label { color: var(--gold); }
-.services .section-label::before { background: var(--gold); }
+.services .section-label { color: var(--white); }
+.services .section-label::before { background: var(--white); }
 .services .section-title { color: var(--white); }
 .services .section-sub { color: rgba(255,255,255,0.5); }
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.06); }
 .service-item { background: var(--black); padding: 40px 36px; border-left: 3px solid transparent; transition: border-color 0.3s, background 0.3s; }
 .service-item:hover { border-left-color: var(--maroon); background: rgba(255,255,255,0.025); }
-.service-num { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 14px; }
+.service-num { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--white); margin-bottom: 14px; }
 .service-item h3 { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
 .service-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.85; }
 
@@ -198,14 +198,14 @@ ul { list-style: none; }
 .footer { background: var(--charcoal); padding: 64px 80px 40px; }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 32px; }
 .footer-brand-name { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-.footer-brand-name span { color: var(--gold); }
-.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 16px; }
+.footer-brand-name span { color: var(--white); }
+.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
 .footer-about { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-bottom: 24px; }
 .footer-socials { display: flex; gap: 10px; }
 .footer-social { width: 34px; height: 34px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .footer-social:hover { background: var(--maroon); border-color: var(--maroon); }
 .footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.6); }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 9px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -636,7 +636,7 @@ document.querySelectorAll('.faq-question').forEach(q => {
 // Valuation form
 document.querySelector('.val-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  this.innerHTML = '<p style="color:var(--gold);font-family:\'Arvo\',serif;font-size:16px;font-weight:700;margin-bottom:8px">Request received.</p><p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7">We\'ll be in touch same business day to schedule your valuation call. If it\'s urgent, call us at <a href="tel:8335435263" style="color:var(--gold)">833-543-LAND</a>.</p>';
+  this.innerHTML = '<p style="color:var(--white);font-family:\'Arvo\',serif;font-size:16px;font-weight:700;margin-bottom:8px">Request received.</p><p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7">We\'ll be in touch same business day to schedule your valuation call. If it\'s urgent, call us at <a href="tel:8335435263" style="color:var(--white)">833-543-LAND</a>.</p>';
 });
 
 // Scroll fade-in
