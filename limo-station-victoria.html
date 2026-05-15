@@ -89,8 +89,8 @@ ul { list-style: none; }
 .topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; align-items: center; }
 .topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 
 /* ===== NAV ===== */
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
@@ -116,16 +116,16 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
+.mobile-logo span { color: var(--white); }
 .mobile-links a { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
+.mobile-contact a { color: var(--white); }
 
 /* ===== STATUS BANNER ===== */
 .status-banner { padding: 12px 40px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
 .status-banner.contract { background: #7F8194; color: var(--white); }
 .status-banner.sold { background: var(--black); color: var(--white); }
-.status-banner a { color: var(--gold); }
+.status-banner a { color: var(--white); }
 
 /* ===== BREADCRUMB ===== */
 .breadcrumb-bar { padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }
@@ -187,9 +187,9 @@ ul { list-style: none; }
 /* ===== SIDEBAR CARD ===== */
 .sidebar-sticky { position: sticky; top: calc(var(--nav-height) + 24px); }
 .contact-card { background: var(--black); padding: 28px; margin-bottom: 12px; }
-.contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+.contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; display: block; }
 .contact-card h3 { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.contact-card-price { font-family: 'Arvo', serif; font-size: 26px; font-weight: 700; color: var(--gold); margin-bottom: 20px; }
+.contact-card-price { font-family: 'Arvo', serif; font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
 .contact-card-price.contact { font-size: 16px; color: rgba(255,255,255,0.6); }
 .contact-form { display: flex; flex-direction: column; gap: 10px; }
 .contact-form input, .contact-form select, .contact-form textarea {
@@ -199,7 +199,7 @@ ul { list-style: none; }
   transition: border-color 0.2s;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--white); }
 .contact-form select { color: rgba(255,255,255,0.6); appearance: none; cursor: pointer; }
 .contact-form select option { background: var(--black); color: var(--white); }
 .contact-form textarea { resize: vertical; min-height: 80px; }
@@ -241,17 +241,17 @@ ul { list-style: none; }
 .offmarket { background: var(--maroon); padding: 56px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .offmarket h2 { font-family: 'Arvo', serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: var(--white); margin-bottom: 8px; }
 .offmarket p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 480px; line-height: 1.75; }
-.btn-gold { background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
+.btn-gold { background: var(--white); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
 .btn-gold:hover { background: var(--gold-light); }
 
 /* ===== FOOTER ===== */
 .footer { background: var(--charcoal); padding: 56px 80px 36px; }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px; }
 .footer-brand-name { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-.footer-brand-name span { color: var(--gold); }
-.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 14px; }
+.footer-brand-name span { color: var(--white); }
+.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--white); margin-bottom: 14px; }
 .footer-about { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -304,7 +304,7 @@ ul { list-style: none; }
 </div>
 
 <nav class="nav" id="mainNav">
-  <a href="../index.html">
+  <a href="index.html">
     <div class="nav-logo-text">
       <span class="brand-name">J4 <span>Legacy Properties</span></span>
       <span class="brand-sub">Texas Land &amp; Ranch Real Estate</span>
@@ -312,21 +312,21 @@ ul { list-style: none; }
   </a>
   <ul class="nav-links">
     <li class="dropdown">
-      <a href="../properties.html">Properties</a>
+      <a href="properties.html">Properties</a>
       <div class="dropdown-menu">
-        <a href="../properties.html">All Listings</a>
+        <a href="properties.html">All Listings</a>
         <a href="../properties.html?tab=ranch">Ranch &amp; Farm Land</a>
         <a href="../properties.html?tab=homes">El Campo Area Homes</a>
         <a href="../properties.html?tab=1031">1031-Friendly Land</a>
       </div>
     </li>
-    <li><a href="../buying.html">Buying</a></li>
-    <li><a href="../selling.html">Selling</a></li>
-    <li><a href="../team.html">Our Team</a></li>
-    <li><a href="../resources.html">Resources</a></li>
-    <li><a href="../ecosystem.html">J4 Ecosystem</a></li>
+    <li><a href="buying.html">Buying</a></li>
+    <li><a href="selling.html">Selling</a></li>
+    <li><a href="team.html">Our Team</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="ecosystem.html">J4 Ecosystem</a></li>
   </ul>
-  <a href="../contact.html" class="nav-cta">Let's Connect</a>
+  <a href="contact.html" class="nav-cta">Let's Connect</a>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
@@ -334,12 +334,12 @@ ul { list-style: none; }
   <button class="mobile-close" id="mobileClose">×</button>
   <div class="mobile-logo">J4 <span>Legacy Properties</span></div>
   <div class="mobile-links">
-    <a href="../properties.html">Properties</a>
-    <a href="../buying.html">Buying</a>
-    <a href="../selling.html">Selling</a>
-    <a href="../team.html">Our Team</a>
-    <a href="../resources.html">Resources</a>
-    <a href="../contact.html">Contact</a>
+    <a href="properties.html">Properties</a>
+    <a href="buying.html">Buying</a>
+    <a href="selling.html">Selling</a>
+    <a href="team.html">Our Team</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
   </div>
   <div class="mobile-contact">
     <a href="tel:8335435263">833-543-LAND</a><br>
@@ -351,9 +351,9 @@ ul { list-style: none; }
 
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
-    <a href="../index.html">Home</a>
+    <a href="index.html">Home</a>
     <span class="breadcrumb-sep">/</span>
-    <a href="../properties.html">Properties</a>
+    <a href="properties.html">Properties</a>
     <span class="breadcrumb-sep">/</span>
     <span class="breadcrumb-current">Limo Station — Victoria</span>
   </div>
@@ -361,7 +361,7 @@ ul { list-style: none; }
 
 <!-- HERO IMAGE -->
 <div class="prop-hero">
-  <img src="../images/limo-station-victoria/hero.jpg" alt="Limo Station — Victoria — Commercial Lot acres in Victoria County, TX" loading="eager">
+  <img src="images/listings/limo-station-victoria/hero.jpg" alt="Limo Station — Victoria — Commercial Lot acres in Victoria County, TX" loading="eager">
        <span class="hero-badge">Commercial</span>
 </div>
 
@@ -498,7 +498,7 @@ ul { list-style: none; }
           
         <a href="el-campo-mid-century.html" class="related-card">
           <div class="related-img">
-            <img src="../images/el-campo-mid-century/hero.jpg" alt="El Campo Mid-Century Home" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/listings/el-campo-mid-century-home/hero.jpg" alt="El Campo Mid-Century Home" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="related-img-ph" style="display:none">El Campo Mid-Century Home</div>
             <span class="related-badge" style="background:#2a5298">Home</span>
           </div>
@@ -510,7 +510,7 @@ ul { list-style: none; }
         </a>
         <a href="danevang-investment.html" class="related-card">
           <div class="related-img">
-            <img src="../images/danevang-investment/hero.jpg" alt="Danevang Investment Property" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/listings/danevang-investment-property/hero.jpg" alt="Danevang Investment Property" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="related-img-ph" style="display:none">Danevang Investment Property</div>
             <span class="related-badge" style="background:#1a5c3a">Investment</span>
           </div>
@@ -522,7 +522,7 @@ ul { list-style: none; }
         </a>
         <a href="east-bernard-homestead.html" class="related-card">
           <div class="related-img">
-            <img src="../images/east-bernard-homestead/hero.jpg" alt="East Bernard Homestead Tracts" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/listings/east-bernard-homestead-tracts/hero.jpg" alt="East Bernard Homestead Tracts" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="related-img-ph" style="display:none">East Bernard Homestead Tracts</div>
             <span class="related-badge" style="background:#500203">Homestead</span>
           </div>
@@ -540,7 +540,7 @@ ul { list-style: none; }
     <h2 class="arvo">Not the right fit?</h2>
     <p>Many of our strongest properties never hit the public market. Tell us your acreage, county, and price point — we'll show you what's available privately.</p>
   </div>
-  <a href="../off-market.html" class="btn-gold">Ask About Off-Market</a>
+  <a href="off-market.html" class="btn-gold">Ask About Off-Market</a>
 </section>
 
 <footer class="footer">
@@ -552,19 +552,19 @@ ul { list-style: none; }
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
-      <a href="../index.html">Home</a>
-      <a href="../properties.html">All Properties</a>
-      <a href="../buying.html">Buying</a>
-      <a href="../selling.html">Selling</a>
-      <a href="../team.html">Our Team</a>
-      <a href="../contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="properties.html">All Properties</a>
+      <a href="buying.html">Buying</a>
+      <a href="selling.html">Selling</a>
+      <a href="team.html">Our Team</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
       <h4>Property Types</h4>
       <a href="../properties.html?tab=ranch">Ranch &amp; Farm Land</a>
       <a href="../properties.html?tab=homes">El Campo Area Homes</a>
       <a href="../properties.html?tab=1031">1031-Friendly Land</a>
-      <a href="../off-market.html">Off-Market</a>
+      <a href="off-market.html">Off-Market</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
@@ -576,7 +576,7 @@ ul { list-style: none; }
   </div>
   <div class="footer-bottom">
     <p>© 2026 J4 Legacy Properties, LLC · All Rights Reserved</p>
-    <a href="../privacy.html">Privacy Policy</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
 </footer>
 <div class="trec-bar">
