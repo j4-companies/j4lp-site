@@ -1,0 +1,1 @@
+'<div class="nav-logo-text">\n      <span class="brand-name">J4 <span>Legacy Properties</span></span>\n      <span class="brand-sub">Texas Land &amp; Ranch Real Estate</span>\n    </div>\n  </a>\n  <ul class="nav-links">\n    <li class="dropdown">\n      <a href="/properties">Properties</a>\n      <div class'
