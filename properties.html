@@ -223,6 +223,9 @@ ul { list-style: none; }
 /* ===== PROPERTY GRID ===== */
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
+.sold-empty { text-align: center; padding: 72px 32px; border: 1px dashed var(--light-gray); background: var(--off-white); }
+.sold-empty h3 { font-size: 22px; color: var(--maroon); margin-bottom: 12px; }
+.sold-empty p { font-size: 15px; color: var(--dark-gray); max-width: 460px; margin: 0 auto 24px; line-height: 1.7; }
 
 .prop-grid {
   display: grid;
@@ -655,7 +658,7 @@ ul { list-style: none; }
         <a href="properties.html?tab=ranch">Ranch &amp; Farm Land</a>
         <a href="properties.html?tab=homes">El Campo Area Homes</a>
         <a href="properties.html?tab=1031">1031-Friendly Land</a>
-        <a href="sold.html">Sold Listings</a>
+        <a href="properties.html?tab=sold">Sold Listings</a>
       </div>
     </li>
     <li class="dropdown">
@@ -739,6 +742,9 @@ ul { list-style: none; }
       </button>
       <button class="tab-btn" data-tab="1031" role="tab" aria-selected="false">
         1031-Friendly Land <span class="tab-count" id="count-1031">2</span>
+      </button>
+      <button class="tab-btn" data-tab="sold" role="tab" aria-selected="false">
+        Sold Listings <span class="tab-count" id="count-sold">0</span>
       </button>
     </div>
 
@@ -1104,6 +1110,15 @@ ul { list-style: none; }
       <div class="prop-grid" id="grid-1031"></div>
     </div>
 
+    <!-- SOLD TAB -->
+    <div class="tab-panel" id="tab-sold">
+      <div class="sold-empty">
+        <h3 class="arvo">No sold listings to show yet</h3>
+        <p>Recently closed J4 Legacy Properties deals will be featured here. In the meantime, take a look at what's available now.</p>
+        <a href="properties.html" class="btn-view">View Active Listings</a>
+      </div>
+    </div>
+
   </main><!-- end page-main -->
 
   <!-- SIDEBAR -->
@@ -1249,7 +1264,7 @@ ul { list-style: none; }
       <a href="properties.html?tab=homes">El Campo Area Homes</a>
       <a href="properties.html?tab=1031">1031-Friendly Land</a>
       <a href="off-market.html">Off-Market Inquiry</a>
-      <a href="sold.html">Sold Listings</a>
+      <a href="properties.html?tab=sold">Sold Listings</a>
     </div>
     <div class="footer-col">
       <h4>Service Area</h4>
@@ -1311,7 +1326,7 @@ document.getElementById('count-1031').textContent = e1031Count;
 // Tab switching
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
-const countMap = { all: allCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count };
+const countMap = { all: allCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count, sold: 0 };
 
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {

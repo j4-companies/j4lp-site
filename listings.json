@@ -3,6 +3,7 @@
     {
       "id": "hilago-ranch",
       "slug": "hilago-ranch",
+      "tags": ["Ranch", "1031 Exchange"],
       "status": "active",
       "featured": true,
       "badge": "Ranch Land",
@@ -78,6 +79,7 @@
     {
       "id": "hwy-60-frontage",
       "slug": "hwy-60-frontage",
+      "tags": ["Farm", "1031 Exchange"],
       "status": "contract",
       "featured": false,
       "badge": "Under Contract",
@@ -137,6 +139,7 @@
     {
       "id": "el-campo-mid-century",
       "slug": "el-campo-mid-century",
+      "tags": ["Community Connector", "El Campo"],
       "status": "active",
       "featured": false,
       "badge": "Home",
@@ -211,6 +214,7 @@
     {
       "id": "danevang-investment",
       "slug": "danevang-investment",
+      "tags": ["Community Connector", "Investment"],
       "status": "active",
       "featured": false,
       "badge": "Investment",
@@ -271,6 +275,7 @@
     {
       "id": "east-bernard-homestead",
       "slug": "east-bernard-homestead",
+      "tags": ["Home"],
       "status": "active",
       "featured": false,
       "badge": "Homestead",
@@ -345,6 +350,7 @@
     {
       "id": "richmond-cotton-farm",
       "slug": "richmond-cotton-farm",
+      "tags": ["Farm", "1031 Exchange"],
       "status": "active",
       "featured": false,
       "badge": "Farm Land",
@@ -408,6 +414,7 @@
     {
       "id": "limo-station-victoria",
       "slug": "limo-station-victoria",
+      "tags": ["Commercial", "Investment"],
       "status": "active",
       "featured": false,
       "badge": "Commercial",
@@ -479,6 +486,7 @@
     {
       "id": "horse-farm-property",
       "slug": "horse-farm-property",
+      "tags": ["Investment", "Community Connector", "El Campo"],
       "status": "active",
       "featured": false,
       "badge": "Home",
@@ -540,6 +548,7 @@
     {
       "id": "mexia-commercial-property",
       "slug": "mexia-commercial-property",
+      "tags": ["Investment", "Commercial"],
       "status": "active",
       "featured": false,
       "badge": "Commercial",
@@ -596,6 +605,7 @@
     {
       "id": "j4-homestead",
       "slug": "j4-homestead",
+      "tags": ["1031 Exchange", "Homestead", "Community Connector", "Farm"],
       "status": "contract",
       "featured": false,
       "badge": "Under Contract",

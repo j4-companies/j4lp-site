@@ -31,6 +31,7 @@ function buildSchema(l) {
     "@type": "RealEstateListing",
     "name": l.name,
     "description": l.description,
+    "keywords": (l.tags && l.tags.length ? l.tags.join(', ') + (l.keywords ? ', ' + l.keywords : '') : (l.keywords || '')),
     "url": `https://www.j4lp.com/properties/${l.slug}.html`,
     "image": l.heroImage ? `https://www.j4lp.com/${l.heroImage}` : '',
     "address": {
@@ -91,6 +92,13 @@ function buildSpecs(specs) {
             <span class="spec-val">${s.value}</span>
             <span class="spec-label">${s.label}</span>
           </div>`).join('');
+}
+
+// Build visible, crawlable tag chips (AEO/SEO signal)
+function buildTags(tags) {
+  if (!tags || !tags.length) return '';
+  const chips = tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
+  return `<div class="prop-tags" aria-label="Property tags">${chips}</div>`;
 }
 
 // Build image gallery HTML
@@ -181,7 +189,7 @@ function buildPage(l, all) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="${l.metaDescription}">
-<meta name="keywords" content="${l.keywords}">
+<meta name="keywords" content="${(l.tags && l.tags.length ? l.tags.join(', ') + ', ' : '')}${l.keywords}">
 <meta property="og:title" content="${l.metaTitle}">
 <meta property="og:description" content="${l.metaDescription}">
 <meta property="og:url" content="https://www.j4lp.com/properties/${l.slug}.html">
@@ -304,6 +312,8 @@ ul { list-style: none; }
 .spec-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); display: block; margin-top: 3px; }
 
 /* ===== DESCRIPTION ===== */
+.prop-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.tag-chip { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--maroon); background: var(--off-white); border: 1px solid var(--light-gray); border-radius: 999px; padding: 6px 14px; }
 .prop-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 17px; color: var(--dark-gray); line-height: 1.75; border-left: 3px solid var(--maroon); padding-left: 20px; margin-bottom: 28px; }
 .prop-section-title { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--light-gray); }
 .prop-description { font-size: 15px; color: var(--dark-gray); line-height: 1.85; margin-bottom: 40px; }
@@ -535,6 +545,9 @@ ${statusBanner}
     <div class="specs-bar">
       ${buildSpecs(l.specs)}
     </div>
+
+    <!-- TAGS -->
+    ${buildTags(l.tags)}
 
     <!-- TAGLINE -->
     <p class="prop-tagline lora">${l.tagline}</p>
