@@ -573,13 +573,13 @@ ${statusBanner}
         <div class="agent-avatar">${l.agentInitials}</div>
         <div class="agent-info">
           <strong>${l.agent}</strong>
-          <span>Listing Agent · J4 Legacy Properties</span>
+          <span>Listing Agent${l.agent.includes('&') ? 's' : ''} · J4 Legacy Properties</span>
         </div>
       </div>
 
       <div class="contact-direct">
         <strong>Contact Direct</strong>
-        <a href="tel:${l.agentPhone.replace(/-/g,'')}">📞 ${l.agentPhone}</a>
+        ${l.agentPhone.split(',').map(p => p.trim()).filter(Boolean).map(p => `<a href="tel:${p.replace(/[^0-9]/g,'')}">📞 ${p}</a>`).join('\n        ')}
         <a href="mailto:info@j4lp.com">✉ info@j4lp.com</a>
       </div>
 
