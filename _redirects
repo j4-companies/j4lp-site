@@ -9,5 +9,15 @@
 /soldlistings                   /properties.html            301
 /sold                           /properties.html            301
 
+# Expired listings — redirect old URLs to properties
+/edna-farm-400                  /properties.html            301
+/edna-farm-400.html             /properties.html            301
+/edna-farm-293                  /properties.html            301
+/edna-farm-293.html             /properties.html            301
+/properties/edna-farm-400       /properties.html            301
+/properties/edna-farm-400.html  /properties.html            301
+/properties/edna-farm-293       /properties.html            301
+/properties/edna-farm-293.html  /properties.html            301
+
 # Properties clean path (Netlify handles .html automatically, but belt-and-suspenders)
 /properties/*                   /properties/:splat          200
