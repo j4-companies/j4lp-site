@@ -607,27 +607,24 @@ ul { list-style: none; }
       <span class="join-form-label">Agent Inquiry</span>
       <div class="join-form-title arvo">Tell us about yourself.</div>
       <p class="join-form-sub">We'll reach out within one business day to schedule a no-pressure conversation about fit, structure, and what joining the team actually looks like.</p>
-      <form class="join-form" onsubmit="return handleJoinForm(event)">
-        <input type="text" placeholder="Your Name" autocomplete="name" required>
-        <input type="tel" placeholder="Phone Number" autocomplete="tel" required>
-        <input type="email" placeholder="Email Address" autocomplete="email" required>
-        <select required>
-          <option value="">TREC License Status</option>
-          <option>Active TREC License</option>
-          <option>Currently in pre-licensing</option>
-          <option>Not yet licensed — interested in learning more</option>
-        </select>
-        <select>
-          <option value="">Years of Real Estate Experience</option>
-          <option>0–1 years</option>
-          <option>1–3 years</option>
-          <option>3–5 years</option>
-          <option>5–10 years</option>
-          <option>10+ years</option>
-        </select>
-        <textarea placeholder="Tell us about your background, your connection to land or agriculture, and what you're looking for in a team..."></textarea>
-        <button type="submit" class="join-submit">Submit Agent Inquiry</button>
-      </form>
+      <iframe
+        src="https://link.communitymarketleader.com/widget/form/oxfycDUUPcOqGf7pkaBd"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-oxfycDUUPcOqGf7pkaBd"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="J4LP Website Intake Form"
+        data-height="1276"
+        data-layout-iframe-id="inline-oxfycDUUPcOqGf7pkaBd"
+        data-form-id="oxfycDUUPcOqGf7pkaBd"
+        title="J4LP Website Intake Form">
+      </iframe>
+      <script src="https://link.communitymarketleader.com/js/form_embed.js"></script>
     </div>
   </div>
 </section>
@@ -723,14 +720,6 @@ if (window.location.hash) {
   }, 300);
 }
 
-// Join form
-function handleJoinForm(e) {
-  e.preventDefault();
-  const form = e.target;
-  form.innerHTML = '<p style="font-family:\'Arvo\',serif;font-size:16px;font-weight:700;color:var(--maroon);margin-bottom:8px">Inquiry received.</p><p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.75">We\'ll reach out within one business day. In the meantime, feel free to call us directly at <a href="tel:8335435263" style="color:var(--white)">833-543-LAND</a>.</p>';
-  return false;
-}
-
 // Scroll fade-in
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
@@ -742,6 +731,5 @@ document.querySelectorAll('.animate, .team-card, .sioux-member, .join-perk').for
   observer.observe(el);
 });
 </script>
-<script src="forms.js"></script>
 </body>
 </html>
