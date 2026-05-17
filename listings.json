@@ -401,7 +401,7 @@
       "price": 299900,
       "priceDisplay": "$299,900",
       "priceContact": false,
-      "address": "Mexia, TX 76667",
+      "address": "1824 W Hwy 84, Mexia, TX 76667",
       "city": "Mexia",
       "county": "Limestone County",
       "state": "TX",
@@ -416,8 +416,8 @@
       "agentPhone": "281-323-1000",
       "heroImage": "images/listings/mexia-commercial-property/hero.JPG",
       "images": [],
-      "tagline": "2.5-acre commercial property in Mexia, TX with two outbuildings — a 68x38 custom metal building and a 24x64 portable building.",
-      "description": "Commercial property on 2.5 acres in Mexia, Texas (Limestone County). Improvements include a 68 x 38 custom metal building and a 24 x 64 portable building. Contact J4 Legacy Properties for full details and pricing.",
+      "tagline": "Highway 84 frontage commercial property in Mexia, TX — 2.5 acres with two outbuildings: a 68x38 custom metal building and a 24x64 portable building.",
+      "description": "Commercial property at 1824 W Hwy 84 in Mexia, Texas (Limestone County), with direct Highway 84 frontage. 2.5 acres improved with a 68 x 38 custom metal building and a 24 x 64 portable building. Contact J4 Legacy Properties for full details and pricing.",
       "highlights": [
         "2.5 acres — Mexia, Limestone County",
         "68 x 38 custom metal building",
@@ -433,7 +433,7 @@
         { "label": "Type", "value": "Commercial" }
       ],
       "metaTitle": "Mexia Commercial Property — 2.5 Acres, Limestone County TX | J4 Legacy Properties",
-      "metaDescription": "Commercial property for sale in Mexia, Texas — 2.5 acres with a 68x38 custom metal building and 24x64 portable building. $299,900. J4 Legacy Properties.",
+      "metaDescription": "Commercial property for sale at 1824 W Hwy 84, Mexia, Texas — 2.5 acres with Highway 84 frontage, a 68x38 custom metal building and 24x64 portable building. $299,900. J4 Legacy Properties.",
       "schemaType": "CommercialProperty",
       "keywords": "Mexia Texas commercial property, Limestone County commercial real estate, metal building property Mexia TX, commercial land for sale Mexia, Mexia TX property for sale"
     },

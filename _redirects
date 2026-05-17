@@ -19,5 +19,27 @@
 /properties/edna-farm-293       /properties.html            301
 /properties/edna-farm-293.html  /properties.html            301
 
+# Old root listing pages — superseded by /properties/<slug> (301 for bookmarks/SEO)
+/hilago-ranch                   /properties/hilago-ranch              301
+/hilago-ranch.html              /properties/hilago-ranch              301
+/hwy-60-frontage                /properties/hwy-60-frontage           301
+/hwy-60-frontage.html           /properties/hwy-60-frontage           301
+/el-campo-mid-century           /properties/el-campo-mid-century      301
+/el-campo-mid-century.html      /properties/el-campo-mid-century      301
+/danevang-investment            /properties/danevang-investment       301
+/danevang-investment.html       /properties/danevang-investment       301
+/east-bernard-homestead         /properties/east-bernard-homestead    301
+/east-bernard-homestead.html    /properties/east-bernard-homestead    301
+/richmond-cotton-farm           /properties/richmond-cotton-farm      301
+/richmond-cotton-farm.html      /properties/richmond-cotton-farm      301
+/limo-station-victoria          /properties/limo-station-victoria     301
+/limo-station-victoria.html     /properties/limo-station-victoria     301
+/horse-farm-property            /properties/horse-farm-property       301
+/horse-farm-property.html       /properties/horse-farm-property       301
+/mexia-commercial-property      /properties/mexia-commercial-property 301
+/mexia-commercial-property.html /properties/mexia-commercial-property 301
+/j4-homestead                   /properties/j4-homestead              301
+/j4-homestead.html              /properties/j4-homestead              301
+
 # Properties clean path (Netlify handles .html automatically, but belt-and-suspenders)
 /properties/*                   /properties/:splat          200
