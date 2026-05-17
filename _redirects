@@ -8,6 +8,7 @@
 # Sold listings: no page yet — send to properties
 /soldlistings                   /properties.html            301
 /sold                           /properties.html            301
+/sold.html                      /properties.html            301
 
 # Expired listings — redirect old URLs to properties
 /edna-farm-400                  /properties.html            301
