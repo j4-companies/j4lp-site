@@ -440,7 +440,7 @@ ul { list-style: none; }
     </li>
     <li><a href="../buying.html">Buying</a></li>
     <li><a href="../selling.html">Selling</a></li>
-    <li><a href="../team.html">Our Team</a></li>
+    <li><a href="../our-team.html">Our Team</a></li>
     <li><a href="../resources.html">Resources</a></li>
     <li><a href="../ecosystem.html">J4 Ecosystem</a></li>
   </ul>
@@ -455,7 +455,7 @@ ul { list-style: none; }
     <a href="../properties.html">Properties</a>
     <a href="../buying.html">Buying</a>
     <a href="../selling.html">Selling</a>
-    <a href="../team.html">Our Team</a>
+    <a href="../our-team.html">Our Team</a>
     <a href="../resources.html">Resources</a>
     <a href="../contact.html">Contact</a>
   </div>
@@ -608,7 +608,7 @@ ${buildRelated(l, all)}
       <a href="../properties.html">All Properties</a>
       <a href="../buying.html">Buying</a>
       <a href="../selling.html">Selling</a>
-      <a href="../team.html">Our Team</a>
+      <a href="../our-team.html">Our Team</a>
       <a href="../contact.html">Contact</a>
     </div>
     <div class="footer-col">
@@ -635,6 +635,7 @@ ${buildRelated(l, all)}
   J4 Legacy Properties, LLC · TREC Licensed Brokerage · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · j4lp.com
 </div>
 
+<script src="../forms.js"></script>
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));

@@ -1,0 +1,13 @@
+# J4LP — Netlify Redirects
+# Buying sub-pages: nav uses clean URLs, actual files have different names
+/buying/legacy-builders         /buying-legacy.html         301
+/buying/community-connectors    /buying-community.html      301
+/buying/strategic-exchangers    /buying-1031.html           301
+/buying/off-market              /off-market.html            301
+
+# Sold listings: no page yet — send to properties
+/soldlistings                   /properties.html            301
+/sold                           /properties.html            301
+
+# Properties clean path (Netlify handles .html automatically, but belt-and-suspenders)
+/properties/*                   /properties/:splat          200
