@@ -200,6 +200,12 @@ ul { list-style: none; }
 .join-form select { color: rgba(255,255,255,0.6); appearance: none; cursor: pointer; }
 .join-form select option { background: var(--black); color: var(--white); }
 .join-form textarea { resize: vertical; min-height: 100px; }
+.join-teams { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 24px; }
+.join-team { border: 1px solid rgba(255,255,255,0.12); padding: 16px 18px; }
+.join-team h4 { font-size: 15px; color: var(--white); margin-bottom: 4px; }
+.join-team p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.join-contact-line { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 14px; }
+.join-contact-line a { color: var(--white); font-weight: 700; }
 .join-submit { display: block; width: 100%; padding: 14px; background: var(--maroon); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
 .join-submit:hover { background: var(--maroon-mid); }
 
@@ -607,30 +613,21 @@ ul { list-style: none; }
       </div>
     </div>
     <div class="join-form-box animate">
-      <span class="join-form-label">Agent Inquiry</span>
-      <div class="join-form-title arvo">Tell us about yourself.</div>
-      <p class="join-form-sub">We'll reach out within one business day to schedule a no-pressure conversation about fit, structure, and what joining the team actually looks like.</p>
-      <form class="join-form" onsubmit="return handleJoinForm(event)">
-        <input type="text" placeholder="Your Name" autocomplete="name" required>
-        <input type="tel" placeholder="Phone Number" autocomplete="tel" required>
-        <input type="email" placeholder="Email Address" autocomplete="email" required>
-        <select required>
-          <option value="">TREC License Status</option>
-          <option>Active TREC License</option>
-          <option>Currently in pre-licensing</option>
-          <option>Not yet licensed — interested in learning more</option>
-        </select>
-        <select>
-          <option value="">Years of Real Estate Experience</option>
-          <option>0–1 years</option>
-          <option>1–3 years</option>
-          <option>3–5 years</option>
-          <option>5–10 years</option>
-          <option>10+ years</option>
-        </select>
-        <textarea placeholder="Tell us about your background, your connection to land or agriculture, and what you're looking for in a team..."></textarea>
-        <button type="submit" class="join-submit">Submit Agent Inquiry</button>
-      </form>
+      <span class="join-form-label">Join the Team</span>
+      <div class="join-form-title arvo">Interested? Let's talk.</div>
+      <p class="join-form-sub">No application to fill out. If building Texas land legacies sounds like your kind of work, reach out and tell us which team fits. We'll set up a no-pressure conversation about fit, structure, and what joining actually looks like.</p>
+      <div class="join-teams">
+        <div class="join-team">
+          <h4 class="arvo">The J4 Heritage Group</h4>
+          <p>Farm, ranch, and rural land team led by Cuatro &amp; Stephanie Strack.</p>
+        </div>
+        <div class="join-team">
+          <h4 class="arvo">The Sioux Smith Group</h4>
+          <p>Led by Sioux Smith inside J4 Legacy Properties.</p>
+        </div>
+      </div>
+      <a href="contact.html" class="join-submit" style="text-decoration:none;text-align:center;">Contact Us to Join</a>
+      <p class="join-contact-line">Or reach us directly: <a href="tel:8335435263">833-543-LAND</a> &middot; <a href="mailto:info@j4lp.com">info@j4lp.com</a></p>
     </div>
   </div>
 </section>
