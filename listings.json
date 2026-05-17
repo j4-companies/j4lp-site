@@ -101,7 +101,18 @@
       "agentInitials": "HS",
       "agentPhone": "979-253-4837",
       "heroImage": "images/listings/highway-60-frontage-tract/hero.jpg",
-      "images": [],
+      "images": [
+        "images/listings/highway-60-frontage-tract/photo-1.jpg",
+        "images/listings/highway-60-frontage-tract/photo-2.jpg",
+        "images/listings/highway-60-frontage-tract/photo-3.jpg",
+        "images/listings/highway-60-frontage-tract/photo-4.jpg",
+        "images/listings/highway-60-frontage-tract/photo-5.jpg",
+        "images/listings/highway-60-frontage-tract/photo-6.jpg",
+        "images/listings/highway-60-frontage-tract/photo-7.jpg",
+        "images/listings/highway-60-frontage-tract/photo-8.jpg",
+        "images/listings/highway-60-frontage-tract/photo-9.jpg",
+        "images/listings/highway-60-frontage-tract/photo-10.jpg"
+      ],
       "tagline": "60 acres with direct Highway 60 frontage in Matagorda County — 1031-qualified, investment-grade acreage in the heart of the Gulf Coast Brazos Bottom.",
       "description": "A 60-acre tract with direct State Highway 60 frontage in Matagorda County, Texas. This is investment-grade acreage in one of the most active land corridors on the Texas Gulf Coast. Qualified for 1031 exchange. Currently under contract — contact us to be notified of similar off-market opportunities in Matagorda County.",
       "highlights": [
