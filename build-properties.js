@@ -107,6 +107,26 @@ function buildGallery(images, name) {
     </div>`).join('');
 }
 
+// Build property video embed (YouTube). Accepts full watch URL,
+// youtu.be link, embed URL, or bare 11-char ID. Renders nothing if empty.
+function buildVideo(video, name) {
+  if (!video || !String(video).trim()) return '';
+  const v = String(video).trim();
+  let id = '';
+  const m = v.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  if (m) id = m[1];
+  else if (/^[A-Za-z0-9_-]{11}$/.test(v)) id = v;
+  if (!id) return '';
+  return `
+    <h2 class="prop-section-title arvo">Property Video</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${name} — property video"
+              frameborder="0" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>`;
+}
+
 // Build related listings (same category, different slug)
 function buildRelated(current, all) {
   const related = all
@@ -292,6 +312,10 @@ ul { list-style: none; }
 .highlights-list { margin-bottom: 40px; }
 .highlight-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 14px; color: var(--black); font-weight: 600; }
 .highlight-item svg { flex-shrink: 0; margin-top: 2px; }
+
+/* ===== VIDEO ===== */
+.video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; margin-bottom: 48px; background: var(--black); border: 1px solid var(--light-gray); }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 
 /* ===== GALLERY ===== */
 .gallery-section { margin-bottom: 48px; }
@@ -524,6 +548,9 @@ ${statusBanner}
     <ul class="highlights-list">
       ${buildHighlights(l.highlights)}
     </ul>
+
+    <!-- VIDEO -->
+    ${buildVideo(l.video, l.name)}
 
     <!-- GALLERY -->
     ${l.images && l.images.length > 0 ? `
