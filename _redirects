@@ -5,6 +5,10 @@
 /buying/strategic-exchangers    /buying-1031.html           301
 /buying/off-market              /off-market.html            301
 
+# Field Notes (blog): nav uses clean URLs
+/blog                           /blog.html                  301
+/field-notes                    /blog.html                  301
+
 # Sold listings: no dedicated page — send to the Sold tab
 /soldlistings                   /properties.html?tab=sold   301
 /sold                           /properties.html?tab=sold   301
