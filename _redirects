@@ -5,6 +5,18 @@
 /buying/strategic-exchangers    /buying-1031.html           301
 /buying/off-market              /off-market.html            301
 
+# Areas We Serve — clean URLs reflecting the topical hierarchy
+/areas-we-serve                                       /areas-we-serve.html         301
+/areas                                                /areas-we-serve.html         301
+/areas-we-serve/wharton-county                        /areas-wharton-county.html   301
+/areas/wharton-county                                 /areas-wharton-county.html   301
+/areas-we-serve/wharton-county/el-campo               /areas-el-campo.html         301
+/areas/wharton-county/el-campo                        /areas-el-campo.html         301
+/areas/el-campo                                       /areas-el-campo.html         301
+/el-campo                                             /areas-el-campo.html         301
+/el-campo-tx                                          /areas-el-campo.html         301
+/el-campo-texas-real-estate                           /areas-el-campo.html         301
+
 # Field Notes (blog): nav uses clean URLs
 /blog                           /blog.html                  301
 /field-notes                    /blog.html                  301
