@@ -1130,17 +1130,17 @@ ul { list-style: none; }
       <h3>Many of our deals start before a sign goes up.</h3>
       <p>Tell us what you're looking for. Acreage, county, price point, 1031 deadline. We'll surface options that never hit the public market.</p>
       <form class="sidebar-form" onsubmit="return false;">
-        <input type="text" placeholder="Your Name" autocomplete="name">
-        <input type="tel" placeholder="Phone Number" autocomplete="tel">
-        <input type="email" placeholder="Email Address" autocomplete="email">
-        <select>
+        <input type="text"  name="name"   placeholder="Your Name"     autocomplete="name"  required>
+        <input type="tel"   name="phone"  placeholder="Phone Number"  autocomplete="tel"   required>
+        <input type="email" name="email"  placeholder="Email Address" autocomplete="email" required>
+        <select name="buyer_type">
           <option value="">I am a...</option>
-          <option>Legacy Builder (Ranch / Farm $1M+)</option>
-          <option>Community Connector (El Campo Area Home)</option>
-          <option>Strategic Exchanger (1031 Investor)</option>
-          <option>Not sure yet</option>
+          <option value="Legacy Builder">Legacy Builder (Ranch / Farm $1M+)</option>
+          <option value="Community Connector">Community Connector (El Campo Area Home)</option>
+          <option value="Strategic Exchanger">Strategic Exchanger (1031 Investor)</option>
+          <option value="Not sure">Not sure yet</option>
         </select>
-        <textarea placeholder="What are you looking for? Acreage, county, timeline, budget..."></textarea>
+        <textarea name="message" placeholder="What are you looking for? Acreage, county, timeline, budget..."></textarea>
         <button type="submit" class="btn-full">Send My Criteria</button>
       </form>
     </div>

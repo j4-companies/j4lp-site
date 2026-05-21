@@ -119,29 +119,10 @@
   }
 
   // ── Wire forms on DOM ready ──
+  // Only the properties.html sidebar form is a native HTML form.
+  // Every other form on the site (contact, selling, off-market, team, property detail)
+  // is a Community Market Leader iframe — cross-origin, so JS handlers here can't reach it.
   document.addEventListener("DOMContentLoaded", () => {
-
-    // 1. CONTACT PAGE — main form
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-      contactForm.addEventListener("submit", e =>
-        handleSubmit(e, "contact",
-          "We'll be in touch same business day. If it's urgent, call us at 833-543-LAND."
-        )
-      );
-    }
-
-    // 2. SELLING PAGE — valuation form
-    const valForm = document.querySelector(".val-form");
-    if (valForm) {
-      valForm.addEventListener("submit", e =>
-        handleSubmit(e, "valuation",
-          "We'll reach out same business day to schedule your valuation call. If urgent, call 833-543-LAND."
-        )
-      );
-    }
-
-    // 3. PROPERTIES SIDEBAR — tell us what you're looking for
     const sidebarForm = document.querySelector(".sidebar-form");
     if (sidebarForm) {
       sidebarForm.addEventListener("submit", e =>
@@ -150,32 +131,6 @@
         )
       );
     }
-
-    // 4. PROPERTY DETAIL PAGES — inquiry form
-    const contactCardForm = document.querySelector(".contact-form");
-    if (contactCardForm && !document.getElementById("contactForm")) {
-      // Only on property pages (contact.html has #contactForm, property pages use .contact-form)
-      contactCardForm.addEventListener("submit", e =>
-        handleSubmit(e, "property_inquiry",
-          "Inquiry received. We'll be in touch same business day. Call 833-543-LAND if you need to move faster."
-        )
-      );
-    }
-
-    // 5. TEAM PAGE — join the team form
-    const joinForm = document.querySelector(".join-form");
-    if (joinForm) {
-      joinForm.addEventListener("submit", e =>
-        handleSubmit(e, "join_team",
-          "We'll reach out within one business day to schedule a conversation."
-        )
-      );
-    }
-
-    // 6. SIDEBAR VALUATION (selling page sidebar shortcut)
-    const sidebarValBtn = document.querySelector(".sidebar-btn.gold");
-    // Already handled by val-form above if present
-
   });
 
 })();
