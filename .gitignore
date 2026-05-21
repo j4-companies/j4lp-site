@@ -1,0 +1,22 @@
+# macOS junk
+.DS_Store
+**/.DS_Store
+
+# Editor + tooling
+.vscode/
+.idea/
+
+# Node / build artifacts (if ever added)
+node_modules/
+dist/
+.cache/
+
+# Secrets
+.env
+.env.*
+*.env
+*-secret*
+*-secrets*
+
+# Netlify local
+.netlify/
