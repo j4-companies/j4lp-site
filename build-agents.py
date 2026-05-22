@@ -85,18 +85,18 @@ AGENTS = [
         "first": "Sioux",
         "last": "Smith",
         "name": "Sioux Smith",
-        "title": "Co-Founder · Broker · Team Lead, Sioux Smith Group",
-        "hero_subtitle": "Co-Founder &amp; Broker, J4 Legacy Properties · Team Lead, Sioux Smith Group · Farm &amp; Ranch Specialist",
+        "title": "Co-Founder &amp; Broker, J4 Legacy Properties",
+        "hero_subtitle": "Co-Founder &amp; Broker, J4 Legacy Properties · Farm &amp; Ranch Specialist",
         "photo": "sioux.jpg",
         "phone_display": "254-541-6919",
         "phone_tel": "2545416919",
         "email": "sioux@j4lp.com",
         "trec": "650949",
-        "meta_desc": "Sioux Smith, Broker and Co-Founder of J4 Legacy Properties. Leads the Sioux Smith Group. WPRA Texas Circuit Finals qualifier and AQHA member. Farm and ranch real estate with deep equestrian land expertise across Texas.",
+        "meta_desc": "Sioux Smith, Broker and Co-Founder of J4 Legacy Properties. WPRA Texas Circuit Finals qualifier and AQHA member. Farm and ranch real estate with deep equestrian land expertise across Texas.",
         "bio_paragraphs": [
-            "Sioux Smith co-founded J4 Legacy Properties with her brother Cuatro Strack and her sister-in-law Stephanie Strack, and leads the Sioux Smith Group inside the brokerage. A trusted farm &amp; ranch real estate expert, Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
+            "Sioux Smith co-founded J4 Legacy Properties with her brother Cuatro Strack and her sister-in-law Stephanie Strack. A trusted farm &amp; ranch real estate expert, Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
             "Sioux grew up in El Campo and Lampasas, Texas. A graduate of Coastal Bend College, she and her family reside in Simonton, Texas.",
-            "Inside the brokerage, Sioux brings particular depth on horse properties, equestrian land, and the practical infrastructure questions that come with ranch ownership.",
+            "Sioux brings particular depth on horse properties, equestrian land, and the practical infrastructure questions that come with ranch ownership.",
         ],
         "areas_served": ["Farm &amp; ranch property anywhere in Texas", "Simonton, Fulshear, and the western Houston corridor", "Fort Bend, Wharton, Austin, Colorado counties", "Lampasas County and Central Texas"],
         "specialties": ["Farm &amp; ranch property", "Horse properties &amp; equestrian land", "Working cattle operations", "Coastal Bend &amp; Central Texas land"],
@@ -186,14 +186,14 @@ AGENTS = [
         "first": "Alexa",
         "last": "Emmons",
         "name": "Alexa Emmons",
-        "title": "Agent, Sioux Smith Group",
+        "title": "Agent, J4 Legacy Properties",
         "hero_subtitle": "Agent, J4 Legacy Properties · Professional Barrel Racer · Beefmaster Cattle Family",
         "photo": "alexa.jpg",
         "phone_display": "281-323-1000",
         "phone_tel": "2813231000",
         "email": "alexa@j4lp.com",
         "trec": "637684",
-        "meta_desc": "Alexa Emmons, Agent at J4 Legacy Properties (Sioux Smith Group). 10+ years in real estate. Serving Limestone, Freestone, and Navarro counties. Lives on a Beefmaster cattle ranch in Fairfield, TX.",
+        "meta_desc": "Alexa Emmons, Agent at J4 Legacy Properties. 10+ years in real estate. Serving Limestone, Freestone, and Navarro counties. Lives on a Beefmaster cattle ranch in Fairfield, TX.",
         "bio_paragraphs": [
             "A native Houstonian with a lifelong love of horses and real estate, Alexa followed both to College Station, TX, where she landed her first job in real estate as an executive assistant to a top-producing boutique brokerage. Her early years as a licensed agent gave her firsthand experience in rentals, investments, and rural acreage.",
             "Alongside her real estate career, Alexa is a professional barrel racer. She has competed in rodeos across the country and into Canada and earned multiple awards in the arena. That competitive drive translates directly into how she works for clients, she goes the extra mile every time.",
@@ -612,7 +612,9 @@ def build_agent(a):
         title_short = parts[1]
     else:
         title_short = parts[0]
-    team_tag = "J4 Heritage Group" if "Heritage" in a["title"] else ("Sioux Smith Group" if "Sioux" in a["title"] else "J4 Legacy Properties")
+    # J4 Heritage Group is the only TREC-registered team. All other agents are
+    # listed under the brokerage itself (J4 Legacy Properties) to stay compliant.
+    team_tag = "J4 Heritage Group" if "Heritage" in a["title"] else "J4 Legacy Properties"
     bio_html = "\n".join(f"        <p>{p}</p>" for p in a["bio_paragraphs"])
     areas_html = "\n".join(f"          <li>{x}</li>" for x in a["areas_served"])
     specialties_html = "\n".join(f"          <li>{x}</li>" for x in a["specialties"])
