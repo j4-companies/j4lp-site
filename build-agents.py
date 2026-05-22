@@ -94,9 +94,9 @@ AGENTS = [
         "trec": "650949",
         "meta_desc": "Sioux Smith, Broker and Co-Founder of J4 Legacy Properties. Leads the Sioux Smith Group. WPRA Texas Circuit Finals qualifier and AQHA member. Farm and ranch real estate with deep equestrian land expertise across Texas.",
         "bio_paragraphs": [
-            "Meet Sioux Smith, a trusted farm &amp; ranch real estate expert. Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
+            "Sioux Smith co-founded J4 Legacy Properties with her brother Cuatro Strack and her sister-in-law Stephanie Strack, and leads the Sioux Smith Group inside the brokerage. A trusted farm &amp; ranch real estate expert, Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
             "Sioux grew up in El Campo and Lampasas, Texas. A graduate of Coastal Bend College, she and her family reside in Simonton, Texas.",
-            "As the Team Lead of the Sioux Smith Group inside J4 Legacy Properties, Sioux brings particular depth on horse properties, equestrian land, and the practical infrastructure questions that come with ranch ownership.",
+            "Inside the brokerage, Sioux brings particular depth on horse properties, equestrian land, and the practical infrastructure questions that come with ranch ownership.",
         ],
         "areas_served": ["Farm &amp; ranch property anywhere in Texas", "Simonton, Fulshear, and the western Houston corridor", "Fort Bend, Wharton, Austin, Colorado counties", "Lampasas County and Central Texas"],
         "specialties": ["Farm &amp; ranch property", "Horse properties &amp; equestrian land", "Working cattle operations", "Coastal Bend &amp; Central Texas land"],
