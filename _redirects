@@ -26,6 +26,34 @@
 /team                           /our-team.html              301
 /team.html                      /our-team.html              301
 
+# Agent bio pages: clean URLs + legacy Squarespace slugs (/cuatro, /stephanie-1, etc.)
+/agents/cuatro-strack           /agents/cuatro-strack.html       301
+/agents/stephanie-strack        /agents/stephanie-strack.html    301
+/agents/sioux-smith             /agents/sioux-smith.html         301
+/agents/harleigh-strack         /agents/harleigh-strack.html     301
+/agents/kayla-strack            /agents/kayla-strack.html        301
+/agents/julia-velazquez         /agents/julia-velazquez.html     301
+/agents/alexa-emmons            /agents/alexa-emmons.html        301
+/agents/rozanna-roach           /agents/rozanna-roach.html       301
+/agents/mason-abshire           /agents/mason-abshire.html       301
+/cuatro                         /agents/cuatro-strack.html       301
+/stephanie                      /agents/stephanie-strack.html    301
+/stephanie-1                    /agents/stephanie-strack.html    301
+/sioux                          /agents/sioux-smith.html         301
+/sioux-1                        /agents/sioux-smith.html         301
+/harleigh                       /agents/harleigh-strack.html     301
+/harleigh-1                     /agents/harleigh-strack.html     301
+/kayla                          /agents/kayla-strack.html        301
+/kayla-1                        /agents/kayla-strack.html        301
+/julia                          /agents/julia-velazquez.html     301
+/julia-1                        /agents/julia-velazquez.html     301
+/alexa                          /agents/alexa-emmons.html        301
+/alexa-1                        /agents/alexa-emmons.html        301
+/rozanna                        /agents/rozanna-roach.html       301
+/roz                            /agents/rozanna-roach.html       301
+/mason                          /agents/mason-abshire.html       301
+/mason-1                        /agents/mason-abshire.html       301
+
 # Sold listings: no dedicated page — send to the Sold tab
 /soldlistings                   /properties.html?tab=sold   301
 /sold                           /properties.html?tab=sold   301

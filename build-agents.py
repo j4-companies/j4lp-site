@@ -1,0 +1,638 @@
+#!/usr/bin/env python3
+"""Generate individual agent bio pages under /agents/ from per-agent data."""
+import os, json
+
+AGENTS = [
+    {
+        "slug": "cuatro-strack",
+        "first": "Cuatro",
+        "last": "Strack",
+        "name": "Cuatro Strack",
+        "title": "Co-Founder · Broker of Record · Team Lead, J4 Heritage Group",
+        "hero_subtitle": "Broker, J4 Legacy Properties · Owner, J4 Fencing & Services",
+        "photo": "cuatro.jpg",
+        "phone_display": "979-541-7248",
+        "phone_tel": "9795417248",
+        "email": "cuatro@j4lp.com",
+        "trec": "655595",
+        "meta_desc": "Cuatro Strack, Broker of Record at J4 Legacy Properties. Owner of J4 Fencing & Services. Texas A&M graduate, lifelong rancher, decades of ranch construction expertise. Serving farm and ranch buyers and sellers across Texas.",
+        "bio_paragraphs": [
+            "Owner of J4 Fencing & Services, LLC, Cuatro has established himself as one of Texas's leading experts on ranch construction and development. Cuatro grew up in rural Wharton County and has been involved in the farming and ranching industry his whole life.",
+            "As a high school student in El Campo, Texas, in 1994, Cuatro began building high fences for deer and exotic game, security fencing, and field fencing as a part-time profession. He continued to build his company while attending Texas A&amp;M University, where he and his wife graduated in 2002.",
+            "Since then, the Stracks have created a comprehensive fencing and building solutions business that serves clients across the country. As a result of his successful fencing business, he has developed relationships with hundreds of ranch owners. Through these relationships, he is able to market high-end ranches to an elite network of buyers.",
+            "Cuatro resides in El Campo, Texas, with his wife and four children. For more information on J4 Fencing &amp; Services, visit <a href=\"https://www.j4fs.com\" target=\"_blank\" rel=\"noopener\">www.j4fs.com</a>.",
+        ],
+        "areas_served": ["Texas (statewide farm &amp; ranch)", "Wharton County (home base)", "El Campo and surrounding Gulf Coast Brazos Bottom"],
+        "specialties": ["High-end ranch sales", "Farm &amp; ranch property", "Ranch construction &amp; development", "Off-market ranch network", "Land valuation &amp; infrastructure assessment"],
+        "designations": ["Texas A&amp;M University, BS 2002", "Owner, J4 Fencing &amp; Services, LLC", "Broker of Record, J4 Legacy Properties"],
+    },
+    {
+        "slug": "stephanie-strack",
+        "first": "Stephanie",
+        "last": "Strack",
+        "name": "Stephanie Strack",
+        "title": "Co-Founder · Delegated Supervisor · Team Lead, J4 Heritage Group",
+        "hero_subtitle": "Agent &amp; Delegated Supervisor, J4 Legacy Properties · CFO, J4 Companies",
+        "photo": "stephanie.jpg",
+        "phone_display": "979-637-0211",
+        "phone_tel": "9796370211",
+        "email": "stephanie@j4lp.com",
+        "trec": "834781",
+        "meta_desc": "Stephanie Strack, Co-Founder and Delegated Supervisor of J4 Legacy Properties. Texas A&M Horticultural Sciences graduate, RENE certified, 20+ years building the J4 Companies ecosystem. Farm and ranch real estate across Texas.",
+        "bio_paragraphs": [
+            "Co-owner of J4 Fencing &amp; Services, LLC alongside her husband Cuatro, Stephanie has established herself as a successful entrepreneur and strategic business builder with over 20 years of experience creating and operating multiple companies. Stephanie grew up in a family of aviators and cropdusters in Texas, giving her a unique perspective on agricultural operations and rural life.",
+            "She graduated from Texas A&amp;M University in 2002 with a Bachelor of Science in Horticultural Sciences, bringing deep agricultural knowledge and land management expertise to her real estate practice. Since graduation, the Stracks have built a connected ecosystem of businesses including J4 Fencing &amp; Services, J4 Water Works, J4 Real Estate, J4 Prefabricated Homes, White Wing Estates, and White Wing Storage, all serving clients across Texas and beyond.",
+            "In 2025, Stephanie obtained her Texas real estate license and earned her RENE (Real Estate Negotiation Expert) certification.",
+            "As the Delegated Supervisor for J4 Legacy Properties, Stephanie's primary focus is supporting and building a world-class team of agents. Her strengths lie in developing systems and processes that allow agents to operate at their full potential, and she has invested heavily in marketing infrastructure to support the growth of The J4 Heritage Group within J4 Legacy Properties.",
+            "Stephanie's business management experience, combined with her focus on team development and operational rigor, makes her a resource for both clients and agents. Through her work at J4 Legacy Properties, she continues the family legacy of integrity, hard work, and service alongside her daughters Harleigh and Kayla, who are both licensed agents on the team.",
+            "In her spare time, Stephanie serves as 4-H Manager for the Wharton County Homeschool Group, participates in mission trips, and serves as President of CT Memorial, which raises money for kids with grit in the area in memory of her brother, Cody Thompson. Stephanie resides in El Campo, Texas, with her husband and four children.",
+        ],
+        "areas_served": ["Texas (statewide farm &amp; ranch)", "Wharton County (home base)", "El Campo, Bay City, Boling, East Bernard"],
+        "specialties": ["Farm &amp; ranch real estate", "Team development &amp; agent support", "Negotiation (RENE certified)", "Marketing &amp; brand systems", "Cross-business J4 ecosystem coordination"],
+        "designations": ["Texas A&amp;M University, BS Horticultural Sciences 2002", "RENE, Real Estate Negotiation Expert", "Delegated Supervisor, J4 Legacy Properties", "President, CT Memorial"],
+    },
+    {
+        "slug": "sioux-smith",
+        "first": "Sioux",
+        "last": "Smith",
+        "name": "Sioux Smith",
+        "title": "Co-Founder · Broker · Team Lead, Sioux Smith Group",
+        "hero_subtitle": "Broker, J4 Legacy Properties · Farm &amp; Ranch Specialist",
+        "photo": "sioux.jpg",
+        "phone_display": "254-541-6919",
+        "phone_tel": "2545416919",
+        "email": "sioux@j4lp.com",
+        "trec": "650949",
+        "meta_desc": "Sioux Smith, Broker and Co-Founder of J4 Legacy Properties. Leads the Sioux Smith Group. WPRA Texas Circuit Finals qualifier and AQHA member. Farm and ranch real estate with deep equestrian land expertise across Texas.",
+        "bio_paragraphs": [
+            "Meet Sioux Smith, a trusted farm &amp; ranch real estate expert. Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
+            "Sioux grew up in El Campo and Lampasas, Texas. A graduate of Coastal Bend College, she and her family reside in Simonton, Texas.",
+            "As the Team Lead of the Sioux Smith Group inside J4 Legacy Properties, Sioux brings particular depth on horse properties, equestrian land, and the practical infrastructure questions that come with ranch ownership.",
+        ],
+        "areas_served": ["Farm &amp; ranch property anywhere in Texas", "Simonton, Fulshear, and the western Houston corridor", "Fort Bend, Wharton, Austin, Colorado counties", "Lampasas County and Central Texas"],
+        "specialties": ["Farm &amp; ranch property", "Horse properties &amp; equestrian land", "Working cattle operations", "Coastal Bend &amp; Central Texas land"],
+        "designations": ["Coastal Bend College graduate", "WPRA (Women's ProRodeo Association) member", "AQHA (American Quarter Horse Association) member", "WPRA Texas Circuit Finals qualifier"],
+    },
+    {
+        "slug": "harleigh-strack",
+        "first": "Harleigh",
+        "last": "Strack",
+        "name": "Harleigh Strack",
+        "title": "Agent, J4 Heritage Group",
+        "hero_subtitle": "Agent, J4 Legacy Properties · Founder, High Standards Power Solutions",
+        "photo": "harleigh.jpg",
+        "phone_display": "979-253-4837",
+        "phone_tel": "9792534837",
+        "email": "harleigh@j4lp.com",
+        "trec": "810470",
+        "meta_desc": "Harleigh Strack, Agent at J4 Legacy Properties and Founder of High Standards Power Solutions. Texas A&M Class of 2025, commercial pilot, raised whitetail deer and Brahman cattle. Farm and ranch real estate across Texas.",
+        "bio_paragraphs": [
+            "Growing up alongside her father, Cuatro Strack, the Broker of J4 Legacy Properties, Harleigh learned the value of integrity, hard work, and quality land from an early age. Her experience raising whitetail deer and Brahman cattle has given her an authentic understanding of what buyers and sellers need when investing in farm and ranch properties.",
+            "Driven and accomplished, Harleigh has been pursuing her goals since she was young, earning her Commercial Single and Multi-Engine Pilot's License and Certified Flight Instructor (CFI) certification, as well as her real estate license and manufactured home salesperson license.",
+            "A proud Texas A&amp;M Class of 2025 graduate, Harleigh is the founder of <strong>High Standards Power Solutions, LLC</strong>, a backup generator sales, installation, and maintenance business serving Texas customers with reliable power solutions. She is also a real estate investor, a combination that reflects her ambition and commitment to building things that last.",
+        ],
+        "areas_served": ["Farm and ranch property throughout Texas", "Wharton, Matagorda, Austin, Colorado, Lavaca, Jackson counties", "Hunting land and ag-exempt acreage"],
+        "specialties": ["Farm &amp; ranch property", "Hunting land &amp; wildlife exemption", "Manufactured home sales", "Land with infrastructure needs (water, power, fencing)"],
+        "designations": ["Texas A&amp;M University, Class of 2025", "Commercial Single &amp; Multi-Engine Pilot's License", "Certified Flight Instructor (CFI)", "Texas Real Estate License", "Manufactured Home Salesperson License", "Founder, High Standards Power Solutions, LLC"],
+    },
+    {
+        "slug": "kayla-strack",
+        "first": "Kayla",
+        "last": "Strack",
+        "name": "Kayla Strack",
+        "title": "Agent, J4 Heritage Group",
+        "hero_subtitle": "Agent, J4 Legacy Properties · El Campo Native",
+        "photo": "kayla.jpg",
+        "phone_display": "979-332-9246",
+        "phone_tel": "9793329246",
+        "email": "kayla@j4lp.com",
+        "trec": "829525",
+        "meta_desc": "Kayla Strack, Agent at J4 Legacy Properties. Lifelong El Campo resident with deep local market knowledge. Helping buyers and sellers in Wharton County and surrounding Texas counties.",
+        "bio_paragraphs": [
+            "Kayla is a dedicated real estate agent based in El Campo, Texas. Ready to dive into the real estate world, Kayla is focused on helping clients find homes and land that fit their life and on making real connections through the process.",
+            "As a lifelong resident of El Campo, she has a deep understanding of the local market and a strong commitment to serving her community. Whether buying or selling, Kayla guides clients through the process with personal service and a fresh perspective.",
+        ],
+        "areas_served": ["El Campo, Texas (home base)", "Wharton County", "Surrounding counties: Matagorda, Jackson, Colorado, Austin"],
+        "specialties": ["El Campo area homes &amp; small acreage", "First-time buyers", "Local market knowledge", "Community-focused service"],
+        "designations": ["Texas Real Estate License", "Lifelong El Campo, TX resident"],
+    },
+    {
+        "slug": "julia-velazquez",
+        "first": "Julia",
+        "last": "Velazquez",
+        "name": "Julia Velazquez",
+        "title": "Agent, J4 Heritage Group",
+        "hero_subtitle": "Agent, J4 Legacy Properties · J4 Prefabricated Homes &amp; J4 Water Works Sales",
+        "photo": "julia.jpg",
+        "phone_display": "979-320-7285",
+        "phone_tel": "9793207285",
+        "email": "julia@j4lp.com",
+        "trec": "826810",
+        "meta_desc": "Julia Velazquez, Agent at J4 Legacy Properties. El Campo native, WCJC graduate, Licensed Vocational Nurse, known for tenacious work ethic and consistent communication. Real estate in Wharton County and surrounding Texas.",
+        "bio_paragraphs": [
+            "Julia Velazquez is a proud native of El Campo, TX, where she continues to call home. She earned an Associate's Degree in General Studies from WCJC and is a Licensed Vocational Nurse.",
+            "Julia is known for her tenacious work ethic and her dedication to her clients. She maintains constant communication throughout the process and consistently goes above and beyond typical Realtor duties. Julia is committed to making each real estate transaction smooth and clear, from first conversation to closing.",
+            "In addition to her real estate work, Julia supports sales at J4 Prefabricated Homes and J4 Water Works, giving her a strong working knowledge of the full J4 Companies ecosystem and what it takes to put together a complete rural property package.",
+        ],
+        "areas_served": ["El Campo, TX (home base)", "Wharton County", "Surrounding counties: Matagorda, Jackson, Colorado, Austin", "Bilingual service available"],
+        "specialties": ["El Campo area homes &amp; acreage", "Buyer and seller representation", "J4 Prefabricated Homes coordination", "J4 Water Works (well &amp; septic) coordination"],
+        "designations": ["Associate's Degree, WCJC (Wharton County Junior College)", "Licensed Vocational Nurse (LVN)", "Texas Real Estate License"],
+    },
+    {
+        "slug": "alexa-emmons",
+        "first": "Alexa",
+        "last": "Emmons",
+        "name": "Alexa Emmons",
+        "title": "Agent, Sioux Smith Group",
+        "hero_subtitle": "Agent, J4 Legacy Properties · Professional Barrel Racer · Beefmaster Cattle Family",
+        "photo": "alexa.jpg",
+        "phone_display": "281-323-1000",
+        "phone_tel": "2813231000",
+        "email": "alexa@j4lp.com",
+        "trec": "637684",
+        "meta_desc": "Alexa Emmons, Agent at J4 Legacy Properties (Sioux Smith Group). 10+ years in real estate with deep experience in the College Station and Texas A&M growth corridor. Lives on a Beefmaster cattle ranch in Fairfield, TX.",
+        "bio_paragraphs": [
+            "A native Houstonian with a lifelong love of horses and real estate, Alexa followed both to College Station, TX, where she landed her first job in real estate as an executive assistant to a top-producing boutique brokerage. Her early years as a licensed agent gave her firsthand experience in the growth around Texas A&amp;M, from rentals to investments.",
+            "Alongside her real estate career, Alexa is a professional barrel racer. She has competed in rodeos across the country and into Canada and earned multiple awards in the arena. That competitive drive translates directly into how she works for clients, she goes the extra mile every time.",
+            "Marriage and children eventually slowed life down, and her family now lives on the family's Beefmaster cattle ranch in Fairfield, TX. With over 10 years of experience in real estate, Alexa has the knowledge and the judgment to guide buyers and sellers through what can be a complicated process.",
+        ],
+        "areas_served": ["Fairfield, TX (home base, Freestone County)", "College Station, Bryan, and the Texas A&amp;M growth corridor", "Brazos Valley and Central East Texas", "Cattle ranch &amp; rural acreage statewide"],
+        "specialties": ["Cattle ranch &amp; working ag property", "College Station / Bryan investment properties", "Rentals &amp; multi-property investors", "Buyers relocating from Houston"],
+        "designations": ["Texas Real Estate License", "10+ years of real estate experience", "Professional barrel racer (multi-region competitor)", "Beefmaster cattle family"],
+    },
+    {
+        "slug": "rozanna-roach",
+        "first": "Rozanna",
+        "last": "Roach",
+        "name": "Rozanna Roach",
+        "title": "Agent, J4 Heritage Group",
+        "hero_subtitle": "Agent, J4 Legacy Properties · Rosenberg, TX",
+        "photo": "rozanna.jpg",
+        "phone_display": "281-615-2355",
+        "phone_tel": "2816152355",
+        "email": "rozanna@j4lp.com",
+        "trec": "825241",
+        "meta_desc": "Rozanna (Roz) Roach, Agent at J4 Legacy Properties based in Rosenberg, TX. 25+ years in education before real estate. Service-first approach for buyers and sellers in Fort Bend, Wharton, and surrounding Texas counties.",
+        "bio_paragraphs": [
+            "Roz Roach brings a strong foundation of hard work, integrity, and service to her role at J4 Legacy Properties. Raised with small-town values, she developed a deep appreciation for community, connection, and a genuine way of life, principles that continue to guide her today. Now based in Rosenberg, Texas, she remains rooted in those same values.",
+            "Family is at the center of Rozanna's life. She is a proud mother of two grown children, both happily married, and a joyful grandmother (\"Lolly\") to four grandchildren. She enjoys staying active, spending time outdoors, and making meaningful memories with her family.",
+            "Before transitioning into real estate, Rozanna spent over 25 years in education as an administrative assistant, supporting leadership and working alongside teams across multiple departments. Her career has always been centered around service, anticipating needs, solving problems, and ensuring others feel supported and valued.",
+            "Rozanna brings that same commitment into real estate. She believes every client deserves an agent who listens, understands their goals, and operates with honesty and care throughout the entire process. Whether you're buying your first home, searching for your next chapter, or selling a property filled with memories, Rozanna is there to make each step smooth and meaningful.",
+        ],
+        "areas_served": ["Rosenberg, TX (home base)", "Fort Bend County", "Wharton County (East Bernard, Wharton, Louise)", "Greater Houston southwest corridor"],
+        "specialties": ["Homes &amp; small acreage", "Move-up and downsizing buyers", "Sellers with legacy properties", "Service-first communication"],
+        "designations": ["Texas Real Estate License", "25+ years administrative leadership experience", "Based in Rosenberg, TX"],
+    },
+    {
+        "slug": "mason-abshire",
+        "first": "Mason",
+        "last": "Abshire",
+        "name": "Mason Abshire",
+        "title": "Agent, J4 Heritage Group",
+        "hero_subtitle": "Agent, J4 Legacy Properties · Fourth-Generation North Texan",
+        "photo": "mason.jpg",
+        "phone_display": "970-406-1187",
+        "phone_tel": "9704061187",
+        "email": "mason@j4lp.com",
+        "trec": "834823",
+        "meta_desc": "Mason Abshire, Agent at J4 Legacy Properties. Fourth-generation North Texan, TCU graduate, conservationist, and entrepreneur. Land sales and recreational property specialist serving North Texas and beyond.",
+        "bio_paragraphs": [
+            "A proud fourth-generation North Texan, Mason Abshire was born and raised in Fort Worth, where his roots in the land run deep. After earning his degree from Texas Christian University, Mason built a career centered on adventure and appreciation for the outdoors, working with leading outdoor expedition companies across Texas and Colorado. These experiences shaped his understanding of the land's beauty, value, and potential, insight he now brings to every client relationship.",
+            "An entrepreneur at heart, Mason owns and operates three businesses: a property management services company partnering with commercial and private clients, a commercial mowing company, and a personal training studio focused on helping others live healthy, active lives. That multi-business experience gives him a useful perspective on land stewardship, property ownership, and the lifestyle that comes with both.",
+            "As a landowner and conservationist, Mason is committed to preserving the natural character of Texas while helping others find their own piece of it. His focus is on matching discerning buyers with properties where heritage, potential, and natural beauty come together.",
+            "Outside of work, Mason finds joy in the great outdoors, whether hiking, biking, canoeing, snowboarding, or rafting, and cherishes every opportunity to share those experiences with his wife and their two children. He continues to explore and celebrate the Texas landscapes that inspire his work every day.",
+        ],
+        "areas_served": ["Fort Worth and the DFW Metroplex", "North Texas recreational and ranch acreage", "Hunting land and conservation-minded buyers", "Texas statewide for the right client"],
+        "specialties": ["Recreational and outdoor lifestyle properties", "Land conservation &amp; stewardship", "Property management", "Investment land &amp; multi-property buyers"],
+        "designations": ["Texas Christian University graduate", "Texas Real Estate License", "Owner/Operator, three Texas businesses (property management, commercial mowing, personal training)", "Fourth-generation Texan"],
+    },
+]
+
+
+HTML_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{meta_desc}">
+<meta name="keywords" content="{name}, J4 Legacy Properties agent, {title_plain}, Texas land agent, ranch real estate Texas, El Campo real estate, Wharton County, J4 Heritage Group">
+<meta property="og:title" content="{name}, {title_short} | J4 Legacy Properties">
+<meta property="og:description" content="{meta_desc}">
+<meta property="og:url" content="https://www.j4lp.com/agents/{slug}">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://www.j4lp.com/images/team/{photo}">
+<title>{name}, {title_short} | J4 Legacy Properties | El Campo, TX</title>
+<link rel="canonical" href="https://www.j4lp.com/agents/{slug}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Nunito:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{schema_json}
+</script>
+<style>
+*, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+html {{ scroll-behavior: smooth; }}
+body {{ font-family: 'Nunito', sans-serif; color: #131414; background: #fff; overflow-x: hidden; line-height: 1.6; }}
+img {{ max-width: 100%; display: block; }}
+a {{ text-decoration: none; color: inherit; }}
+ul {{ list-style: none; }}
+:root {{
+  --maroon: #500203; --maroon-mid: #6b0304; --gold: #c8a96e; --gold-light: #e8d4a8;
+  --black: #131414; --charcoal: #1e1e1e; --dark-gray: #7F8194; --mid-gray: #a0a0a8;
+  --light-gray: #d3d5e4; --off-white: #f7f5f0; --warm-white: #faf9f6; --white: #ffffff;
+  --nav-height: 80px;
+}}
+.arvo {{ font-family: 'Arvo', serif; }}
+.lora {{ font-family: 'Lora', serif; }}
+
+/* TOPBAR */
+.topbar {{ background: var(--black); padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; }}
+.topbar-left {{ font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }}
+.topbar-right {{ display: flex; gap: 24px; align-items: center; }}
+.topbar-right a {{ font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }}
+.topbar-right a:hover {{ color: var(--gold); }}
+.topbar-phone {{ color: var(--gold) !important; font-weight: 700; }}
+
+/* NAV */
+.nav {{ position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }}
+.nav.scrolled {{ box-shadow: 0 2px 20px rgba(0,0,0,0.12); }}
+.nav-logo-text .brand-name {{ font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); letter-spacing: 0.04em; }}
+.nav-logo-text .brand-name span {{ color: var(--maroon); }}
+.nav-logo-text .brand-sub {{ font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dark-gray); margin-top: 2px; }}
+.nav-links {{ display: flex; gap: 32px; align-items: center; }}
+.nav-links > li > a {{ font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black); padding: 8px 0; transition: color 0.2s; display: block; }}
+.nav-links > li > a:hover {{ color: var(--maroon); }}
+.dropdown {{ position: relative; }}
+.dropdown-menu {{ display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 3px solid var(--maroon); box-shadow: 0 12px 40px rgba(0,0,0,0.12); z-index: 100; }}
+.dropdown:hover .dropdown-menu {{ display: block; }}
+.dropdown-menu a {{ display: block; padding: 11px 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); border-bottom: 1px solid rgba(0,0,0,0.05); transition: background 0.15s, color 0.15s; }}
+.dropdown-menu a:hover {{ background: var(--off-white); color: var(--maroon); }}
+.nav-cta {{ background: var(--maroon); color: var(--white) !important; padding: 11px 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; }}
+.nav-cta:hover {{ background: var(--maroon-mid); }}
+.nav-hamburger {{ display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }}
+.nav-hamburger span {{ display: block; width: 24px; height: 2px; background: var(--black); }}
+.mobile-menu {{ display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--black); z-index: 2000; flex-direction: column; padding: 40px; overflow-y: auto; }}
+.mobile-menu.open {{ display: flex; }}
+.mobile-close {{ position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; }}
+.mobile-logo {{ font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }}
+.mobile-logo span {{ color: var(--gold); }}
+.mobile-links a {{ display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }}
+.mobile-contact {{ margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }}
+.mobile-contact a {{ color: var(--gold); }}
+
+/* BREADCRUMB */
+.breadcrumb-bar {{ padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }}
+.breadcrumb {{ font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark-gray); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }}
+.breadcrumb a {{ color: var(--dark-gray); transition: color 0.2s; }}
+.breadcrumb a:hover {{ color: var(--maroon); }}
+.breadcrumb-sep {{ color: var(--light-gray); }}
+.breadcrumb-current {{ color: var(--maroon); }}
+
+/* AGENT HERO */
+.agent-hero {{ background: var(--off-white); padding: 64px 80px 48px; border-bottom: 1px solid var(--light-gray); }}
+.agent-hero-inner {{ max-width: 1200px; margin: 0 auto; }}
+.agent-team-tag {{ font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }}
+.agent-team-tag::before {{ content: ''; display: block; width: 20px; height: 1px; background: var(--maroon); }}
+.agent-hero h1 {{ font-family: 'Arvo', serif; font-size: clamp(36px, 6vw, 72px); font-weight: 700; color: var(--maroon); line-height: 1.05; margin-bottom: 14px; }}
+.agent-hero-sub {{ font-family: 'Lora', serif; font-style: italic; font-size: clamp(16px, 1.6vw, 20px); color: var(--dark-gray); line-height: 1.5; max-width: 760px; }}
+
+/* AGENT BODY */
+.agent-body {{ padding: 56px 80px; }}
+.agent-body-inner {{ max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }}
+.agent-left {{ }}
+.agent-right {{ position: sticky; top: calc(var(--nav-height) + 24px); }}
+.agent-bio p {{ font-size: 16px; color: var(--charcoal); line-height: 1.85; margin-bottom: 18px; }}
+.agent-bio p a {{ color: var(--maroon); border-bottom: 1px solid var(--maroon); }}
+.agent-bio p a:hover {{ background: var(--maroon); color: var(--white); }}
+
+.section-block {{ margin-top: 40px; }}
+.section-block h2 {{ font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--light-gray); }}
+.section-block ul {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }}
+.section-block li {{ font-size: 14px; color: var(--charcoal); padding: 6px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }}
+.section-block li::before {{ content: '·'; color: var(--maroon); font-weight: 700; font-size: 18px; line-height: 1; }}
+
+/* AGENT PHOTO + CONTACT CARD */
+.agent-photo-wrap {{ overflow: hidden; margin-bottom: 18px; background: var(--off-white); aspect-ratio: 4/5; }}
+.agent-photo-wrap img {{ width: 100%; height: 100%; object-fit: cover; }}
+.agent-contact-card {{ background: var(--black); padding: 28px; color: var(--white); }}
+.agent-contact-card .label {{ font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }}
+.agent-contact-card .row {{ display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }}
+.agent-contact-card .row:last-of-type {{ border-bottom: none; }}
+.agent-contact-card .row svg {{ width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }}
+.agent-contact-card .row a {{ color: var(--white); font-weight: 700; font-size: 15px; }}
+.agent-contact-card .row a:hover {{ color: var(--gold); }}
+.agent-contact-card .trec {{ margin-top: 14px; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; }}
+.agent-contact-card .trec a {{ color: rgba(255,255,255,0.5); }}
+.agent-contact-card .trec a:hover {{ color: var(--gold); }}
+.agent-contact-card .btn-contact {{ display: block; text-align: center; padding: 14px; background: var(--maroon); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 18px; transition: background 0.2s; }}
+.agent-contact-card .btn-contact:hover {{ background: var(--maroon-mid); }}
+
+/* CTA STRIP */
+.agent-cta {{ background: var(--maroon); padding: 56px 80px; }}
+.agent-cta-inner {{ max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }}
+.agent-cta h2 {{ font-family: 'Arvo', serif; font-size: clamp(20px, 2.4vw, 28px); color: var(--white); margin-bottom: 8px; line-height: 1.3; }}
+.agent-cta p {{ font-size: 14px; color: rgba(255,255,255,0.7); max-width: 560px; line-height: 1.7; }}
+.btn-gold {{ background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }}
+.btn-gold:hover {{ background: var(--gold-light); }}
+
+/* FOOTER */
+.footer {{ background: var(--charcoal); padding: 56px 80px 36px; }}
+.footer-top {{ display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px; }}
+.footer-brand-name {{ font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 4px; }}
+.footer-brand-name span {{ color: var(--gold); }}
+.footer-tagline {{ font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 14px; }}
+.footer-about {{ font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }}
+.footer-col h4 {{ font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }}
+.footer-col a {{ display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; transition: color 0.2s; }}
+.footer-col a:hover {{ color: var(--white); }}
+.footer-bottom {{ display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }}
+.footer-bottom p, .footer-bottom a {{ font-size: 11px; color: rgba(255,255,255,0.25); }}
+.trec-bar {{ background: var(--black); padding: 12px 80px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }}
+
+@media (max-width: 1100px) {{
+  .agent-body-inner {{ grid-template-columns: 1fr; gap: 40px; }}
+  .agent-right {{ position: static; }}
+  .agent-hero {{ padding: 48px 40px 36px; }}
+  .agent-body {{ padding: 40px; }}
+  .agent-cta {{ padding: 48px 40px; }}
+  .footer {{ padding: 48px 40px 32px; }}
+  .footer-top {{ grid-template-columns: 1fr 1fr; }}
+  .trec-bar {{ padding: 12px 40px; }}
+  .breadcrumb-bar {{ padding: 14px 40px; }}
+  .section-block ul {{ grid-template-columns: 1fr; }}
+}}
+@media (max-width: 768px) {{
+  .topbar {{ display: none; }}
+  .nav {{ padding: 0 20px; height: 64px; }}
+  .nav-links {{ display: none; }}
+  .nav-cta {{ display: none; }}
+  .nav-hamburger {{ display: flex; }}
+  .agent-hero {{ padding: 36px 20px 28px; }}
+  .agent-body {{ padding: 32px 20px; }}
+  .agent-cta {{ padding: 36px 20px; }}
+  .footer {{ padding: 40px 20px 28px; }}
+  .footer-top {{ grid-template-columns: 1fr; gap: 28px; }}
+  .footer-bottom {{ flex-direction: column; text-align: center; }}
+  .trec-bar {{ padding: 12px 20px; }}
+  .breadcrumb-bar {{ padding: 12px 20px; }}
+}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">J4 Legacy Properties, LLC · El Campo, Texas · TREC Licensed Brokerage</span>
+  <div class="topbar-right">
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+    <a href="tel:8335435263" class="topbar-phone">833-543-LAND</a>
+  </div>
+</div>
+
+<nav class="nav" id="mainNav">
+  <a href="../index.html">
+    <div class="nav-logo-text">
+      <span class="brand-name">J4 <span>Legacy Properties</span></span>
+      <span class="brand-sub">Texas Land &amp; Ranch Real Estate</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="../properties.html">Properties</a>
+      <div class="dropdown-menu">
+        <a href="../properties.html">All Listings</a>
+        <a href="../properties.html?tab=ranch">Ranch &amp; Farm Land</a>
+        <a href="../properties.html?tab=homes">El Campo Area Homes</a>
+        <a href="../properties.html?tab=1031">1031-Friendly Land</a>
+      </div>
+    </li>
+    <li><a href="../buying.html">Buying</a></li>
+    <li><a href="../selling.html">Selling</a></li>
+    <li><a href="../our-team.html">Our Team</a></li>
+    <li><a href="../resources.html">Resources</a></li>
+    <li><a href="../ecosystem.html">J4 Ecosystem</a></li>
+  </ul>
+  <a href="../contact.html" class="nav-cta">Let's Connect</a>
+  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">×</button>
+  <div class="mobile-logo">J4 <span>Legacy Properties</span></div>
+  <div class="mobile-links">
+    <a href="../properties.html">Properties</a>
+    <a href="../buying.html">Buying</a>
+    <a href="../selling.html">Selling</a>
+    <a href="../our-team.html">Our Team</a>
+    <a href="../resources.html">Resources</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+  <div class="mobile-contact">
+    <a href="tel:8335435263">833-543-LAND</a><br>
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+  </div>
+</div>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="../our-team.html">Our Team</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">{name}</span>
+  </div>
+</div>
+
+<section class="agent-hero">
+  <div class="agent-hero-inner">
+    <div class="agent-team-tag">{team_tag}</div>
+    <h1 class="arvo">{name}</h1>
+    <p class="agent-hero-sub">{hero_subtitle}</p>
+  </div>
+</section>
+
+<section class="agent-body">
+  <div class="agent-body-inner">
+    <div class="agent-left">
+      <div class="agent-bio">
+{bio_html}
+      </div>
+
+      <div class="section-block">
+        <h2 class="arvo">Areas Served</h2>
+        <ul>
+{areas_html}
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <h2 class="arvo">Specialties</h2>
+        <ul>
+{specialties_html}
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <h2 class="arvo">Credentials &amp; Background</h2>
+        <ul>
+{designations_html}
+        </ul>
+      </div>
+    </div>
+
+    <aside class="agent-right">
+      <div class="agent-photo-wrap">
+        <img src="../images/team/{photo}" alt="{name}, {title_plain}" loading="lazy">
+      </div>
+      <div class="agent-contact-card">
+        <span class="label">Contact {first}</span>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.27 9.17 19.79 19.79 0 01.22 4.13 2 2 0 012.12 2h3a2 2 0 012 1.72 12 12 0 00.65 2.6 2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45 12 12 0 002.6.65A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:{phone_tel}">{phone_display}</a>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:{email}">{email}</a>
+        </div>
+        <div class="trec">
+          <a href="https://www.trec.texas.gov/agency/license-holder-search" target="_blank" rel="noopener">TREC #{trec}</a>
+        </div>
+        <a href="../contact.html?agent={slug_short}" class="btn-contact">Send {first} a Message</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="agent-cta">
+  <div class="agent-cta-inner">
+    <div>
+      <h2 class="arvo">Buying or selling Texas land?</h2>
+      <p>Give {first} a call at <a href="tel:{phone_tel}" style="color:var(--gold);font-weight:700">{phone_display}</a> or send an email at <a href="mailto:{email}" style="color:var(--gold);font-weight:700">{email}</a>. We do not push, we listen first.</p>
+    </div>
+    <a href="../contact.html?agent={slug_short}" class="btn-gold">Start a Conversation</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name arvo">J4 <span>Legacy Properties</span></div>
+      <div class="footer-tagline lora">Building your legacy, one property at a time.</div>
+      <p class="footer-about">J4 Legacy Properties is a Texas land and ranch real estate brokerage based in El Campo helping buyers and sellers invest in farms, ranches, and legacy acreage across Texas.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="../index.html">Home</a>
+      <a href="../properties.html">All Properties</a>
+      <a href="../buying.html">Buying</a>
+      <a href="../selling.html">Selling</a>
+      <a href="../our-team.html">Our Team</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Property Types</h4>
+      <a href="../properties.html?tab=ranch">Ranch &amp; Farm Land</a>
+      <a href="../properties.html?tab=homes">El Campo Area Homes</a>
+      <a href="../properties.html?tab=1031">1031-Friendly Land</a>
+      <a href="../off-market.html">Off-Market</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:8335435263">833-543-LAND</a>
+      <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=1379+CR+408+El+Campo+TX+77437" target="_blank" rel="noopener">1379 CR 408, El Campo TX</a>
+      <a href="https://www.j4tx.com" target="_blank">J4TX.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 J4 Legacy Properties, LLC · All Rights Reserved</p>
+    <a href="../privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+<div class="trec-bar">
+  J4 Legacy Properties, LLC · TREC Licensed Brokerage · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · j4lp.com
+</div>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+</script>
+
+</body>
+</html>
+"""
+
+
+def build_agent(a):
+    title_plain = a["title"].replace("·", "—").replace("&amp;", "&")
+    title_short = a["title"].split("·")[0].strip()
+    team_tag = "J4 Heritage Group" if "Heritage" in a["title"] else ("Sioux Smith Group" if "Sioux" in a["title"] else "J4 Legacy Properties")
+    bio_html = "\n".join(f"        <p>{p}</p>" for p in a["bio_paragraphs"])
+    areas_html = "\n".join(f"          <li>{x}</li>" for x in a["areas_served"])
+    specialties_html = "\n".join(f"          <li>{x}</li>" for x in a["specialties"])
+    designations_html = "\n".join(f"          <li>{x}</li>" for x in a["designations"])
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": a["name"],
+        "jobTitle": title_short,
+        "telephone": "+1-" + a["phone_display"],
+        "email": a["email"],
+        "image": f"https://www.j4lp.com/images/team/{a['photo']}",
+        "url": f"https://www.j4lp.com/agents/{a['slug']}",
+        "worksFor": {
+            "@type": "RealEstateAgent",
+            "name": "J4 Legacy Properties, LLC",
+            "url": "https://www.j4lp.com",
+            "telephone": "+1-833-543-5263",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1379 CR 408",
+                "addressLocality": "El Campo",
+                "addressRegion": "TX",
+                "postalCode": "77437",
+                "addressCountry": "US"
+            }
+        },
+        "description": a["meta_desc"],
+        "areaServed": [{"@type": "AdministrativeArea", "name": x.split("(")[0].strip().replace("&amp;", "&")} for x in a["areas_served"]]
+    }
+    schema_json = json.dumps(schema, indent=2)
+
+    return HTML_TEMPLATE.format(
+        meta_desc=a["meta_desc"],
+        name=a["name"],
+        title_plain=title_plain,
+        title_short=title_short,
+        slug=a["slug"],
+        photo=a["photo"],
+        schema_json=schema_json,
+        team_tag=team_tag,
+        hero_subtitle=a["hero_subtitle"],
+        bio_html=bio_html,
+        areas_html=areas_html,
+        specialties_html=specialties_html,
+        designations_html=designations_html,
+        first=a["first"],
+        phone_tel=a["phone_tel"],
+        phone_display=a["phone_display"],
+        email=a["email"],
+        trec=a["trec"],
+        slug_short=a["first"].lower(),
+    )
+
+
+def main():
+    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "agents")
+    os.makedirs(out_dir, exist_ok=True)
+    for a in AGENTS:
+        path = os.path.join(out_dir, f"{a['slug']}.html")
+        with open(path, "w") as f:
+            f.write(build_agent(a))
+        print(f"wrote {path}")
+
+
+if __name__ == "__main__":
+    main()
