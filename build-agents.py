@@ -85,16 +85,16 @@ AGENTS = [
         "first": "Sioux",
         "last": "Smith",
         "name": "Sioux Smith",
-        "title": "Co-Founder &amp; Broker, J4 Legacy Properties",
-        "hero_subtitle": "Co-Founder &amp; Broker, J4 Legacy Properties · Farm &amp; Ranch Specialist",
+        "title": "Co-Founder, J4 Legacy Properties · Broker",
+        "hero_subtitle": "Co-Founder, J4 Legacy Properties, LLC · Broker Individual (TREC License #650949) · Farm &amp; Ranch Specialist",
         "photo": "sioux.jpg",
         "phone_display": "254-541-6919",
         "phone_tel": "2545416919",
         "email": "sioux@j4lp.com",
         "trec": "650949",
-        "meta_desc": "Sioux Smith, Broker and Co-Founder of J4 Legacy Properties. WPRA Texas Circuit Finals qualifier and AQHA member. Farm and ranch real estate with deep equestrian land expertise across Texas.",
+        "meta_desc": "Sioux Smith, Co-Founder of J4 Legacy Properties, LLC and Broker Individual (TREC License #650949). WPRA Texas Circuit Finals qualifier and AQHA member. Farm and ranch real estate with deep equestrian land expertise across Texas.",
         "bio_paragraphs": [
-            "Sioux Smith co-founded J4 Legacy Properties with her brother Cuatro Strack and her sister-in-law Stephanie Strack. A trusted farm &amp; ranch real estate expert, Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
+            "Sioux Smith is a co-founder of J4 Legacy Properties, LLC, which she started alongside her brother Cuatro Strack and her sister-in-law Stephanie Strack. She holds her own Texas Real Estate Broker license (TREC License #650949) and operates as an independent Broker Individual. A trusted farm &amp; ranch real estate expert, Sioux raises and trains barrel horses and has qualified for the WPRA Texas Circuit Finals several times. A member of the Women's ProRodeo Association and the American Quarter Horse Association, she knows horses, knows land, and is well equipped to assist in all aspects of farm &amp; ranch real estate.",
             "Sioux grew up in El Campo and Lampasas, Texas. A graduate of Coastal Bend College, she and her family reside in Simonton, Texas.",
             "Sioux brings particular depth on horse properties, equestrian land, and the practical infrastructure questions that come with ranch ownership.",
         ],
@@ -186,16 +186,16 @@ AGENTS = [
         "first": "Alexa",
         "last": "Emmons",
         "name": "Alexa Emmons",
-        "title": "Agent, J4 Legacy Properties",
-        "hero_subtitle": "Agent, J4 Legacy Properties · Professional Barrel Racer · Beefmaster Cattle Family",
+        "title": "Sales Agent",
+        "hero_subtitle": "Sales Agent (TREC License #637684) · Sponsored by <a href=\"sioux-smith.html\">Sioux Smith, Broker</a> (TREC License #650949) · Professional Barrel Racer · Beefmaster Cattle Family",
         "photo": "alexa.jpg",
         "phone_display": "281-323-1000",
         "phone_tel": "2813231000",
         "email": "alexa@j4lp.com",
         "trec": "637684",
-        "meta_desc": "Alexa Emmons, Agent at J4 Legacy Properties. 10+ years in real estate. Serving Limestone, Freestone, and Navarro counties. Lives on a Beefmaster cattle ranch in Fairfield, TX.",
+        "meta_desc": "Alexa Emmons, Sales Agent (TREC License #637684) sponsored by Sioux Smith, Broker (TREC License #650949). 10+ years in real estate. Serving Limestone, Freestone, and Navarro counties. Lives on a Beefmaster cattle ranch in Fairfield, TX.",
         "bio_paragraphs": [
-            "A native Houstonian with a lifelong love of horses and real estate, Alexa followed both to College Station, TX, where she landed her first job in real estate as an executive assistant to a top-producing boutique brokerage. Her early years as a licensed agent gave her firsthand experience in rentals, investments, and rural acreage.",
+            "Alexa Emmons is a Texas Sales Agent (TREC License #637684), sponsored by Sioux Smith, Broker (TREC License #650949). A native Houstonian with a lifelong love of horses and real estate, Alexa followed both to College Station, TX, where she landed her first job in real estate as an executive assistant to a top-producing boutique brokerage. Her early years as a licensed agent gave her firsthand experience in rentals, investments, and rural acreage.",
             "Alongside her real estate career, Alexa is a professional barrel racer. She has competed in rodeos across the country and into Canada and earned multiple awards in the arena. That competitive drive translates directly into how she works for clients, she goes the extra mile every time.",
             "Marriage and children eventually slowed life down, and her family now lives on the family's Beefmaster cattle ranch in Fairfield, TX. With over 10 years of experience in real estate, Alexa serves buyers and sellers across Limestone, Freestone, and Navarro counties with the knowledge and judgment to guide them through what can be a complicated process.",
         ],
@@ -620,16 +620,28 @@ def build_agent(a):
     specialties_html = "\n".join(f"          <li>{x}</li>" for x in a["specialties"])
     designations_html = "\n".join(f"          <li>{x}</li>" for x in a["designations"])
 
-    schema = {
-        "@context": "https://schema.org",
-        "@type": "RealEstateAgent",
-        "name": a["name"],
-        "jobTitle": title_short,
-        "telephone": "+1-" + a["phone_display"],
-        "email": a["email"],
-        "image": f"https://www.j4lp.com/images/team/{a['photo']}",
-        "url": f"https://www.j4lp.com/agents/{a['slug']}",
-        "worksFor": {
+    # Determine TREC sponsoring-broker structure (Sioux + Alexa are NOT under J4LP brokerage)
+    if a["slug"] == "sioux-smith":
+        # Sioux is an independent Broker Individual; she is also a co-founder of the J4LP company.
+        works_for = None  # she IS the broker; no parent brokerage sponsorship
+        member_of = {
+            "@type": "Organization",
+            "name": "J4 Legacy Properties, LLC",
+            "url": "https://www.j4lp.com",
+        }
+    elif a["slug"] == "alexa-emmons":
+        # Alexa is sponsored under Sioux Smith's Broker Individual license, not J4LP.
+        works_for = {
+            "@type": "RealEstateAgent",
+            "name": "Sioux Smith, Broker",
+            "url": "https://www.j4lp.com/agents/sioux-smith",
+            "identifier": "TREC License #650949",
+            "telephone": "+1-254-541-6919",
+        }
+        member_of = None
+    else:
+        # All J4HG agents (and Cuatro as Designated Broker) are sponsored under J4LP.
+        works_for = {
             "@type": "RealEstateAgent",
             "name": "J4 Legacy Properties, LLC",
             "url": "https://www.j4lp.com",
@@ -642,10 +654,26 @@ def build_agent(a):
                 "postalCode": "77437",
                 "addressCountry": "US"
             }
-        },
+        }
+        member_of = None
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": a["name"],
+        "jobTitle": title_short,
+        "telephone": "+1-" + a["phone_display"],
+        "email": a["email"],
+        "image": f"https://www.j4lp.com/images/team/{a['photo']}",
+        "url": f"https://www.j4lp.com/agents/{a['slug']}",
+        "identifier": f"TREC License #{a['trec']}",
         "description": a["meta_desc"],
         "areaServed": [{"@type": "AdministrativeArea", "name": x.split("(")[0].strip().replace("&amp;", "&")} for x in a["areas_served"]]
     }
+    if works_for:
+        schema["worksFor"] = works_for
+    if member_of:
+        schema["memberOf"] = member_of
     schema_json = json.dumps(schema, indent=2)
 
     return HTML_TEMPLATE.format(
