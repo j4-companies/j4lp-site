@@ -86,7 +86,7 @@ AGENTS = [
         "last": "Smith",
         "name": "Sioux Smith",
         "title": "Co-Founder · Broker · Team Lead, Sioux Smith Group",
-        "hero_subtitle": "Broker, J4 Legacy Properties · Farm &amp; Ranch Specialist",
+        "hero_subtitle": "Co-Founder &amp; Broker, J4 Legacy Properties · Team Lead, Sioux Smith Group · Farm &amp; Ranch Specialist",
         "photo": "sioux.jpg",
         "phone_display": "254-541-6919",
         "phone_tel": "2545416919",
