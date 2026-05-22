@@ -21,6 +21,11 @@
 /blog                           /blog.html                  301
 /field-notes                    /blog.html                  301
 
+# Our Team: consolidate team.html into our-team.html (canonical /our-team)
+/our-team                       /our-team.html              301
+/team                           /our-team.html              301
+/team.html                      /our-team.html              301
+
 # Sold listings: no dedicated page — send to the Sold tab
 /soldlistings                   /properties.html?tab=sold   301
 /sold                           /properties.html?tab=sold   301
