@@ -21,10 +21,11 @@
 /blog                           /blog.html                  301
 /field-notes                    /blog.html                  301
 
-# Our Team: consolidate team.html into our-team.html (canonical /our-team)
+# Our Team: consolidate team.html into our-team.html (canonical /our-team).
+# Force flag (!) ensures redirect fires even if a stale team.html ever exists.
 /our-team                       /our-team.html              301
-/team                           /our-team.html              301
-/team.html                      /our-team.html              301
+/team                           /our-team.html              301!
+/team.html                      /our-team.html              301!
 
 # Agent bio pages: clean URLs + legacy Squarespace slugs (/cuatro, /stephanie-1, etc.)
 /agents/cuatro-strack           /agents/cuatro-strack.html       301
