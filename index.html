@@ -177,6 +177,16 @@ ul { list-style: none; }
   transition: background 0.15s, color 0.15s;
 }
 .dropdown-menu a:hover { background: var(--off-white); color: var(--maroon); }
+.dropdown-menu-counties { min-width:260px; }
+.dropdown-county-item { position:relative; }
+.dropdown-county-item > .dropdown-county-link { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-county-item > .dropdown-county-link:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-county-item:hover > .dropdown-submenu { display:block; }
+.dropdown-submenu { display:none; position:absolute; top:-3px; left:100%; min-width:240px; background:var(--white); border:1px solid rgba(0,0,0,0.08); border-top:3px solid var(--maroon); box-shadow:0 12px 40px rgba(0,0,0,0.12); z-index:101; }
+.dropdown-submenu a { display:block; padding:11px 18px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-submenu a:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-all-areas { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--maroon); background:var(--off-white); transition:background 0.15s,color 0.15s; }
+.dropdown-all-areas:hover { background:var(--maroon); color:var(--white); }
 
 .nav-cta {
   background: var(--maroon);
@@ -1224,61 +1234,99 @@ ul { list-style: none; }
     <li><a href="/selling">Selling</a></li>
     <li class="dropdown">
       <a href="/areas-we-serve">Areas We Serve</a>
-      <div class="dropdown-menu">
-        <a href="/areas-we-serve/wharton-county">Wharton County</a>
-        <a href="/areas-we-serve/wharton-county/el-campo">El Campo</a>
-        <a href="/areas-we-serve/wharton-county/east-bernard">East Bernard</a>
-        <a href="/areas-we-serve/wharton-county/wharton">Wharton</a>
-        <a href="/areas-we-serve/wharton-county/louise">Louise</a>
-        <a href="/areas-we-serve/wharton-county/boling">Boling</a>
-        <a href="/areas-we-serve/wharton-county/hungerford-iago">Hungerford &amp; Iago</a>
-        <a href="/areas-we-serve/colorado-county">Colorado County</a>
-        <a href="/areas-we-serve/colorado-county/garwood">Garwood</a>
-        <a href="/areas-we-serve/colorado-county/columbus">Columbus</a>
-        <a href="/areas-we-serve/colorado-county/eagle-lake">Eagle Lake</a>
-        <a href="/areas-we-serve/colorado-county/weimar">Weimar</a>
-        <a href="/areas-we-serve/colorado-county/altair-sheridan-rock-island">Altair, Sheridan &amp; Rock Island</a>
-        <a href="/areas-we-serve/lavaca-county">Lavaca County</a>
-        <a href="/areas-we-serve/lavaca-county/hallettsville">Hallettsville</a>
-        <a href="/areas-we-serve/lavaca-county/shiner">Shiner</a>
-        <a href="/areas-we-serve/lavaca-county/yoakum">Yoakum</a>
-        <a href="/areas-we-serve/lavaca-county/moulton">Moulton</a>
-        <a href="/areas-we-serve/austin-county">Austin County</a>
-        <a href="/areas-we-serve/austin-county/bellville">Bellville</a>
-        <a href="/areas-we-serve/austin-county/sealy">Sealy</a>
-        <a href="/areas-we-serve/austin-county/industry">Industry</a>
-        <a href="/areas-we-serve/austin-county/cat-spring">Cat Spring</a>
-        <a href="/areas-we-serve/austin-county/wallis">Wallis</a>
-        <a href="/areas-we-serve/austin-county/san-felipe">San Felipe</a>
-        <a href="/areas-we-serve/fort-bend-county">Fort Bend County</a>
-        <a href="/areas-we-serve/fort-bend-county/needville">Needville</a>
-        <a href="/areas-we-serve/fort-bend-county/sugar-land">Sugar Land</a>
-        <a href="/areas-we-serve/fort-bend-county/rosenberg">Rosenberg</a>
-        <a href="/areas-we-serve/fort-bend-county/kendleton">Kendleton</a>
-        <a href="/areas-we-serve/fort-bend-county/beasley">Beasley</a>
-        <a href="/areas-we-serve/fort-bend-county/orchard">Orchard</a>
-        <a href="/areas-we-serve/fort-bend-county/fairchilds-pleak">Fairchilds &amp; Pleak</a>
-        <a href="/areas-we-serve/matagorda-county">Matagorda County</a>
-        <a href="/areas-we-serve/victoria-county">Victoria County</a>
-        <a href="/areas-we-serve/limestone-county">Limestone County</a>
-        <a href="/areas-we-serve/limestone-county/groesbeck">Groesbeck</a>
-        <a href="/areas-we-serve/limestone-county/mexia">Mexia</a>
-        <a href="/areas-we-serve/limestone-county/lake-limestone">Lake Limestone</a>
-        <a href="/areas-we-serve/limestone-county/thornton-tehuacana">Thornton &amp; Tehuacana</a>
-        <a href="/areas-we-serve/freestone-county">Freestone County</a>
-        <a href="/areas-we-serve/freestone-county/fairfield">Fairfield</a>
-        <a href="/areas-we-serve/freestone-county/teague">Teague</a>
-        <a href="/areas-we-serve/freestone-county/richland-chambers">Richland-Chambers</a>
-        <a href="/areas-we-serve/freestone-county/wortham-streetman">Wortham &amp; Streetman</a>
-        <a href="/areas-we-serve/navarro-county">Navarro County</a>
-        <a href="/areas-we-serve/navarro-county/corsicana">Corsicana</a>
-        <a href="/areas-we-serve/navarro-county/richland-chambers-navarro">Richland-Chambers (Navarro)</a>
-        <a href="/areas-we-serve/navarro-county/navarro-mills">Navarro Mills</a>
-        <a href="/areas-we-serve/navarro-county/kerens">Kerens</a>
-        <a href="/areas-we-serve/navarro-county/frost-rice">Frost &amp; Rice</a>
-        <a href="/areas-we-serve/navarro-county/blooming-grove">Blooming Grove</a>
-        <a href="/areas-we-serve/stephens-county">Stephens County</a>
-        <a href="/areas-we-serve">All Areas</a>
+      <div class="dropdown-menu dropdown-menu-counties">
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/austin-county" class="dropdown-county-link">Austin County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/austin-county/bellville">Bellville</a>
+          <a href="/areas-we-serve/austin-county/cat-spring">Cat Spring</a>
+          <a href="/areas-we-serve/austin-county/industry">Industry</a>
+          <a href="/areas-we-serve/austin-county/san-felipe">San Felipe</a>
+          <a href="/areas-we-serve/austin-county/sealy">Sealy</a>
+          <a href="/areas-we-serve/austin-county/wallis">Wallis</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/colorado-county" class="dropdown-county-link">Colorado County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/colorado-county/altair-sheridan-rock-island">Altair, Sheridan &amp; Rock Island</a>
+          <a href="/areas-we-serve/colorado-county/columbus">Columbus</a>
+          <a href="/areas-we-serve/colorado-county/eagle-lake">Eagle Lake</a>
+          <a href="/areas-we-serve/colorado-county/garwood">Garwood</a>
+          <a href="/areas-we-serve/colorado-county/weimar">Weimar</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/fort-bend-county" class="dropdown-county-link">Fort Bend County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/fort-bend-county/beasley">Beasley</a>
+          <a href="/areas-we-serve/fort-bend-county/fairchilds-pleak">Fairchilds &amp; Pleak</a>
+          <a href="/areas-we-serve/fort-bend-county/kendleton">Kendleton</a>
+          <a href="/areas-we-serve/fort-bend-county/needville">Needville</a>
+          <a href="/areas-we-serve/fort-bend-county/orchard">Orchard</a>
+          <a href="/areas-we-serve/fort-bend-county/rosenberg">Rosenberg</a>
+          <a href="/areas-we-serve/fort-bend-county/sugar-land">Sugar Land</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/freestone-county" class="dropdown-county-link">Freestone County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/freestone-county/fairfield">Fairfield</a>
+          <a href="/areas-we-serve/freestone-county/richland-chambers">Richland-Chambers</a>
+          <a href="/areas-we-serve/freestone-county/teague">Teague</a>
+          <a href="/areas-we-serve/freestone-county/wortham-streetman">Wortham &amp; Streetman</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/lavaca-county" class="dropdown-county-link">Lavaca County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/lavaca-county/hallettsville">Hallettsville</a>
+          <a href="/areas-we-serve/lavaca-county/moulton">Moulton</a>
+          <a href="/areas-we-serve/lavaca-county/shiner">Shiner</a>
+          <a href="/areas-we-serve/lavaca-county/yoakum">Yoakum</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/limestone-county" class="dropdown-county-link">Limestone County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/limestone-county/groesbeck">Groesbeck</a>
+          <a href="/areas-we-serve/limestone-county/lake-limestone">Lake Limestone</a>
+          <a href="/areas-we-serve/limestone-county/mexia">Mexia</a>
+          <a href="/areas-we-serve/limestone-county/thornton-tehuacana">Thornton &amp; Tehuacana</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/matagorda-county" class="dropdown-county-link">Matagorda County</a>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/navarro-county" class="dropdown-county-link">Navarro County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/navarro-county/blooming-grove">Blooming Grove</a>
+          <a href="/areas-we-serve/navarro-county/corsicana">Corsicana</a>
+          <a href="/areas-we-serve/navarro-county/frost-rice">Frost &amp; Rice</a>
+          <a href="/areas-we-serve/navarro-county/kerens">Kerens</a>
+          <a href="/areas-we-serve/navarro-county/navarro-mills">Navarro Mills</a>
+          <a href="/areas-we-serve/navarro-county/richland-chambers-navarro">Richland-Chambers (Navarro)</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/stephens-county" class="dropdown-county-link">Stephens County</a>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/victoria-county" class="dropdown-county-link">Victoria County</a>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/wharton-county" class="dropdown-county-link">Wharton County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/wharton-county/boling">Boling</a>
+          <a href="/areas-we-serve/wharton-county/east-bernard">East Bernard</a>
+          <a href="/areas-we-serve/wharton-county/el-campo">El Campo</a>
+          <a href="/areas-we-serve/wharton-county/hungerford-iago">Hungerford &amp; Iago</a>
+          <a href="/areas-we-serve/wharton-county/louise">Louise</a>
+          <a href="/areas-we-serve/wharton-county/wharton">Wharton</a>
+          </div>
+        </div>
+        <a href="/areas-we-serve" class="dropdown-all-areas">All Areas</a>
       </div>
     </li>
     <li class="dropdown">

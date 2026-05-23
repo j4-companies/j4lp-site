@@ -84,6 +84,16 @@ ul { list-style: none; }
 .dropdown:hover .dropdown-menu { display:block; }
 .dropdown-menu a { display:block; padding:11px 18px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
 .dropdown-menu a:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-menu-counties { min-width:260px; }
+.dropdown-county-item { position:relative; }
+.dropdown-county-item > .dropdown-county-link { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-county-item > .dropdown-county-link:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-county-item:hover > .dropdown-submenu { display:block; }
+.dropdown-submenu { display:none; position:absolute; top:-3px; left:100%; min-width:240px; background:var(--white); border:1px solid rgba(0,0,0,0.08); border-top:3px solid var(--maroon); box-shadow:0 12px 40px rgba(0,0,0,0.12); z-index:101; }
+.dropdown-submenu a { display:block; padding:11px 18px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-submenu a:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-all-areas { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--maroon); background:var(--off-white); transition:background 0.15s,color 0.15s; }
+.dropdown-all-areas:hover { background:var(--maroon); color:var(--white); }
 .nav-cta { background:var(--maroon); color:var(--white)!important; padding:11px 22px; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; transition:background 0.2s; }
 .nav-cta:hover { background:var(--maroon-mid); } .nav-cta::after { display:none!important; }
 .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
@@ -114,26 +124,15 @@ ul { list-style: none; }
 .btn-outline { display:inline-block; background:transparent; color:var(--maroon); border:2px solid var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:12px 28px; transition:background 0.2s,color 0.2s; }
 .btn-outline:hover { background:var(--maroon); color:var(--white); }
 .intro-text p { font-size:15px; color:var(--dark-gray); line-height:1.9; margin-bottom:20px; max-width:780px; }
-.county-accordion-list { display:flex; flex-direction:column; gap:12px; margin-top:32px; }
-.county-accordion { background:var(--white); border:1px solid rgba(0,0,0,0.08); transition:border-color 0.25s, box-shadow 0.25s; }
-.county-accordion[open] { border-color:var(--maroon); box-shadow:0 6px 20px rgba(0,0,0,0.05); }
-.county-accordion:hover:not([open]) { border-color:rgba(80,2,3,0.4); }
-.county-accordion-summary { list-style:none; cursor:pointer; padding:24px 28px; display:grid; grid-template-columns:auto 1fr auto auto; gap:18px; align-items:center; }
-.county-accordion-summary::-webkit-details-marker { display:none; }
-.county-accordion-label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); white-space:nowrap; }
-.county-accordion-name { font-family:'Arvo',serif; font-size:20px; color:var(--black); margin:0; }
-.county-accordion-count { font-size:11px; font-weight:600; color:var(--dark-gray); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
-.county-accordion-count-county-only { color:var(--mid-gray); font-style:italic; }
-.county-accordion-chevron { font-family:'Arvo',serif; font-size:22px; font-weight:700; color:var(--maroon); width:32px; height:32px; display:flex; align-items:center; justify-content:center; line-height:1; transition:transform 0.25s; }
-.county-accordion[open] .county-accordion-chevron { transform:rotate(45deg); }
-.county-accordion-body { padding:0 28px 28px; border-top:1px solid rgba(0,0,0,0.04); padding-top:24px; margin-top:0; }
-.county-accordion-desc { font-size:14px; color:var(--dark-gray); line-height:1.8; margin-bottom:24px; max-width:760px; }
-.county-accordion-towns-label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:14px; }
-.county-accordion-towns { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
-.town-chip { display:inline-flex; align-items:center; padding:10px 16px; background:var(--off-white); border:1px solid rgba(0,0,0,0.08); font-size:12px; font-weight:600; letter-spacing:0.06em; color:var(--black); transition:background 0.2s, border-color 0.2s, color 0.2s; }
-.town-chip:hover { background:var(--maroon); border-color:var(--maroon); color:var(--white); }
-.county-accordion-overview { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--maroon); padding:10px 0; border-bottom:1px solid var(--maroon); transition:gap 0.2s; }
-.county-accordion-overview:hover { color:var(--maroon-mid); border-bottom-color:var(--maroon-mid); }
+.county-square-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:32px; }
+.county-square { aspect-ratio:1/1; background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:24px; display:flex; flex-direction:column; transition:border-color 0.25s, box-shadow 0.25s, transform 0.25s; position:relative; }
+.county-square:hover { border-color:var(--maroon); box-shadow:0 12px 32px rgba(0,0,0,0.08); transform:translateY(-3px); }
+.county-square-label { font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:auto; }
+.county-square-name { font-family:'Arvo',serif; font-size:22px; font-weight:700; color:var(--black); line-height:1.15; margin:18px 0 12px; }
+.county-square-count { font-size:11px; font-weight:600; color:var(--dark-gray); letter-spacing:0.06em; }
+.county-square-count-county-only { color:var(--mid-gray); font-style:italic; }
+.county-square-arrow { position:absolute; bottom:24px; right:24px; font-size:22px; font-weight:700; color:var(--maroon); transition:transform 0.25s; }
+.county-square:hover .county-square-arrow { transform:translateX(4px); }
 .dark-section { background:var(--black); padding:72px 80px; }
 .dark-section .section-label { color:var(--white); } .dark-section .section-label::before { background:var(--white); }
 .dark-section .section-title { color:var(--white); }
@@ -161,8 +160,8 @@ ul { list-style: none; }
 .footer-bottom { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .footer-bottom p,.footer-bottom a { font-size:11px; color:rgba(255,255,255,0.25); }
 .trec-bar { background:var(--black); padding:12px 80px; text-align:center; font-size:10px; color:rgba(255,255,255,0.2); letter-spacing:0.06em; }
-@media(max-width:1024px){.section{padding:56px 40px;}.page-hero-content{padding:0 40px 48px;}.dark-section{padding:56px 40px;}.county-accordion-summary{grid-template-columns:1fr auto;gap:12px;}.county-accordion-label{grid-column:1/-1;}.county-accordion-count{display:none;}.principles-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 40px;}.footer{padding:48px 40px 32px;}.footer-top{grid-template-columns:1fr 1fr;}.trec-bar{padding:12px 40px;}}
-@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.county-accordion-summary{padding:18px 20px;}.county-accordion-body{padding:0 20px 20px;padding-top:18px;}.county-accordion-name{font-size:17px;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
+@media(max-width:1024px){.section{padding:56px 40px;}.page-hero-content{padding:0 40px 48px;}.dark-section{padding:56px 40px;}.county-square-grid{grid-template-columns:repeat(3,1fr);}.principles-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 40px;}.footer{padding:48px 40px 32px;}.footer-top{grid-template-columns:1fr 1fr;}.trec-bar{padding:12px 40px;}}
+@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.county-square-grid{grid-template-columns:repeat(2,1fr);gap:12px;}.county-square-name{font-size:18px;}.county-square{padding:18px;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
 </style>
 </head>
 <body>
@@ -185,7 +184,7 @@ ul { list-style: none; }
     </li>
     <li><a href="selling.html">Selling</a></li>
     <li class="dropdown"><a href="areas-we-serve.html" class="active">Areas We Serve</a>
-      <div class="dropdown-menu"><a href="areas-wharton-county.html">Wharton County</a><a href="areas-el-campo.html">El Campo</a><a href="areas-east-bernard.html">East Bernard</a><a href="areas-wharton.html">Wharton</a><a href="areas-louise.html">Louise</a><a href="areas-boling.html">Boling</a><a href="areas-hungerford-iago.html">Hungerford &amp; Iago</a><a href="areas-colorado-county.html">Colorado County</a><a href="areas-garwood.html">Garwood</a><a href="areas-columbus.html">Columbus</a><a href="areas-eagle-lake.html">Eagle Lake</a><a href="areas-weimar.html">Weimar</a><a href="areas-altair-sheridan-rock-island.html">Altair, Sheridan &amp; Rock Island</a><a href="areas-lavaca-county.html">Lavaca County</a><a href="areas-hallettsville.html">Hallettsville</a><a href="areas-shiner.html">Shiner</a><a href="areas-yoakum.html">Yoakum</a><a href="areas-moulton.html">Moulton</a><a href="areas-austin-county.html">Austin County</a><a href="areas-bellville.html">Bellville</a><a href="areas-sealy.html">Sealy</a><a href="areas-industry.html">Industry</a><a href="areas-cat-spring.html">Cat Spring</a><a href="areas-wallis.html">Wallis</a><a href="areas-san-felipe.html">San Felipe</a><a href="areas-fort-bend-county.html">Fort Bend County</a><a href="areas-needville.html">Needville</a><a href="areas-sugar-land.html">Sugar Land</a><a href="areas-rosenberg.html">Rosenberg</a><a href="areas-kendleton.html">Kendleton</a><a href="areas-beasley.html">Beasley</a><a href="areas-orchard.html">Orchard</a><a href="areas-fairchilds-pleak.html">Fairchilds &amp; Pleak</a><a href="areas-matagorda-county.html">Matagorda County</a><a href="areas-victoria-county.html">Victoria County</a><a href="areas-limestone-county.html">Limestone County</a><a href="areas-groesbeck.html">Groesbeck</a><a href="areas-mexia.html">Mexia</a><a href="areas-lake-limestone.html">Lake Limestone</a><a href="areas-thornton-tehuacana.html">Thornton &amp; Tehuacana</a><a href="areas-freestone-county.html">Freestone County</a><a href="areas-fairfield.html">Fairfield</a><a href="areas-teague.html">Teague</a><a href="areas-richland-chambers.html">Richland-Chambers</a><a href="areas-wortham-streetman.html">Wortham &amp; Streetman</a><a href="areas-navarro-county.html">Navarro County</a><a href="areas-corsicana.html">Corsicana</a><a href="areas-richland-chambers-navarro.html">Richland-Chambers (Navarro)</a><a href="areas-navarro-mills.html">Navarro Mills</a><a href="areas-kerens.html">Kerens</a><a href="areas-frost-rice.html">Frost &amp; Rice</a><a href="areas-blooming-grove.html">Blooming Grove</a><a href="areas-stephens-county.html">Stephens County</a><a href="areas-we-serve.html">All Areas</a></div>
+      <div class="dropdown-menu dropdown-menu-counties"><div class="dropdown-county-item"><a href="areas-austin-county.html" class="dropdown-county-link">Austin County</a><div class="dropdown-submenu"><a href="areas-bellville.html">Bellville</a><a href="areas-cat-spring.html">Cat Spring</a><a href="areas-industry.html">Industry</a><a href="areas-san-felipe.html">San Felipe</a><a href="areas-sealy.html">Sealy</a><a href="areas-wallis.html">Wallis</a></div></div><div class="dropdown-county-item"><a href="areas-colorado-county.html" class="dropdown-county-link">Colorado County</a><div class="dropdown-submenu"><a href="areas-altair-sheridan-rock-island.html">Altair, Sheridan &amp; Rock Island</a><a href="areas-columbus.html">Columbus</a><a href="areas-eagle-lake.html">Eagle Lake</a><a href="areas-garwood.html">Garwood</a><a href="areas-weimar.html">Weimar</a></div></div><div class="dropdown-county-item"><a href="areas-fort-bend-county.html" class="dropdown-county-link">Fort Bend County</a><div class="dropdown-submenu"><a href="areas-beasley.html">Beasley</a><a href="areas-fairchilds-pleak.html">Fairchilds &amp; Pleak</a><a href="areas-kendleton.html">Kendleton</a><a href="areas-needville.html">Needville</a><a href="areas-orchard.html">Orchard</a><a href="areas-rosenberg.html">Rosenberg</a><a href="areas-sugar-land.html">Sugar Land</a></div></div><div class="dropdown-county-item"><a href="areas-freestone-county.html" class="dropdown-county-link">Freestone County</a><div class="dropdown-submenu"><a href="areas-fairfield.html">Fairfield</a><a href="areas-richland-chambers.html">Richland-Chambers</a><a href="areas-teague.html">Teague</a><a href="areas-wortham-streetman.html">Wortham &amp; Streetman</a></div></div><div class="dropdown-county-item"><a href="areas-lavaca-county.html" class="dropdown-county-link">Lavaca County</a><div class="dropdown-submenu"><a href="areas-hallettsville.html">Hallettsville</a><a href="areas-moulton.html">Moulton</a><a href="areas-shiner.html">Shiner</a><a href="areas-yoakum.html">Yoakum</a></div></div><div class="dropdown-county-item"><a href="areas-limestone-county.html" class="dropdown-county-link">Limestone County</a><div class="dropdown-submenu"><a href="areas-groesbeck.html">Groesbeck</a><a href="areas-lake-limestone.html">Lake Limestone</a><a href="areas-mexia.html">Mexia</a><a href="areas-thornton-tehuacana.html">Thornton &amp; Tehuacana</a></div></div><div class="dropdown-county-item"><a href="areas-matagorda-county.html" class="dropdown-county-link">Matagorda County</a></div><div class="dropdown-county-item"><a href="areas-navarro-county.html" class="dropdown-county-link">Navarro County</a><div class="dropdown-submenu"><a href="areas-blooming-grove.html">Blooming Grove</a><a href="areas-corsicana.html">Corsicana</a><a href="areas-frost-rice.html">Frost &amp; Rice</a><a href="areas-kerens.html">Kerens</a><a href="areas-navarro-mills.html">Navarro Mills</a><a href="areas-richland-chambers-navarro.html">Richland-Chambers (Navarro)</a></div></div><div class="dropdown-county-item"><a href="areas-stephens-county.html" class="dropdown-county-link">Stephens County</a></div><div class="dropdown-county-item"><a href="areas-victoria-county.html" class="dropdown-county-link">Victoria County</a></div><div class="dropdown-county-item"><a href="areas-wharton-county.html" class="dropdown-county-link">Wharton County</a><div class="dropdown-submenu"><a href="areas-boling.html">Boling</a><a href="areas-east-bernard.html">East Bernard</a><a href="areas-el-campo.html">El Campo</a><a href="areas-hungerford-iago.html">Hungerford &amp; Iago</a><a href="areas-louise.html">Louise</a><a href="areas-wharton.html">Wharton</a></div></div><a href="areas-we-serve.html" class="dropdown-all-areas">All Areas</a></div>
     </li>
     <li class="dropdown"><a href="our-team.html">Our Team</a>
       <div class="dropdown-menu"><a href="our-team.html#j4heritage">J4 Heritage Group</a><a href="our-team.html#join">Join Our Team</a></div>
@@ -234,216 +233,84 @@ ul { list-style: none; }
   <h2 class="section-title arvo">Pick the county. Find the local agent.</h2>
   <p class="section-sub lora">Click into any county for towns we cover, the agents who work there, and what's worth knowing before you buy or sell.</p>
 
-  <div class="county-accordion-list">
+  <div class="county-square-grid">
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · Texas Triangle</span>
-        <h3 class="county-accordion-name arvo">Austin County</h3>
-        <span class="county-accordion-count">6 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Working ranches, rolling pasture, and small-town communities directly west of Houston. About an hour from the Houston metro via I-10. Not the city of Austin — the rural county.</p>
-        <div class="county-accordion-towns-label">Towns we cover (6, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-bellville.html" class="town-chip">Bellville</a>
-        <a href="areas-cat-spring.html" class="town-chip">Cat Spring</a>
-        <a href="areas-industry.html" class="town-chip">Industry</a>
-        <a href="areas-san-felipe.html" class="town-chip">San Felipe</a>
-        <a href="areas-sealy.html" class="town-chip">Sealy</a>
-        <a href="areas-wallis.html" class="town-chip">Wallis</a>
-        </div>
-        <a href="areas-austin-county.html" class="county-accordion-overview">View Austin County overview →</a>
-      </div>
-    </details>
+    <a href="areas-austin-county.html" class="county-square">
+      <span class="county-square-label">Texas Triangle</span>
+      <h3 class="county-square-name arvo">Austin County</h3>
+      <span class="county-square-count">6 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · J4LP Has Roots Here</span>
-        <h3 class="county-accordion-name arvo">Colorado County</h3>
-        <span class="county-accordion-count">5 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Rice and cattle country along the Colorado River. Productive farmland, hunting land, and homestead acreage. J4LP co-founder Stephanie Strack grew up in Garwood.</p>
-        <div class="county-accordion-towns-label">Towns we cover (5, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-altair-sheridan-rock-island.html" class="town-chip">Altair, Sheridan &amp; Rock Island</a>
-        <a href="areas-columbus.html" class="town-chip">Columbus</a>
-        <a href="areas-eagle-lake.html" class="town-chip">Eagle Lake</a>
-        <a href="areas-garwood.html" class="town-chip">Garwood</a>
-        <a href="areas-weimar.html" class="town-chip">Weimar</a>
-        </div>
-        <a href="areas-colorado-county.html" class="county-accordion-overview">View Colorado County overview →</a>
-      </div>
-    </details>
+    <a href="areas-colorado-county.html" class="county-square">
+      <span class="county-square-label">J4LP Roots Here</span>
+      <h3 class="county-square-name arvo">Colorado County</h3>
+      <span class="county-square-count">5 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · Texas Triangle</span>
-        <h3 class="county-accordion-name arvo">Fort Bend County</h3>
-        <span class="county-accordion-count">7 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Land, ranches, acreage, and country property across the Houston metro and into the county's rural communities. Sugar Land is covered for metro-to-rural and 1031 strategies.</p>
-        <div class="county-accordion-towns-label">Towns we cover (7, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-beasley.html" class="town-chip">Beasley</a>
-        <a href="areas-fairchilds-pleak.html" class="town-chip">Fairchilds &amp; Pleak</a>
-        <a href="areas-kendleton.html" class="town-chip">Kendleton</a>
-        <a href="areas-needville.html" class="town-chip">Needville</a>
-        <a href="areas-orchard.html" class="town-chip">Orchard</a>
-        <a href="areas-rosenberg.html" class="town-chip">Rosenberg</a>
-        <a href="areas-sugar-land.html" class="town-chip">Sugar Land</a>
-        </div>
-        <a href="areas-fort-bend-county.html" class="county-accordion-overview">View Fort Bend County overview →</a>
-      </div>
-    </details>
+    <a href="areas-fort-bend-county.html" class="county-square">
+      <span class="county-square-label">Texas Triangle</span>
+      <h3 class="county-square-name arvo">Fort Bend County</h3>
+      <span class="county-square-count">7 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · I-45 Corridor</span>
-        <h3 class="county-accordion-name arvo">Freestone County</h3>
-        <span class="county-accordion-count">4 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Directly on Interstate 45 between Dallas and Houston. Ranches, hunting acreage, and lake property near Richland-Chambers Reservoir. About 1.5 hours from Dallas.</p>
-        <div class="county-accordion-towns-label">Towns we cover (4, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-fairfield.html" class="town-chip">Fairfield</a>
-        <a href="areas-richland-chambers.html" class="town-chip">Richland-Chambers</a>
-        <a href="areas-teague.html" class="town-chip">Teague</a>
-        <a href="areas-wortham-streetman.html" class="town-chip">Wortham &amp; Streetman</a>
-        </div>
-        <a href="areas-freestone-county.html" class="county-accordion-overview">View Freestone County overview →</a>
-      </div>
-    </details>
+    <a href="areas-freestone-county.html" class="county-square">
+      <span class="county-square-label">I-45 Corridor</span>
+      <h3 class="county-square-name arvo">Freestone County</h3>
+      <span class="county-square-count">4 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · Cattle Country</span>
-        <h3 class="county-accordion-name arvo">Lavaca County</h3>
-        <span class="county-accordion-count">4 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Working cattle ranches, hay and row-crop farmland, hunting acreage, and small-town homes. Czech-German heritage. Two hours from Houston, Austin, and San Antonio.</p>
-        <div class="county-accordion-towns-label">Towns we cover (4, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-hallettsville.html" class="town-chip">Hallettsville</a>
-        <a href="areas-moulton.html" class="town-chip">Moulton</a>
-        <a href="areas-shiner.html" class="town-chip">Shiner</a>
-        <a href="areas-yoakum.html" class="town-chip">Yoakum</a>
-        </div>
-        <a href="areas-lavaca-county.html" class="county-accordion-overview">View Lavaca County overview →</a>
-      </div>
-    </details>
+    <a href="areas-lavaca-county.html" class="county-square">
+      <span class="county-square-label">Cattle Country</span>
+      <h3 class="county-square-name arvo">Lavaca County</h3>
+      <span class="county-square-count">4 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · North-Central TX</span>
-        <h3 class="county-accordion-name arvo">Limestone County</h3>
-        <span class="county-accordion-count">4 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Ranch and lake country in north-central Texas. Working cattle ranches, hunting acreage, and lakefront property on Lake Limestone. Roughly 2 hours from Dallas.</p>
-        <div class="county-accordion-towns-label">Towns we cover (4, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-groesbeck.html" class="town-chip">Groesbeck</a>
-        <a href="areas-lake-limestone.html" class="town-chip">Lake Limestone</a>
-        <a href="areas-mexia.html" class="town-chip">Mexia</a>
-        <a href="areas-thornton-tehuacana.html" class="town-chip">Thornton &amp; Tehuacana</a>
-        </div>
-        <a href="areas-limestone-county.html" class="county-accordion-overview">View Limestone County overview →</a>
-      </div>
-    </details>
+    <a href="areas-limestone-county.html" class="county-square">
+      <span class="county-square-label">North-Central TX</span>
+      <h3 class="county-square-name arvo">Limestone County</h3>
+      <span class="county-square-count">4 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · Gulf Coast</span>
-        <h3 class="county-accordion-name arvo">Matagorda County</h3>
-        <span class="county-accordion-count county-accordion-count-county-only">County page</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Gulf-side land, coastal acreage, and ranches inland. Rice, cattle, hunting, and fishing country across Bay City, Palacios, and the Matagorda coast.</p>
-        <a href="areas-matagorda-county.html" class="county-accordion-overview">View Matagorda County overview →</a>
-      </div>
-    </details>
+    <a href="areas-matagorda-county.html" class="county-square">
+      <span class="county-square-label">Gulf Coast</span>
+      <h3 class="county-square-name arvo">Matagorda County</h3>
+      <span class="county-square-count county-square-count-county-only">County overview</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · I-45 Corridor</span>
-        <h3 class="county-accordion-name arvo">Navarro County</h3>
-        <span class="county-accordion-count">6 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">An hour south of Dallas on I-45. Corsicana and surrounding ranch country. Two reservoirs (Richland-Chambers and Navarro Mills). Top weekend-ranch market for DFW buyers.</p>
-        <div class="county-accordion-towns-label">Towns we cover (6, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-blooming-grove.html" class="town-chip">Blooming Grove</a>
-        <a href="areas-corsicana.html" class="town-chip">Corsicana</a>
-        <a href="areas-frost-rice.html" class="town-chip">Frost &amp; Rice</a>
-        <a href="areas-kerens.html" class="town-chip">Kerens</a>
-        <a href="areas-navarro-mills.html" class="town-chip">Navarro Mills</a>
-        <a href="areas-richland-chambers-navarro.html" class="town-chip">Richland-Chambers (Navarro)</a>
-        </div>
-        <a href="areas-navarro-county.html" class="county-accordion-overview">View Navarro County overview →</a>
-      </div>
-    </details>
+    <a href="areas-navarro-county.html" class="county-square">
+      <span class="county-square-label">I-45 Corridor</span>
+      <h3 class="county-square-name arvo">Navarro County</h3>
+      <span class="county-square-count">6 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · Flagship Listing</span>
-        <h3 class="county-accordion-name arvo">Stephens County</h3>
-        <span class="county-accordion-count county-accordion-count-county-only">County page</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">North-Central Texas, west of Fort Worth. Working ranch country anchored by our co-listing on the 2,544-acre Hilago Ranch. Large-acreage legacy property, hunting land, and Hubbard Creek Reservoir.</p>
-        <a href="areas-stephens-county.html" class="county-accordion-overview">View Stephens County overview →</a>
-      </div>
-    </details>
+    <a href="areas-stephens-county.html" class="county-square">
+      <span class="county-square-label">Flagship Listing</span>
+      <h3 class="county-square-name arvo">Stephens County</h3>
+      <span class="county-square-count county-square-count-county-only">County overview</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · South Texas Hub</span>
-        <h3 class="county-accordion-name arvo">Victoria County</h3>
-        <span class="county-accordion-count county-accordion-count-county-only">County page</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">South Texas on the US-59 corridor between Houston and San Antonio. Commercial and mixed-use property anchored by our Limo Station listing in Victoria. Regional medical, education, and retail hub on the Guadalupe River.</p>
-        <a href="areas-victoria-county.html" class="county-accordion-overview">View Victoria County overview →</a>
-      </div>
-    </details>
+    <a href="areas-victoria-county.html" class="county-square">
+      <span class="county-square-label">South Texas Hub</span>
+      <h3 class="county-square-name arvo">Victoria County</h3>
+      <span class="county-square-count county-square-count-county-only">County overview</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
-    <details class="county-accordion">
-      <summary class="county-accordion-summary">
-        <span class="county-accordion-label">Active · Home County</span>
-        <h3 class="county-accordion-name arvo">Wharton County</h3>
-        <span class="county-accordion-count">6 towns</span>
-        <span class="county-accordion-chevron" aria-hidden="true">+</span>
-      </summary>
-      <div class="county-accordion-body">
-        <p class="county-accordion-desc">Where J4LP is headquartered. The widest team coverage and deepest local knowledge, with agents who live across El Campo and the surrounding county.</p>
-        <div class="county-accordion-towns-label">Towns we cover (6, alphabetical)</div>
-        <div class="county-accordion-towns">
-        <a href="areas-boling.html" class="town-chip">Boling</a>
-        <a href="areas-east-bernard.html" class="town-chip">East Bernard</a>
-        <a href="areas-el-campo.html" class="town-chip">El Campo</a>
-        <a href="areas-hungerford-iago.html" class="town-chip">Hungerford &amp; Iago</a>
-        <a href="areas-louise.html" class="town-chip">Louise</a>
-        <a href="areas-wharton.html" class="town-chip">Wharton</a>
-        </div>
-        <a href="areas-wharton-county.html" class="county-accordion-overview">View Wharton County overview →</a>
-      </div>
-    </details>
+    <a href="areas-wharton-county.html" class="county-square">
+      <span class="county-square-label">Home County</span>
+      <h3 class="county-square-name arvo">Wharton County</h3>
+      <span class="county-square-count">6 towns</span>
+      <span class="county-square-arrow">→</span>
+    </a>
 
   </div>
 </section>
