@@ -114,19 +114,26 @@ ul { list-style: none; }
 .btn-outline { display:inline-block; background:transparent; color:var(--maroon); border:2px solid var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:12px 28px; transition:background 0.2s,color 0.2s; }
 .btn-outline:hover { background:var(--maroon); color:var(--white); }
 .intro-text p { font-size:15px; color:var(--dark-gray); line-height:1.9; margin-bottom:20px; max-width:780px; }
-.county-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
-.county-card { background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:32px 28px; transition:border-color 0.25s, box-shadow 0.25s, transform 0.25s; display:flex; flex-direction:column; }
-.county-card:hover { border-color:var(--maroon); box-shadow:0 14px 36px rgba(0,0,0,0.08); transform:translateY(-3px); }
-.county-card .label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:10px; }
-.county-card h3 { font-family:'Arvo',serif; font-size:20px; color:var(--black); margin-bottom:10px; }
-.county-card p { font-size:13px; color:var(--dark-gray); line-height:1.75; margin-bottom:18px; flex-grow:1; }
-.county-card .towns { font-size:12px; color:var(--charcoal); line-height:1.7; margin-bottom:18px; }
-.county-card .towns strong { color:var(--maroon); font-weight:700; }
-.county-card .link-arrow { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--maroon); display:inline-flex; align-items:center; gap:8px; transition:gap 0.2s; margin-top:auto; }
-.county-card .link-arrow::after { content:'→'; }
-.county-card .link-arrow:hover { gap:14px; }
-.county-card.coming { opacity:0.7; }
-.county-card.coming .link-arrow { color:var(--dark-gray); }
+.county-accordion-list { display:flex; flex-direction:column; gap:12px; margin-top:32px; }
+.county-accordion { background:var(--white); border:1px solid rgba(0,0,0,0.08); transition:border-color 0.25s, box-shadow 0.25s; }
+.county-accordion[open] { border-color:var(--maroon); box-shadow:0 6px 20px rgba(0,0,0,0.05); }
+.county-accordion:hover:not([open]) { border-color:rgba(80,2,3,0.4); }
+.county-accordion-summary { list-style:none; cursor:pointer; padding:24px 28px; display:grid; grid-template-columns:auto 1fr auto auto; gap:18px; align-items:center; }
+.county-accordion-summary::-webkit-details-marker { display:none; }
+.county-accordion-label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); white-space:nowrap; }
+.county-accordion-name { font-family:'Arvo',serif; font-size:20px; color:var(--black); margin:0; }
+.county-accordion-count { font-size:11px; font-weight:600; color:var(--dark-gray); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
+.county-accordion-count-county-only { color:var(--mid-gray); font-style:italic; }
+.county-accordion-chevron { font-family:'Arvo',serif; font-size:22px; font-weight:700; color:var(--maroon); width:32px; height:32px; display:flex; align-items:center; justify-content:center; line-height:1; transition:transform 0.25s; }
+.county-accordion[open] .county-accordion-chevron { transform:rotate(45deg); }
+.county-accordion-body { padding:0 28px 28px; border-top:1px solid rgba(0,0,0,0.04); padding-top:24px; margin-top:0; }
+.county-accordion-desc { font-size:14px; color:var(--dark-gray); line-height:1.8; margin-bottom:24px; max-width:760px; }
+.county-accordion-towns-label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:14px; }
+.county-accordion-towns { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
+.town-chip { display:inline-flex; align-items:center; padding:10px 16px; background:var(--off-white); border:1px solid rgba(0,0,0,0.08); font-size:12px; font-weight:600; letter-spacing:0.06em; color:var(--black); transition:background 0.2s, border-color 0.2s, color 0.2s; }
+.town-chip:hover { background:var(--maroon); border-color:var(--maroon); color:var(--white); }
+.county-accordion-overview { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--maroon); padding:10px 0; border-bottom:1px solid var(--maroon); transition:gap 0.2s; }
+.county-accordion-overview:hover { color:var(--maroon-mid); border-bottom-color:var(--maroon-mid); }
 .dark-section { background:var(--black); padding:72px 80px; }
 .dark-section .section-label { color:var(--white); } .dark-section .section-label::before { background:var(--white); }
 .dark-section .section-title { color:var(--white); }
@@ -154,8 +161,8 @@ ul { list-style: none; }
 .footer-bottom { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .footer-bottom p,.footer-bottom a { font-size:11px; color:rgba(255,255,255,0.25); }
 .trec-bar { background:var(--black); padding:12px 80px; text-align:center; font-size:10px; color:rgba(255,255,255,0.2); letter-spacing:0.06em; }
-@media(max-width:1024px){.section{padding:56px 40px;}.page-hero-content{padding:0 40px 48px;}.dark-section{padding:56px 40px;}.county-grid{grid-template-columns:1fr 1fr;}.principles-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 40px;}.footer{padding:48px 40px 32px;}.footer-top{grid-template-columns:1fr 1fr;}.trec-bar{padding:12px 40px;}}
-@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.county-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
+@media(max-width:1024px){.section{padding:56px 40px;}.page-hero-content{padding:0 40px 48px;}.dark-section{padding:56px 40px;}.county-accordion-summary{grid-template-columns:1fr auto;gap:12px;}.county-accordion-label{grid-column:1/-1;}.county-accordion-count{display:none;}.principles-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 40px;}.footer{padding:48px 40px 32px;}.footer-top{grid-template-columns:1fr 1fr;}.trec-bar{padding:12px 40px;}}
+@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.county-accordion-summary{padding:18px 20px;}.county-accordion-body{padding:0 20px 20px;padding-top:18px;}.county-accordion-name{font-size:17px;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
 </style>
 </head>
 <body>
@@ -227,95 +234,216 @@ ul { list-style: none; }
   <h2 class="section-title arvo">Pick the county. Find the local agent.</h2>
   <p class="section-sub lora">Click into any county for towns we cover, the agents who work there, and what's worth knowing before you buy or sell.</p>
 
-  <div class="county-grid">
+  <div class="county-accordion-list">
 
-    <a href="areas-wharton-county.html" class="county-card">
-      <span class="label">Active · Home County</span>
-      <h3>Wharton County</h3>
-      <p>Where J4LP is headquartered. The widest team coverage and deepest local knowledge, with agents who live across El Campo and the surrounding county.</p>
-      <div class="towns"><strong>Towns:</strong> El Campo, East Bernard, Wharton, Louise, Hungerford, Boling</div>
-      <span class="link-arrow">Explore Wharton County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · Texas Triangle</span>
+        <h3 class="county-accordion-name arvo">Austin County</h3>
+        <span class="county-accordion-count">6 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Working ranches, rolling pasture, and small-town communities directly west of Houston. About an hour from the Houston metro via I-10. Not the city of Austin — the rural county.</p>
+        <div class="county-accordion-towns-label">Towns we cover (6, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-bellville.html" class="town-chip">Bellville</a>
+        <a href="areas-cat-spring.html" class="town-chip">Cat Spring</a>
+        <a href="areas-industry.html" class="town-chip">Industry</a>
+        <a href="areas-san-felipe.html" class="town-chip">San Felipe</a>
+        <a href="areas-sealy.html" class="town-chip">Sealy</a>
+        <a href="areas-wallis.html" class="town-chip">Wallis</a>
+        </div>
+        <a href="areas-austin-county.html" class="county-accordion-overview">View Austin County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-matagorda-county.html" class="county-card">
-      <span class="label">Active · Gulf Coast</span>
-      <h3>Matagorda County</h3>
-      <p>Gulf-side land, coastal acreage, and ranches inland. Rice, cattle, hunting, and fishing country across Bay City, Palacios, and the Matagorda coast.</p>
-      <div class="towns"><strong>Towns:</strong> Bay City, Palacios, Driftwood Shores, Markham, Van Vleck</div>
-      <span class="link-arrow">Explore Matagorda County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · J4LP Has Roots Here</span>
+        <h3 class="county-accordion-name arvo">Colorado County</h3>
+        <span class="county-accordion-count">5 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Rice and cattle country along the Colorado River. Productive farmland, hunting land, and homestead acreage. J4LP co-founder Stephanie Strack grew up in Garwood.</p>
+        <div class="county-accordion-towns-label">Towns we cover (5, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-altair-sheridan-rock-island.html" class="town-chip">Altair, Sheridan &amp; Rock Island</a>
+        <a href="areas-columbus.html" class="town-chip">Columbus</a>
+        <a href="areas-eagle-lake.html" class="town-chip">Eagle Lake</a>
+        <a href="areas-garwood.html" class="town-chip">Garwood</a>
+        <a href="areas-weimar.html" class="town-chip">Weimar</a>
+        </div>
+        <a href="areas-colorado-county.html" class="county-accordion-overview">View Colorado County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-austin-county.html" class="county-card">
-      <span class="label">Active · Texas Triangle</span>
-      <h3>Austin County</h3>
-      <p>Working ranches, rolling pasture, and small-town communities directly west of Houston. About an hour from the Houston metro via I-10. Not the city of Austin — the rural county.</p>
-      <div class="towns"><strong>Towns:</strong> Bellville, Sealy, Industry, Cat Spring, Wallis</div>
-      <span class="link-arrow">Explore Austin County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · Texas Triangle</span>
+        <h3 class="county-accordion-name arvo">Fort Bend County</h3>
+        <span class="county-accordion-count">7 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Land, ranches, acreage, and country property across the Houston metro and into the county's rural communities. Sugar Land is covered for metro-to-rural and 1031 strategies.</p>
+        <div class="county-accordion-towns-label">Towns we cover (7, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-beasley.html" class="town-chip">Beasley</a>
+        <a href="areas-fairchilds-pleak.html" class="town-chip">Fairchilds &amp; Pleak</a>
+        <a href="areas-kendleton.html" class="town-chip">Kendleton</a>
+        <a href="areas-needville.html" class="town-chip">Needville</a>
+        <a href="areas-orchard.html" class="town-chip">Orchard</a>
+        <a href="areas-rosenberg.html" class="town-chip">Rosenberg</a>
+        <a href="areas-sugar-land.html" class="town-chip">Sugar Land</a>
+        </div>
+        <a href="areas-fort-bend-county.html" class="county-accordion-overview">View Fort Bend County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-colorado-county.html" class="county-card">
-      <span class="label">Active · J4LP Has Roots Here</span>
-      <h3>Colorado County</h3>
-      <p>Rice and cattle country along the Colorado River. Productive farmland, hunting land, and homestead acreage across Garwood, Eagle Lake, Columbus, and Weimar.</p>
-      <div class="towns"><strong>Towns:</strong> Garwood, Eagle Lake, Columbus, Weimar</div>
-      <span class="link-arrow">Explore Colorado County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · I-45 Corridor</span>
+        <h3 class="county-accordion-name arvo">Freestone County</h3>
+        <span class="county-accordion-count">4 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Directly on Interstate 45 between Dallas and Houston. Ranches, hunting acreage, and lake property near Richland-Chambers Reservoir. About 1.5 hours from Dallas.</p>
+        <div class="county-accordion-towns-label">Towns we cover (4, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-fairfield.html" class="town-chip">Fairfield</a>
+        <a href="areas-richland-chambers.html" class="town-chip">Richland-Chambers</a>
+        <a href="areas-teague.html" class="town-chip">Teague</a>
+        <a href="areas-wortham-streetman.html" class="town-chip">Wortham &amp; Streetman</a>
+        </div>
+        <a href="areas-freestone-county.html" class="county-accordion-overview">View Freestone County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-lavaca-county.html" class="county-card">
-      <span class="label">Active · Cattle Country</span>
-      <h3>Lavaca County</h3>
-      <p>Working cattle ranches, hay and row-crop farmland, hunting acreage, and small-town homes. Czech-German heritage. Two hours from Houston, Austin, and San Antonio.</p>
-      <div class="towns"><strong>Towns:</strong> Hallettsville, Shiner, Yoakum, Moulton</div>
-      <span class="link-arrow">Explore Lavaca County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · Cattle Country</span>
+        <h3 class="county-accordion-name arvo">Lavaca County</h3>
+        <span class="county-accordion-count">4 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Working cattle ranches, hay and row-crop farmland, hunting acreage, and small-town homes. Czech-German heritage. Two hours from Houston, Austin, and San Antonio.</p>
+        <div class="county-accordion-towns-label">Towns we cover (4, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-hallettsville.html" class="town-chip">Hallettsville</a>
+        <a href="areas-moulton.html" class="town-chip">Moulton</a>
+        <a href="areas-shiner.html" class="town-chip">Shiner</a>
+        <a href="areas-yoakum.html" class="town-chip">Yoakum</a>
+        </div>
+        <a href="areas-lavaca-county.html" class="county-accordion-overview">View Lavaca County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-fort-bend-county.html" class="county-card">
-      <span class="label">Active · Texas Triangle</span>
-      <h3>Fort Bend County</h3>
-      <p>Land, ranches, acreage, and country property across the Houston metro and into the county's rural communities. Sugar Land, Rosenberg, Needville, Kendleton, Beasley, and beyond.</p>
-      <div class="towns"><strong>Towns:</strong> Sugar Land, Rosenberg, Needville, Kendleton, Beasley, Orchard</div>
-      <span class="link-arrow">Explore Fort Bend County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · North-Central TX</span>
+        <h3 class="county-accordion-name arvo">Limestone County</h3>
+        <span class="county-accordion-count">4 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Ranch and lake country in north-central Texas. Working cattle ranches, hunting acreage, and lakefront property on Lake Limestone. Roughly 2 hours from Dallas.</p>
+        <div class="county-accordion-towns-label">Towns we cover (4, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-groesbeck.html" class="town-chip">Groesbeck</a>
+        <a href="areas-lake-limestone.html" class="town-chip">Lake Limestone</a>
+        <a href="areas-mexia.html" class="town-chip">Mexia</a>
+        <a href="areas-thornton-tehuacana.html" class="town-chip">Thornton &amp; Tehuacana</a>
+        </div>
+        <a href="areas-limestone-county.html" class="county-accordion-overview">View Limestone County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-limestone-county.html" class="county-card">
-      <span class="label">Active · North-Central TX</span>
-      <h3>Limestone County</h3>
-      <p>Ranch and lake country in north-central Texas. Groesbeck, Mexia, and Lake Limestone. Working cattle ranches, hunting acreage, and lakefront property. Roughly 2-2.5 hours from Dallas, Houston, and Austin.</p>
-      <div class="towns"><strong>Towns:</strong> Groesbeck, Mexia, Thornton, Tehuacana, Kosse</div>
-      <span class="link-arrow">Explore Limestone County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · Gulf Coast</span>
+        <h3 class="county-accordion-name arvo">Matagorda County</h3>
+        <span class="county-accordion-count county-accordion-count-county-only">County page</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Gulf-side land, coastal acreage, and ranches inland. Rice, cattle, hunting, and fishing country across Bay City, Palacios, and the Matagorda coast.</p>
+        <a href="areas-matagorda-county.html" class="county-accordion-overview">View Matagorda County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-freestone-county.html" class="county-card">
-      <span class="label">Active · I-45 Corridor</span>
-      <h3>Freestone County</h3>
-      <p>Directly on Interstate 45 between Dallas and Houston. Fairfield, Teague, and Wortham. Ranches, hunting acreage, and lake property near Richland-Chambers Reservoir. About 1.5 hours from Dallas.</p>
-      <div class="towns"><strong>Towns:</strong> Fairfield, Teague, Wortham, Streetman</div>
-      <span class="link-arrow">Explore Freestone County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · I-45 Corridor</span>
+        <h3 class="county-accordion-name arvo">Navarro County</h3>
+        <span class="county-accordion-count">6 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">An hour south of Dallas on I-45. Corsicana and surrounding ranch country. Two reservoirs (Richland-Chambers and Navarro Mills). Top weekend-ranch market for DFW buyers.</p>
+        <div class="county-accordion-towns-label">Towns we cover (6, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-blooming-grove.html" class="town-chip">Blooming Grove</a>
+        <a href="areas-corsicana.html" class="town-chip">Corsicana</a>
+        <a href="areas-frost-rice.html" class="town-chip">Frost &amp; Rice</a>
+        <a href="areas-kerens.html" class="town-chip">Kerens</a>
+        <a href="areas-navarro-mills.html" class="town-chip">Navarro Mills</a>
+        <a href="areas-richland-chambers-navarro.html" class="town-chip">Richland-Chambers (Navarro)</a>
+        </div>
+        <a href="areas-navarro-county.html" class="county-accordion-overview">View Navarro County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-navarro-county.html" class="county-card">
-      <span class="label">Active · I-45 Corridor</span>
-      <h3>Navarro County</h3>
-      <p>An hour south of Dallas on I-45. Corsicana and the surrounding country. Working ranches, hunting acreage, and two reservoirs (Richland-Chambers and Navarro Mills). Top weekend-ranch market for DFW buyers.</p>
-      <div class="towns"><strong>Towns:</strong> Corsicana, Kerens, Rice, Frost, Blooming Grove</div>
-      <span class="link-arrow">Explore Navarro County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · Flagship Listing</span>
+        <h3 class="county-accordion-name arvo">Stephens County</h3>
+        <span class="county-accordion-count county-accordion-count-county-only">County page</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">North-Central Texas, west of Fort Worth. Working ranch country anchored by our co-listing on the 2,544-acre Hilago Ranch. Large-acreage legacy property, hunting land, and Hubbard Creek Reservoir.</p>
+        <a href="areas-stephens-county.html" class="county-accordion-overview">View Stephens County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-stephens-county.html" class="county-card">
-      <span class="label">Active · Flagship Listing</span>
-      <h3>Stephens County</h3>
-      <p>North-Central Texas, west of Fort Worth. Working ranch country anchored by our co-listing on the 2,544-acre Hilago Ranch. Large-acreage legacy property, hunting land, and Hubbard Creek Reservoir.</p>
-      <div class="towns"><strong>Towns:</strong> Breckenridge, plus the rural ranch country around Hubbard Creek Reservoir</div>
-      <span class="link-arrow">Explore Stephens County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · South Texas Hub</span>
+        <h3 class="county-accordion-name arvo">Victoria County</h3>
+        <span class="county-accordion-count county-accordion-count-county-only">County page</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">South Texas on the US-59 corridor between Houston and San Antonio. Commercial and mixed-use property anchored by our Limo Station listing in Victoria. Regional medical, education, and retail hub on the Guadalupe River.</p>
+        <a href="areas-victoria-county.html" class="county-accordion-overview">View Victoria County overview →</a>
+      </div>
+    </details>
 
-    <a href="areas-victoria-county.html" class="county-card">
-      <span class="label">Active · South Texas Hub</span>
-      <h3>Victoria County</h3>
-      <p>South Texas on the US-59 corridor, between Houston and San Antonio. Commercial and mixed-use property anchored by our Limo Station listing in Victoria. Regional medical, education, and retail hub on the Guadalupe River.</p>
-      <div class="towns"><strong>Towns:</strong> Victoria</div>
-      <span class="link-arrow">Explore Victoria County</span>
-    </a>
+    <details class="county-accordion">
+      <summary class="county-accordion-summary">
+        <span class="county-accordion-label">Active · Home County</span>
+        <h3 class="county-accordion-name arvo">Wharton County</h3>
+        <span class="county-accordion-count">6 towns</span>
+        <span class="county-accordion-chevron" aria-hidden="true">+</span>
+      </summary>
+      <div class="county-accordion-body">
+        <p class="county-accordion-desc">Where J4LP is headquartered. The widest team coverage and deepest local knowledge, with agents who live across El Campo and the surrounding county.</p>
+        <div class="county-accordion-towns-label">Towns we cover (6, alphabetical)</div>
+        <div class="county-accordion-towns">
+        <a href="areas-boling.html" class="town-chip">Boling</a>
+        <a href="areas-east-bernard.html" class="town-chip">East Bernard</a>
+        <a href="areas-el-campo.html" class="town-chip">El Campo</a>
+        <a href="areas-hungerford-iago.html" class="town-chip">Hungerford &amp; Iago</a>
+        <a href="areas-louise.html" class="town-chip">Louise</a>
+        <a href="areas-wharton.html" class="town-chip">Wharton</a>
+        </div>
+        <a href="areas-wharton-county.html" class="county-accordion-overview">View Wharton County overview →</a>
+      </div>
+    </details>
 
   </div>
 </section>
