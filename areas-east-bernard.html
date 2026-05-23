@@ -168,6 +168,11 @@ ul { list-style: none; }
 .intro-aside ul { display:flex; flex-direction:column; gap:8px; }
 .intro-aside li { font-size:13px; color:var(--charcoal); padding-left:18px; position:relative; line-height:1.7; }
 .intro-aside li::before { content:'·'; position:absolute; left:6px; color:var(--maroon); font-weight:700; }
+.featured-listing-strip { background:var(--maroon); color:var(--white); padding:32px 40px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-top:32px; }
+.featured-listing-strip .label { font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:6px; display:block; }
+.featured-listing-strip h3 { font-family:'Arvo',serif; font-size:22px; color:var(--white); margin-bottom:6px; }
+.featured-listing-strip p { font-size:13px; color:rgba(255,255,255,0.8); max-width:520px; line-height:1.7; }
+.featured-listing-strip + .featured-listing-strip { margin-top:16px; }
 .agent-feature { display:grid; grid-template-columns:1fr; gap:32px; margin-top:32px; }
 .agent-card-feature { background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:40px 36px; display:flex; flex-direction:column; gap:18px; transition:border-color 0.25s, box-shadow 0.25s; max-width:760px; }
 .agent-card-feature:hover { border-color:var(--maroon); box-shadow:0 14px 36px rgba(0,0,0,0.08); }
@@ -219,7 +224,7 @@ ul { list-style: none; }
 .footer-bottom p,.footer-bottom a { font-size:11px; color:rgba(255,255,255,0.25); }
 .trec-bar { background:var(--black); padding:12px 80px; text-align:center; font-size:10px; color:rgba(255,255,255,0.2); letter-spacing:0.06em; }
 @media(max-width:1024px){.section{padding:56px 40px;}.page-hero-content{padding:0 40px 48px;}.dark-section{padding:56px 40px;}.intro-layout{grid-template-columns:1fr;gap:40px;}.town-stats{grid-template-columns:1fr 1fr;}.market-grid{grid-template-columns:1fr;}.seminar-banner{padding:48px 40px;}.ecosystem-section{padding:56px 40px;}.ecosystem-grid{grid-template-columns:1fr 1fr;}.faq-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 40px;}.footer{padding:48px 40px 32px;}.footer-top{grid-template-columns:1fr 1fr;}.trec-bar{padding:12px 40px;}}
-@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.town-stats{grid-template-columns:1fr;padding:28px 24px;}.seminar-banner{flex-direction:column;align-items:flex-start;padding:40px 24px;}.ecosystem-section{padding:48px 24px;}.ecosystem-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
+@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.town-stats{grid-template-columns:1fr;padding:28px 24px;}.featured-listing-strip{padding:28px 24px;flex-direction:column;align-items:flex-start;}.seminar-banner{flex-direction:column;align-items:flex-start;padding:40px 24px;}.ecosystem-section{padding:48px 24px;}.ecosystem-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
 </style>
 </head>
 <body>
@@ -299,6 +304,18 @@ ul { list-style: none; }
       <span class="value">Wharton / Fort Bend</span>
       <span class="note">Straddles the line</span>
     </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTING STRIP -->
+<section class="section" style="padding-top:32px; padding-bottom:0">
+  <div class="featured-listing-strip">
+    <div>
+      <span class="label">J4LP Featured Listing · East Bernard</span>
+      <h3 class="arvo">East Bernard Homestead Tracts — multiple tract sizes</h3>
+      <p>Homestead-size tracts in East Bernard, listed by J4 Legacy Properties. The kind of small-acreage opportunity that opens the door to country life on the Wharton / Fort Bend line.</p>
+    </div>
+    <a href="properties/east-bernard-homestead.html" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px;">View East Bernard Homestead</a>
   </div>
 </section>
 

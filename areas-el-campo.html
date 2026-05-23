@@ -174,6 +174,11 @@ ul { list-style: none; }
 .intro-aside ul { display:flex; flex-direction:column; gap:8px; }
 .intro-aside li { font-size:13px; color:var(--charcoal); padding-left:18px; position:relative; line-height:1.7; }
 .intro-aside li::before { content:'·'; position:absolute; left:6px; color:var(--maroon); font-weight:700; }
+.featured-listing-strip { background:var(--maroon); color:var(--white); padding:32px 40px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-top:32px; }
+.featured-listing-strip .label { font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:6px; display:block; }
+.featured-listing-strip h3 { font-family:'Arvo',serif; font-size:22px; color:var(--white); margin-bottom:6px; }
+.featured-listing-strip p { font-size:13px; color:rgba(255,255,255,0.8); max-width:520px; line-height:1.7; }
+.featured-listing-strip + .featured-listing-strip { margin-top:16px; }
 .agents-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; margin-top:32px; }
 .agent-card { background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:36px 32px; display:flex; flex-direction:column; transition:border-color 0.25s, box-shadow 0.25s; }
 .agent-card:hover { border-color:var(--maroon); box-shadow:0 14px 36px rgba(0,0,0,0.08); }
@@ -234,7 +239,7 @@ ul { list-style: none; }
 .footer-bottom p,.footer-bottom a { font-size:11px; color:rgba(255,255,255,0.25); }
 .trec-bar { background:var(--black); padding:12px 80px; text-align:center; font-size:10px; color:rgba(255,255,255,0.2); letter-spacing:0.06em; }
 @media(max-width:1024px){.section{padding:56px 40px;}.page-hero-content{padding:0 40px 48px;}.dark-section{padding:56px 40px;}.intro-layout{grid-template-columns:1fr;gap:40px;}.town-stats{grid-template-columns:1fr 1fr;}.agents-grid{grid-template-columns:1fr;}.market-grid{grid-template-columns:1fr;}.seminar-banner{padding:48px 40px;}.ecosystem-section{padding:56px 40px;}.ecosystem-grid{grid-template-columns:1fr 1fr;}.faq-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 40px;}.footer{padding:48px 40px 32px;}.footer-top{grid-template-columns:1fr 1fr;}.trec-bar{padding:12px 40px;}}
-@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.town-stats{grid-template-columns:1fr;padding:28px 24px;}.seminar-banner{flex-direction:column;align-items:flex-start;padding:40px 24px;}.ecosystem-section{padding:48px 24px;}.ecosystem-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
+@media(max-width:768px){.topbar{display:none;}.nav{padding:0 20px;height:64px;}.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}.page-hero-content{padding:0 24px 40px;}.section{padding:48px 24px;}.dark-section{padding:48px 24px;}.town-stats{grid-template-columns:1fr;padding:28px 24px;}.featured-listing-strip{padding:28px 24px;flex-direction:column;align-items:flex-start;}.seminar-banner{flex-direction:column;align-items:flex-start;padding:40px 24px;}.ecosystem-section{padding:48px 24px;}.ecosystem-grid{grid-template-columns:1fr;}.listings-cta{padding:48px 24px;}.footer{padding:40px 24px 28px;}.footer-top{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}.trec-bar{padding:12px 24px;}}
 </style>
 </head>
 <body>
@@ -257,7 +262,7 @@ ul { list-style: none; }
     </li>
     <li><a href="selling.html">Selling</a></li>
     <li class="dropdown"><a href="areas-we-serve.html" class="active">Areas We Serve</a>
-      <div class="dropdown-menu"><a href="areas-wharton-county.html">Wharton County</a><a href="areas-el-campo.html">El Campo</a><a href="areas-east-bernard.html">East Bernard</a><a href="areas-colorado-county.html">Colorado County</a><a href="areas-garwood.html">Garwood</a><a href="areas-lavaca-county.html">Lavaca County</a><a href="areas-hallettsville.html">Hallettsville</a><a href="areas-austin-county.html">Austin County</a><a href="areas-fort-bend-county.html">Fort Bend County</a><a href="areas-needville.html">Needville</a><a href="areas-matagorda-county.html">Matagorda County</a><a href="areas-jackson-county.html">Jackson County</a><a href="areas-fayette-county.html">Fayette County</a><a href="areas-limestone-county.html">Limestone County</a><a href="areas-freestone-county.html">Freestone County</a><a href="areas-navarro-county.html">Navarro County</a><a href="areas-stephens-county.html">Stephens County</a><a href="areas-we-serve.html">All Areas</a></div>
+      <div class="dropdown-menu"><a href="areas-wharton-county.html">Wharton County</a><a href="areas-el-campo.html">El Campo</a><a href="areas-east-bernard.html">East Bernard</a><a href="areas-colorado-county.html">Colorado County</a><a href="areas-garwood.html">Garwood</a><a href="areas-lavaca-county.html">Lavaca County</a><a href="areas-hallettsville.html">Hallettsville</a><a href="areas-austin-county.html">Austin County</a><a href="areas-fort-bend-county.html">Fort Bend County</a><a href="areas-needville.html">Needville</a><a href="areas-matagorda-county.html">Matagorda County</a><a href="areas-jackson-county.html">Jackson County</a><a href="areas-victoria-county.html">Victoria County</a><a href="areas-fayette-county.html">Fayette County</a><a href="areas-limestone-county.html">Limestone County</a><a href="areas-freestone-county.html">Freestone County</a><a href="areas-navarro-county.html">Navarro County</a><a href="areas-stephens-county.html">Stephens County</a><a href="areas-we-serve.html">All Areas</a></div>
     </li>
     <li class="dropdown"><a href="our-team.html">Our Team</a>
       <div class="dropdown-menu"><a href="our-team.html#j4heritage">J4 Heritage Group</a><a href="our-team.html#join">Join Our Team</a></div>
@@ -314,6 +319,34 @@ ul { list-style: none; }
       <span class="value">~12,000</span>
       <span class="note">Largest city in Wharton County</span>
     </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTING STRIPS -->
+<section class="section" style="padding-top:32px; padding-bottom:0">
+  <div class="featured-listing-strip">
+    <div>
+      <span class="label">J4LP Featured Listing · El Campo</span>
+      <h3 class="arvo">Horse Farm Property — 10 acres</h3>
+      <p>Working horse property in El Campo, listed by J4 Legacy Properties. Ten acres of established small-acreage country living in Wharton County.</p>
+    </div>
+    <a href="properties/horse-farm-property.html" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px;">View Horse Farm</a>
+  </div>
+  <div class="featured-listing-strip">
+    <div>
+      <span class="label">J4LP Featured Listing · El Campo</span>
+      <h3 class="arvo">El Campo Mid-Century Home — 1± acre</h3>
+      <p>3,128 sq ft mid-century home on 1± acre in El Campo. Distinctive architecture and the kind of bones you don't find in new construction.</p>
+    </div>
+    <a href="properties/el-campo-mid-century.html" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px;">View Mid-Century Home</a>
+  </div>
+  <div class="featured-listing-strip">
+    <div>
+      <span class="label">J4LP Under Contract · El Campo</span>
+      <h3 class="arvo">J4 Homestead — ±25 acres</h3>
+      <p>The Strack family homestead on ±25 acres outside El Campo — currently under contract. Reach out for similar acreage homestead opportunities in Wharton County.</p>
+    </div>
+    <a href="properties/j4-homestead.html" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px;">View J4 Homestead</a>
   </div>
 </section>
 
