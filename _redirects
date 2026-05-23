@@ -22,6 +22,16 @@
 /east-bernard                                         /areas-east-bernard.html     301
 /east-bernard-tx                                      /areas-east-bernard.html     301
 /east-bernard-texas-real-estate                       /areas-east-bernard.html     301
+/areas-we-serve/colorado-county                       /areas-colorado-county.html  301
+/areas/colorado-county                                /areas-colorado-county.html  301
+/colorado-county                                      /areas-colorado-county.html  301
+/colorado-county-tx                                   /areas-colorado-county.html  301
+/areas-we-serve/colorado-county/garwood               /areas-garwood.html          301
+/areas/colorado-county/garwood                        /areas-garwood.html          301
+/areas/garwood                                        /areas-garwood.html          301
+/garwood                                              /areas-garwood.html          301
+/garwood-tx                                           /areas-garwood.html          301
+/garwood-texas-real-estate                            /areas-garwood.html          301
 
 # Field Notes (blog): nav uses clean URLs
 /blog                           /blog.html                  301
