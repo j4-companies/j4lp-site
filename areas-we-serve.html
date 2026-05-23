@@ -125,13 +125,16 @@ ul { list-style: none; }
 .btn-outline:hover { background:var(--maroon); color:var(--white); }
 .intro-text p { font-size:15px; color:var(--dark-gray); line-height:1.9; margin-bottom:20px; max-width:780px; }
 .county-square-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:32px; }
-.county-square { aspect-ratio:1/1; background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:24px; display:flex; flex-direction:column; transition:border-color 0.25s, box-shadow 0.25s, transform 0.25s; position:relative; }
-.county-square:hover { border-color:var(--maroon); box-shadow:0 12px 32px rgba(0,0,0,0.08); transform:translateY(-3px); }
-.county-square-label { font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:auto; }
-.county-square-name { font-family:'Arvo',serif; font-size:22px; font-weight:700; color:var(--black); line-height:1.15; margin:18px 0 12px; }
-.county-square-count { font-size:11px; font-weight:600; color:var(--dark-gray); letter-spacing:0.06em; }
-.county-square-count-county-only { color:var(--mid-gray); font-style:italic; }
-.county-square-arrow { position:absolute; bottom:24px; right:24px; font-size:22px; font-weight:700; color:var(--maroon); transition:transform 0.25s; }
+.county-square { aspect-ratio:1/1; background:var(--charcoal); background-size:cover; background-position:center; padding:24px; display:flex; flex-direction:column; transition:transform 0.25s, box-shadow 0.25s; position:relative; overflow:hidden; }
+.county-square:hover { box-shadow:0 14px 36px rgba(0,0,0,0.18); transform:translateY(-3px); }
+.county-square-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(80,2,3,0.55) 0%, rgba(19,20,20,0.92) 100%); transition:background 0.25s; }
+.county-square:hover .county-square-overlay { background:linear-gradient(to bottom, rgba(80,2,3,0.7) 0%, rgba(19,20,20,0.96) 100%); }
+.county-square > * { position:relative; z-index:2; }
+.county-square-label { font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); opacity:0.9; margin-bottom:auto; }
+.county-square-name { font-family:'Arvo',serif; font-size:22px; font-weight:700; color:var(--white); line-height:1.15; margin:18px 0 10px; text-shadow:0 2px 8px rgba(0,0,0,0.4); }
+.county-square-count { font-size:12px; font-weight:600; color:rgba(255,255,255,0.85); letter-spacing:0.06em; }
+.county-square-count-county-only { color:rgba(255,255,255,0.7); font-style:italic; }
+.county-square-arrow { position:absolute; bottom:24px; right:24px; font-size:22px; font-weight:700; color:var(--white); transition:transform 0.25s; z-index:2; }
 .county-square:hover .county-square-arrow { transform:translateX(4px); }
 .dark-section { background:var(--black); padding:72px 80px; }
 .dark-section .section-label { color:var(--white); } .dark-section .section-label::before { background:var(--white); }
@@ -235,77 +238,88 @@ ul { list-style: none; }
 
   <div class="county-square-grid">
 
-    <a href="areas-austin-county.html" class="county-square">
+    <a href="areas-austin-county.html" class="county-square" style="background-image:url('images/page-hero.webp')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">Texas Triangle</span>
       <h3 class="county-square-name arvo">Austin County</h3>
       <span class="county-square-count">6 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-colorado-county.html" class="county-square">
+    <a href="areas-colorado-county.html" class="county-square" style="background-image:url('images/page-hero.webp')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">J4LP Roots Here</span>
       <h3 class="county-square-name arvo">Colorado County</h3>
       <span class="county-square-count">5 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-fort-bend-county.html" class="county-square">
+    <a href="areas-fort-bend-county.html" class="county-square" style="background-image:url('images/listings/richmond-cotton-farm/hero.jpg')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">Texas Triangle</span>
       <h3 class="county-square-name arvo">Fort Bend County</h3>
       <span class="county-square-count">7 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-freestone-county.html" class="county-square">
+    <a href="areas-freestone-county.html" class="county-square" style="background-image:url('images/page-hero.webp')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">I-45 Corridor</span>
       <h3 class="county-square-name arvo">Freestone County</h3>
       <span class="county-square-count">4 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-lavaca-county.html" class="county-square">
+    <a href="areas-lavaca-county.html" class="county-square" style="background-image:url('images/page-hero.webp')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">Cattle Country</span>
       <h3 class="county-square-name arvo">Lavaca County</h3>
       <span class="county-square-count">4 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-limestone-county.html" class="county-square">
+    <a href="areas-limestone-county.html" class="county-square" style="background-image:url('images/listings/mexia-commercial-property/hero.JPG')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">North-Central TX</span>
       <h3 class="county-square-name arvo">Limestone County</h3>
       <span class="county-square-count">4 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-matagorda-county.html" class="county-square">
+    <a href="areas-matagorda-county.html" class="county-square" style="background-image:url('images/listings/highway-60-frontage-tract/hero.jpg')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">Gulf Coast</span>
       <h3 class="county-square-name arvo">Matagorda County</h3>
       <span class="county-square-count county-square-count-county-only">County overview</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-navarro-county.html" class="county-square">
+    <a href="areas-navarro-county.html" class="county-square" style="background-image:url('images/page-hero.webp')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">I-45 Corridor</span>
       <h3 class="county-square-name arvo">Navarro County</h3>
       <span class="county-square-count">6 towns</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-stephens-county.html" class="county-square">
+    <a href="areas-stephens-county.html" class="county-square" style="background-image:url('images/listings/hilago-ranch/hero.jpg')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">Flagship Listing</span>
       <h3 class="county-square-name arvo">Stephens County</h3>
       <span class="county-square-count county-square-count-county-only">County overview</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-victoria-county.html" class="county-square">
+    <a href="areas-victoria-county.html" class="county-square" style="background-image:url('images/listings/limo-station-victoria/hero.jpg')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">South Texas Hub</span>
       <h3 class="county-square-name arvo">Victoria County</h3>
       <span class="county-square-count county-square-count-county-only">County overview</span>
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-wharton-county.html" class="county-square">
+    <a href="areas-wharton-county.html" class="county-square" style="background-image:url('images/listings/east-bernard-homestead-tracts/hero.jpg')">
+      <span class="county-square-overlay"></span>
       <span class="county-square-label">Home County</span>
       <h3 class="county-square-name arvo">Wharton County</h3>
       <span class="county-square-count">6 towns</span>
