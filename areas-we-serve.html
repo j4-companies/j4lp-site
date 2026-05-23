@@ -65,24 +65,24 @@ ul { list-style: none; }
 :root { --maroon:#500203; --maroon-mid:#6b0304; --black:#131414; --charcoal:#1e1e1e; --dark-gray:#7F8194; --mid-gray:#a0a0a8; --light-gray:#d3d5e4; --off-white:#f7f5f0; --warm-white:#faf9f6; --white:#ffffff; --nav-height:100px; }
 .arvo { font-family:'Arvo',serif; } .lora { font-family:'Lora',serif; }
 .topbar { background:var(--black); padding:8px 40px; display:flex; justify-content:space-between; align-items:center; }
-.topbar-left { font-size:11px; color:rgba(255,255,255,0.55); letter-spacing:0.1em; text-transform:uppercase; }
+.topbar-left { font-size:15px; color:rgba(255,255,255,0.55); letter-spacing:0.1em; text-transform:uppercase; }
 .topbar-right { display:flex; gap:24px; }
-.topbar-right a { font-size:11px; color:rgba(255,255,255,0.55); letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
+.topbar-right a { font-size:15px; color:rgba(255,255,255,0.55); letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
 .topbar-right a:hover, .topbar-phone { color:var(--white)!important; } .topbar-phone { font-weight:700; }
 .nav { position:sticky; top:0; z-index:1000; background:var(--white); border-bottom:1px solid rgba(0,0,0,0.08); height:var(--nav-height); display:flex; align-items:center; justify-content:space-between; padding:0 40px; transition:box-shadow 0.3s; }
 .nav.scrolled { box-shadow:0 2px 20px rgba(0,0,0,0.12); }
 .brand-name { font-family:'Arvo',serif; font-size:32px; font-weight:700; color:var(--maroon); letter-spacing:0.04em; }
-.brand-sub { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dark-gray); margin-top:2px; }
+.brand-sub { font-size:15px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dark-gray); margin-top:2px; }
 .nav-links { display:flex; gap:32px; align-items:center; }
 .nav-links>li { position:relative; }
-.nav-links>li>a { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); padding:8px 0; transition:color 0.2s; display:block; }
+.nav-links>li>a { font-size:15px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); padding:8px 0; transition:color 0.2s; display:block; }
 .nav-links>li>a:hover,.nav-links>li>a.active { color:var(--maroon); }
 .nav-links>li>a::after { content:''; display:block; height:2px; background:var(--maroon); width:0; transition:width 0.25s; margin-top:2px; }
 .nav-links>li>a:hover::after,.nav-links>li>a.active::after { width:100%; }
 .dropdown { position:relative; }
 .dropdown-menu { display:none; position:absolute; top:100%; left:0; min-width:220px; background:var(--white); border:1px solid rgba(0,0,0,0.08); border-top:3px solid var(--maroon); box-shadow:0 12px 40px rgba(0,0,0,0.12); z-index:100; }
 .dropdown:hover .dropdown-menu { display:block; }
-.dropdown-menu a { display:block; padding:11px 18px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-menu a { display:block; padding:11px 18px; font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
 .dropdown-menu a:hover { background:var(--off-white); color:var(--maroon); }
 .dropdown-menu-counties { min-width:260px; }
 .dropdown-county-item { position:relative; }
@@ -94,7 +94,7 @@ ul { list-style: none; }
 .dropdown-submenu a:hover { background:var(--off-white); color:var(--maroon); }
 .dropdown-all-areas { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--maroon); background:var(--off-white); transition:background 0.15s,color 0.15s; }
 .dropdown-all-areas:hover { background:var(--maroon); color:var(--white); }
-.nav-cta { background:var(--maroon); color:var(--white)!important; padding:11px 22px; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; transition:background 0.2s; }
+.nav-cta { background:var(--maroon); color:var(--white)!important; padding:11px 22px; font-size:15px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; transition:background 0.2s; }
 .nav-cta:hover { background:var(--maroon-mid); } .nav-cta::after { display:none!important; }
 .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
 .nav-hamburger span { display:block; width:24px; height:2px; background:var(--black); }
@@ -190,7 +190,7 @@ ul { list-style: none; }
       <div class="dropdown-menu"><a href="our-team.html#j4heritage">J4 Heritage Group</a><a href="our-team.html#join">Join Our Team</a></div>
     </li>
     <li><a href="resources.html">Resources</a></li>
-    <li><a href="ecosystem.html">J4 Ecosystem</a></li>
+    <li><a href="blog.html">Field Notes</a></li><li><a href="ecosystem.html">J4 Ecosystem</a></li>
   </ul>
   <a href="contact.html" class="btn nav-cta">Let's Connect</a>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
