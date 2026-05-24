@@ -69,8 +69,8 @@ ul { list-style: none; }
 :root {
   --maroon: #500203;
   --maroon-mid: #6b0304;
-  --gold: #c8a96e;
-  --gold-light: #e8d4a8;
+  --gold: #ffffff;
+  --gold-light: #ffffff;
   --black: #131414;
   --charcoal: #1e1e1e;
   --dark-gray: #7F8194;
@@ -90,8 +90,8 @@ ul { list-style: none; }
 .topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; align-items: center; }
 .topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 
 /* ===== NAV ===== */
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
@@ -117,16 +117,16 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
+.mobile-logo span { color: var(--white); }
 .mobile-links a { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
+.mobile-contact a { color: var(--white); }
 
 /* ===== STATUS BANNER ===== */
 .status-banner { padding: 12px 40px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
 .status-banner.contract { background: #7F8194; color: var(--white); }
 .status-banner.sold { background: var(--black); color: var(--white); }
-.status-banner a { color: var(--gold); }
+.status-banner a { color: var(--white); }
 
 /* ===== BREADCRUMB ===== */
 .breadcrumb-bar { padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }
@@ -194,9 +194,9 @@ ul { list-style: none; }
 /* ===== SIDEBAR CARD ===== */
 .sidebar-sticky { position: sticky; top: calc(var(--nav-height) + 24px); }
 .contact-card { background: var(--black); padding: 28px; margin-bottom: 12px; }
-.contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+.contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; display: block; }
 .contact-card h3 { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.contact-card-price { font-family: 'Arvo', serif; font-size: 26px; font-weight: 700; color: var(--gold); margin-bottom: 20px; }
+.contact-card-price { font-family: 'Arvo', serif; font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
 .contact-card-price.contact { font-size: 16px; color: rgba(255,255,255,0.6); }
 .contact-form { display: flex; flex-direction: column; gap: 10px; }
 .contact-form input, .contact-form select, .contact-form textarea {
@@ -206,7 +206,7 @@ ul { list-style: none; }
   transition: border-color 0.2s;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--white); }
 .contact-form select { color: rgba(255,255,255,0.6); appearance: none; cursor: pointer; }
 .contact-form select option { background: var(--black); color: var(--white); }
 .contact-form textarea { resize: vertical; min-height: 80px; }
@@ -248,7 +248,7 @@ ul { list-style: none; }
 .offmarket { background: var(--maroon); padding: 56px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .offmarket h2 { font-family: 'Arvo', serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: var(--white); margin-bottom: 8px; }
 .offmarket p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 480px; line-height: 1.75; }
-.btn-gold { background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
+.btn-gold { background: var(--white); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
 .btn-gold:hover { background: var(--gold-light); }
 
 /* ===== FOOTER ===== */
@@ -258,7 +258,7 @@ ul { list-style: none; }
 .footer-brand-name span { color: var(--white); }
 .footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--white); margin-bottom: 14px; }
 .footer-about { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }

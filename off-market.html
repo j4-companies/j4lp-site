@@ -61,8 +61,8 @@ ul { list-style: none; }
 .topbar-left { font-size: 15px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; align-items: center; }
 .topbar-right a { font-size: 15px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 
 /* ===== NAV ===== */
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
@@ -100,20 +100,20 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; line-height: 1; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
+.mobile-logo span { color: var(--white); }
 .mobile-links a { display: block; font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s; }
-.mobile-links a:hover { color: var(--gold); }
+.mobile-links a:hover { color: var(--white); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 16px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
+.mobile-contact a { color: var(--white); }
 
 /* ===== PAGE HERO ===== */
 .page-hero { position: relative; height: 300px; display: flex; align-items: flex-end; overflow: hidden; }
 .page-hero-bg { position: absolute; inset: 0; background-image: url('images/page-hero.webp'); background-size: cover; background-position: center 25%; }
 .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(19,20,20,0.88) 100%); }
 .page-hero-content { position: relative; z-index: 2; padding: 0 80px 48px; width: 100%; }
-.breadcrumb { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.breadcrumb { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 .breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb a:hover { color: var(--white); }
 .breadcrumb-sep { color: rgba(255,255,255,0.25); }
 .page-hero h1 { font-family: 'Arvo', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 10px; }
 .page-hero p { font-family: 'Lora', serif; font-style: italic; font-size: 16px; color: rgba(255,255,255,0.65); }
@@ -153,17 +153,17 @@ ul { list-style: none; }
 
 /* ===== WHO SECTION ===== */
 .who-section { background: var(--black); padding: 72px 80px; }
-.who-section .section-label { color: var(--gold); }
-.who-section .section-label::before { background: var(--gold); }
+.who-section .section-label { color: var(--white); }
+.who-section .section-label::before { background: var(--white); }
 .who-section h2 { font-family: 'Arvo', serif; font-size: clamp(24px, 3vw, 38px); font-weight: 700; color: var(--white); margin-bottom: 12px; }
 .who-section p { font-family: 'Lora', serif; font-style: italic; font-size: 15px; color: rgba(255,255,255,0.55); margin-bottom: 48px; }
 .who-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); }
 .who-card { background: var(--black); padding: 36px 28px; border-left: 3px solid transparent; transition: border-color 0.3s, background 0.3s; }
 .who-card:hover { border-left-color: var(--maroon); background: rgba(255,255,255,0.03); }
-.who-num { font-family: 'Arvo', serif; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 12px; }
+.who-num { font-family: 'Arvo', serif; font-size: 10px; color: var(--white); letter-spacing: 0.2em; margin-bottom: 12px; }
 .who-card h3 { font-family: 'Arvo', serif; font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
 .who-card p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 20px; }
-.who-card a { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+.who-card a { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
 .who-card a::after { content: '→'; }
 .who-card a:hover { gap: 12px; }
 
@@ -178,7 +178,7 @@ ul { list-style: none; }
 .footer-social { width: 34px; height: 34px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
 .footer-social:hover { background: var(--maroon); border-color: var(--maroon); }
 .footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.6); }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 9px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }

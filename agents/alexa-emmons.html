@@ -58,7 +58,7 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 :root {
-  --maroon: #500203; --maroon-mid: #6b0304; --gold: #c8a96e; --gold-light: #e8d4a8;
+  --maroon: #500203; --maroon-mid: #6b0304; --gold: #ffffff; --gold-light: #ffffff;
   --black: #131414; --charcoal: #1e1e1e; --dark-gray: #7F8194; --mid-gray: #a0a0a8;
   --light-gray: #d3d5e4; --off-white: #f7f5f0; --warm-white: #faf9f6; --white: #ffffff;
   --nav-height: 80px;
@@ -71,8 +71,8 @@ ul { list-style: none; }
 .topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; align-items: center; }
 .topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 
 /* NAV */
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
@@ -96,10 +96,10 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
+.mobile-logo span { color: var(--white); }
 .mobile-links a { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
+.mobile-contact a { color: var(--white); }
 
 /* BREADCRUMB */
 .breadcrumb-bar { padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }
@@ -136,15 +136,15 @@ ul { list-style: none; }
 .agent-photo-wrap { overflow: hidden; margin-bottom: 18px; background: var(--off-white); aspect-ratio: 4/5; }
 .agent-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .agent-contact-card { background: var(--black); padding: 28px; color: var(--white); }
-.agent-contact-card .label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+.agent-contact-card .label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; display: block; }
 .agent-contact-card .row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .agent-contact-card .row:last-of-type { border-bottom: none; }
-.agent-contact-card .row svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+.agent-contact-card .row svg { width: 18px; height: 18px; color: var(--white); flex-shrink: 0; }
 .agent-contact-card .row a { color: var(--white); font-weight: 700; font-size: 15px; }
-.agent-contact-card .row a:hover { color: var(--gold); }
+.agent-contact-card .row a:hover { color: var(--white); }
 .agent-contact-card .trec { margin-top: 14px; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; }
 .agent-contact-card .trec a { color: rgba(255,255,255,0.5); }
-.agent-contact-card .trec a:hover { color: var(--gold); }
+.agent-contact-card .trec a:hover { color: var(--white); }
 .agent-contact-card .btn-contact { display: block; text-align: center; padding: 14px; background: var(--maroon); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 18px; transition: background 0.2s; }
 .agent-contact-card .btn-contact:hover { background: var(--maroon-mid); }
 
@@ -153,7 +153,7 @@ ul { list-style: none; }
 .agent-cta-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 .agent-cta h2 { font-family: 'Arvo', serif; font-size: clamp(20px, 2.4vw, 28px); color: var(--white); margin-bottom: 8px; line-height: 1.3; }
 .agent-cta p { font-size: 14px; color: rgba(255,255,255,0.7); max-width: 560px; line-height: 1.7; }
-.btn-gold { background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
+.btn-gold { background: var(--white); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
 .btn-gold:hover { background: var(--gold-light); }
 
 /* FOOTER */
@@ -163,7 +163,7 @@ ul { list-style: none; }
 .footer-brand-name span { color: var(--white); }
 .footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--white); margin-bottom: 14px; }
 .footer-about { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -334,7 +334,7 @@ ul { list-style: none; }
   <div class="agent-cta-inner">
     <div>
       <h2 class="arvo">Buying or selling Texas land?</h2>
-      <p>Give Alexa a call at <a href="tel:2813231000" style="color:var(--gold);font-weight:700">281-323-1000</a> or send an email at <a href="mailto:alexa@j4lp.com" style="color:var(--gold);font-weight:700">alexa@j4lp.com</a>. We do not push, we listen first.</p>
+      <p>Give Alexa a call at <a href="tel:2813231000" style="color:var(--white);font-weight:700">281-323-1000</a> or send an email at <a href="mailto:alexa@j4lp.com" style="color:var(--white);font-weight:700">alexa@j4lp.com</a>. We do not push, we listen first.</p>
     </div>
     <a href="../contact.html?agent=alexa" class="btn-gold">Start a Conversation</a>
   </div>
