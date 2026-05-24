@@ -126,6 +126,17 @@ ul { list-style: none; }
 .intro-text p { font-size:15px; color:var(--dark-gray); line-height:1.9; margin-bottom:20px; max-width:780px; }
 .county-square-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:32px; }
 .county-square { aspect-ratio:1/1; background:var(--charcoal); background-size:cover; background-position:center; padding:24px; display:flex; flex-direction:column; transition:transform 0.25s, box-shadow 0.25s; position:relative; overflow:hidden; }
+.county-square-austin-county { background-image:url(images/areas/austin-county.jpg); }
+.county-square-colorado-county { background-image:url(images/areas/colorado-county.jpg); }
+.county-square-fort-bend-county { background-image:url(images/areas/fort-bend-county.jpg); }
+.county-square-freestone-county { background-image:url(images/areas/freestone-county.jpg); }
+.county-square-lavaca-county { background-image:url(images/areas/lavaca-county.jpg); }
+.county-square-limestone-county { background-image:url(images/areas/limestone-county.jpg); }
+.county-square-matagorda-county { background-image:url(images/areas/matagorda-county.jpeg); }
+.county-square-navarro-county { background-image:url(images/areas/navarro-county.jpeg); }
+.county-square-stephens-county { background-image:url(images/areas/stephens-county.jpeg); }
+.county-square-victoria-county { background-image:url(images/listings/limo-station-victoria/hero.jpg); }
+.county-square-wharton-county { background-image:url(images/areas/wharton-county.jpeg); }
 .county-square:hover { box-shadow:0 14px 36px rgba(0,0,0,0.18); transform:translateY(-3px); }
 .county-square-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(80,2,3,0.55) 0%, rgba(19,20,20,0.92) 100%); transition:background 0.25s; }
 .county-square:hover .county-square-overlay { background:linear-gradient(to bottom, rgba(80,2,3,0.7) 0%, rgba(19,20,20,0.96) 100%); }
@@ -238,7 +249,7 @@ ul { list-style: none; }
 
   <div class="county-square-grid">
 
-    <a href="areas-austin-county.html" class="county-square" style="background-image:url('images/areas/austin-county.jpg')">
+    <a href="areas-austin-county.html" class="county-square county-square-austin-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">Texas Triangle</span>
       <h3 class="county-square-name arvo">Austin County</h3>
@@ -246,7 +257,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-colorado-county.html" class="county-square" style="background-image:url('images/areas/colorado-county.jpg')">
+    <a href="areas-colorado-county.html" class="county-square county-square-colorado-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">J4LP Roots Here</span>
       <h3 class="county-square-name arvo">Colorado County</h3>
@@ -254,7 +265,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-fort-bend-county.html" class="county-square" style="background-image:url('images/areas/fort-bend-county.jpg')">
+    <a href="areas-fort-bend-county.html" class="county-square county-square-fort-bend-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">Texas Triangle</span>
       <h3 class="county-square-name arvo">Fort Bend County</h3>
@@ -262,7 +273,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-freestone-county.html" class="county-square" style="background-image:url('images/areas/freestone-county.jpg')">
+    <a href="areas-freestone-county.html" class="county-square county-square-freestone-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">I-45 Corridor</span>
       <h3 class="county-square-name arvo">Freestone County</h3>
@@ -270,7 +281,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-lavaca-county.html" class="county-square" style="background-image:url('images/areas/lavaca-county.jpg')">
+    <a href="areas-lavaca-county.html" class="county-square county-square-lavaca-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">Cattle Country</span>
       <h3 class="county-square-name arvo">Lavaca County</h3>
@@ -278,7 +289,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-limestone-county.html" class="county-square" style="background-image:url('images/areas/limestone-county.jpg')">
+    <a href="areas-limestone-county.html" class="county-square county-square-limestone-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">North-Central TX</span>
       <h3 class="county-square-name arvo">Limestone County</h3>
@@ -286,7 +297,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-matagorda-county.html" class="county-square" style="background-image:url('images/areas/matagorda-county.jpeg')">
+    <a href="areas-matagorda-county.html" class="county-square county-square-matagorda-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">Gulf Coast</span>
       <h3 class="county-square-name arvo">Matagorda County</h3>
@@ -294,7 +305,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-navarro-county.html" class="county-square" style="background-image:url('images/areas/navarro-county.jpeg')">
+    <a href="areas-navarro-county.html" class="county-square county-square-navarro-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">I-45 Corridor</span>
       <h3 class="county-square-name arvo">Navarro County</h3>
@@ -302,7 +313,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-stephens-county.html" class="county-square" style="background-image:url('images/areas/stephens-county.jpeg')">
+    <a href="areas-stephens-county.html" class="county-square county-square-stephens-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">Flagship Listing</span>
       <h3 class="county-square-name arvo">Stephens County</h3>
@@ -310,7 +321,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-victoria-county.html" class="county-square" style="background-image:url('images/listings/limo-station-victoria/hero.jpg')">
+    <a href="areas-victoria-county.html" class="county-square county-square-victoria-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">South Texas Hub</span>
       <h3 class="county-square-name arvo">Victoria County</h3>
@@ -318,7 +329,7 @@ ul { list-style: none; }
       <span class="county-square-arrow">→</span>
     </a>
 
-    <a href="areas-wharton-county.html" class="county-square" style="background-image:url('images/areas/wharton-county.jpeg')">
+    <a href="areas-wharton-county.html" class="county-square county-square-wharton-county">
       <span class="county-square-overlay"></span>
       <span class="county-square-label">Home County</span>
       <h3 class="county-square-name arvo">Wharton County</h3>
