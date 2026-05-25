@@ -608,6 +608,7 @@
       "tags": ["1031 Exchange", "Homestead", "Community Connector", "Farm"],
       "status": "contract",
       "featured": false,
+      "hideOnAreaPages": true,
       "badge": "Under Contract",
       "badgeType": "contract",
       "name": "J4 Homestead",

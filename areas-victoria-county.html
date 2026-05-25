@@ -119,6 +119,14 @@ ul { list-style: none; }
 .btn-maroon:hover { background:var(--maroon-mid); color:var(--white); }
 .btn-outline { display:inline-block; background:transparent; color:var(--maroon); border:2px solid var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:12px 28px; transition:background 0.2s,color 0.2s; }
 .btn-outline:hover { background:var(--maroon); color:var(--white); }
+.town-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+.town-card { background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:30px 26px; transition:border-color 0.25s, box-shadow 0.25s, transform 0.25s; display:flex; flex-direction:column; }
+.town-card:hover { border-color:var(--maroon); box-shadow:0 14px 36px rgba(0,0,0,0.08); transform:translateY(-3px); }
+.town-card .label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:8px; }
+.town-card h3 { font-family:'Arvo',serif; font-size:18px; color:var(--black); margin-bottom:8px; }
+.town-card p { font-size:13px; color:var(--dark-gray); line-height:1.75; flex-grow:1; margin-bottom:14px; }
+.town-card .link-arrow { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--maroon); display:inline-flex; align-items:center; gap:8px; transition:gap 0.2s; }
+.town-card .link-arrow::after { content:'→'; } .town-card .link-arrow:hover { gap:14px; }
 .county-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; background:var(--off-white); padding:36px 40px; margin-top:32px; }
 .county-stat .label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--maroon); margin-bottom:6px; display:block; }
 .county-stat .value { font-family:'Arvo',serif; font-size:20px; color:var(--black); }
@@ -247,18 +255,6 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- FEATURED LISTING STRIP -->
-<section class="section" style="padding-top:32px; padding-bottom:0">
-  <div class="featured-listing-strip">
-    <div>
-      <span class="label">J4LP Featured Listing · Victoria County</span>
-      <h3 class="arvo">Limo Station — Victoria (mixed-use commercial)</h3>
-      <p>Mixed-use commercial and residential property in Victoria, listed by J4 Legacy Properties. A distinctive single-parcel opportunity in a growing South Texas hub.</p>
-    </div>
-    <a href="properties/limo-station-victoria.html" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px;">View Limo Station</a>
-  </div>
-</section>
-
 <!-- INTRO -->
 <section class="section">
   <div class="intro-layout">
@@ -283,6 +279,24 @@ ul { list-style: none; }
         <li>Off-market and pre-market commercial opportunities</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- TOWNS -->
+<section class="section" style="padding-top:0">
+  <div class="section-label">Where We Work</div>
+  <h2 class="section-title arvo">Victoria County, town by town.</h2>
+  <p class="section-sub lora">Each town page comes online as we build it out. Anywhere on this map that is not yet a detail page is still actively served — tell us what you need and we route the right agent.</p>
+
+  <div class="town-grid">
+
+    <a href="areas-victoria.html" class="town-card">
+      <span class="label">Active · County Seat</span>
+      <h3>Victoria</h3>
+      <p>The Victoria County seat on US-59, between Houston and San Antonio. Founded 1824 — one of the oldest cities in Texas. Commercial, mixed-use, and Guadalupe River-adjacent property. Home of the J4LP-listed Limo Station mixed-use property.</p>
+      <span class="link-arrow">Explore Victoria</span>
+    </a>
+
   </div>
 </section>
 
@@ -358,6 +372,24 @@ ul { list-style: none; }
     <div class="faq-item"><h3>How far is Victoria from Houston and San Antonio?</h3><p>About 2 hours from each via US-59. Roughly 1.5 hours to Corpus Christi. The US-59 corridor makes Victoria workable for buyers coming from any of the three metros.</p></div>
   </div>
 </section>
+
+<!-- AUTO-LISTINGS:START -->
+<!-- FEATURED LISTINGS · auto-generated from listings.json by inject-featured-listings.js — do not edit by hand -->
+<section style="background:var(--white); padding:48px 80px 0;">
+  <div class="section-label">J4LP On the Market</div>
+  <h2 class="arvo" style="font-family:'Arvo',serif; font-size:clamp(22px,2.5vw,30px); color:var(--black); margin-bottom:8px;">Listed by J4LP in this area.</h2>
+  <p style="font-family:'Lora',serif; font-style:italic; font-size:15px; color:var(--dark-gray); max-width:620px; margin-bottom:16px;">Active and under-contract J4 Legacy Properties listings tied to this area.</p>
+  <div style="background:var(--maroon); color:var(--white); padding:32px 40px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-top:16px;">
+    <div>
+      <span style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:6px; display:block;">J4LP Featured Listing · Victoria County</span>
+      <h3 class="arvo" style="font-family:'Arvo',serif; font-size:22px; color:var(--white); margin-bottom:6px;">Limo Station — Victoria</h3>
+      <p style="font-size:13px; color:rgba(255,255,255,0.85); max-width:600px; line-height:1.7; margin:0;">Mixed-use commercial and residential property in Victoria, TX — a unique opportunity in a growing South Texas hub.</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:8px; letter-spacing:0.05em;">Pricing on request · Victoria, TX 77901</p>
+    </div>
+    <a href="properties/limo-station-victoria.html" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px; flex-shrink:0;">View Limo Station — Victoria</a>
+  </div>
+</section>
+<!-- AUTO-LISTINGS:END -->
 
 <!-- LISTINGS CTA -->
 <section class="listings-cta">
