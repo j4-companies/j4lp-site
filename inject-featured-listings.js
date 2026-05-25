@@ -1,7 +1,14 @@
 #!/usr/bin/env node
-// Injects/updates featured-listing strips on every areas-*.html page based on listings.json.
-// Idempotent: replaces content between <!-- AUTO-LISTINGS:START --> and <!-- AUTO-LISTINGS:END -->.
+// Injects/updates featured-listing strips on areas-*.html and agents/*.html
+// based on listings.json. Idempotent: replaces content between
+// <!-- AUTO-LISTINGS:START --> and <!-- AUTO-LISTINGS:END -->.
 // On first run for a page, also strips any pre-existing manual featured-listing section.
+//
+// Matching rules (canonical: see memory feedback_listing_page_propagation_rule):
+//   - areas-{slug}.html: matches when filename slug == listing city slug OR county slug
+//   - agents/{slug}.html: matches when filename slug == any agent slug parsed from
+//     listing.agent (split on "&" or ",")
+//   - Listings flagged hideOnAreaPages are excluded from both
 //
 // Usage:
 //   node inject-featured-listings.js            # apply changes
@@ -12,6 +19,7 @@ const path = require('path');
 
 const DRY = process.argv.includes('--dry-run');
 const ROOT = __dirname;
+const AGENTS_DIR = path.join(ROOT, 'agents');
 const MARK_START = '<!-- AUTO-LISTINGS:START -->';
 const MARK_END = '<!-- AUTO-LISTINGS:END -->';
 
@@ -34,7 +42,24 @@ function priceLine(l) {
   return l.priceDisplay || `$${Number(l.price).toLocaleString('en-US')}`;
 }
 
-function buildStrip(l) {
+function escapeHtml(s) {
+  return String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Parse "Sioux Smith & Harleigh Strack" → ["sioux-smith", "harleigh-strack"]
+function listingAgentSlugs(l) {
+  if (!l.agent) return [];
+  return String(l.agent)
+    .split(/\s*[&,]\s*/)
+    .map(s => slug(s))
+    .filter(Boolean);
+}
+
+function buildStrip(l, pathPrefix) {
   const acreage = fmtAcres(l.acreage);
   const acresPart = acreage ? ` — ${acreage}± acres` : '';
   const status = (l.status || '').toLowerCase();
@@ -42,7 +67,7 @@ function buildStrip(l) {
   const label = `J4LP Featured Listing · ${l.county || l.city}${statusBadge}`;
   const tagline = (l.tagline || l.description || '').replace(/\s+/g, ' ').trim();
   const tagShort = tagline.length > 260 ? tagline.slice(0, 257).replace(/[\s,]+\S*$/, '') + '...' : tagline;
-  const href = `properties/${l.slug}.html`;
+  const href = `${pathPrefix}properties/${l.slug}.html`;
   return `  <div style="background:var(--maroon); color:var(--white); padding:32px 40px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-top:16px;">
     <div>
       <span style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:6px; display:block;">${escapeHtml(label)}</span>
@@ -54,48 +79,84 @@ function buildStrip(l) {
   </div>`;
 }
 
-function escapeHtml(s) {
-  return String(s || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-function buildBlock(listings, pageLabel) {
+function buildBlock(listings, ctx) {
+  const { pageLabel, pathPrefix = '', pageType = 'area', agentDisplayName = '' } = ctx;
   if (!listings.length) {
     return `${MARK_START}\n<!-- No active listings match ${pageLabel}. Auto-generated, do not edit by hand. -->\n${MARK_END}`;
   }
+  // Section label + heading copy: vary by page type.
+  let label, headingOne, headingMany, sub;
+  if (pageType === 'agent') {
+    label = listings.length > 1 ? "Current Listings" : "Current Listing";
+    headingOne = `Currently listed by ${agentDisplayName}.`;
+    headingMany = `${listings.length} active J4LP listings by ${agentDisplayName}.`;
+    sub = `Active and under-contract J4 Legacy Properties listings tied to this agent.`;
+  } else {
+    label = listings.length > 1 ? "J4LP On the Market Now" : "J4LP On the Market";
+    headingOne = "Listed by J4LP in this area.";
+    headingMany = `${listings.length} J4LP listings in this area.`;
+    sub = "Active and under-contract J4 Legacy Properties listings tied to this area.";
+  }
   const header = `<!-- FEATURED LISTINGS · auto-generated from listings.json by inject-featured-listings.js — do not edit by hand -->
 <section style="background:var(--white); padding:48px 80px 0;">
-  <div class="section-label">J4LP On the Market${listings.length > 1 ? ' Now' : ''}</div>
-  <h2 class="arvo" style="font-family:'Arvo',serif; font-size:clamp(22px,2.5vw,30px); color:var(--black); margin-bottom:8px;">${listings.length === 1 ? "Listed by J4LP in this area." : `${listings.length} J4LP listings in this area.`}</h2>
-  <p style="font-family:'Lora',serif; font-style:italic; font-size:15px; color:var(--dark-gray); max-width:620px; margin-bottom:16px;">Active and under-contract J4 Legacy Properties listings tied to this area.</p>`;
-  const strips = listings.map(buildStrip).join('\n');
+  <div style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--maroon); margin-bottom:12px;">${escapeHtml(label)}</div>
+  <h2 class="arvo" style="font-family:'Arvo',serif; font-size:clamp(22px,2.5vw,30px); color:var(--black); margin-bottom:8px;">${escapeHtml(listings.length === 1 ? headingOne : headingMany)}</h2>
+  <p style="font-family:'Lora',serif; font-style:italic; font-size:15px; color:var(--dark-gray); max-width:620px; margin-bottom:16px;">${escapeHtml(sub)}</p>`;
+  const strips = listings.map(l => buildStrip(l, pathPrefix)).join('\n');
   const footer = `\n</section>`;
   return `${MARK_START}\n${header}\n${strips}${footer}\n${MARK_END}`;
 }
 
-// Find a single existing manual featured-listing section to remove on first run.
-// Matches `<!-- FEATURED LISTING(S) ... -->` through the next `</section>`.
 function stripOldFeaturedSection(html) {
   const re = /<!--\s*FEATURED LISTINGS?[\s\S]*?<\/section>\s*/i;
   return html.replace(re, '');
 }
 
-function ensureBlock(html, block) {
+function ensureBlock(html, block, insertBefore) {
   if (html.includes(MARK_START) && html.includes(MARK_END)) {
     const re = new RegExp(`${MARK_START}[\\s\\S]*?${MARK_END}`);
     return html.replace(re, block);
   }
-  // First-run: remove any old manual featured-listing block, then inject before LISTINGS CTA.
   let cleaned = stripOldFeaturedSection(html);
-  const ctaMarker = /<!--\s*LISTINGS CTA\s*-->/i;
-  if (ctaMarker.test(cleaned)) {
-    return cleaned.replace(ctaMarker, `${block}\n\n<!-- LISTINGS CTA -->`);
+  for (const marker of insertBefore) {
+    if (marker instanceof RegExp ? marker.test(cleaned) : cleaned.includes(marker)) {
+      const re = marker instanceof RegExp ? marker : new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const match = cleaned.match(re);
+      if (match) {
+        return cleaned.replace(re, `${block}\n\n${match[0]}`);
+      }
+    }
   }
   // Fall back: insert before footer
   return cleaned.replace(/<footer/, `${block}\n\n<footer`);
+}
+
+// Display name for an agent slug, by looking up any listing's `agent` field.
+function agentDisplayNameFor(slugWanted, listings) {
+  for (const l of listings) {
+    const parts = String(l.agent || '').split(/\s*[&,]\s*/);
+    for (const p of parts) {
+      if (slug(p) === slugWanted) return p.trim();
+    }
+  }
+  // Fallback: title-case the slug
+  return slugWanted.split('-').map(s => s[0].toUpperCase() + s.slice(1)).join(' ');
+}
+
+function processFile(filePath, displayName, matched, ctx, report) {
+  const before = fs.readFileSync(filePath, 'utf8');
+  const hasMarkers = before.includes(MARK_START) && before.includes(MARK_END);
+  const hasManualBlock = /<!--\s*FEATURED LISTINGS?\b/i.test(before);
+
+  if (!matched.length && !hasMarkers && !hasManualBlock) {
+    report.push({ file: displayName, matched: [], changed: false, skipped: true });
+    return;
+  }
+  const block = buildBlock(matched, ctx);
+  const after = ensureBlock(before, block, ctx.insertBefore || []);
+  const changed = before !== after;
+  if (changed && !DRY) fs.writeFileSync(filePath, after, 'utf8');
+  report.push({ file: displayName, matched: matched.map(l => l.name), changed });
 }
 
 function main() {
@@ -103,7 +164,6 @@ function main() {
     .filter(l => ['active', 'contract'].includes(String(l.status || '').toLowerCase()))
     .filter(l => !l.hideOnAreaPages);
 
-  // Sort: active before contract, then larger acreage first
   listings.sort((a, b) => {
     const sa = a.status === 'contract' ? 1 : 0;
     const sb = b.status === 'contract' ? 1 : 0;
@@ -111,37 +171,51 @@ function main() {
     return (Number(b.acreage) || 0) - (Number(a.acreage) || 0);
   });
 
-  const files = fs.readdirSync(ROOT).filter(f => /^areas-.+\.html$/.test(f) && f !== 'areas-we-serve.html');
-
   const report = [];
-  for (const file of files) {
+
+  // ---- Area pages ----
+  const areaFiles = fs.readdirSync(ROOT)
+    .filter(f => /^areas-.+\.html$/.test(f) && f !== 'areas-we-serve.html');
+  for (const file of areaFiles) {
     const fileSlug = file.replace(/^areas-/, '').replace(/\.html$/, '');
     const matched = listings.filter(l => {
-      const citySlug = slug(l.city);
-      const countySlug = slug(l.county);
-      return fileSlug === citySlug || fileSlug === countySlug;
+      return fileSlug === slug(l.city) || fileSlug === slug(l.county);
     });
+    processFile(
+      path.join(ROOT, file),
+      file,
+      matched,
+      {
+        pageLabel: fileSlug,
+        pathPrefix: '',
+        pageType: 'area',
+        insertBefore: [/<!--\s*LISTINGS CTA\s*-->/i],
+      },
+      report
+    );
+  }
 
-    const filePath = path.join(ROOT, file);
-    const before = fs.readFileSync(filePath, 'utf8');
-
-    const hasMarkers = before.includes(MARK_START) && before.includes(MARK_END);
-    const hasManualBlock = /<!--\s*FEATURED LISTINGS?\b/i.test(before);
-
-    // Skip pages with no matches AND no prior content to manage.
-    if (!matched.length && !hasMarkers && !hasManualBlock) {
-      report.push({ file, fileSlug, matched: [], changed: false, skipped: true });
-      continue;
+  // ---- Agent pages ----
+  if (fs.existsSync(AGENTS_DIR)) {
+    const agentFiles = fs.readdirSync(AGENTS_DIR).filter(f => /\.html$/.test(f));
+    for (const file of agentFiles) {
+      const fileSlug = file.replace(/\.html$/, '');
+      const matched = listings.filter(l => listingAgentSlugs(l).includes(fileSlug));
+      const displayName = agentDisplayNameFor(fileSlug, listings);
+      processFile(
+        path.join(AGENTS_DIR, file),
+        `agents/${file}`,
+        matched,
+        {
+          pageLabel: fileSlug,
+          pathPrefix: '../',
+          pageType: 'agent',
+          agentDisplayName: displayName,
+          insertBefore: [/<section\s+class="agent-cta"/i, /<footer/i],
+        },
+        report
+      );
     }
-
-    const block = buildBlock(matched, fileSlug);
-    const after = ensureBlock(before, block);
-
-    const changed = before !== after;
-    if (changed) {
-      if (!DRY) fs.writeFileSync(filePath, after, 'utf8');
-    }
-    report.push({ file, fileSlug, matched: matched.map(l => l.name), changed });
   }
 
   console.log(`\n${DRY ? '[DRY RUN] ' : ''}Pages scanned: ${report.length}`);
