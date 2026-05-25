@@ -267,6 +267,16 @@ ul { list-style: none; }
 .trec-bar { background: var(--black); padding: 12px 80px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
 
 /* ===== RESPONSIVE ===== */
+.dropdown-menu-counties { min-width:260px; }
+.dropdown-county-item { position:relative; }
+.dropdown-county-item > .dropdown-county-link { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-county-item > .dropdown-county-link:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-county-item:hover > .dropdown-submenu { display:block; }
+.dropdown-submenu { display:none; position:absolute; top:-3px; left:100%; min-width:240px; background:var(--white); border:1px solid rgba(0,0,0,0.08); border-top:3px solid var(--maroon); box-shadow:0 12px 40px rgba(0,0,0,0.12); z-index:101; }
+.dropdown-submenu a { display:block; padding:11px 18px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); border-bottom:1px solid rgba(0,0,0,0.05); transition:background 0.15s,color 0.15s; }
+.dropdown-submenu a:hover { background:var(--off-white); color:var(--maroon); }
+.dropdown-all-areas { display:block; padding:11px 18px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--maroon); background:var(--off-white); transition:background 0.15s,color 0.15s; }
+.dropdown-all-areas:hover { background:var(--maroon); color:var(--white); }
 @media (max-width: 1100px) {
   .prop-layout { grid-template-columns: 1fr; padding: 0 40px 64px; }
   .prop-left { padding-right: 0; }
@@ -311,50 +321,182 @@ ul { list-style: none; }
   </div>
 </div>
 
+<!-- NAV -->
 <nav class="nav" id="mainNav">
-  <a href="../index.html" class="nav-logo">
-    <img src="../images/brand/J4LP-Logo-Horizontal-Wide-Transparent.png" alt="J4 Legacy Properties" style="height:90px;width:auto;display:block;">
+  <a href="/" class="nav-logo">
+<img src="images/brand/J4LP-Logo-Horizontal-Wide-Transparent.png" alt="J4 Legacy Properties" style="height:90px;width:auto;display:block;">
   </a>
   <ul class="nav-links">
     <li class="dropdown">
-      <a href="../properties.html">Properties</a>
+      <a href="/properties">Properties</a>
       <div class="dropdown-menu">
-        <a href="../properties.html">All Listings</a>
-        <a href="../properties.html?tab=ranch">Ranch &amp; Farm Land</a>
-        <a href="../properties.html?tab=homes">El Campo Area Homes</a>
-        <a href="../properties.html?tab=1031">1031-Friendly Land</a>
+        <a href="/properties">All Listings</a>
+        <a href="/properties?type=ranch">Ranch &amp; Farm Land</a>
+        <a href="/properties?type=homestead">El Campo Area Homes</a>
+        <a href="/properties?type=1031">1031-Friendly Land</a>
+        <a href="/soldlistings">Sold Listings</a>
       </div>
     </li>
-    <li><a href="../buying.html">Buying</a></li>
-    <li><a href="../selling.html">Selling</a></li>
-    <li><a href="../our-team.html">Our Team</a></li>
-    <li><a href="../resources.html">Resources</a></li>
-    <li><a href="../blog.html">Field Notes</a></li>
-    <li><a href="../ecosystem.html">J4 Ecosystem</a></li>
+    <li class="dropdown">
+      <a href="/buying">Buying</a>
+      <div class="dropdown-menu">
+        <a href="/buying/legacy-builders">Legacy Builders</a>
+        <a href="/buying/community-connectors">Community Connectors</a>
+        <a href="/buying/strategic-exchangers">1031 Exchangers</a>
+        <a href="/buying/off-market">Off-Market Access</a>
+      </div>
+    </li>
+    <li><a href="/selling">Selling</a></li>
+    <li class="dropdown">
+      <a href="/areas-we-serve">Areas We Serve</a>
+      <div class="dropdown-menu dropdown-menu-counties">
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/austin-county" class="dropdown-county-link">Austin County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/austin-county/bellville">Bellville</a>
+          <a href="/areas-we-serve/austin-county/cat-spring">Cat Spring</a>
+          <a href="/areas-we-serve/austin-county/industry">Industry</a>
+          <a href="/areas-we-serve/austin-county/san-felipe">San Felipe</a>
+          <a href="/areas-we-serve/austin-county/sealy">Sealy</a>
+          <a href="/areas-we-serve/austin-county/wallis">Wallis</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/colorado-county" class="dropdown-county-link">Colorado County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/colorado-county/altair-sheridan-rock-island">Altair, Sheridan &amp; Rock Island</a>
+          <a href="/areas-we-serve/colorado-county/columbus">Columbus</a>
+          <a href="/areas-we-serve/colorado-county/eagle-lake">Eagle Lake</a>
+          <a href="/areas-we-serve/colorado-county/garwood">Garwood</a>
+          <a href="/areas-we-serve/colorado-county/weimar">Weimar</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/fort-bend-county" class="dropdown-county-link">Fort Bend County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/fort-bend-county/beasley">Beasley</a>
+          <a href="/areas-we-serve/fort-bend-county/fairchilds-pleak">Fairchilds &amp; Pleak</a>
+          <a href="/areas-we-serve/fort-bend-county/kendleton">Kendleton</a>
+          <a href="/areas-we-serve/fort-bend-county/needville">Needville</a>
+          <a href="/areas-we-serve/fort-bend-county/orchard">Orchard</a>
+          <a href="/areas-we-serve/fort-bend-county/richmond">Richmond</a>
+          <a href="/areas-we-serve/fort-bend-county/rosenberg">Rosenberg</a>
+          <a href="/areas-we-serve/fort-bend-county/sugar-land">Sugar Land</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/freestone-county" class="dropdown-county-link">Freestone County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/freestone-county/fairfield">Fairfield</a>
+          <a href="/areas-we-serve/freestone-county/richland-chambers">Richland-Chambers</a>
+          <a href="/areas-we-serve/freestone-county/teague">Teague</a>
+          <a href="/areas-we-serve/freestone-county/wortham-streetman">Wortham &amp; Streetman</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/lavaca-county" class="dropdown-county-link">Lavaca County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/lavaca-county/hallettsville">Hallettsville</a>
+          <a href="/areas-we-serve/lavaca-county/moulton">Moulton</a>
+          <a href="/areas-we-serve/lavaca-county/shiner">Shiner</a>
+          <a href="/areas-we-serve/lavaca-county/yoakum">Yoakum</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/limestone-county" class="dropdown-county-link">Limestone County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/limestone-county/groesbeck">Groesbeck</a>
+          <a href="/areas-we-serve/limestone-county/lake-limestone">Lake Limestone</a>
+          <a href="/areas-we-serve/limestone-county/mexia">Mexia</a>
+          <a href="/areas-we-serve/limestone-county/thornton-tehuacana">Thornton &amp; Tehuacana</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/matagorda-county" class="dropdown-county-link">Matagorda County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/matagorda-county/bay-city">Bay City</a>
+          <a href="/areas-we-serve/matagorda-county/driftwood-shores">Driftwood Shores</a>
+          <a href="/areas-we-serve/matagorda-county/markham">Markham</a>
+          <a href="/areas-we-serve/matagorda-county/matagorda">Matagorda</a>
+          <a href="/areas-we-serve/matagorda-county/palacios">Palacios</a>
+          <a href="/areas-we-serve/matagorda-county/sargent">Sargent</a>
+          <a href="/areas-we-serve/matagorda-county/van-vleck">Van Vleck</a>
+          <a href="/areas-we-serve/matagorda-county/wadsworth">Wadsworth</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/navarro-county" class="dropdown-county-link">Navarro County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/navarro-county/blooming-grove">Blooming Grove</a>
+          <a href="/areas-we-serve/navarro-county/corsicana">Corsicana</a>
+          <a href="/areas-we-serve/navarro-county/frost-rice">Frost &amp; Rice</a>
+          <a href="/areas-we-serve/navarro-county/kerens">Kerens</a>
+          <a href="/areas-we-serve/navarro-county/navarro-mills">Navarro Mills</a>
+          <a href="/areas-we-serve/navarro-county/richland-chambers-navarro">Richland-Chambers (Navarro)</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/stephens-county" class="dropdown-county-link">Stephens County</a>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/victoria-county" class="dropdown-county-link">Victoria County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/victoria-county/victoria">Victoria</a>
+          </div>
+        </div>
+        <div class="dropdown-county-item">
+          <a href="/areas-we-serve/wharton-county" class="dropdown-county-link">Wharton County</a>
+          <div class="dropdown-submenu">
+          <a href="/areas-we-serve/wharton-county/boling">Boling</a>
+          <a href="/areas-we-serve/wharton-county/danevang">Danevang</a>
+          <a href="/areas-we-serve/wharton-county/east-bernard">East Bernard</a>
+          <a href="/areas-we-serve/wharton-county/el-campo">El Campo</a>
+          <a href="/areas-we-serve/wharton-county/hungerford-iago">Hungerford &amp; Iago</a>
+          <a href="/areas-we-serve/wharton-county/louise">Louise</a>
+          <a href="/areas-we-serve/wharton-county/wharton">Wharton</a>
+          </div>
+        </div>
+        <a href="/areas-we-serve" class="dropdown-all-areas">All Areas</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="/our-team">Our Team</a>
+      <div class="dropdown-menu">
+        <a href="/our-team#j4heritage">J4 Heritage Group</a>
+        <a href="/our-team#join">Join Our Team</a>
+      </div>
+    </li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/blog">Field Notes</a></li>
+    <li><a href="/ecosystem">J4 Ecosystem</a></li>
   </ul>
-  <a href="../contact.html" class="nav-cta">Let's Connect</a>
-  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  <a href="/contact" class="btn nav-cta">Let's Connect</a>
+  <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">×</button>
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
   <div class="mobile-logo">J4 <span>Legacy Properties</span></div>
   <div class="mobile-links">
-    <a href="../properties.html">Properties</a>
-    <a href="../buying.html">Buying</a>
-    <a href="../selling.html">Selling</a>
-    <a href="../our-team.html">Our Team</a>
-    <a href="../resources.html">Resources</a>
-    <a href="../blog.html">Field Notes</a>
-    <a href="../contact.html">Contact</a>
+    <a href="/properties">Properties</a>
+    <a href="/buying">Buying</a>
+    <a href="/selling">Selling</a>
+    <a href="/areas-we-serve">Areas We Serve</a>
+    <a href="/our-team">Our Team</a>
+    <a href="/resources">Resources</a>
+    <a href="/blog">Field Notes</a>
+    <a href="/ecosystem">J4 Ecosystem</a>
+    <a href="/contact">Contact</a>
   </div>
   <div class="mobile-contact">
     <a href="tel:8335435263">833-543-LAND</a><br>
-    <a href="mailto:info@j4lp.com">info@j4lp.com</a>
+    <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
+    1379 CR 408, El Campo, TX 77437
   </div>
 </div>
-
-
 
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
