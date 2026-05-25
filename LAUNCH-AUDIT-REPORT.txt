@@ -1,0 +1,66 @@
+
+========================================================================
+SUMMARY  (99 HTML files audited)
+========================================================================
+  broken <a href> nav links     : 0
+  broken canonical/og SEO links : 0
+  missing assets                : 0
+  unique form action targets    : 0
+  unique external hosts         : 17
+  mailto links                  : 347
+  tel links                     : 421
+
+========================================================================
+BROKEN <a href> NAV LINKS (clickable, user impact)
+========================================================================
+  (none)
+
+========================================================================
+BROKEN CANONICAL / og:url (SEO impact, search engines follow these)
+========================================================================
+  (none)
+
+========================================================================
+MISSING ASSETS (img/css/js/font/pdf files not on disk)
+========================================================================
+  (none)
+
+========================================================================
+FORM ACTION TARGETS (native <form>)
+========================================================================
+  (none — forms on this site are embedded as iframes; see next section)
+
+========================================================================
+IFRAME EMBEDS (CML form embeds, Google Maps, etc. — verify these resolve)
+========================================================================
+  https://link.communitymarketleader.com/widget/form/L9SL4CKjndbhFkf7e0O2
+      on 1 page(s): our-team.html
+  https://link.communitymarketleader.com/widget/form/khGMAxgkt3vwOnfEMkgu
+      on 1 page(s): off-market.html
+  https://link.communitymarketleader.com/widget/form/oxfycDUUPcOqGf7pkaBd
+      on 12 page(s): contact.html (+ 11 more)
+  https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.123456!2d-96.2694!3d29.1966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sen!2sus!4v1234567890
+      on 1 page(s): contact.html
+
+========================================================================
+EXTERNAL HOSTS (sanity check — anything unexpected?)
+========================================================================
+   111  www.j4tx.com
+    99  fonts.googleapis.com
+    81  www.facebook.com
+    81  www.instagram.com
+    29  www.trec.texas.gov
+    21  www.google.com
+    14  link.communitymarketleader.com
+    13  www.youtube.com
+     8  www.j4water.com
+     7  www.j4fs.com
+     7  www.j4prefabhomes.com
+     5  www.hspspower.com
+     4  www.j4-properties.com
+     3  www.whitewingbusinesses.com
+     3  www.whitewingstorage.com
+     2  maps.google.com
+     1  www.whartoncad.org
+
+done.

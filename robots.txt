@@ -1,0 +1,12 @@
+# J4 Legacy Properties — robots.txt
+# All search engines and AI crawlers welcome.
+
+User-agent: *
+Allow: /
+
+# Block the Netlify preview hostname from being indexed
+# (Netlify serves the same content at j4lp.netlify.app; we want only j4lp.com in search results)
+# Netlify auto-injects a noindex header for *.netlify.app, so no rule needed here.
+
+# Sitemap
+Sitemap: https://www.j4lp.com/sitemap.xml
