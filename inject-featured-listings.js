@@ -113,11 +113,16 @@ function stripOldFeaturedSection(html) {
 }
 
 function ensureBlock(html, block, insertBefore) {
-  if (html.includes(MARK_START) && html.includes(MARK_END)) {
-    const re = new RegExp(`${MARK_START}[\\s\\S]*?${MARK_END}`);
-    return html.replace(re, block);
+  // Strip any existing AUTO-LISTINGS block (with leading whitespace and trailing
+  // newlines) so the script can re-place it at the currently preferred location.
+  // Also strip any pre-marker manual featured-listings section.
+  let cleaned = html;
+  if (cleaned.includes(MARK_START) && cleaned.includes(MARK_END)) {
+    const re = new RegExp(`\\s*${MARK_START}[\\s\\S]*?${MARK_END}\\s*`);
+    cleaned = cleaned.replace(re, '\n\n');
   }
-  let cleaned = stripOldFeaturedSection(html);
+  cleaned = stripOldFeaturedSection(cleaned);
+
   for (const marker of insertBefore) {
     if (marker instanceof RegExp ? marker.test(cleaned) : cleaned.includes(marker)) {
       const re = marker instanceof RegExp ? marker : new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
@@ -189,7 +194,13 @@ function main() {
         pageLabel: fileSlug,
         pathPrefix: '',
         pageType: 'area',
-        insertBefore: [/<!--\s*LISTINGS CTA\s*-->/i],
+        // Prefer placement near the TOP of the page (right after stats, before
+        // descriptive intro). Fallback ladder for older / different layouts.
+        insertBefore: [
+          /<!--\s*INTRO\s*-->/i,
+          /<!--\s*LOCAL COLOR\s*-->/i,
+          /<!--\s*LISTINGS CTA\s*-->/i,
+        ],
       },
       report
     );
