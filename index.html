@@ -202,6 +202,45 @@ ul { list-style: none; }
 .nav-cta:hover { background: var(--maroon-mid); }
 .nav-cta::after { display: none !important; }
 
+.nav-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--maroon) !important;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  margin-right: 18px;
+  transition: color 0.2s;
+}
+.nav-phone:hover { color: var(--maroon-mid) !important; }
+.nav-phone::after { display: none !important; }
+.nav-phone svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* Sticky mobile call button */
+.mobile-call-fab {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  z-index: 999;
+  transition: transform 0.2s, background 0.2s;
+  text-decoration: none;
+}
+.mobile-call-fab:hover,
+.mobile-call-fab:active { background: var(--maroon-mid); transform: scale(1.05); }
+.mobile-call-fab svg { width: 28px; height: 28px; }
+.mobile-call-fab::after { display: none !important; }
+
 /* Hamburger */
 .nav-hamburger {
   display: none;
@@ -291,18 +330,13 @@ ul { list-style: none; }
   background-position: center 40%;
   transform: scale(1.05);
   transition: transform 8s ease;
+  filter: brightness(1.0);
 }
 .hero-bg.loaded { transform: scale(1); }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.05) 0%,
-    rgba(0,0,0,0.1) 40%,
-    rgba(19,20,20,0.35) 75%,
-    rgba(19,20,20,0.52) 100%
-  );
+  background: rgba(255,255,255,0.30);
 }
 .hero-content {
   position: relative;
@@ -317,6 +351,7 @@ ul { list-style: none; }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -334,6 +369,7 @@ ul { list-style: none; }
   font-size: clamp(36px, 5vw, 68px);
   font-weight: 700;
   color: var(--white);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
   line-height: 1.1;
   margin-bottom: 20px;
   max-width: 700px;
@@ -342,7 +378,10 @@ ul { list-style: none; }
   font-family: 'Lora', serif;
   font-size: 17px;
   font-style: italic;
-  color: rgba(255,255,255,0.75);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  letter-spacing: 0.04em;
   margin-bottom: 36px;
   max-width: 520px;
   line-height: 1.7;
@@ -370,11 +409,13 @@ ul { list-style: none; }
 }
 .btn-maroon:hover { background: var(--maroon-mid); color: var(--white); }
 .btn-ghost {
-  background: transparent;
+  background: rgba(19,20,20,0.55);
   color: var(--white);
-  border: 1.5px solid rgba(255,255,255,0.55);
+  border: 1.5px solid var(--white);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
-.btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+.btn-ghost:hover { background: rgba(19,20,20,0.75); border-color: var(--white); }
 
 /* Hero stats */
 .hero-stats {
@@ -395,13 +436,15 @@ ul { list-style: none; }
   font-weight: 700;
   color: var(--white);
   line-height: 1;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 .hero-stat-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
   margin-bottom: 18px;
 }
 
@@ -565,7 +608,7 @@ ul { list-style: none; }
   font-family: 'Arvo', serif;
   font-size: 48px;
   font-weight: 700;
-  color: rgba(80,2,3,0.07);
+  color: var(--maroon);
   line-height: 1;
   margin-bottom: 16px;
 }
@@ -1172,7 +1215,9 @@ ul { list-style: none; }
   .nav { padding: 0 20px; height: 64px; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
+  .nav-phone { display: none; }
   .nav-hamburger { display: flex; }
+  .mobile-call-fab { display: inline-flex; }
   .hero { max-height: 700px; }
   .hero-content { padding: 0 24px 56px; }
   .hero-stats { display: none; }
@@ -1355,6 +1400,10 @@ ul { list-style: none; }
     <li><a href="/blog">Field Notes</a></li>
     <li><a href="/ecosystem">J4 Ecosystem</a></li>
   </ul>
+  <a href="tel:8335435263" class="nav-phone" aria-label="Call 833-543-LAND">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+    833-543-LAND
+  </a>
   <a href="/contact" class="btn nav-cta">Let's Connect</a>
   <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -1383,6 +1432,11 @@ ul { list-style: none; }
   </div>
 </div>
 
+<!-- STICKY MOBILE CALL BUTTON -->
+<a href="tel:8335435263" class="mobile-call-fab" aria-label="Call J4 Legacy Properties at 833-543-LAND">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+</a>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg" id="heroBg"></div>
@@ -1392,9 +1446,11 @@ ul { list-style: none; }
     <h1 class="arvo">Secure a future in<br>the only thing<br>that lasts, land.</h1>
     <p class="lora hero-sub">Ranches, farms, rural homes, and 1031 exchange land for families and investors who care about legacy, not hype.</p>
     <div class="hero-actions">
-      <a href="/properties" class="btn btn-maroon">Explore Properties</a>
+      <a href="/contact?intent=honest-take" class="btn btn-maroon">Get The Honest Take</a>
+      <a href="/properties" class="btn btn-ghost">Explore Properties</a>
       <a href="/contact" class="btn btn-ghost">Let's Connect</a>
     </div>
+    <p class="lora hero-sub" style="margin-top:18px; font-size:15px; font-weight:700; font-style:italic;">Zillow gives you an estimate. We give you The Honest Take. No obligation. No pressure to list.</p>
   </div>
   <div class="hero-stats">
     <div class="hero-stat-item">
