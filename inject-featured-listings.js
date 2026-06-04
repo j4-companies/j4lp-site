@@ -63,7 +63,9 @@ function buildStrip(l, pathPrefix) {
   const acreage = fmtAcres(l.acreage);
   const acresPart = acreage ? ` — ${acreage}± acres` : '';
   const status = (l.status || '').toLowerCase();
-  const statusBadge = status === 'contract' ? ' · Under Contract' : '';
+  const statusBadge = status === 'contract' ? ' · Under Contract'
+                    : status === 'sold'     ? ' · SOLD'
+                    : '';
   const label = `J4LP Featured Listing · ${l.county || l.city}${statusBadge}`;
   const tagline = (l.tagline || l.description || '').replace(/\s+/g, ' ').trim();
   const tagShort = tagline.length > 260 ? tagline.slice(0, 257).replace(/[\s,]+\S*$/, '') + '...' : tagline;
@@ -90,12 +92,12 @@ function buildBlock(listings, ctx) {
     label = listings.length > 1 ? "Current Listings" : "Current Listing";
     headingOne = `Currently listed by ${agentDisplayName}.`;
     headingMany = `${listings.length} active J4LP listings by ${agentDisplayName}.`;
-    sub = `Active and under-contract J4 Legacy Properties listings tied to this agent.`;
+    sub = `Active, under-contract, and recently sold J4 Legacy Properties listings tied to this agent.`;
   } else {
     label = listings.length > 1 ? "J4LP On the Market Now" : "J4LP On the Market";
     headingOne = "Listed by J4LP in this area.";
     headingMany = `${listings.length} J4LP listings in this area.`;
-    sub = "Active and under-contract J4 Legacy Properties listings tied to this area.";
+    sub = "Active, under-contract, and recently sold J4 Legacy Properties listings tied to this area.";
   }
   const header = `<!-- FEATURED LISTINGS · auto-generated from listings.json by inject-featured-listings.js — do not edit by hand -->
 <section style="background:var(--white); padding:48px 80px 0;">
@@ -166,13 +168,15 @@ function processFile(filePath, displayName, matched, ctx, report) {
 
 function main() {
   const listings = JSON.parse(fs.readFileSync(path.join(ROOT, 'listings.json'), 'utf8')).listings
-    .filter(l => ['active', 'contract'].includes(String(l.status || '').toLowerCase()))
+    .filter(l => ['active', 'contract', 'sold'].includes(String(l.status || '').toLowerCase()))
     .filter(l => !l.hideOnAreaPages);
 
+  // Sort order: active first, contract middle, sold last (recently-sold = social proof, not lead).
+  const STATUS_RANK = { active: 0, contract: 1, sold: 2 };
   listings.sort((a, b) => {
-    const sa = a.status === 'contract' ? 1 : 0;
-    const sb = b.status === 'contract' ? 1 : 0;
-    if (sa !== sb) return sa - sb;
+    const ra = STATUS_RANK[String(a.status || '').toLowerCase()] ?? 9;
+    const rb = STATUS_RANK[String(b.status || '').toLowerCase()] ?? 9;
+    if (ra !== rb) return ra - rb;
     return (Number(b.acreage) || 0) - (Number(a.acreage) || 0);
   });
 
