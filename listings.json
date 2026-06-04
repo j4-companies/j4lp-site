@@ -79,14 +79,14 @@
     {
       "id": "hwy-60-frontage",
       "slug": "hwy-60-frontage",
-      "tags": ["Farm", "1031 Exchange"],
-      "status": "contract",
+      "tags": ["Farm", "1031 Exchange", "Sold"],
+      "status": "sold",
       "featured": false,
-      "badge": "Under Contract",
-      "badgeType": "contract",
+      "badge": "Sold",
+      "badgeType": "sold",
       "name": "Highway 60 Frontage Tract",
       "price": 1699900,
-      "priceDisplay": "$1,699,900",
+      "priceDisplay": "Sold",
       "priceContact": false,
       "address": "7632 SH 60, Bay City, TX 77414",
       "city": "Bay City",
@@ -115,24 +115,24 @@
         "images/listings/highway-60-frontage-tract/photo-9.jpg",
         "images/listings/highway-60-frontage-tract/photo-10.jpg"
       ],
-      "tagline": "60 acres with direct Highway 60 frontage in Matagorda County — 1031-qualified, investment-grade acreage in the heart of the Gulf Coast Brazos Bottom.",
-      "description": "A 60-acre tract with direct State Highway 60 frontage in Matagorda County, Texas. This is investment-grade acreage in one of the most active land corridors on the Texas Gulf Coast. Qualified for 1031 exchange. Currently under contract — contact us to be notified of similar off-market opportunities in Matagorda County.",
+      "tagline": "SOLD. 60 acres with direct Highway 60 frontage in Matagorda County, closed by J4 Legacy Properties. Looking for similar investment-grade acreage in the Gulf Coast Brazos Bottom? We have off-market opportunities.",
+      "description": "SOLD by J4 Legacy Properties. A 60-acre tract with direct State Highway 60 frontage in Matagorda County, Texas. This was investment-grade acreage in one of the most active land corridors on the Texas Gulf Coast. Qualified for 1031 exchange. If you are looking for similar land in Matagorda County, contact us to be notified of off-market opportunities.",
       "highlights": [
         "Direct State Highway 60 frontage",
         "60 acres — Matagorda County",
         "1031 exchange qualified",
         "Investment-grade Gulf Coast acreage",
-        "Currently under contract"
+        "Sold by J4 Legacy Properties"
       ],
       "specs": [
         { "label": "Acres", "value": "60" },
         { "label": "Frontage", "value": "Hwy 60" },
         { "label": "County", "value": "Matagorda" },
-        { "label": "Status", "value": "Under Contract" },
+        { "label": "Status", "value": "Sold" },
         { "label": "1031", "value": "Qualified" }
       ],
-      "metaTitle": "Highway 60 Frontage Tract — 60 Acres | Matagorda County TX | J4 Legacy Properties",
-      "metaDescription": "60 acres with direct Highway 60 frontage in Bay City, Matagorda County, Texas. 1031-qualified investment land on the Texas Gulf Coast. Listed at $1,699,900.",
+      "metaTitle": "SOLD — Highway 60 Frontage Tract — 60 Acres | Matagorda County TX | J4 Legacy Properties",
+      "metaDescription": "SOLD — 60 acres with direct Highway 60 frontage in Bay City, Matagorda County, Texas. 1031-qualified investment land on the Texas Gulf Coast. Closed by J4 Legacy Properties.",
       "schemaType": "LandForSale",
       "keywords": "Matagorda County land for sale, Bay City Texas acreage, Highway 60 frontage tract, Gulf Coast Texas land, 1031 exchange Matagorda County"
     },
@@ -420,9 +420,9 @@
       "badge": "Commercial",
       "badgeType": "investment",
       "name": "Limo Station — Victoria",
-      "price": 0,
-      "priceDisplay": "Contact for Price",
-      "priceContact": true,
+      "price": 450000,
+      "priceDisplay": "$450,000",
+      "priceContact": false,
       "address": "Victoria, TX 77901",
       "city": "Victoria",
       "county": "Victoria County",
@@ -464,13 +464,13 @@
         "images/listings/limo-station-victoria/photo-23.jpg",
         "images/listings/limo-station-victoria/photo-24.jpg"
       ],
-      "tagline": "Mixed-use commercial and residential property in Victoria, TX — a unique opportunity in a growing South Texas hub.",
-      "description": "A distinctive mixed-use property in Victoria, Texas. Combines commercial and residential potential in a single parcel. Victoria is a growing South Texas hub with strong economic fundamentals. Contact J4 Legacy Properties for full details and pricing.",
+      "tagline": "Mixed-use commercial and residential property in Victoria, TX — listed at $450,000. A unique opportunity in a growing South Texas hub.",
+      "description": "A distinctive mixed-use property in Victoria, Texas. Combines commercial and residential potential in a single parcel. Victoria is a growing South Texas hub with strong economic fundamentals. Listed at $450,000. Contact J4 Legacy Properties for full property details and to schedule a walkthrough.",
       "highlights": [
         "Mixed-use commercial + residential",
         "Victoria, TX — growing South Texas market",
         "Unique property with strong upside",
-        "Contact for full details and pricing"
+        "Listed at $450,000"
       ],
       "specs": [
         { "label": "Use", "value": "Mixed-Use" },
@@ -478,8 +478,8 @@
         { "label": "County", "value": "Victoria" },
         { "label": "Type", "value": "Commercial + Residential" }
       ],
-      "metaTitle": "Limo Station Victoria TX — Mixed-Use Commercial Property | J4 Legacy Properties",
-      "metaDescription": "Mixed-use commercial and residential property for sale in Victoria, Texas. Contact J4 Legacy Properties for pricing and full property details.",
+      "metaTitle": "Limo Station Victoria TX — Mixed-Use Commercial Property | $450,000 | J4 Legacy Properties",
+      "metaDescription": "Mixed-use commercial and residential property for sale in Victoria, Texas. Listed at $450,000 by J4 Legacy Properties.",
       "schemaType": "CommercialProperty",
       "keywords": "Victoria Texas commercial property, mixed use property Victoria TX, commercial real estate Victoria Texas, South Texas commercial property for sale"
     },

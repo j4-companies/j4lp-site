@@ -928,21 +928,21 @@ ul { list-style: none; }
           </div>
         </div>
 
-        <!-- HWY 60 FRONTAGE -->
-        <div class="prop-card" data-category="ranch 1031" data-price="1699900" data-acres="60" data-slug="hwy-60-frontage">
+        <!-- HWY 60 FRONTAGE — SOLD (kept on grid as social proof; data-category includes "sold" so it surfaces under the Sold Listings tab) -->
+        <div class="prop-card" data-category="sold ranch 1031" data-price="1699900" data-acres="60" data-slug="hwy-60-frontage">
           <div class="prop-img">
             <img src="images/listings/highway-60-frontage-tract/hero.jpg"
-                 alt="Highway 60 Frontage Tract 60 acres Matagorda County Texas"
+                 alt="Highway 60 Frontage Tract 60 acres Matagorda County Texas — SOLD by J4 Legacy Properties"
                  loading="lazy"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="prop-img-ph" style="display:none">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
               Highway 60 Frontage Tract
             </div>
-            <span class="prop-badge badge-contract">Under Contract</span>
+            <span class="prop-badge badge-sold">Sold</span>
           </div>
           <div class="prop-body">
-            <div class="prop-price">$1,699,900</div>
+            <div class="prop-price">Sold</div>
             <div class="prop-name arvo">Highway 60 Frontage Tract</div>
             <div class="prop-loc">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1090,7 +1090,7 @@ ul { list-style: none; }
         </div>
 
         <!-- LIMO STATION VICTORIA -->
-        <div class="prop-card" data-category="homes" data-price="0" data-acres="0" data-slug="limo-station-victoria">
+        <div class="prop-card" data-category="homes" data-price="450000" data-acres="0" data-slug="limo-station-victoria">
           <div class="prop-img">
             <img src="images/listings/limo-station-victoria/hero.jpg"
                  alt="Limo Station Victoria mixed-use commercial property Victoria County Texas"
@@ -1103,7 +1103,7 @@ ul { list-style: none; }
             <span class="prop-badge badge-home">Commercial / Home</span>
           </div>
           <div class="prop-body">
-            <div class="prop-price contact">Contact for Price</div>
+            <div class="prop-price">$450,000</div>
             <div class="prop-name arvo">Limo Station, Victoria</div>
             <div class="prop-loc">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1236,7 +1236,8 @@ ul { list-style: none; }
 
     <!-- SOLD TAB -->
     <div class="tab-panel" id="tab-sold">
-      <div class="sold-empty">
+      <div class="prop-grid" id="grid-sold"></div>
+      <div class="sold-empty" id="sold-empty-state" style="display:none">
         <h3 class="arvo">No sold listings to show yet</h3>
         <p>Recently closed J4 Legacy Properties deals will be featured here. In the meantime, take a look at what's available now.</p>
         <a href="properties.html" class="btn-view">View Active Listings</a>
@@ -1440,14 +1441,22 @@ function buildFilteredGrid(gridId, category) {
 const ranchCount = buildFilteredGrid('grid-ranch', 'ranch');
 const homesCount = buildFilteredGrid('grid-homes', 'homes');
 const e1031Count = buildFilteredGrid('grid-1031', '1031');
+const soldCount = buildFilteredGrid('grid-sold', 'sold');
 document.getElementById('count-ranch').textContent = ranchCount;
 document.getElementById('count-homes').textContent = homesCount;
 document.getElementById('count-1031').textContent = e1031Count;
+document.getElementById('count-sold').textContent = soldCount;
+
+// Show empty-state when no sold listings exist
+if (soldCount === 0) {
+  document.getElementById('grid-sold').style.display = 'none';
+  document.getElementById('sold-empty-state').style.display = 'block';
+}
 
 // Tab switching
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
-const countMap = { all: allCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count, sold: 0 };
+const countMap = { all: allCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count, sold: soldCount };
 
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {
