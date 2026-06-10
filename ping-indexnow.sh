@@ -7,7 +7,10 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-SITE=https://www.j4lp.com
+# Netlify's primary domain is the apex (www.j4lp.com 301s to j4lp.com),
+# so pings must use apex URLs — IndexNow rejects URLs that redirect.
+SITE=https://j4lp.com
+HOST=j4lp.com
 KEY=90e49cb5a61c1bcc958917b6c5b3b711
 ENDPOINT=https://api.indexnow.org/indexnow
 
@@ -22,9 +25,10 @@ if [ "$#" -gt 0 ]; then
     esac
   done
 else
+  # BSD sed has no \? in basic regex — use -E. Sitemap lists www URLs; rewrite to apex.
   while IFS= read -r u; do
     urls+=("$u")
-  done < <(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<\/\?loc>//g')
+  done < <(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -E 's/<\/?loc>//g' | sed 's|https://www\.j4lp\.com|https://j4lp.com|')
 fi
 
 if [ "${#urls[@]}" -eq 0 ]; then
@@ -38,7 +42,7 @@ url_json="[${url_json%,}]"
 
 payload=$(cat <<EOF
 {
-  "host": "www.j4lp.com",
+  "host": "${HOST}",
   "key": "${KEY}",
   "keyLocation": "${SITE}/${KEY}.txt",
   "urlList": ${url_json}
