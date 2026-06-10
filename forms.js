@@ -4,7 +4,7 @@
 
 (function () {
   const EDGE_FN = "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/lead-capture";
-  const ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxbnZmcnV5aGtrbXNxdnpxZGxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NDgzNzUsImV4cCI6MjA5NDAyNDM3NX0.4G4qpvZV03MUtNo4uBDCYTOGF9AEckxSsLcQrmhbx5M"; // paste anon/public key here
+  const ANON_KEY = "sb_publishable_NCHYcy09Yi5s60udyOcyFA_W9zW-prt"; // publishable key — safe to ship in client code
 
   // ── Helper: collect all form fields into an object ──
   function collectFields(form) {
