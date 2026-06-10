@@ -1,0 +1,32 @@
+name: Deploy to Netlify
+
+# Deploys the site to Netlify production on every merge to main.
+# Exists because Netlify's built-in git integration can't watch private
+# org-owned repos on the free plan. Requires the NETLIFY_AUTH_TOKEN
+# repo secret (Netlify personal access token).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: netlify-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Netlify (production)
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 0b45a314-c78e-4893-988f-ea2a563b4bbe
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN secret is not set. Add it in repo Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          npx --yes netlify-cli deploy --prod --dir . --message "GitHub Actions: ${GITHUB_SHA::7}"

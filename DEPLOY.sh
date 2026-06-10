@@ -22,8 +22,10 @@ supabase db push
 supabase functions deploy lead-capture --no-verify-jwt
 
 # ── STEP 6: Set environment variables on the edge function ──
+# NEVER commit the service role key. Pull it from Doppler (project j4-ecosystem, config j4lp)
+# or copy it from Supabase dashboard → Project Settings → API at the moment you run this.
 supabase secrets set SUPABASE_URL=https://rqnvfruyhkkmsqvzqdli.supabase.co
-supabase secrets set SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxbnZmcnV5aGtrbXNxdnpxZGxpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODQ0ODM3NSwiZXhwIjoyMDk0MDI0Mzc1fQ.T0ntiWmDm_Bc4YTWMf9PDAjybv-NxmGIYNY9bHtONSA
+supabase secrets set SUPABASE_SERVICE_ROLE_KEY=PASTE_SERVICE_ROLE_KEY_HERE_DO_NOT_COMMIT
 
 # ── STEP 7: Get your anon key ──
 # Go to Supabase dashboard → Project Settings → API
