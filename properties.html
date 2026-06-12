@@ -1254,20 +1254,11 @@ ul { list-style: none; }
       <span class="sidebar-label">Not seeing the right property?</span>
       <h3>Many of our deals start before a sign goes up.</h3>
       <p>Tell us what you're looking for. Acreage, county, price point, 1031 deadline. We'll surface options that never hit the public market.</p>
-      <form class="sidebar-form" onsubmit="return false;">
-        <input type="text"  name="name"   placeholder="Your Name"     autocomplete="name"  required>
-        <input type="tel"   name="phone"  placeholder="Phone Number"  autocomplete="tel"   required>
-        <input type="email" name="email"  placeholder="Email Address" autocomplete="email" required>
-        <select name="buyer_type">
-          <option value="">I am a...</option>
-          <option value="Legacy Builder">Legacy Builder (Ranch / Farm $1M+)</option>
-          <option value="Community Connector">Community Connector (El Campo Area Home)</option>
-          <option value="Strategic Exchanger">Strategic Exchanger (1031 Investor)</option>
-          <option value="Not sure">Not sure yet</option>
-        </select>
-        <textarea name="message" placeholder="What are you looking for? Acreage, county, timeline, budget..."></textarea>
-        <button type="submit" class="btn-full">Send My Criteria</button>
-      </form>
+      <div class="form-cta-block" style="padding:28px 20px;text-align:center;border:1px solid rgba(127,129,148,0.35);border-radius:8px;">
+  <p style="font-size:17px;font-weight:700;margin-bottom:14px;">Ready to talk land? Reach us direct.</p>
+  <p style="margin-bottom:10px;">Call or text <a href="tel:+18335435263" style="color:inherit;font-weight:700;text-decoration:underline;">833-543-LAND (5263)</a></p>
+  <p>Email <a href="mailto:info@j4lp.com" style="color:inherit;font-weight:700;text-decoration:underline;">info@j4lp.com</a></p>
+</div>
     </div>
 
     <!-- Browse by County -->
@@ -1534,5 +1525,6 @@ document.querySelectorAll('.prop-card, .sidebar-card, .sold-stat').forEach(el =>
 </script>
 
 <script src="forms.js"></script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a29aa14fe9e3db82f856b52" data-source="WEB_USER"></script>
 </body>
 </html>
