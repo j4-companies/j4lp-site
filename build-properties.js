@@ -62,7 +62,7 @@ function buildSchema(l) {
       "telephone": "+18335435263",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "1379 CR 408",
+        "streetAddress": "1379 County Road 408",
         "addressLocality": "El Campo",
         "addressRegion": "TX",
         "postalCode": "77437",
@@ -638,7 +638,7 @@ ul { list-style: none; }
   <div class="mobile-contact">
     <a href="tel:8335435263">833-543-LAND</a><br>
     <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
-    1379 CR 408, El Campo, TX 77437
+    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 SH 71 S, El Campo, TX 77437 (Office)
   </div>
 </div>
 
@@ -808,7 +808,7 @@ ${buildRelated(l, all)}
       <h4>Contact</h4>
       <a href="tel:8335435263">833-543-LAND</a>
       <a href="mailto:info@j4lp.com">info@j4lp.com</a>
-      <a href="#">1379 CR 408, El Campo TX</a>
+      <a href="#">1379 County Road 408, El Campo TX</a>
       <a href="https://www.j4tx.com" target="_blank">J4TX.com</a>
     </div>
   </div>
@@ -818,7 +818,7 @@ ${buildRelated(l, all)}
   </div>
 </footer>
 <div class="trec-bar">
-  J4 Legacy Properties, LLC · TREC Licensed Brokerage · 1379 CR 408, El Campo, TX 77437 · 833-543-LAND · j4lp.com
+  J4 Legacy Properties, LLC · TREC Licensed Brokerage · 1379 County Road 408, El Campo, TX 77437 · 833-543-LAND · j4lp.com
 </div>
 
 <script>
