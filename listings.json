@@ -492,8 +492,8 @@
       "badge": "Home",
       "badgeType": "home",
       "name": "Horse Farm Property",
-      "price": 440000,
-      "priceDisplay": "$440,000",
+      "price": 415000,
+      "priceDisplay": "$415,000",
       "priceContact": false,
       "address": "El Campo, TX 77437",
       "city": "El Campo",
@@ -534,14 +534,14 @@
         "Practical rural living"
       ],
       "specs": [
-        { "label": "Price", "value": "$440,000" },
+        { "label": "Price", "value": "$415,000" },
         { "label": "Acreage", "value": "10.015 Ac" },
         { "label": "Home", "value": "1,182 Sq Ft" },
         { "label": "Bed / Bath", "value": "4 / 1" },
         { "label": "Ag", "value": "Exempt" }
       ],
       "metaTitle": "Horse Farm Property — 10 Acres Ag-Exempt, El Campo TX | J4 Legacy Properties",
-      "metaDescription": "1,182 sq ft, 4-bed/1-bath home on 10.015 ag-exempt acres in El Campo, Wharton County, Texas. Horse infrastructure in place. $440,000. J4 Legacy Properties.",
+      "metaDescription": "1,182 sq ft, 4-bed/1-bath home on 10.015 ag-exempt acres in El Campo, Wharton County, Texas. Horse infrastructure in place. $415,000. J4 Legacy Properties.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "El Campo home with acreage, Wharton County horse property, ag exempt land El Campo TX, rural home for sale El Campo, horse farm Texas for sale"
     },
