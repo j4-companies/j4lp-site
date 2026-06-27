@@ -6,6 +6,9 @@
 //
 // Matching rules (canonical: see memory feedback_listing_page_propagation_rule):
 //   - areas-{slug}.html: matches when filename slug == listing city slug OR county slug
+//     OR any slug in the optional listing.extraAreas array (for tracts that sit between
+//     two towns and should feature on both town pages, e.g. a property tied to El Campo
+//     that should also surface on the Louise page).
 //   - agents/{slug}.html: matches when filename slug == any agent slug parsed from
 //     listing.agent (split on "&" or ",")
 //   - Listings flagged hideOnAreaPages are excluded from both
@@ -188,7 +191,8 @@ function main() {
   for (const file of areaFiles) {
     const fileSlug = file.replace(/^areas-/, '').replace(/\.html$/, '');
     const matched = listings.filter(l => {
-      return fileSlug === slug(l.city) || fileSlug === slug(l.county);
+      const extra = (Array.isArray(l.extraAreas) ? l.extraAreas : []).map(slug);
+      return fileSlug === slug(l.city) || fileSlug === slug(l.county) || extra.includes(fileSlug);
     });
     processFile(
       path.join(ROOT, file),
