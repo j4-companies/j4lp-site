@@ -47,9 +47,11 @@ shipped state, so running it is safe and the output is idempotent.
 7. **Chat widget.** LeadConnector loader added before `</body>`.
 8. **Related listings.** Sold listings are now included (was filtered out), to
    match the deployed pages.
-9. **Status banner.** The script no longer emits the sold / under-contract banner,
-   because **no deployed page has one** (it had been removed). If you want it back,
-   that is a one-line re-add — flag it and it goes in its own change.
+9. **Status banner.** The sold / under-contract banner logic is kept in the script
+   for future listings. It is empty for active listings (so active pages render no
+   banner and no extra whitespace), and renders the banner for sold and
+   under-contract listings. This adds the banner to hwy-60 (sold) and j4-homestead
+   (under contract); all active pages are unaffected.
 10. **Data-driven sidebar label.** New optional `contactCardLabel` field; defaults
     to "Inquire About This Property." Set for hwy-60 so its "Sold, Ask About
     Similar Land" label is preserved instead of reverting.

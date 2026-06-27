@@ -202,6 +202,14 @@ function buildMap(l) {
 // ============================================================
 function buildPage(l, all) {
   const badgeColor = badgeColors[l.badgeType] || '#500203';
+  // Sold / under-contract banner. Empty for active listings, so active pages
+  // render no banner (and no extra whitespace). Kept here for future sold and
+  // under-contract listings.
+  const statusBanner = l.status === 'contract'
+    ? `<div class="status-banner contract">Under Contract — Contact us about similar off-market properties.</div>`
+    : l.status === 'sold'
+    ? `<div class="status-banner sold">This property has been sold. <a href="../properties.html">View active listings →</a></div>`
+    : '';
 
   return stripDashes(`<!DOCTYPE html>
 <html lang="en">
@@ -661,7 +669,7 @@ ul { list-style: none; }
     1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 SH 71 S, El Campo, TX 77437 (Office)
   </div>
 </div>
-
+${statusBanner}
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
     <a href="../index.html">Home</a>
