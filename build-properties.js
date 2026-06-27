@@ -15,6 +15,14 @@ const listings = data.listings;
 const outDir = path.join(__dirname, 'properties');
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
+// Strip em-dashes to commas at render time (J4 voice rule bans em-dashes).
+// listings.json source still contains em-dashes; this normalizes them in the
+// generated HTML. Only the em-dash (—, U+2014) is touched — hyphen-minus in
+// compounds like "1,977-acre" is left alone.
+function stripDashes(s) {
+  return s.replace(/\s*—\s*/g, ', ');
+}
+
 // Badge color map
 const badgeColors = {
   ranch:      '#500203',
@@ -29,6 +37,7 @@ function buildSchema(l) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
+    "hasMap": l.lat ? `https://www.google.com/maps/search/?api=1&query=${l.lat},${l.lng}` : undefined,
     "name": l.name,
     "description": l.description,
     "keywords": (l.tags && l.tags.length ? l.tags.join(', ') + (l.keywords ? ', ' + l.keywords : '') : (l.keywords || '')),
@@ -138,7 +147,7 @@ function buildVideo(video, name) {
 // Build related listings (same category, different slug)
 function buildRelated(current, all) {
   const related = all
-    .filter(l => l.slug !== current.slug && l.status !== 'sold')
+    .filter(l => l.slug !== current.slug)
     .filter(l => l.categories.some(c => current.categories.includes(c)))
     .slice(0, 3);
 
@@ -160,8 +169,7 @@ function buildRelated(current, all) {
           </div>
         </a>`).join('');
 
-  return `
-      <section class="related-section">
+  return `<section class="related-section">
         <div class="related-header">
           <span class="section-label">More Properties</span>
           <h2 class="section-title arvo">You Might Also Like</h2>
@@ -172,18 +180,30 @@ function buildRelated(current, all) {
       </section>`;
 }
 
+// Build the Google Maps location embed. Only rendered when lat/lng are present.
+// Inserted between the prop-layout and the related-listings section.
+function buildMap(l) {
+  if (!l.lat) return '';
+  return `
+
+      <section class="map-embed">
+  <div style="max-width:1100px;margin:0 auto;padding:56px 24px;">
+    <h2 class="arvo" style="font-size:1.6rem;margin-bottom:20px;color:#500203;">Property Location</h2>
+    <div style="position:relative;width:100%;padding-bottom:52%;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.12);">
+      <iframe src="https://maps.google.com/maps?q=${l.lat},${l.lng}&z=12&output=embed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Property Location" allowfullscreen></iframe>
+    </div>${l.mapNote ? `\n    <p style="font-size:12px;color:#7F8194;margin-top:12px;">${l.mapNote}</p>` : ''}
+  </div>
+</section>
+`;
+}
+
 // ============================================================
 // MAIN HTML TEMPLATE
 // ============================================================
 function buildPage(l, all) {
   const badgeColor = badgeColors[l.badgeType] || '#500203';
-  const statusBanner = l.status === 'contract'
-    ? `<div class="status-banner contract">Under Contract — Contact us about similar off-market properties.</div>`
-    : l.status === 'sold'
-    ? `<div class="status-banner sold">This property has been sold. <a href="../properties.html">View active listings →</a></div>`
-    : '';
 
-  return `<!DOCTYPE html>
+  return stripDashes(`<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -214,8 +234,8 @@ ul { list-style: none; }
 :root {
   --maroon: #500203;
   --maroon-mid: #6b0304;
-  --gold: #c8a96e;
-  --gold-light: #e8d4a8;
+  --gold: #ffffff;
+  --gold-light: #ffffff;
   --black: #131414;
   --charcoal: #1e1e1e;
   --dark-gray: #7F8194;
@@ -235,8 +255,8 @@ ul { list-style: none; }
 .topbar-left { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; align-items: center; }
 .topbar-right a { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--gold); }
-.topbar-phone { color: var(--gold) !important; font-weight: 700; }
+.topbar-right a:hover { color: var(--white); }
+.topbar-phone { color: var(--white) !important; font-weight: 700; }
 
 /* ===== NAV ===== */
 .nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; transition: box-shadow 0.3s; }
@@ -262,16 +282,16 @@ ul { list-style: none; }
 .mobile-menu.open { display: flex; }
 .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--white); cursor: pointer; background: none; border: none; }
 .mobile-logo { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 3rem; }
-.mobile-logo span { color: var(--gold); }
+.mobile-logo span { color: var(--white); }
 .mobile-links a { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .mobile-contact { margin-top: auto; padding-top: 2rem; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-.mobile-contact a { color: var(--gold); }
+.mobile-contact a { color: var(--white); }
 
 /* ===== STATUS BANNER ===== */
 .status-banner { padding: 12px 40px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
 .status-banner.contract { background: #7F8194; color: var(--white); }
 .status-banner.sold { background: var(--black); color: var(--white); }
-.status-banner a { color: var(--gold); }
+.status-banner a { color: var(--white); }
 
 /* ===== BREADCRUMB ===== */
 .breadcrumb-bar { padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }
@@ -339,9 +359,9 @@ ul { list-style: none; }
 /* ===== SIDEBAR CARD ===== */
 .sidebar-sticky { position: sticky; top: calc(var(--nav-height) + 24px); }
 .contact-card { background: var(--black); padding: 28px; margin-bottom: 12px; }
-.contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+.contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; display: block; }
 .contact-card h3 { font-family: 'Arvo', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.contact-card-price { font-family: 'Arvo', serif; font-size: 26px; font-weight: 700; color: var(--gold); margin-bottom: 20px; }
+.contact-card-price { font-family: 'Arvo', serif; font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
 .contact-card-price.contact { font-size: 16px; color: rgba(255,255,255,0.6); }
 .contact-form { display: flex; flex-direction: column; gap: 10px; }
 .contact-form input, .contact-form select, .contact-form textarea {
@@ -351,7 +371,7 @@ ul { list-style: none; }
   transition: border-color 0.2s;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--white); }
 .contact-form select { color: rgba(255,255,255,0.6); appearance: none; cursor: pointer; }
 .contact-form select option { background: var(--black); color: var(--white); }
 .contact-form textarea { resize: vertical; min-height: 80px; }
@@ -393,17 +413,17 @@ ul { list-style: none; }
 .offmarket { background: var(--maroon); padding: 56px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .offmarket h2 { font-family: 'Arvo', serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: var(--white); margin-bottom: 8px; }
 .offmarket p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 480px; line-height: 1.75; }
-.btn-gold { background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
+.btn-gold { background: var(--white); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 26px; white-space: nowrap; display: inline-block; transition: background 0.2s; }
 .btn-gold:hover { background: var(--gold-light); }
 
 /* ===== FOOTER ===== */
 .footer { background: var(--charcoal); padding: 56px 80px 36px; }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px; }
 .footer-brand-name { font-family: 'Arvo', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-.footer-brand-name span { color: var(--gold); }
-.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 14px; }
+.footer-brand-name span { color: var(--white); }
+.footer-tagline { font-family: 'Lora', serif; font-style: italic; font-size: 13px; color: var(--white); margin-bottom: 14px; }
 .footer-about { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -642,8 +662,6 @@ ul { list-style: none; }
   </div>
 </div>
 
-${statusBanner}
-
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
     <a href="../index.html">Home</a>
@@ -680,7 +698,7 @@ ${statusBanner}
       <div class="prop-price-display arvo ${l.priceContact ? 'contact' : ''}">${l.priceDisplay}</div>
       <div class="prop-address">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        ${l.address}
+        ${l.address.replace(/&(?!(?:amp|lt|gt|quot|#\d+);)/g, '&amp;')}
       </div>
     </div>
 
@@ -728,27 +746,14 @@ ${statusBanner}
     <div class="sidebar-sticky">
 
       <div class="contact-card">
-        <span class="contact-card-label">Inquire About This Property</span>
+        <span class="contact-card-label">${l.contactCardLabel || 'Inquire About This Property'}</span>
         <h3 class="arvo">${l.name}</h3>
         <div class="contact-card-price arvo ${l.priceContact ? 'contact' : ''}">${l.priceDisplay}</div>
-        <iframe
-          src="https://link.communitymarketleader.com/widget/form/oxfycDUUPcOqGf7pkaBd"
-          style="width:100%;height:100%;border:none;border-radius:8px"
-          id="inline-oxfycDUUPcOqGf7pkaBd"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="J4LP Website Intake Form"
-          data-height="1276"
-          data-layout-iframe-id="inline-oxfycDUUPcOqGf7pkaBd"
-          data-form-id="oxfycDUUPcOqGf7pkaBd"
-          title="J4LP Website Intake Form">
-        </iframe>
-        <script src="https://link.communitymarketleader.com/js/form_embed.js"></script>
+        <div class="form-cta-block" style="padding:28px 20px;text-align:center;border:1px solid rgba(127,129,148,0.35);border-radius:8px;">
+  <p style="font-size:17px;font-weight:700;margin-bottom:14px;">Ready to talk land? Reach us direct.</p>
+  <p style="margin-bottom:10px;">Call or text <a href="tel:+18335435263" style="color:inherit;font-weight:700;text-decoration:underline;">833-543-LAND (5263)</a></p>
+  <p>Email <a href="mailto:info@j4lp.com" style="color:inherit;font-weight:700;text-decoration:underline;">info@j4lp.com</a></p>
+</div>
         <a href="../contact.html?property=${l.slug}" class="btn-tour" style="margin-top:12px;display:block">Schedule a Tour</a>
       </div>
 
@@ -770,7 +775,7 @@ ${statusBanner}
   </div><!-- end prop-right -->
 
 </div><!-- end prop-layout -->
-
+${buildMap(l)}
 ${buildRelated(l, all)}
 
 <section class="offmarket">
@@ -808,18 +813,19 @@ ${buildRelated(l, all)}
       <h4>Contact</h4>
       <a href="tel:8335435263">833-543-LAND</a>
       <a href="mailto:info@j4lp.com">info@j4lp.com</a>
-      <a href="#">1379 County Road 408, El Campo TX</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=1379+CR+408+El+Campo+TX+77437" target="_blank" rel="noopener">1379 County Road 408, El Campo TX</a>
       <a href="https://www.j4tx.com" target="_blank">J4TX.com</a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 J4 Legacy Properties, LLC · All Rights Reserved</p>
     <a href="../privacy.html">Privacy Policy</a>
+    <a href="../information-about-brokerage-services.html">IABS</a>
+    <a href="../texas-real-estate-consumer-protection-notice.html">Consumer Protection Notice</a>
+    <span style="opacity:0.5">Equal Housing Opportunity</span>
   </div>
 </footer>
-<div class="trec-bar">
-  J4 Legacy Properties, LLC · TREC Licensed Brokerage · 1379 County Road 408, El Campo, TX 77437 · 833-543-LAND · j4lp.com
-</div>
+<div class="trec-bar">J4 Legacy Properties, LLC · Texas Real Estate Commission (TREC) Licensed Brokerage · License No. 9011917 · Broker of Record: Cuatro Strack, REALTOR®, TREC #655595 · 1379 County Road 408, El Campo, TX 77437 · 833-543-LAND · info@j4lp.com · j4lp.com</div>
 
 <script>
 const nav = document.getElementById('mainNav');
@@ -828,8 +834,9 @@ document.getElementById('hamburger').addEventListener('click', () => document.ge
 document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 </script>
 
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a29aa14fe9e3db82f856b52" data-source="WEB_USER"></script>
 </body>
-</html>`;
+</html>`);
 }
 
 // ============================================================
