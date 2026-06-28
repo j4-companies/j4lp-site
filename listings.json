@@ -661,7 +661,6 @@
       "tags": ["1031 Exchange", "Homestead", "Community Connector", "Farm", "Sold"],
       "status": "sold",
       "featured": false,
-      "hideOnAreaPages": true,
       "badge": "Sold",
       "badgeType": "sold",
       "name": "J4 Homestead",
