@@ -3,7 +3,10 @@
     {
       "id": "hilago-ranch",
       "slug": "hilago-ranch",
-      "tags": ["Ranch", "1031 Exchange"],
+      "tags": [
+        "Ranch",
+        "1031 Exchange"
+      ],
       "status": "active",
       "featured": true,
       "badge": "Ranch Land",
@@ -22,7 +25,10 @@
       "lng": -98.9836,
       "acreage": 2544.03,
       "acreageDisplay": "2,544.03",
-      "categories": ["ranch", "1031"],
+      "categories": [
+        "ranch",
+        "1031"
+      ],
       "agent": "Mason Abshire",
       "agentInitials": "MA",
       "agentPhone": "970-406-1187",
@@ -53,10 +59,10 @@
         "images/listings/hilago-ranch/photo-23.jpg"
       ],
       "tagline": "2,544 acres of high-fence West Texas ranch land with premier whitetail genetics, two new reservoirs, and a full infrastructure package.",
-      "description": "Hilago Ranch represents one of the most turnkey high-fence ranches available in West Texas. The 1,977-acre high-fence pasture is stocked with South Texas whitetail deer genetics built over years of intentional management. A separate 485-acre high-fence pasture offers additional potential for exotics or expanded deer operations. Water is exceptional — a 25+ acre reservoir, 11 ponds, multiple water wells, and two newly built reservoirs. Infrastructure includes a foreman's home, guest cabin, large barn, and established road systems throughout. Seller retains all mineral rights.",
+      "description": "Hilago Ranch represents one of the most turnkey high-fence ranches available in West Texas. The 1,977-acre high-fence pasture is stocked with South Texas whitetail deer genetics built over years of intentional management. A separate 485-acre high-fence pasture offers additional potential for exotics or expanded deer operations. Water is exceptional \u2014 a 25+ acre reservoir, 11 ponds, multiple water wells, and two newly built reservoirs. Infrastructure includes a foreman's home, guest cabin, large barn, and established road systems throughout. Seller retains all mineral rights.",
       "highlights": [
         "1,977-acre high-fence pasture with South Texas whitetail genetics",
-        "485-acre separate high-fence pasture — exotics potential",
+        "485-acre separate high-fence pasture \u2014 exotics potential",
         "25+ acre reservoir plus 11 ponds",
         "Multiple water wells and two newly built reservoirs",
         "Foreman's home, guest cabin, large barn",
@@ -64,14 +70,32 @@
         "Seller retains all mineral rights"
       ],
       "specs": [
-        { "label": "Acres", "value": "2,544.03" },
-        { "label": "High-Fence", "value": "1,977 Ac" },
-        { "label": "Reservoir", "value": "25+ Acres" },
-        { "label": "Ponds", "value": "11" },
-        { "label": "Water Wells", "value": "Multiple" },
-        { "label": "Structures", "value": "3" }
+        {
+          "label": "Acres",
+          "value": "2,544.03"
+        },
+        {
+          "label": "High-Fence",
+          "value": "1,977 Ac"
+        },
+        {
+          "label": "Reservoir",
+          "value": "25+ Acres"
+        },
+        {
+          "label": "Ponds",
+          "value": "11"
+        },
+        {
+          "label": "Water Wells",
+          "value": "Multiple"
+        },
+        {
+          "label": "Structures",
+          "value": "3"
+        }
       ],
-      "metaTitle": "Hilago Ranch — 2,544 Acres High-Fence Ranch Land for Sale | Stephens County TX | J4 Legacy Properties",
+      "metaTitle": "Hilago Ranch \u2014 2,544 Acres High-Fence Ranch Land for Sale | Stephens County TX | J4 Legacy Properties",
       "metaDescription": "2,544-acre high-fence whitetail ranch in Stephens County, Texas. South Texas genetics, 25+ acre reservoir, 11 ponds, foreman's home, guest cabin. Listed at $18,500,000. J4 Legacy Properties.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "Stephens County ranch land for sale, high fence deer ranch Texas, West Texas whitetail ranch, Texas ranch land 2500 acres, Cisco TX ranch"
@@ -79,7 +103,11 @@
     {
       "id": "fm-1300-farm-tract",
       "slug": "fm-1300-farm-tract",
-      "tags": ["Farm", "Investment", "El Campo"],
+      "tags": [
+        "Farm",
+        "Investment",
+        "El Campo"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Farm Land",
@@ -91,7 +119,9 @@
       "address": "FM 1300 & CR 393, El Campo, TX 77437",
       "city": "El Campo",
       "county": "Wharton County",
-      "extraAreas": ["louise"],
+      "extraAreas": [
+        "louise"
+      ],
       "state": "TX",
       "video": "",
       "zip": "77437",
@@ -99,17 +129,19 @@
       "lng": -96.2694,
       "mapNote": "Map shows the general El Campo / Louise area. Exact tract boundaries provided on request.",
       "acreage": 349.4,
-      "acreageDisplay": "349.4±",
-      "categories": ["ranch"],
+      "acreageDisplay": "349.4\u00b1",
+      "categories": [
+        "ranch"
+      ],
       "agent": "Harleigh Strack",
       "agentInitials": "HS",
       "agentPhone": "979-253-4837",
       "heroImage": "images/listings/fm-1300-farm-tract/hero.jpg",
       "images": [],
-      "tagline": "A rare 349.4± acre contiguous farm in the heart of Wharton County's coastal-prairie country, with dual paved frontage, a long-standing agricultural valuation, and Central Flyway hunting along a tree-lined creek.",
-      "description": "A rare opportunity to own a large, contiguous 349.4± acre property in the heart of Wharton County's productive coastal-prairie farm country. Offered as two adjoining parcels (PID 35527 and 35530) with frontage on both paved FM 1300 and CR 393, this open, workable tract sits in the northwest part of the county between Louise and El Campo, the size and location that's increasingly hard to find. The land is well suited for row-crop farming, cattle grazing, or hay production, with a tree-lined seasonal drainage running through it that adds wildlife habitat and excellent Central Flyway waterfowl and dove hunting. A valuable agricultural (1-D-1) valuation is in place on the main 347-acre parcel, keeping carrying costs low for a buyer who continues the agricultural use. Dual road frontage provides easy, all-weather access and flexibility for future layout. Located within El Campo ISD and just minutes from El Campo, Louise, and Eagle Lake, with Houston only about an hour and a half away. Buyer to verify acreage, mineral and surface rights, utilities, flood status, and agricultural exemption.",
+      "tagline": "A rare 349.4\u00b1 acre contiguous farm in the heart of Wharton County's coastal-prairie country, with dual paved frontage, a long-standing agricultural valuation, and Central Flyway hunting along a tree-lined creek.",
+      "description": "A rare opportunity to own a large, contiguous 349.4\u00b1 acre property in the heart of Wharton County's productive coastal-prairie farm country. Offered as two adjoining parcels (PID 35527 and 35530) with frontage on both paved FM 1300 and CR 393, this open, workable tract sits in the northwest part of the county between Louise and El Campo, the size and location that's increasingly hard to find. The land is well suited for row-crop farming, cattle grazing, or hay production, with a tree-lined seasonal drainage running through it that adds wildlife habitat and excellent Central Flyway waterfowl and dove hunting. A valuable agricultural (1-D-1) valuation is in place on the main 347-acre parcel, keeping carrying costs low for a buyer who continues the agricultural use. Dual road frontage provides easy, all-weather access and flexibility for future layout. Located within El Campo ISD and just minutes from El Campo, Louise, and Eagle Lake, with Houston only about an hour and a half away. Buyer to verify acreage, mineral and surface rights, utilities, flood status, and agricultural exemption.",
       "highlights": [
-        "349.4± total acres across two contiguous parcels (PID 35527 + 35530)",
+        "349.4\u00b1 total acres across two contiguous parcels (PID 35527 + 35530)",
         "Dual frontage on paved FM 1300 and CR 393 with all-weather access",
         "Open, productive ground ideal for row crops, cattle, or hay",
         "Tree-lined seasonal creek with Central Flyway waterfowl and dove hunting",
@@ -117,23 +149,42 @@
         "El Campo ISD; minutes to El Campo, Louise and Eagle Lake; about 1.5 hours to Houston"
       ],
       "specs": [
-        { "label": "Acres", "value": "349.4±" },
-        { "label": "Frontage", "value": "FM 1300 + CR 393" },
-        { "label": "Ag Valuation", "value": "1-D-1" },
-        { "label": "School", "value": "El Campo ISD" },
-        { "label": "County", "value": "Wharton" }
+        {
+          "label": "Acres",
+          "value": "349.4\u00b1"
+        },
+        {
+          "label": "Frontage",
+          "value": "FM 1300 + CR 393"
+        },
+        {
+          "label": "Ag Valuation",
+          "value": "1-D-1"
+        },
+        {
+          "label": "School",
+          "value": "El Campo ISD"
+        },
+        {
+          "label": "County",
+          "value": "Wharton"
+        }
       ],
-      "metaTitle": "FM 1300 Farm Tract, 349± Acres Wharton County Farm Land for Sale | Louise / El Campo TX | J4 Legacy Properties",
-      "metaDescription": "349.4± acres of contiguous Wharton County farmland between Louise and El Campo, Texas. Dual paved frontage (FM 1300 + CR 393), agricultural (1-D-1) valuation, row crop / cattle / hay, and Central Flyway hunting. El Campo ISD, about 1.5 hrs to Houston. J4 Legacy Properties.",
+      "metaTitle": "FM 1300 Farm Tract, 349\u00b1 Acres Wharton County Farm Land for Sale | Louise / El Campo TX | J4 Legacy Properties",
+      "metaDescription": "349.4\u00b1 acres of contiguous Wharton County farmland between Louise and El Campo, Texas. Dual paved frontage (FM 1300 + CR 393), agricultural (1-D-1) valuation, row crop / cattle / hay, and Central Flyway hunting. El Campo ISD, about 1.5 hrs to Houston. J4 Legacy Properties.",
       "schemaType": "LandForSale",
       "keywords": "Wharton County farm land for sale, Louise Texas farmland, El Campo TX acreage, row crop land for sale Texas, ag exempt farm Wharton County, Central Flyway duck hunting land Texas, 349 acre farm Texas"
     },
     {
       "id": "hwy-60-frontage",
       "slug": "hwy-60-frontage",
-      "tags": ["Farm", "1031 Exchange", "Sold"],
+      "tags": [
+        "Farm",
+        "1031 Exchange",
+        "Sold"
+      ],
       "status": "sold",
-      "contactCardLabel": "Sold — Ask About Similar Land",
+      "contactCardLabel": "Sold \u2014 Ask About Similar Land",
       "featured": false,
       "badge": "Sold",
       "badgeType": "sold",
@@ -151,7 +202,10 @@
       "lng": -96.0167,
       "acreage": 60,
       "acreageDisplay": "60",
-      "categories": ["ranch", "1031"],
+      "categories": [
+        "ranch",
+        "1031"
+      ],
       "agent": "Harleigh Strack",
       "agentInitials": "HS",
       "agentPhone": "979-253-4837",
@@ -172,27 +226,45 @@
       "description": "SOLD by J4 Legacy Properties. A 60-acre tract with direct State Highway 60 frontage in Matagorda County, Texas. This was investment-grade acreage in one of the most active land corridors on the Texas Gulf Coast. Qualified for 1031 exchange. If you are looking for similar land in Matagorda County, contact us to be notified of off-market opportunities.",
       "highlights": [
         "Direct State Highway 60 frontage",
-        "60 acres — Matagorda County",
+        "60 acres \u2014 Matagorda County",
         "1031 exchange qualified",
         "Investment-grade Gulf Coast acreage",
         "Sold by J4 Legacy Properties"
       ],
       "specs": [
-        { "label": "Acres", "value": "60" },
-        { "label": "Frontage", "value": "Hwy 60" },
-        { "label": "County", "value": "Matagorda" },
-        { "label": "Status", "value": "Sold" },
-        { "label": "1031", "value": "Qualified" }
+        {
+          "label": "Acres",
+          "value": "60"
+        },
+        {
+          "label": "Frontage",
+          "value": "Hwy 60"
+        },
+        {
+          "label": "County",
+          "value": "Matagorda"
+        },
+        {
+          "label": "Status",
+          "value": "Sold"
+        },
+        {
+          "label": "1031",
+          "value": "Qualified"
+        }
       ],
-      "metaTitle": "SOLD — Highway 60 Frontage Tract — 60 Acres | Matagorda County TX | J4 Legacy Properties",
-      "metaDescription": "SOLD — 60 acres with direct Highway 60 frontage in Bay City, Matagorda County, Texas. 1031-qualified investment land on the Texas Gulf Coast. Closed by J4 Legacy Properties.",
+      "metaTitle": "SOLD \u2014 Highway 60 Frontage Tract \u2014 60 Acres | Matagorda County TX | J4 Legacy Properties",
+      "metaDescription": "SOLD \u2014 60 acres with direct Highway 60 frontage in Bay City, Matagorda County, Texas. 1031-qualified investment land on the Texas Gulf Coast. Closed by J4 Legacy Properties.",
       "schemaType": "LandForSale",
       "keywords": "Matagorda County land for sale, Bay City Texas acreage, Highway 60 frontage tract, Gulf Coast Texas land, 1031 exchange Matagorda County"
     },
     {
       "id": "el-campo-mid-century",
       "slug": "el-campo-mid-century",
-      "tags": ["Community Connector", "El Campo"],
+      "tags": [
+        "Community Connector",
+        "El Campo"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Home",
@@ -210,8 +282,10 @@
       "lat": 29.1966,
       "lng": -96.2694,
       "acreage": 1,
-      "acreageDisplay": "1±",
-      "categories": ["homes"],
+      "acreageDisplay": "1\u00b1",
+      "categories": [
+        "homes"
+      ],
       "agent": "Harleigh Strack",
       "agentInitials": "HS",
       "agentPhone": "979-253-4837",
@@ -242,32 +316,50 @@
         "images/listings/el-campo-mid-century-home/photo-23.jpg",
         "images/listings/el-campo-mid-century-home/photo-24.jpg"
       ],
-      "tagline": "3,128 sq ft mid-century home on a 1-acre lot in El Campo — character, space, and small-town roots all in one.",
-      "description": "A standout mid-century home in El Campo, Texas offering 3,128 square feet of living space on a 1± acre lot. Distinctive architecture, generous room sizes, and the kind of bones you just don't find in new construction. Located in Wharton County with easy access to schools, shopping, and the community amenities that make El Campo one of the best small towns on the Texas Gulf Coast.",
+      "tagline": "3,128 sq ft mid-century home on a 1-acre lot in El Campo \u2014 character, space, and small-town roots all in one.",
+      "description": "A standout mid-century home in El Campo, Texas offering 3,128 square feet of living space on a 1\u00b1 acre lot. Distinctive architecture, generous room sizes, and the kind of bones you just don't find in new construction. Located in Wharton County with easy access to schools, shopping, and the community amenities that make El Campo one of the best small towns on the Texas Gulf Coast.",
       "highlights": [
         "3,128 sq ft of living space",
-        "1± acre lot",
+        "1\u00b1 acre lot",
         "Mid-century architecture with character",
         "El Campo ISD",
-        "Wharton County — no city taxes",
+        "Wharton County \u2014 no city taxes",
         "Easy access to Houston (1 hr)"
       ],
       "specs": [
-        { "label": "Sq Ft", "value": "3,128" },
-        { "label": "Lot Size", "value": "1± Acre" },
-        { "label": "Style", "value": "Mid-Century" },
-        { "label": "School", "value": "El Campo ISD" },
-        { "label": "County", "value": "Wharton" }
+        {
+          "label": "Sq Ft",
+          "value": "3,128"
+        },
+        {
+          "label": "Lot Size",
+          "value": "1\u00b1 Acre"
+        },
+        {
+          "label": "Style",
+          "value": "Mid-Century"
+        },
+        {
+          "label": "School",
+          "value": "El Campo ISD"
+        },
+        {
+          "label": "County",
+          "value": "Wharton"
+        }
       ],
-      "metaTitle": "El Campo Mid-Century Home — 3,128 Sq Ft on 1 Acre | Wharton County TX | J4 Legacy Properties",
-      "metaDescription": "3,128 sq ft mid-century home on 1± acre in El Campo, Wharton County, Texas. $315,000. Great character, generous space, and small-town Texas living at its best.",
+      "metaTitle": "El Campo Mid-Century Home \u2014 3,128 Sq Ft on 1 Acre | Wharton County TX | J4 Legacy Properties",
+      "metaDescription": "3,128 sq ft mid-century home on 1\u00b1 acre in El Campo, Wharton County, Texas. $315,000. Great character, generous space, and small-town Texas living at its best.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "El Campo Texas homes for sale, Wharton County homes, El Campo mid-century house, homes in El Campo TX, rural home Wharton County"
     },
     {
       "id": "danevang-investment",
       "slug": "danevang-investment",
-      "tags": ["Community Connector", "Investment"],
+      "tags": [
+        "Community Connector",
+        "Investment"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Investment",
@@ -286,7 +378,10 @@
       "lng": -96.2068,
       "acreage": 1.79,
       "acreageDisplay": "1.79",
-      "categories": ["homes", "1031"],
+      "categories": [
+        "homes",
+        "1031"
+      ],
       "agent": "Sioux Smith & Harleigh Strack",
       "agentInitials": "SM",
       "agentPhone": "254-541-6919, 979-253-4837",
@@ -304,31 +399,48 @@
         "images/listings/danevang-investment-property/photo-11.jpg"
       ],
       "tagline": "1.79-acre income-producing investment property with a 2,008 sq ft duplex and separate 968 sq ft house in Danevang, TX.",
-      "description": "A solid income-producing investment in Danevang, Texas — a 1.79-acre property featuring a 2,008 sq ft duplex and a separate 968 sq ft house. Two structures, one parcel, immediate rental income potential. Located in Wharton County with quiet rural character and easy access to El Campo and Bay City. Priced to move at $225,000.",
+      "description": "A solid income-producing investment in Danevang, Texas \u2014 a 1.79-acre property featuring a 2,008 sq ft duplex and a separate 968 sq ft house. Two structures, one parcel, immediate rental income potential. Located in Wharton County with quiet rural character and easy access to El Campo and Bay City. Priced to move at $225,000.",
       "highlights": [
         "2,008 sq ft duplex",
         "968 sq ft separate house",
         "1.79 acres total",
         "Immediate rental income potential",
-        "Wharton County — quiet rural setting",
+        "Wharton County \u2014 quiet rural setting",
         "15 min to El Campo, 20 min to Bay City"
       ],
       "specs": [
-        { "label": "Acres", "value": "1.79" },
-        { "label": "Duplex", "value": "2,008 Sq Ft" },
-        { "label": "House", "value": "968 Sq Ft" },
-        { "label": "Structures", "value": "2" },
-        { "label": "County", "value": "Wharton" }
+        {
+          "label": "Acres",
+          "value": "1.79"
+        },
+        {
+          "label": "Duplex",
+          "value": "2,008 Sq Ft"
+        },
+        {
+          "label": "House",
+          "value": "968 Sq Ft"
+        },
+        {
+          "label": "Structures",
+          "value": "2"
+        },
+        {
+          "label": "County",
+          "value": "Wharton"
+        }
       ],
-      "metaTitle": "Danevang Investment Property — Duplex + House on 1.79 Acres | Wharton County TX | $225,000",
-      "metaDescription": "Investment property in Danevang, TX — 1.79 acres with a 2,008 sq ft duplex and separate 968 sq ft house. Immediate rental income potential. $225,000. J4 Legacy Properties.",
+      "metaTitle": "Danevang Investment Property \u2014 Duplex + House on 1.79 Acres | Wharton County TX | $225,000",
+      "metaDescription": "Investment property in Danevang, TX \u2014 1.79 acres with a 2,008 sq ft duplex and separate 968 sq ft house. Immediate rental income potential. $225,000. J4 Legacy Properties.",
       "schemaType": "ApartmentComplex",
       "keywords": "Danevang Texas investment property, Wharton County duplex for sale, rental property El Campo area, income property Wharton County Texas"
     },
     {
       "id": "east-bernard-homestead",
       "slug": "east-bernard-homestead",
-      "tags": ["Home"],
+      "tags": [
+        "Home"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Homestead",
@@ -347,7 +459,10 @@
       "lng": -96.0636,
       "acreage": 10,
       "acreageDisplay": "Multiple Tract Sizes",
-      "categories": ["homes", "ranch"],
+      "categories": [
+        "homes",
+        "ranch"
+      ],
       "agent": "Sioux Smith",
       "agentInitials": "SM",
       "agentPhone": "254-541-6919",
@@ -378,22 +493,37 @@
         "images/listings/east-bernard-homestead-tracts/photo-23.jpg",
         "images/listings/east-bernard-homestead-tracts/photo-24.jpg"
       ],
-      "tagline": "Rural homestead tracts in East Bernard — multiple sizes available, ag-eligible, and priced for families ready to put down roots in Wharton County.",
-      "description": "Homestead tracts in East Bernard, Texas offering multiple size options for families looking to put down roots in Wharton County. These are ag-eligible parcels in a quiet rural setting with easy access to East Bernard, El Campo, and the Houston metro. Ideal for Community Connectors — families moving from the city who want space, land, and a real community around them.",
+      "tagline": "Rural homestead tracts in East Bernard \u2014 multiple sizes available, ag-eligible, and priced for families ready to put down roots in Wharton County.",
+      "description": "Homestead tracts in East Bernard, Texas offering multiple size options for families looking to put down roots in Wharton County. These are ag-eligible parcels in a quiet rural setting with easy access to East Bernard, El Campo, and the Houston metro. Ideal for Community Connectors \u2014 families moving from the city who want space, land, and a real community around them.",
       "highlights": [
         "Multiple tract sizes available",
         "Agricultural exemption eligible",
         "East Bernard ISD",
-        "Quiet rural setting — Wharton County",
+        "Quiet rural setting \u2014 Wharton County",
         "45 minutes to Houston",
         "Ideal for homesteading families"
       ],
       "specs": [
-        { "label": "Tracts", "value": "Multiple" },
-        { "label": "Ag Exempt", "value": "Eligible" },
-        { "label": "County", "value": "Wharton" },
-        { "label": "School", "value": "East Bernard ISD" },
-        { "label": "To Houston", "value": "45 Min" }
+        {
+          "label": "Tracts",
+          "value": "Multiple"
+        },
+        {
+          "label": "Ag Exempt",
+          "value": "Eligible"
+        },
+        {
+          "label": "County",
+          "value": "Wharton"
+        },
+        {
+          "label": "School",
+          "value": "East Bernard ISD"
+        },
+        {
+          "label": "To Houston",
+          "value": "45 Min"
+        }
       ],
       "metaTitle": "East Bernard Homestead Tracts | Wharton County TX | J4 Legacy Properties",
       "metaDescription": "Rural homestead tracts for sale in East Bernard, Wharton County, Texas. Multiple sizes, ag-eligible, 45 minutes to Houston. Contact J4 Legacy Properties for pricing.",
@@ -403,7 +533,10 @@
     {
       "id": "richmond-cotton-farm",
       "slug": "richmond-cotton-farm",
-      "tags": ["Farm", "1031 Exchange"],
+      "tags": [
+        "Farm",
+        "1031 Exchange"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Farm Land",
@@ -421,8 +554,11 @@
       "lat": 29.5819,
       "lng": -95.7607,
       "acreage": 400,
-      "acreageDisplay": "400±",
-      "categories": ["ranch", "1031"],
+      "acreageDisplay": "400\u00b1",
+      "categories": [
+        "ranch",
+        "1031"
+      ],
       "agent": "Sioux Smith",
       "agentInitials": "SM",
       "agentPhone": "254-541-6919",
@@ -442,37 +578,55 @@
         "images/listings/richmond-cotton-farm/photo-12.jpg",
         "images/listings/richmond-cotton-farm/photo-13.jpg"
       ],
-      "tagline": "400± acres of active cotton farmland in Fort Bend County — ag-exempt, income-producing, and 1031-qualified.",
-      "description": "A 400± acre working cotton farm in Fort Bend County, Texas. Active agricultural operation with ag exemption in place. Income-producing land with 1031 exchange qualification — a strong candidate for investors looking to park capital in productive Texas farmland near the Houston metro. Contact J4 Legacy Properties for pricing and a full agricultural income analysis.",
+      "tagline": "400\u00b1 acres of active cotton farmland in Fort Bend County \u2014 ag-exempt, income-producing, and 1031-qualified.",
+      "description": "A 400\u00b1 acre working cotton farm in Fort Bend County, Texas. Active agricultural operation with ag exemption in place. Income-producing land with 1031 exchange qualification \u2014 a strong candidate for investors looking to park capital in productive Texas farmland near the Houston metro. Contact J4 Legacy Properties for pricing and a full agricultural income analysis.",
       "highlights": [
-        "400± acres of active cotton farmland",
+        "400\u00b1 acres of active cotton farmland",
         "Agricultural exemption in place",
         "1031 exchange qualified",
         "Income-producing agricultural land",
-        "Fort Bend County — near Houston metro",
+        "Fort Bend County \u2014 near Houston metro",
         "Full ag income analysis available"
       ],
       "specs": [
-        { "label": "Acres", "value": "400±" },
-        { "label": "Use", "value": "Cotton Farm" },
-        { "label": "Ag Exempt", "value": "Active" },
-        { "label": "1031", "value": "Qualified" },
-        { "label": "County", "value": "Fort Bend" }
+        {
+          "label": "Acres",
+          "value": "400\u00b1"
+        },
+        {
+          "label": "Use",
+          "value": "Cotton Farm"
+        },
+        {
+          "label": "Ag Exempt",
+          "value": "Active"
+        },
+        {
+          "label": "1031",
+          "value": "Qualified"
+        },
+        {
+          "label": "County",
+          "value": "Fort Bend"
+        }
       ],
-      "metaTitle": "Richmond Cotton Farm — 400 Acres Farm Land For Sale | Fort Bend County TX | J4 Legacy Properties",
-      "metaDescription": "400± acres of active cotton farmland in Fort Bend County, Texas. Ag-exempt, income-producing, and 1031-qualified. Near Houston metro. Contact J4 Legacy Properties.",
+      "metaTitle": "Richmond Cotton Farm \u2014 400 Acres Farm Land For Sale | Fort Bend County TX | J4 Legacy Properties",
+      "metaDescription": "400\u00b1 acres of active cotton farmland in Fort Bend County, Texas. Ag-exempt, income-producing, and 1031-qualified. Near Houston metro. Contact J4 Legacy Properties.",
       "schemaType": "LandForSale",
       "keywords": "Fort Bend County farm land for sale, cotton farm Texas, Richmond TX agricultural land, 1031 exchange Texas farm, income producing farm land Houston area"
     },
     {
       "id": "limo-station-victoria",
       "slug": "limo-station-victoria",
-      "tags": ["Commercial", "Investment"],
+      "tags": [
+        "Commercial",
+        "Investment"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Commercial",
       "badgeType": "investment",
-      "name": "Limo Station — Victoria",
+      "name": "Limo Station \u2014 Victoria",
       "price": 450000,
       "priceDisplay": "$450,000",
       "priceContact": false,
@@ -486,7 +640,9 @@
       "lng": -97.0036,
       "acreage": 0,
       "acreageDisplay": "Commercial Lot",
-      "categories": ["homes"],
+      "categories": [
+        "homes"
+      ],
       "agent": "Harleigh Strack & Kayla Strack",
       "agentInitials": "HS",
       "agentPhone": "979-253-4837, 979-332-9246",
@@ -517,21 +673,33 @@
         "images/listings/limo-station-victoria/photo-23.jpg",
         "images/listings/limo-station-victoria/photo-24.jpg"
       ],
-      "tagline": "Mixed-use commercial and residential property in Victoria, TX — listed at $450,000. A unique opportunity in a growing South Texas hub.",
+      "tagline": "Mixed-use commercial and residential property in Victoria, TX \u2014 listed at $450,000. A unique opportunity in a growing South Texas hub.",
       "description": "A distinctive mixed-use property in Victoria, Texas. Combines commercial and residential potential in a single parcel. Victoria is a growing South Texas hub with strong economic fundamentals. Listed at $450,000. Contact J4 Legacy Properties for full property details and to schedule a walkthrough.",
       "highlights": [
         "Mixed-use commercial + residential",
-        "Victoria, TX — growing South Texas market",
+        "Victoria, TX \u2014 growing South Texas market",
         "Unique property with strong upside",
         "Listed at $450,000"
       ],
       "specs": [
-        { "label": "Use", "value": "Mixed-Use" },
-        { "label": "City", "value": "Victoria" },
-        { "label": "County", "value": "Victoria" },
-        { "label": "Type", "value": "Commercial + Residential" }
+        {
+          "label": "Use",
+          "value": "Mixed-Use"
+        },
+        {
+          "label": "City",
+          "value": "Victoria"
+        },
+        {
+          "label": "County",
+          "value": "Victoria"
+        },
+        {
+          "label": "Type",
+          "value": "Commercial + Residential"
+        }
       ],
-      "metaTitle": "Limo Station Victoria TX — Mixed-Use Commercial Property | $450,000 | J4 Legacy Properties",
+      "metaTitle": "Limo Station Victoria TX \u2014 Mixed-Use Commercial Property | $450,000 | J4 Legacy Properties",
       "metaDescription": "Mixed-use commercial and residential property for sale in Victoria, Texas. Listed at $450,000 by J4 Legacy Properties.",
       "schemaType": "CommercialProperty",
       "keywords": "Victoria Texas commercial property, mixed use property Victoria TX, commercial real estate Victoria Texas, South Texas commercial property for sale"
@@ -539,7 +707,11 @@
     {
       "id": "horse-farm-property",
       "slug": "horse-farm-property",
-      "tags": ["Investment", "Community Connector", "El Campo"],
+      "tags": [
+        "Investment",
+        "Community Connector",
+        "El Campo"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Home",
@@ -558,7 +730,9 @@
       "lng": -96.2694,
       "acreage": 10.015,
       "acreageDisplay": "10.015 Acres",
-      "categories": ["homes"],
+      "categories": [
+        "homes"
+      ],
       "agent": "Julia Velazquez",
       "agentInitials": "JV",
       "agentPhone": "979-320-7285",
@@ -577,23 +751,38 @@
         "images/listings/horse-farm-property/photo-14.JPG",
         "images/listings/horse-farm-property/photo-15.JPG"
       ],
-      "tagline": "1,182 sq ft home on 10.015 ag-exempt acres in El Campo — practical rural living with horse infrastructure already in place.",
+      "tagline": "1,182 sq ft home on 10.015 ag-exempt acres in El Campo \u2014 practical rural living with horse infrastructure already in place.",
       "description": "This 1,182 sq ft, 4-bedroom, 1-bath home sits on 10.015 acres of ag-exempt land in El Campo, Texas. Practical rural living with the horse infrastructure already in place. Contact J4 Legacy Properties for full details and to schedule a walk.",
       "highlights": [
-        "1,182 sq ft home — 4 bed / 1 bath",
+        "1,182 sq ft home \u2014 4 bed / 1 bath",
         "10.015 acres, ag-exempt",
         "Horse infrastructure in place",
         "El Campo, Wharton County",
         "Practical rural living"
       ],
       "specs": [
-        { "label": "Price", "value": "$415,000" },
-        { "label": "Acreage", "value": "10.015 Ac" },
-        { "label": "Home", "value": "1,182 Sq Ft" },
-        { "label": "Bed / Bath", "value": "4 / 1" },
-        { "label": "Ag", "value": "Exempt" }
+        {
+          "label": "Price",
+          "value": "$415,000"
+        },
+        {
+          "label": "Acreage",
+          "value": "10.015 Ac"
+        },
+        {
+          "label": "Home",
+          "value": "1,182 Sq Ft"
+        },
+        {
+          "label": "Bed / Bath",
+          "value": "4 / 1"
+        },
+        {
+          "label": "Ag",
+          "value": "Exempt"
+        }
       ],
-      "metaTitle": "Horse Farm Property — 10 Acres Ag-Exempt, El Campo TX | J4 Legacy Properties",
+      "metaTitle": "Horse Farm Property \u2014 10 Acres Ag-Exempt, El Campo TX | J4 Legacy Properties",
       "metaDescription": "1,182 sq ft, 4-bed/1-bath home on 10.015 ag-exempt acres in El Campo, Wharton County, Texas. Horse infrastructure in place. $415,000. J4 Legacy Properties.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "El Campo home with acreage, Wharton County horse property, ag exempt land El Campo TX, rural home for sale El Campo, horse farm Texas for sale"
@@ -601,7 +790,10 @@
     {
       "id": "mexia-commercial-property",
       "slug": "mexia-commercial-property",
-      "tags": ["Investment", "Commercial"],
+      "tags": [
+        "Investment",
+        "Commercial"
+      ],
       "status": "active",
       "featured": false,
       "badge": "Commercial",
@@ -620,7 +812,9 @@
       "lng": -96.4822,
       "acreage": 2.5,
       "acreageDisplay": "2.5 Acres",
-      "categories": ["homes"],
+      "categories": [
+        "homes"
+      ],
       "agent": "Alexa Emmons",
       "agentInitials": "AE",
       "agentPhone": "281-323-1000",
@@ -634,40 +828,61 @@
         "images/listings/mexia-commercial-property/photo-6.JPG",
         "images/listings/mexia-commercial-property/photo-7.JPG"
       ],
-      "tagline": "Highway 84 frontage commercial property in Mexia, TX — 2.5 acres with two outbuildings: a 68x38 custom metal building and a 24x64 portable building.",
+      "tagline": "Highway 84 frontage commercial property in Mexia, TX \u2014 2.5 acres with two outbuildings: a 68x38 custom metal building and a 24x64 portable building.",
       "description": "Commercial property at 1824 W Hwy 84 in Mexia, Texas (Freestone County), legally situated in the M. Alston Survey, Abstract No. 39, with direct Highway 84 frontage. 2.5 acres improved with a 68 x 38 custom metal building and a 24 x 64 portable building. Contact J4 Legacy Properties for full details and pricing.",
       "highlights": [
-        "2.5 acres — Mexia, Freestone County",
+        "2.5 acres \u2014 Mexia, Freestone County",
         "68 x 38 custom metal building",
         "24 x 64 portable building",
         "Commercial use",
         "Contact for full details"
       ],
       "specs": [
-        { "label": "Price", "value": "$299,900" },
-        { "label": "Acreage", "value": "2.5 Ac" },
-        { "label": "Metal Bldg", "value": "68 x 38" },
-        { "label": "Portable", "value": "24 x 64" },
-        { "label": "Type", "value": "Commercial" }
+        {
+          "label": "Price",
+          "value": "$299,900"
+        },
+        {
+          "label": "Acreage",
+          "value": "2.5 Ac"
+        },
+        {
+          "label": "Metal Bldg",
+          "value": "68 x 38"
+        },
+        {
+          "label": "Portable",
+          "value": "24 x 64"
+        },
+        {
+          "label": "Type",
+          "value": "Commercial"
+        }
       ],
-      "metaTitle": "Mexia Commercial Property — 2.5 Acres, Freestone County TX | J4 Legacy Properties",
-      "metaDescription": "Commercial property for sale at 1824 W Hwy 84, Mexia, Texas — 2.5 acres with Highway 84 frontage, a 68x38 custom metal building and 24x64 portable building. $299,900. J4 Legacy Properties.",
+      "metaTitle": "Mexia Commercial Property \u2014 2.5 Acres, Freestone County TX | J4 Legacy Properties",
+      "metaDescription": "Commercial property for sale at 1824 W Hwy 84, Mexia, Texas \u2014 2.5 acres with Highway 84 frontage, a 68x38 custom metal building and 24x64 portable building. $299,900. J4 Legacy Properties.",
       "schemaType": "CommercialProperty",
       "keywords": "Mexia Texas commercial property, Freestone County commercial real estate, metal building property Mexia TX, commercial land for sale Mexia, Mexia TX property for sale"
     },
     {
       "id": "j4-homestead",
       "slug": "j4-homestead",
-      "tags": ["1031 Exchange", "Homestead", "Community Connector", "Farm", "Sold"],
+      "tags": [
+        "1031 Exchange",
+        "Homestead",
+        "Community Connector",
+        "Farm",
+        "Sold"
+      ],
       "status": "sold",
       "featured": false,
       "badge": "Sold",
       "badgeType": "sold",
       "name": "J4 Homestead",
-      "price": 2399000,
+      "price": 0,
       "priceDisplay": "Sold",
       "priceContact": false,
-      "contactCardLabel": "Sold — Ask About Similar Land",
+      "contactCardLabel": "Sold \u2014 Ask About Similar Land",
       "address": "El Campo, TX 77437",
       "city": "El Campo",
       "county": "Wharton County",
@@ -677,8 +892,11 @@
       "lat": 29.1966,
       "lng": -96.2694,
       "acreage": 25,
-      "acreageDisplay": "±25 Acres",
-      "categories": ["homes", "ranch"],
+      "acreageDisplay": "\u00b125 Acres",
+      "categories": [
+        "homes",
+        "ranch"
+      ],
       "agent": "Cuatro Strack",
       "agentInitials": "CS",
       "agentPhone": "979-541-7248",
@@ -708,25 +926,40 @@
         "images/listings/j4-homestead/photo-73.jpg",
         "images/listings/j4-homestead/photo-87.jpg"
       ],
-      "tagline": "A ±25-acre legacy estate in El Campo — 5,000 sq ft main house, barndominium, bunkhouse, pool, barn gym, and stocked pond.",
-      "description": "A ±25-acre legacy estate in El Campo, Texas (Wharton County). The 5,000 sq ft main house has 5 bedrooms and 4.5 baths, complemented by a 1,000 sq ft detached garage apartment, a 2-bedroom barndominium, a 3-bedroom/2-bath farmhouse, a bunkhouse, a barn gym, two livestock and equipment barns, a swimming pool with travertine porch, and a stocked pond. Contact J4 Legacy Properties for full details.",
+      "tagline": "A \u00b125-acre legacy estate in El Campo \u2014 5,000 sq ft main house, barndominium, bunkhouse, pool, barn gym, and stocked pond.",
+      "description": "A \u00b125-acre legacy estate in El Campo, Texas (Wharton County). The 5,000 sq ft main house has 5 bedrooms and 4.5 baths, complemented by a 1,000 sq ft detached garage apartment, a 2-bedroom barndominium, a 3-bedroom/2-bath farmhouse, a bunkhouse, a barn gym, two livestock and equipment barns, a swimming pool with travertine porch, and a stocked pond. Contact J4 Legacy Properties for full details.",
       "highlights": [
-        "5,000 sq ft main house — 5 bed / 4.5 bath",
+        "5,000 sq ft main house \u2014 5 bed / 4.5 bath",
         "1,000 sq ft detached garage apartment",
         "2-bed barndominium plus bunkhouse",
         "3-bed / 2-bath farmhouse",
         "Pool with travertine porch, barn gym, stocked pond",
-        "±25 acres — El Campo, Wharton County"
+        "\u00b125 acres \u2014 El Campo, Wharton County"
       ],
       "specs": [
-        { "label": "Price", "value": "$2,399,000" },
-        { "label": "Main House", "value": "5,000 Sq Ft" },
-        { "label": "Acreage", "value": "±25 Ac" },
-        { "label": "Bed / Bath", "value": "5 / 4.5" },
-        { "label": "Garage Apt", "value": "1,000 Sq Ft" }
+        {
+          "label": "Status",
+          "value": "Sold"
+        },
+        {
+          "label": "Main House",
+          "value": "5,000 Sq Ft"
+        },
+        {
+          "label": "Acreage",
+          "value": "\u00b125 Ac"
+        },
+        {
+          "label": "Bed / Bath",
+          "value": "5 / 4.5"
+        },
+        {
+          "label": "Garage Apt",
+          "value": "1,000 Sq Ft"
+        }
       ],
-      "metaTitle": "J4 Homestead — ±25-Acre Legacy Estate, El Campo TX | J4 Legacy Properties",
-      "metaDescription": "±25-acre estate in El Campo, Wharton County, TX. 5,000 sq ft main house (5 bed/4.5 bath), barndominium, bunkhouse, pool, barn gym, stocked pond. $2,399,000. J4 Legacy Properties.",
+      "metaTitle": "J4 Homestead \u2014 \u00b125-Acre Legacy Estate, El Campo TX | J4 Legacy Properties",
+      "metaDescription": "\u00b125-acre estate in El Campo, Wharton County, TX. 5,000 sq ft main house (5 bed/4.5 bath), barndominium, bunkhouse, pool, barn gym, stocked pond. SOLD. J4 Legacy Properties.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "El Campo estate for sale, Wharton County luxury acreage, 25 acre estate Texas, El Campo TX ranch home, legacy property El Campo Texas"
     }

@@ -399,6 +399,14 @@
 /blog                           /blog.html                  301
 /field-notes                    /blog.html                  301
 
+# Field Notes posts: clean canonical URLs
+/blog/el-campo-moving-from-houston    /blog-el-campo-moving-from-houston.html    200
+/el-campo-moving-from-houston    /blog/el-campo-moving-from-houston    301
+/blog-el-campo-moving-from-houston.html    /blog/el-campo-moving-from-houston    301!
+/blog/texas-ranch-land-due-diligence    /blog-texas-ranch-land-due-diligence.html    200
+/texas-ranch-land-due-diligence    /blog/texas-ranch-land-due-diligence    301
+/blog-texas-ranch-land-due-diligence.html    /blog/texas-ranch-land-due-diligence    301!
+
 # Our Team: consolidate team.html into our-team.html (canonical /our-team).
 # Force flag (!) ensures redirect fires even if a stale team.html ever exists.
 /our-team                       /our-team.html              200
@@ -552,3 +560,6 @@
 /areas-wortham-streetman.html                      /areas-we-serve/freestone-county/wortham-streetman  301
 /areas-yoakum.html                                 /areas-we-serve/lavaca-county/yoakum  301
 /our-team.html                                     /our-team  301
+
+# Favicon
+/favicon.ico    /images/brand/favicon-32.png    200
