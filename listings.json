@@ -1,6 +1,79 @@
 {
   "listings": [
     {
+      "id": "sugar-land-treasure-trail",
+      "slug": "sugar-land-treasure-trail",
+      "tags": [
+        "Move-In Ready",
+        "Sugar Land"
+      ],
+      "status": "active",
+      "featured": false,
+      "badge": "Home",
+      "badgeType": "home",
+      "name": "Sugar Land Home in Lakefield",
+      "price": 285000,
+      "priceDisplay": "$285,000",
+      "priceContact": false,
+      "address": "4402 Treasure Trail, Sugar Land, TX 77479",
+      "city": "Sugar Land",
+      "county": "Fort Bend County",
+      "state": "TX",
+      "video": "",
+      "zip": "77479",
+      "lat": null,
+      "lng": null,
+      "acreage": 0.14,
+      "acreageDisplay": "5,885 Sq Ft Lot",
+      "categories": [
+        "homes"
+      ],
+      "agent": "Rozanna Roach",
+      "agentInitials": "RR",
+      "agentPhone": "281-615-2355",
+      "heroImage": "images/listings/sugar-land-treasure-trail/hero.jpg",
+      "images": [],
+      "tagline": "A move-in-ready 3-bedroom on a corner lot in Sugar Land's Lakefield community, zoned to A-rated Fort Bend ISD schools.",
+      "description": "This 3-bedroom, 2-bath home sits on a corner lot in the Lakefield community of Sugar Land, inside the First Colony master-planned area. The living room and kitchen open to each other, so the space works for everyday life and for having people over. The primary bedroom is on its own side of the house with a private door out to an outdoor atrium, and the two other bedrooms sit on the opposite side, a smart setup for kids, guests, or a home office. Out back you get a fenced yard with a storage shed and room to spread out. The home is zoned to Settlers Way Elementary, First Colony Middle, and Clements High, all A-rated Fort Bend ISD schools.",
+      "highlights": [
+        "3 bedrooms, 2 full baths, all on one level",
+        "1,491 sq ft single-story home",
+        "Corner lot in the Lakefield community",
+        "First Colony master-planned area",
+        "Zoned to A-rated Fort Bend ISD (Clements High)",
+        "Gas-log fireplace, kitchen open to family room",
+        "Primary suite opens to a private atrium",
+        "Fenced back yard with storage shed",
+        "2-car attached garage"
+      ],
+      "specs": [
+        {
+          "label": "Beds / Baths",
+          "value": "3 / 2"
+        },
+        {
+          "label": "Sq Ft",
+          "value": "1,491"
+        },
+        {
+          "label": "Lot Sq Ft",
+          "value": "5,885"
+        },
+        {
+          "label": "Year Built",
+          "value": "1985"
+        },
+        {
+          "label": "County",
+          "value": "Fort Bend"
+        }
+      ],
+      "metaTitle": "Sugar Land Home in Lakefield, 3 Bed 2 Bath | Fort Bend County TX | J4 Legacy Properties",
+      "metaDescription": "3 bed, 2 bath home on a corner lot in Sugar Land's Lakefield community, Fort Bend County, TX. Zoned to A-rated Fort Bend ISD schools. $285,000.",
+      "schemaType": "SingleFamilyResidence",
+      "keywords": "Sugar Land homes for sale, Lakefield Sugar Land, Fort Bend County homes, Sugar Land TX real estate, homes in 77479, First Colony homes"
+    },
+    {
       "id": "hilago-ranch",
       "slug": "hilago-ranch",
       "tags": [
@@ -265,7 +338,7 @@
         "Community Connector",
         "El Campo"
       ],
-      "status": "active",
+      "status": "contract",
       "featured": false,
       "badge": "Home",
       "badgeType": "home",
