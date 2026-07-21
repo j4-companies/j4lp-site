@@ -123,7 +123,14 @@
       "city": "Cisco",
       "county": "Stephens County",
       "state": "TX",
-      "video": "",
+      "video": {
+        "main": "https://vimeo.com/1201546658",
+        "shorts": [
+          "https://vimeo.com/1201061176",
+          "https://vimeo.com/1201052619",
+          "https://vimeo.com/1201056241"
+        ]
+      },
       "zip": "76437",
       "lat": 32.3943,
       "lng": -98.9836,

@@ -32,12 +32,23 @@ const badgeColors = {
   sold:       '#131414',
 };
 
+// Resolve the Google Maps query value for a listing: coordinates when present,
+// otherwise fall back to the street address so the pin still lands on the property.
+function mapQueryValue(l) {
+  if (l.lat) return `${l.lat},${l.lng}`;
+  const addr = (l.address || '').trim();
+  const q = addr && addr.includes(',')
+    ? addr
+    : [addr, l.city, l.county, l.state, l.zip].filter(Boolean).join(', ');
+  return encodeURIComponent(q);
+}
+
 // Generate schema.org JSON-LD for each listing
 function buildSchema(l) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
-    "hasMap": l.lat ? `https://www.google.com/maps/search/?api=1&query=${l.lat},${l.lng}` : undefined,
+    "hasMap": (l.lat || l.address || l.city) ? `https://www.google.com/maps/search/?api=1&query=${mapQueryValue(l)}` : undefined,
     "name": l.name,
     "description": l.description,
     "keywords": (l.tags && l.tags.length ? l.tags.join(', ') + (l.keywords ? ', ' + l.keywords : '') : (l.keywords || '')),
@@ -124,24 +135,71 @@ function buildGallery(images, name) {
     </div>`).join('');
 }
 
-// Build property video embed (YouTube). Accepts full watch URL,
-// youtu.be link, embed URL, or bare 11-char ID. Renders nothing if empty.
-function buildVideo(video, name) {
-  if (!video || !String(video).trim()) return '';
+// Resolve a single video value to an embeddable player URL.
+// Accepts YouTube (watch URL, youtu.be, embed URL, or bare 11-char ID) and
+// Vimeo (vimeo.com/ID, player.vimeo.com/video/ID, or bare numeric ID).
+// Returns '' if the value isn't a recognizable video.
+function videoEmbedUrl(video) {
+  if (!video) return '';
   const v = String(video).trim();
-  let id = '';
-  const m = v.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
-  if (m) id = m[1];
-  else if (/^[A-Za-z0-9_-]{11}$/.test(v)) id = v;
-  if (!id) return '';
+  if (!v) return '';
+  const yt = v.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}`;
+  const vm = v.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (vm) return `https://player.vimeo.com/video/${vm[1]}`;
+  if (/^\d{6,}$/.test(v)) return `https://player.vimeo.com/video/${v}`;
+  if (/^[A-Za-z0-9_-]{11}$/.test(v)) return `https://www.youtube-nocookie.com/embed/${v}`;
+  return '';
+}
+
+// Render one video iframe. `src` is an already-resolved embed URL.
+function videoFrame(src, name, label) {
   return `
-    <h2 class="prop-section-title arvo">Property Video</h2>
-    <div class="video-wrap">
-      <iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${name} — property video"
-              frameborder="0" loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-    </div>`;
+      <div class="video-wrap">
+        <iframe src="${src}" title="${name} — ${label}"
+                frameborder="0" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>`;
+}
+
+// Build the property video section. The `video` field accepts three shapes,
+// each value a YouTube or Vimeo URL/ID:
+//   "url"                        → single full-width video ("Property Video")
+//   ["url", "url", ...]          → equal videos in a grid ("Video Tour")
+//   { main: "url", shorts: [..] }→ featured full-width video, then the shorts
+//                                   in a grid below ("Video Tour")
+// Renders nothing if empty.
+function buildVideo(video, name) {
+  if (!video) return '';
+
+  // Object form: featured main video on top, shorter clips gridded below.
+  if (typeof video === 'object' && !Array.isArray(video)) {
+    const mainUrl = videoEmbedUrl(video.main || video.featured || '');
+    const shortUrls = (video.shorts || video.more || video.grid || [])
+      .map(videoEmbedUrl).filter(Boolean);
+    if (!mainUrl && shortUrls.length === 0) return '';
+    let html = `
+    <h2 class="prop-section-title arvo">Video Tour</h2>`;
+    if (mainUrl) html += videoFrame(mainUrl, name, 'property video');
+    if (shortUrls.length) {
+      html += `
+    <div class="video-grid">${shortUrls.map((u, i) => videoFrame(u, name, 'clip ' + (i + 1))).join('')}</div>`;
+    }
+    return html;
+  }
+
+  // String or array form.
+  const items = Array.isArray(video) ? video : [video];
+  const urls = items.map(videoEmbedUrl).filter(Boolean);
+  if (urls.length === 0) return '';
+  const multi = urls.length > 1;
+  const heading = multi ? 'Video Tour' : 'Property Video';
+  const frames = urls.map((src, i) =>
+    videoFrame(src, name, 'property video' + (multi ? ' ' + (i + 1) : ''))).join('');
+  return `
+    <h2 class="prop-section-title arvo">${heading}</h2>
+    ${multi ? `<div class="video-grid">${frames}</div>` : frames}`;
 }
 
 // Build related listings (same category, different slug)
@@ -180,17 +238,19 @@ function buildRelated(current, all) {
       </section>`;
 }
 
-// Build the Google Maps location embed. Only rendered when lat/lng are present.
+// Build the Google Maps location embed. Uses coordinates when present, otherwise
+// falls back to the property address so the pin still renders.
 // Inserted between the prop-layout and the related-listings section.
 function buildMap(l) {
-  if (!l.lat) return '';
+  if (!l.lat && !l.address && !l.city) return '';
+  const zoom = l.lat ? 12 : 15;
   return `
 
       <section class="map-embed">
   <div style="max-width:1100px;margin:0 auto;padding:56px 24px;">
     <h2 class="arvo" style="font-size:1.6rem;margin-bottom:20px;color:#500203;">Property Location</h2>
     <div style="position:relative;width:100%;padding-bottom:52%;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.12);">
-      <iframe src="https://maps.google.com/maps?q=${l.lat},${l.lng}&z=12&output=embed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Property Location" allowfullscreen></iframe>
+      <iframe src="https://maps.google.com/maps?q=${mapQueryValue(l)}&z=${zoom}&output=embed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Property Location" allowfullscreen></iframe>
     </div>${l.mapNote ? `\n    <p style="font-size:12px;color:#7F8194;margin-top:12px;">${l.mapNote}</p>` : ''}
   </div>
 </section>
@@ -354,6 +414,8 @@ ul { list-style: none; }
 /* ===== VIDEO ===== */
 .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; margin-bottom: 48px; background: var(--black); border: 1px solid var(--light-gray); }
 .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+.video-grid .video-wrap { margin-bottom: 0; }
 
 /* ===== GALLERY ===== */
 .gallery-section { margin-bottom: 48px; }
@@ -472,6 +534,7 @@ ul { list-style: none; }
   .breadcrumb-bar { padding: 12px 20px; }
   .hero-badge { left: 20px; }
   .related-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
   .related-section { padding: 40px 20px; }
   .offmarket { padding: 40px 20px; flex-direction: column; }
   .footer { padding: 40px 20px 28px; }

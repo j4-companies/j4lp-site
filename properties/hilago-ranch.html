@@ -183,6 +183,8 @@ ul { list-style: none; }
 /* ===== VIDEO ===== */
 .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; margin-bottom: 48px; background: var(--black); border: 1px solid var(--light-gray); }
 .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+.video-grid .video-wrap { margin-bottom: 0; }
 
 /* ===== GALLERY ===== */
 .gallery-section { margin-bottom: 48px; }
@@ -301,6 +303,7 @@ ul { list-style: none; }
   .breadcrumb-bar { padding: 12px 20px; }
   .hero-badge { left: 20px; }
   .related-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
   .related-section { padding: 40px 20px; }
   .offmarket { padding: 40px 20px; flex-direction: column; }
   .footer { padding: 40px 20px 28px; }
@@ -606,6 +609,32 @@ ul { list-style: none; }
 
     <!-- VIDEO -->
     
+    <h2 class="prop-section-title arvo">Video Tour</h2>
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1201546658" title="Hilago Ranch, property video"
+                frameborder="0" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    <div class="video-grid">
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1201061176" title="Hilago Ranch, clip 1"
+                frameborder="0" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1201052619" title="Hilago Ranch, clip 2"
+                frameborder="0" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1201056241" title="Hilago Ranch, clip 3"
+                frameborder="0" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div></div>
 
     <!-- GALLERY -->
     
