@@ -266,9 +266,17 @@ function buildPage(l, all) {
   // render no banner (and no extra whitespace). Kept here for future sold and
   // under-contract listings.
   const statusBanner = l.status === 'contract'
-    ? `<div class="status-banner contract">Under Contract — Contact us about similar off-market properties.</div>`
+    ? `<div class="status-banner contract"><span class="status-flag">Under Contract</span> · Contact us about similar off-market properties.</div>`
     : l.status === 'sold'
-    ? `<div class="status-banner sold">This property has been sold. <a href="../properties.html">View active listings →</a></div>`
+    ? `<div class="status-banner sold"><span class="status-flag">Sold</span> · This property has been sold. <a href="../properties.html">View active listings →</a></div>`
+    : '';
+
+  // Bold status badge shown on the hero image next to the property-type badge,
+  // so under-contract / sold status is obvious at a glance. Empty for active.
+  const heroStatusBadge = l.status === 'contract'
+    ? `<span class="hero-badge hero-badge-status contract">Under Contract</span>`
+    : l.status === 'sold'
+    ? `<span class="hero-badge hero-badge-status sold">Sold</span>`
     : '';
 
   return stripDashes(`<!DOCTYPE html>
@@ -356,10 +364,11 @@ ul { list-style: none; }
 .mobile-contact a { color: var(--white); }
 
 /* ===== STATUS BANNER ===== */
-.status-banner { padding: 12px 40px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
-.status-banner.contract { background: #7F8194; color: var(--white); }
+.status-banner { padding: 13px 40px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
+.status-banner.contract { background: var(--maroon); color: var(--white); }
 .status-banner.sold { background: var(--black); color: var(--white); }
-.status-banner a { color: var(--white); }
+.status-banner a { color: var(--white); text-decoration: underline; }
+.status-banner .status-flag { text-transform: uppercase; letter-spacing: 0.14em; }
 
 /* ===== BREADCRUMB ===== */
 .breadcrumb-bar { padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }
@@ -375,7 +384,11 @@ ul { list-style: none; }
 .prop-hero-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background: linear-gradient(145deg, #e8e4dc, #d0ccc4); }
 .prop-hero-ph p { font-size: 13px; color: var(--mid-gray); letter-spacing: 0.12em; text-transform: uppercase; }
 .prop-hero-ph .ph-icon { font-family: 'Arvo', serif; font-size: 40px; color: rgba(80,2,3,0.15); }
-.hero-badge { position: absolute; top: 0; left: 80px; background: var(--badge-color); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 16px; }
+.hero-badges { position: absolute; top: 0; left: 80px; display: flex; align-items: stretch; }
+.hero-badge { background: var(--badge-color); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 16px; display: flex; align-items: center; }
+.hero-badge-status { font-size: 11px; letter-spacing: 0.16em; padding: 7px 18px; }
+.hero-badge-status.contract { background: var(--maroon); }
+.hero-badge-status.sold { background: var(--black); }
 
 /* ===== MAIN LAYOUT ===== */
 .prop-layout { display: grid; grid-template-columns: 1fr 360px; gap: 0; align-items: start; padding: 0 80px 80px; max-width: 100%; }
@@ -521,7 +534,7 @@ ul { list-style: none; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .trec-bar { padding: 12px 40px; }
   .breadcrumb-bar { padding: 14px 40px; }
-  .hero-badge { left: 40px; }
+  .hero-badges { left: 40px; }
 }
 @media (max-width: 768px) {
   .topbar { display: none; }
@@ -532,7 +545,7 @@ ul { list-style: none; }
   .prop-hero { height: 280px; }
   .prop-layout { padding: 0 20px 48px; }
   .breadcrumb-bar { padding: 12px 20px; }
-  .hero-badge { left: 20px; }
+  .hero-badges { left: 20px; }
   .related-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; }
   .related-section { padding: 40px 20px; }
@@ -747,13 +760,13 @@ ${statusBanner}
 <div class="prop-hero">
   ${l.heroImage
     ? `<img src="../${l.heroImage}" alt="${l.name} — ${l.acreageDisplay} acres in ${l.county}, TX" loading="eager">
-       <span class="hero-badge">${l.badge}</span>`
+       <div class="hero-badges"><span class="hero-badge">${l.badge}</span>${heroStatusBadge}</div>`
     : `<div class="prop-hero-ph">
          <div class="ph-icon">${l.acreageDisplay} Ac</div>
          <p>${l.name} · ${l.county}, TX</p>
          <p style="font-size:11px;margin-top:4px">Photos available — call 833-543-LAND</p>
        </div>
-       <span class="hero-badge">${l.badge}</span>`
+       <div class="hero-badges"><span class="hero-badge">${l.badge}</span>${heroStatusBadge}</div>`
   }
 </div>
 

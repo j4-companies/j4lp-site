@@ -125,10 +125,11 @@ ul { list-style: none; }
 .mobile-contact a { color: var(--white); }
 
 /* ===== STATUS BANNER ===== */
-.status-banner { padding: 12px 40px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
-.status-banner.contract { background: #7F8194; color: var(--white); }
+.status-banner { padding: 13px 40px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-align: center; }
+.status-banner.contract { background: var(--maroon); color: var(--white); }
 .status-banner.sold { background: var(--black); color: var(--white); }
-.status-banner a { color: var(--white); }
+.status-banner a { color: var(--white); text-decoration: underline; }
+.status-banner .status-flag { text-transform: uppercase; letter-spacing: 0.14em; }
 
 /* ===== BREADCRUMB ===== */
 .breadcrumb-bar { padding: 14px 80px; background: var(--off-white); border-bottom: 1px solid var(--light-gray); }
@@ -144,7 +145,11 @@ ul { list-style: none; }
 .prop-hero-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background: linear-gradient(145deg, #e8e4dc, #d0ccc4); }
 .prop-hero-ph p { font-size: 13px; color: var(--mid-gray); letter-spacing: 0.12em; text-transform: uppercase; }
 .prop-hero-ph .ph-icon { font-family: 'Arvo', serif; font-size: 40px; color: rgba(80,2,3,0.15); }
-.hero-badge { position: absolute; top: 0; left: 80px; background: var(--badge-color); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 16px; }
+.hero-badges { position: absolute; top: 0; left: 80px; display: flex; align-items: stretch; }
+.hero-badge { background: var(--badge-color); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 16px; display: flex; align-items: center; }
+.hero-badge-status { font-size: 11px; letter-spacing: 0.16em; padding: 7px 18px; }
+.hero-badge-status.contract { background: var(--maroon); }
+.hero-badge-status.sold { background: var(--black); }
 
 /* ===== MAIN LAYOUT ===== */
 .prop-layout { display: grid; grid-template-columns: 1fr 360px; gap: 0; align-items: start; padding: 0 80px 80px; max-width: 100%; }
@@ -183,6 +188,8 @@ ul { list-style: none; }
 /* ===== VIDEO ===== */
 .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; margin-bottom: 48px; background: var(--black); border: 1px solid var(--light-gray); }
 .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+.video-grid .video-wrap { margin-bottom: 0; }
 
 /* ===== GALLERY ===== */
 .gallery-section { margin-bottom: 48px; }
@@ -288,7 +295,7 @@ ul { list-style: none; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .trec-bar { padding: 12px 40px; }
   .breadcrumb-bar { padding: 14px 40px; }
-  .hero-badge { left: 40px; }
+  .hero-badges { left: 40px; }
 }
 @media (max-width: 768px) {
   .topbar { display: none; }
@@ -299,8 +306,9 @@ ul { list-style: none; }
   .prop-hero { height: 280px; }
   .prop-layout { padding: 0 20px 48px; }
   .breadcrumb-bar { padding: 12px 20px; }
-  .hero-badge { left: 20px; }
+  .hero-badges { left: 20px; }
   .related-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
   .related-section { padding: 40px 20px; }
   .offmarket { padding: 40px 20px; flex-direction: column; }
   .footer { padding: 40px 20px 28px; }
@@ -498,7 +506,7 @@ ul { list-style: none; }
     1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 SH 71 S, El Campo, TX 77437 (Office)
   </div>
 </div>
-<div class="status-banner contract">Under Contract, Contact us about similar off-market properties.</div>
+<div class="status-banner contract"><span class="status-flag">Under Contract</span> · Contact us about similar off-market properties.</div>
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
     <a href="../index.html">Home</a>
@@ -512,7 +520,7 @@ ul { list-style: none; }
 <!-- HERO IMAGE -->
 <div class="prop-hero">
   <img src="../images/listings/el-campo-mid-century-home/hero.jpg" alt="El Campo Mid-Century Home, 1± acres in Wharton County, TX" loading="eager">
-       <span class="hero-badge">Home</span>
+       <div class="hero-badges"><span class="hero-badge">Home</span><span class="hero-badge hero-badge-status contract">Under Contract</span></div>
 </div>
 
 <!-- MAIN LAYOUT -->
