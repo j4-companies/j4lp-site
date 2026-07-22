@@ -217,25 +217,25 @@
       "tags": [
         "Farm",
         "Investment",
-        "El Campo"
+        "Louise"
       ],
       "status": "active",
       "featured": false,
       "badge": "Farm Land",
       "badgeType": "ranch",
       "name": "FM 1300 Farm Tract",
-      "price": 0,
-      "priceDisplay": "Contact for Price",
-      "priceContact": true,
-      "address": "FM 1300 & CR 393, El Campo, TX 77437",
-      "city": "El Campo",
+      "price": 2620500,
+      "priceDisplay": "$2,620,500",
+      "priceContact": false,
+      "address": "9647 FM 1300 & 0 CR 393, Louise, TX 77455",
+      "city": "Louise",
       "county": "Wharton County",
       "extraAreas": [
-        "louise"
+        "el-campo"
       ],
       "state": "TX",
       "video": "",
-      "zip": "77437",
+      "zip": "77455",
       "lat": 29.1966,
       "lng": -96.2694,
       "mapNote": "Map shows the general El Campo / Louise area. Exact tract boundaries provided on request.",
