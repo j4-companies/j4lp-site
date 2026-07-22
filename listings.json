@@ -1,6 +1,90 @@
 {
   "listings": [
     {
+      "id": "randon-school-road",
+      "slug": "randon-school-road",
+      "tags": [
+        "Acreage",
+        "Homestead",
+        "Rosenberg"
+      ],
+      "status": "active",
+      "featured": false,
+      "badge": "Acreage",
+      "badgeType": "ranch",
+      "name": "Randon School Road Acreage",
+      "price": 495000,
+      "priceDisplay": "$495,000",
+      "priceContact": false,
+      "address": "5207 & 5211 Randon School Road, Rosenberg, TX 77471",
+      "city": "Rosenberg",
+      "county": "Fort Bend County",
+      "state": "TX",
+      "video": "",
+      "zip": "77471",
+      "lat": 29.49,
+      "lng": -95.86,
+      "mapNote": "Map shows the general Randon / Rosenberg area off Highway 36. Exact tract boundaries provided on request.",
+      "acreage": 7,
+      "acreageDisplay": "±7 Acres",
+      "categories": [
+        "ranch",
+        "homes"
+      ],
+      "agent": "Kayla Strack & Harleigh Strack",
+      "agentInitials": "KS",
+      "agentPhone": "979-332-9246, 979-253-4837",
+      "heroImage": "images/listings/randon-school-road/hero.jpg",
+      "images": [
+        "images/listings/randon-school-road/photo-1.jpg",
+        "images/listings/randon-school-road/photo-2.jpg",
+        "images/listings/randon-school-road/photo-3.jpg",
+        "images/listings/randon-school-road/photo-4.jpg",
+        "images/listings/randon-school-road/photo-5.jpg",
+        "images/listings/randon-school-road/photo-6.jpg",
+        "images/listings/randon-school-road/photo-7.jpg",
+        "images/listings/randon-school-road/photo-8.jpg"
+      ],
+      "tagline": "Unrestricted 7-acre tract off Highway 36 near Rosenberg, a hay meadow under mature oaks, a farmhouse to bring back, and quick access to US-59 with Houston about 35 miles up the road.",
+      "description": "Seven unrestricted acres in one of Fort Bend County's fastest-growing corridors, sold together as one tract at 5207 and 5211 Randon School Road just off Highway 36. The land is the star here: open, workable ground currently in hay production, dotted with mature live oaks and fronting a quiet county road. Bring the homestead you have been picturing, run a hobby farm, or hold it while Rosenberg keeps growing toward you. There is no HOA and no deed restrictions. The property carries a 100-plus year old farmhouse that needs a full rehab and is sold as-is, along with a barn, a shed, a water well, and two septic systems whose condition is unknown. The seller has contractor connections and has repair quotes for the well and septic available on request. Part of the tract sits inside the City of Rosenberg and part in unincorporated Fort Bend County, zoned to Brazos ISD. You get country quiet with town close by, minutes from Brazos Town Center and Sugar Land and an easy run into the Houston metro. Acreage this size, this close to the highway and to town, does not come up often. All structures and systems are sold as-is; buyer to verify acreage, utilities, schools, ag exemption status, and all information.",
+      "highlights": [
+        "±7 unrestricted acres, no HOA and no deed restrictions",
+        "Two addresses (5207 & 5211 Randon School Rd) sold together as one tract",
+        "Currently in hay production with mature live oaks throughout",
+        "Off Highway 36 with quick US-59 / I-69 access, about 35 miles to Houston",
+        "100+ year-old farmhouse (full rehab, sold as-is), plus a barn and a shed",
+        "Water well and two septic systems on site (condition unknown; repair quotes available)",
+        "Partly in the City of Rosenberg, partly unincorporated Fort Bend County",
+        "Zoned to Brazos ISD; minutes to Brazos Town Center and Sugar Land"
+      ],
+      "specs": [
+        {
+          "label": "Price",
+          "value": "$495,000"
+        },
+        {
+          "label": "Acreage",
+          "value": "±7 Ac"
+        },
+        {
+          "label": "Restrictions",
+          "value": "None"
+        },
+        {
+          "label": "School",
+          "value": "Brazos ISD"
+        },
+        {
+          "label": "County",
+          "value": "Fort Bend"
+        }
+      ],
+      "metaTitle": "Randon School Road Acreage, ±7 Unrestricted Acres | Rosenberg, Fort Bend County TX | J4 Legacy Properties",
+      "metaDescription": "±7 unrestricted acres at 5207 & 5211 Randon School Rd, Rosenberg, Fort Bend County, Texas. In hay, mature oaks, farmhouse (sold as-is), barn, shed, well and septic. Off Hwy 36, about 35 miles to Houston. Brazos ISD. $495,000. J4 Legacy Properties.",
+      "schemaType": "LandForSale",
+      "keywords": "Rosenberg TX acreage for sale, Fort Bend County land for sale, unrestricted land Rosenberg, homestead land near Houston, 7 acres Rosenberg Texas, Randon School Road, land off Highway 36 Fort Bend"
+    },
+    {
       "id": "sugar-land-treasure-trail",
       "slug": "sugar-land-treasure-trail",
       "tags": [
