@@ -460,15 +460,16 @@
       "slug": "el-campo-mid-century",
       "tags": [
         "Community Connector",
-        "El Campo"
+        "El Campo",
+        "Sold"
       ],
-      "status": "contract",
+      "status": "sold",
       "featured": false,
-      "badge": "Home",
-      "badgeType": "home",
+      "badge": "Sold",
+      "badgeType": "sold",
       "name": "El Campo Mid-Century Home",
       "price": 315000,
-      "priceDisplay": "$315,000",
+      "priceDisplay": "Sold",
       "priceContact": false,
       "address": "El Campo, TX 77437",
       "city": "El Campo",
@@ -513,8 +514,8 @@
         "images/listings/el-campo-mid-century-home/photo-23.jpg",
         "images/listings/el-campo-mid-century-home/photo-24.jpg"
       ],
-      "tagline": "3,128 sq ft mid-century home on a 1-acre lot in El Campo \u2014 character, space, and small-town roots all in one.",
-      "description": "A standout mid-century home in El Campo, Texas offering 3,128 square feet of living space on a 1\u00b1 acre lot. Distinctive architecture, generous room sizes, and the kind of bones you just don't find in new construction. Located in Wharton County with easy access to schools, shopping, and the community amenities that make El Campo one of the best small towns on the Texas Gulf Coast.",
+      "tagline": "SOLD. A 3,128 sq ft mid-century home on a 1-acre lot in El Campo, closed by J4 Legacy Properties. Want something similar in Wharton County? We have off-market opportunities.",
+      "description": "SOLD by J4 Legacy Properties. This standout mid-century home in El Campo, Texas offered 3,128 square feet of living space on a 1 acre lot in Wharton County, with the kind of character and generous room sizes you just do not find in new construction. If you are looking for a similar home or small-acreage property in El Campo and Wharton County, contact us to be notified of off-market opportunities.",
       "highlights": [
         "3,128 sq ft of living space",
         "1\u00b1 acre lot",
@@ -545,8 +546,8 @@
           "value": "Wharton"
         }
       ],
-      "metaTitle": "El Campo Mid-Century Home \u2014 3,128 Sq Ft on 1 Acre | Wharton County TX | J4 Legacy Properties",
-      "metaDescription": "3,128 sq ft mid-century home on 1\u00b1 acre in El Campo, Wharton County, Texas. $315,000. Great character, generous space, and small-town Texas living at its best.",
+      "metaTitle": "SOLD, El Campo Mid-Century Home, 3,128 Sq Ft on 1 Acre | Wharton County TX | J4 Legacy Properties",
+      "metaDescription": "SOLD by J4 Legacy Properties. A 3,128 sq ft mid-century home on 1 acre in El Campo, Wharton County, Texas. Looking for a similar home or acreage in Wharton County? Contact us about off-market opportunities.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "El Campo Texas homes for sale, Wharton County homes, El Campo mid-century house, homes in El Campo TX, rural home Wharton County"
     },
