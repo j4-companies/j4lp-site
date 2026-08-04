@@ -163,6 +163,45 @@ ul { list-style: none; }
 .form-header-side h3 { font-family: 'Arvo', serif; font-size: 22px; font-weight: 700; color: var(--black); margin-bottom: 8px; line-height: 1.15; }
 .form-header-side p { font-size: 15px; color: var(--dark-gray); line-height: 1.6; font-family: 'Lora', serif; font-style: italic; }
 
+/* Seminar registration form — native, posts to the site's own Supabase
+   lead-capture function (same pipeline as every other J4LP form). Styled for
+   the LIGHT sidebar, unlike the dark .sidebar-form on properties.html. */
+.seminar-form { display: flex; flex-direction: column; gap: 12px; }
+.seminar-form label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); margin-bottom: -6px; }
+.seminar-form input,
+.seminar-form select {
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px; /* 16px keeps iOS Safari from zooming the page on focus */
+  padding: 12px 13px;
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+  color: var(--black);
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.2s;
+  min-height: 44px; /* accessible touch target */
+}
+.seminar-form input::placeholder { color: var(--mid-gray); }
+.seminar-form input:focus,
+.seminar-form select:focus { border-color: var(--maroon); }
+.seminar-form input:focus-visible,
+.seminar-form select:focus-visible,
+.seminar-form button:focus-visible { outline: 2px solid var(--maroon); outline-offset: 2px; }
+.seminar-form button {
+  background: var(--maroon); color: var(--white); border: none; cursor: pointer;
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 20px;
+  min-height: 44px; transition: background 0.2s; margin-top: 4px;
+}
+.seminar-form button:hover { background: var(--maroon-mid); }
+.seminar-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+.seminar-consent { display: flex; gap: 9px; align-items: flex-start; margin-top: 2px; }
+.seminar-consent input[type="checkbox"] { width: 16px; min-height: 16px; height: 16px; margin-top: 3px; flex-shrink: 0; accent-color: var(--maroon); }
+.seminar-consent label { font-size: 12px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--dark-gray); line-height: 1.55; margin-bottom: 0; }
+.seminar-privacy { font-size: 12px; color: var(--dark-gray); line-height: 1.6; margin-top: 10px; }
+.seminar-privacy a { color: var(--maroon); text-decoration: underline; }
+
 .cta-box { background: var(--black); padding: 28px; }
 .cta-box p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 16px; }
 .cta-box a { display: block; text-align: center; padding: 13px; background: var(--maroon); color: var(--white); font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; }
@@ -278,7 +317,7 @@ ul { list-style: none; }
       <span class="breadcrumb-sep">/</span>
       <span>Suburbs to 10 Acres Seminar</span>
     </div>
-    <div class="event-pill">Free Live Seminar · Bi-Weekly on Zoom</div>
+    <div class="event-pill">Free Live Seminar · Monthly on Zoom</div>
     <h1 class="arvo">From Suburbs to 10 Acres. Straight talk, no fluff.</h1>
     <p class="lora">A free 60-minute live session for Texas families thinking about rural land. Real answers about what it costs, what it asks of you, and how to do it without making a $300,000 mistake.</p>
   </div>
@@ -295,7 +334,7 @@ ul { list-style: none; }
       <h2 class="arvo">Event Details</h2>
       <dl class="event-grid">
         <dt>Next Date</dt><dd>Tuesday, August 25, 2026 <small>7:00 to 8:00 PM Central</small></dd>
-        <dt>Cadence</dt><dd>Bi-weekly <small>2nd and 4th Tuesdays of the month</small></dd>
+        <dt>Cadence</dt><dd>Monthly <small>fourth Tuesday of every month</small></dd>
         <dt>Where</dt><dd>Live on Zoom <small>Link sent on registration</small></dd>
         <dt>Cost</dt><dd>Free <small>Registration includes the Suburbs to 10 Acres Starter Guide PDF</small></dd>
         <dt>Who</dt><dd>Cuatro & Stephanie Strack <small>J4 Heritage Group · J4 Legacy Properties</small></dd>
@@ -383,25 +422,38 @@ ul { list-style: none; }
         <p>We send it right after you register. The seminar runs the conversation, the guide is what you keep.</p>
       </div>
 
-      <!-- TODO: REPLACE WITH LIVE CML FORM ID once Steph builds the GHL form per 10-Bi-Weekly-Launch-Pack.md -->
-      <iframe
-        src="https://link.communitymarketleader.com/widget/form/REPLACE_WITH_FORM_ID"
-        style="width:100%;min-height:720px;border:none;border-radius:4px;display:block;"
-        id="inline-seminar-registration"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="J4LP Suburbs to 10 Acres Seminar Registration"
-        data-height="720"
-        data-layout-iframe-id="inline-seminar-registration"
-        data-form-id="REPLACE_WITH_FORM_ID"
-        title="Suburbs to 10 Acres Seminar Registration">
-      </iframe>
-      <script src="https://link.communitymarketleader.com/js/form_embed.js"></script>
+      <!-- Native form posting to the site's own Supabase lead-capture function,
+           the same pipeline every other J4LP form uses (see forms.js). This
+           replaced a Community Market Leader iframe that was waiting on a form
+           ID nobody had built, which is what kept this page dark. We own the
+           markup; GHL still receives the lead through the edge function and
+           runs the reminder sequence. -->
+      <form class="seminar-form" id="seminar-registration" novalidate>
+        <label for="sem-name">Name</label>
+        <input type="text" id="sem-name" name="name" placeholder="First and last" autocomplete="name" required>
+
+        <label for="sem-email">Email</label>
+        <input type="email" id="sem-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+
+        <label for="sem-phone">Phone <span style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--dark-gray);">(optional)</span></label>
+        <input type="tel" id="sem-phone" name="phone" placeholder="979-555-0100" autocomplete="tel">
+
+        <label for="sem-date">Which session</label>
+        <select id="sem-date" name="seminar_date">
+          <option value="2026-08-25">Tuesday, August 25, 2026</option>
+          <option value="2026-09-22">Tuesday, September 22, 2026</option>
+          <option value="2026-10-27">Tuesday, October 27, 2026</option>
+        </select>
+
+        <div class="seminar-consent">
+          <input type="checkbox" id="sem-sms" name="sms_consent" value="yes">
+          <label for="sem-sms">Text me the Zoom link and a reminder before the seminar. Message and data rates may apply. Reply STOP to opt out.</label>
+        </div>
+
+        <button type="submit">Save My Seat</button>
+
+        <p class="seminar-privacy">Free to attend. We send the Zoom link and the Starter Guide right after you register. We never sell your information. <a href="privacy.html">Privacy policy</a>.</p>
+      </form>
     </div>
 
     <div class="sidebar-section">
@@ -489,5 +541,6 @@ document.getElementById('mobileClose').addEventListener('click', () => document.
 document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('mobileMenu').classList.remove('open'); });
 </script>
 
+<script src="forms.js"></script>
 </body>
 </html>
