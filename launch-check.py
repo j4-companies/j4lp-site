@@ -159,6 +159,20 @@ for p in PAGES:
     for k, v in NAP.items():
         if v not in h:
             fail("nap", f"{p}: missing {k} ({v}) in the TREC/footer block")
+
+# The office address must be written exactly as Google's Business Profile has it.
+# NAP consistency is literal: "3063 SH 71 S" and "3063 State Hwy 71" are the same
+# place to a human and two different strings to a search engine, and a mismatch
+# between the site and the GBP is what splits local ranking signal. Google's
+# record (CID 9892196149404181987) reads "3063 State Hwy 71", so that is canonical.
+OFFICE_CANON = "3063 State Hwy 71"
+OFFICE_BAD = ["3063 SH 71 S", "3063 SH 71S", "3063 State Highway 71 S", "3063 S SH 71"]
+for p in PAGES:
+    h = read(p)
+    for bad in OFFICE_BAD:
+        if bad in h:
+            fail("nap", f"{p}: office address written as '{bad}'; "
+                        f"must match the Google Business Profile exactly ('{OFFICE_CANON}')")
     if "Equal Housing" not in h:
         fail("nap", f"{p}: missing Equal Housing Opportunity statement")
 
