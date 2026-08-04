@@ -29,14 +29,25 @@
       data[k] = v.join(", ");
     });
 
+    // An UNCHECKED checkbox submits nothing at all, so a declined consent box
+    // would simply be absent from the payload and look identical to a form that
+    // never had one. For SMS consent that distinction is the whole record, so
+    // record every checkbox explicitly, including the ones left unticked.
+    form.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      if (!(cb.name in data)) data[cb.name] = "no";
+    });
+
     return data;
   }
 
   // ── Helper: show success state ──
-  function showSuccess(form, message) {
+  // `heading` defaults to the original wording so existing forms are unchanged.
+  // role="status" announces the confirmation to screen readers, which otherwise
+  // get no feedback at all when the form disappears.
+  function showSuccess(form, message, heading) {
     const successHtml = `
-      <div style="padding:24px;border-left:3px solid #500203;background:#f7f5f0;">
-        <p style="font-family:'Arvo',serif;font-size:16px;font-weight:700;color:#131414;margin-bottom:6px;">Message received.</p>
+      <div role="status" style="padding:24px;border-left:3px solid #500203;background:#f7f5f0;">
+        <p style="font-family:'Arvo',serif;font-size:16px;font-weight:700;color:#131414;margin-bottom:6px;">${heading || "Message received."}</p>
         <p style="font-size:13px;color:#7F8194;line-height:1.75;">${message}</p>
       </div>`;
     form.insertAdjacentHTML("afterend", successHtml);
@@ -75,7 +86,7 @@
   }
 
   // ── Main submit handler ──
-  async function handleSubmit(e, formType, successMsg) {
+  async function handleSubmit(e, formType, successMsg, successHeading) {
     e.preventDefault();
     const form = e.target;
     if (!validateForm(form)) return;
@@ -108,7 +119,7 @@
       });
 
       if (res.ok) {
-        showSuccess(form, successMsg);
+        showSuccess(form, successMsg, successHeading);
       } else {
         showError(form, btn, originalText);
       }
@@ -119,15 +130,26 @@
   }
 
   // ── Wire forms on DOM ready ──
-  // Only the properties.html sidebar form is a native HTML form.
-  // Every other form on the site (contact, selling, off-market, team, property detail)
-  // is a Community Market Leader iframe — cross-origin, so JS handlers here can't reach it.
+  // Native HTML forms handled here. The remaining forms on the site (contact,
+  // selling, off-market, team, property detail) are Community Market Leader
+  // iframes — cross-origin, so JS handlers here can't reach them.
   document.addEventListener("DOMContentLoaded", () => {
     const sidebarForm = document.querySelector(".sidebar-form");
     if (sidebarForm) {
       sidebarForm.addEventListener("submit", e =>
         handleSubmit(e, "property_search",
-          "Got it. We'll be in touch with options that match your criteria — including off-market properties."
+          "Got it. We'll be in touch with options that match your criteria, including off-market properties."
+        )
+      );
+    }
+
+    // Suburbs to 10 Acres seminar registration.
+    const seminarForm = document.querySelector("#seminar-registration");
+    if (seminarForm) {
+      seminarForm.addEventListener("submit", e =>
+        handleSubmit(e, "seminar_registration",
+          "Watch your email for the Zoom link and the Starter Guide. If it doesn't show up in a few minutes, check your spam folder or call 833-543-LAND.",
+          "You're registered."
         )
       );
     }

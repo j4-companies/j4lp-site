@@ -23,7 +23,7 @@
   "email": "info@j4lp.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "3063 SH 71 S",
+    "streetAddress": "3063 State Hwy 71",
     "addressLocality": "El Campo",
     "addressRegion": "TX",
     "postalCode": "77437",
@@ -36,7 +36,13 @@
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
     "opens": "08:00",
     "closes": "18:00"
   },
@@ -49,8 +55,10 @@
   ],
   "sameAs": [
     "https://www.facebook.com/j4legacyproperties",
-    "https://www.instagram.com/j4legacyproperties"
-  ]
+    "https://www.instagram.com/j4legacyproperties",
+    "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
+  ],
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
 }
 </script>
 <style>
@@ -518,7 +526,7 @@ ul { list-style: none; }
   <div class="mobile-contact">
     <a href="tel:8335435263">833-543-LAND</a><br>
     <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
-    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 SH 71 S, El Campo, TX 77437 (Office)
+    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 State Hwy 71, El Campo, TX 77437 (Office)
   </div>
 </div>
 
@@ -565,7 +573,7 @@ ul { list-style: none; }
     </div>
     <div class="info-text">
       <strong>Office</strong>
-      <span>3063 SH 71 S</span>
+      <span>3063 State Hwy 71</span>
       <span>El Campo, TX 77437</span>
       <span style="font-size:11px;opacity:0.7;margin-top:4px;display:block">Mailing: 1379 County Road 408</span>
     </div>
@@ -609,21 +617,28 @@ ul { list-style: none; }
       <div class="section-label">Find Us</div>
       <h3 class="arvo">Our Office</h3>
       <div class="map-container">
+        <!-- Bound to the Google Business Profile by CID, so the pin renders the
+             actual J4 Legacy Properties listing (name, hours, reviews, photos)
+             instead of an anonymous marker. CID 9892196149404181987 =
+             ftid 0x864185d0e97eecbd:0x894823fc9db925e3,
+             Place ID ChIJvex-6dCFQYYR4yW5nfwjSIk. Verified against Google's own
+             record: J4 Legacy Properties, LLC, 3063 State Hwy 71, El Campo, TX
+             77437 at 29.1607969,-96.26023. -->
         <iframe
           class="map-iframe"
-          src="https://maps.google.com/maps?q=29.1607969%2C-96.26023&amp;ll=29.1607969%2C-96.26023&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+          src="https://maps.google.com/maps?cid=9892196149404181987&amp;output=embed"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="J4 Legacy Properties office location — 3063 SH 71 S, El Campo, TX 77437">
+          title="J4 Legacy Properties office location, 3063 State Hwy 71, El Campo, TX 77437">
         </iframe>
-        <a href="https://maps.google.com/?q=3063+SH+71+S+El+Campo+TX+77437" target="_blank" rel="noopener" class="map-overlay-link">Open in Maps</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk" target="_blank" rel="noopener" class="map-overlay-link">Open in Maps</a>
       </div>
       <p class="map-address">
-        3063 SH 71 S<br>
+        3063 State Hwy 71<br>
         El Campo, TX 77437<br>
         <span style="font-size:12px;color:var(--dark-gray);font-style:italic">Mailing: 1379 County Road 408, El Campo, TX 77437</span><br>
-        <a href="https://maps.google.com/?q=3063+SH+71+S+El+Campo+TX+77437" target="_blank" rel="noopener" style="color:var(--maroon);font-size:12px;font-weight:700;margin-top:6px;display:inline-block">Get Directions →</a>
+        <a href="https://maps.google.com/?q=3063+State+Hwy+71+El+Campo+TX+77437" target="_blank" rel="noopener" style="color:var(--maroon);font-size:12px;font-weight:700;margin-top:6px;display:inline-block">Get Directions →</a>
       </p>
     </div>
 
@@ -776,7 +791,7 @@ ul { list-style: none; }
       <h4>Contact</h4>
       <a href="tel:8335435263">833-543-LAND</a>
       <a href="mailto:info@j4lp.com">info@j4lp.com</a>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=3063+SH+71+S+El+Campo+TX+77437" target="_blank" rel="noopener">3063 SH 71 S, El Campo TX</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=3063+State+Hwy+71+El+Campo+TX+77437" target="_blank" rel="noopener">3063 State Hwy 71, El Campo TX</a>
       <a href="https://www.j4tx.com" target="_blank" rel="noopener">J4TX.com</a>
     </div>
   </div>

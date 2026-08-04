@@ -33,6 +33,16 @@ prio_for() {
   for f in *.html properties/*.html agents/*.html; do
     [ -f "$f" ] || continue
 
+    # Skip unpublished drafts. A page marked noindex either is not deployed or
+    # is not ready to rank, so listing it hands Google a 404 or an unfinished
+    # page. Mark a work-in-progress page with:
+    #   <meta name="robots" content="noindex">
+    # and it stays out of the sitemap until that line is removed.
+    if grep -qiE '<meta[^>]+name="robots"[^>]+content="[^"]*noindex' "$f" 2>/dev/null; then
+      echo "  skipped (noindex): $f" >&2
+      continue
+    fi
+
     # Pull canonical from the page (grep may fail if missing; that's fine)
     url=$(grep -m1 -oE 'rel="canonical" href="[^"]*"' "$f" 2>/dev/null | sed 's/rel="canonical" href="//;s/"$//' || true)
 

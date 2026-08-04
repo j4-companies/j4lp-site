@@ -80,14 +80,26 @@ function buildSchema(l) {
       "name": "J4 Legacy Properties, LLC",
       "url": "https://www.j4lp.com",
       "telephone": "+18335435263",
+      // Schema carries the PHYSICAL office, which is what the published geo
+      // coordinates point at and what Google's own Business Profile record for
+      // J4LP says ("3063 State Hwy 71"). The registered mailing address
+      // (1379 County Road 408) stays in the visible TREC bar below. Emitting the
+      // mailing address here while publishing office coordinates put the two
+      // ~5 miles apart and split the local-SEO signal.
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "1379 County Road 408",
+        "streetAddress": "3063 State Hwy 71",
         "addressLocality": "El Campo",
         "addressRegion": "TX",
         "postalCode": "77437",
         "addressCountry": "US"
-      }
+      },
+      "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk",
+      "sameAs": [
+        "https://www.facebook.com/j4legacyproperties",
+        "https://www.instagram.com/j4legacyproperties",
+        "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
+      ]
     }
   };
   // Clean undefined
@@ -742,7 +754,7 @@ ul { list-style: none; }
   <div class="mobile-contact">
     <a href="tel:8335435263">833-543-LAND</a><br>
     <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
-    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 SH 71 S, El Campo, TX 77437 (Office)
+    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 State Hwy 71, El Campo, TX 77437 (Office)
   </div>
 </div>
 ${statusBanner}
@@ -897,7 +909,7 @@ ${buildRelated(l, all)}
       <h4>Contact</h4>
       <a href="tel:8335435263">833-543-LAND</a>
       <a href="mailto:info@j4lp.com">info@j4lp.com</a>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=1379+CR+408+El+Campo+TX+77437" target="_blank" rel="noopener">1379 County Road 408, El Campo TX</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=3063+State+Hwy+71+El+Campo+TX+77437" target="_blank" rel="noopener">3063 State Hwy 71, El Campo TX</a>
       <a href="https://www.j4tx.com" target="_blank">J4TX.com</a>
     </div>
   </div>
