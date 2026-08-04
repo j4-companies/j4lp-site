@@ -62,25 +62,32 @@ function listingAgentSlugs(l) {
     .filter(Boolean);
 }
 
+// Em dashes are banned in J4 copy, so normalize them to commas at render time,
+// same as build-properties.js does. listings.json may still contain them.
+// Only U+2014 is touched; hyphens in "10.015-acre" are left alone.
+function stripDashes(s) {
+  return String(s == null ? '' : s).replace(/\s*—\s*/g, ', ');
+}
+
 function buildStrip(l, pathPrefix) {
   const acreage = fmtAcres(l.acreage);
-  const acresPart = acreage ? ` — ${acreage}± acres` : '';
+  const acresPart = acreage ? `, ${acreage}± acres` : '';
   const status = (l.status || '').toLowerCase();
   const statusBadge = status === 'contract' ? ' · Under Contract'
                     : status === 'sold'     ? ' · SOLD'
                     : '';
   const label = `J4LP Featured Listing · ${l.county || l.city}${statusBadge}`;
-  const tagline = (l.tagline || l.description || '').replace(/\s+/g, ' ').trim();
+  const tagline = stripDashes(l.tagline || l.description || '').replace(/\s+/g, ' ').trim();
   const tagShort = tagline.length > 260 ? tagline.slice(0, 257).replace(/[\s,]+\S*$/, '') + '...' : tagline;
   const href = `${pathPrefix}properties/${l.slug}.html`;
   return `  <div style="background:var(--maroon); color:var(--white); padding:32px 40px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-top:16px;">
     <div>
       <span style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:6px; display:block;">${escapeHtml(label)}</span>
-      <h3 class="arvo" style="font-family:'Arvo',serif; font-size:22px; color:var(--white); margin-bottom:6px;">${escapeHtml(l.name)}${escapeHtml(acresPart)}</h3>
+      <h3 class="arvo" style="font-family:'Arvo',serif; font-size:22px; color:var(--white); margin-bottom:6px;">${escapeHtml(stripDashes(l.name))}${escapeHtml(acresPart)}</h3>
       <p style="font-size:13px; color:rgba(255,255,255,0.85); max-width:600px; line-height:1.7; margin:0;">${escapeHtml(tagShort)}</p>
-      <p style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:8px; letter-spacing:0.05em;">${escapeHtml(priceLine(l))}${l.address ? ' · ' + escapeHtml(l.address) : ''}</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:8px; letter-spacing:0.05em;">${escapeHtml(stripDashes(priceLine(l)))}${l.address ? ' · ' + escapeHtml(stripDashes(l.address)) : ''}</p>
     </div>
-    <a href="${href}" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px; flex-shrink:0;">View ${escapeHtml(l.name)}</a>
+    <a href="${href}" style="display:inline-block; background:var(--white); color:var(--maroon); font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; padding:14px 28px; flex-shrink:0;">View ${escapeHtml(stripDashes(l.name))}</a>
   </div>`;
 }
 
@@ -102,7 +109,7 @@ function buildBlock(listings, ctx) {
     headingMany = `${listings.length} J4LP listings in this area.`;
     sub = "Active, under-contract, and recently sold J4 Legacy Properties listings tied to this area.";
   }
-  const header = `<!-- FEATURED LISTINGS · auto-generated from listings.json by inject-featured-listings.js — do not edit by hand -->
+  const header = `<!-- FEATURED LISTINGS · auto-generated from listings.json by inject-featured-listings.js, do not edit by hand -->
 <section style="background:var(--white); padding:48px 80px 0;">
   <div style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--maroon); margin-bottom:12px;">${escapeHtml(label)}</div>
   <h2 class="arvo" style="font-family:'Arvo',serif; font-size:clamp(22px,2.5vw,30px); color:var(--black); margin-bottom:8px;">${escapeHtml(listings.length === 1 ? headingOne : headingMany)}</h2>

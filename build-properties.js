@@ -80,14 +80,26 @@ function buildSchema(l) {
       "name": "J4 Legacy Properties, LLC",
       "url": "https://www.j4lp.com",
       "telephone": "+18335435263",
+      // Schema carries the PHYSICAL office, which is what the published geo
+      // coordinates point at and what Google's own Business Profile record for
+      // J4LP says ("3063 State Hwy 71"). The registered mailing address
+      // (1379 County Road 408) stays in the visible TREC bar below. Emitting the
+      // mailing address here while publishing office coordinates put the two
+      // ~5 miles apart and split the local-SEO signal.
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "1379 County Road 408",
+        "streetAddress": "3063 SH 71 S",
         "addressLocality": "El Campo",
         "addressRegion": "TX",
         "postalCode": "77437",
         "addressCountry": "US"
-      }
+      },
+      "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk",
+      "sameAs": [
+        "https://www.facebook.com/j4legacyproperties",
+        "https://www.instagram.com/j4legacyproperties",
+        "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
+      ]
     }
   };
   // Clean undefined

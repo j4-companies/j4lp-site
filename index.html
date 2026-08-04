@@ -1259,7 +1259,7 @@ ul { list-style: none; }
       "email": "info@j4lp.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "1379 County Road 408",
+        "streetAddress": "3063 SH 71 S",
         "addressLocality": "El Campo",
         "addressRegion": "TX",
         "postalCode": "77437",
@@ -1271,27 +1271,55 @@ ul { list-style: none; }
         "longitude": -96.26023
       },
       "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Wharton County, Texas" },
-        { "@type": "AdministrativeArea", "name": "Matagorda County, Texas" },
-        { "@type": "AdministrativeArea", "name": "Austin County, Texas" },
-        { "@type": "AdministrativeArea", "name": "Colorado County, Texas" },
-        { "@type": "AdministrativeArea", "name": "Lavaca County, Texas" },
-        { "@type": "AdministrativeArea", "name": "Jackson County, Texas" },
-        { "@type": "AdministrativeArea", "name": "Fayette County, Texas" }
+        {
+          "@type": "AdministrativeArea",
+          "name": "Wharton County, Texas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Matagorda County, Texas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Austin County, Texas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Colorado County, Texas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Lavaca County, Texas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Jackson County, Texas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Fayette County, Texas"
+        }
       ],
-      "knowsLanguage": ["English", "Spanish"],
+      "knowsLanguage": [
+        "English",
+        "Spanish"
+      ],
       "sameAs": [
         "https://www.facebook.com/j4legacyproperties",
         "https://www.instagram.com/j4legacyproperties",
-        "https://www.youtube.com/@j4legacyproperties"
-      ]
+        "https://www.youtube.com/@j4legacyproperties",
+        "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
+      ],
+      "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
     },
     {
       "@type": "WebSite",
       "@id": "https://www.j4lp.com/#website",
       "url": "https://www.j4lp.com",
       "name": "J4 Legacy Properties",
-      "publisher": { "@id": "https://www.j4lp.com/#brokerage" },
+      "publisher": {
+        "@id": "https://www.j4lp.com/#brokerage"
+      },
       "inLanguage": "en-US"
     }
   ]
@@ -1759,7 +1787,7 @@ ul { list-style: none; }
     <a href="/properties/hwy-60-frontage" style="text-decoration:none;color:inherit;display:block;">
 			<div class="listing-card">
       <div class="listing-img">
-        <img src="images/listings/highway-60-frontage-tract/hero.jpg" alt="Highway 60 Frontage Tract — SOLD by J4 Legacy Properties" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="images/listings/highway-60-frontage-tract/hero.jpg" alt="Highway 60 Frontage Tract, SOLD by J4 Legacy Properties" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
 			<div class="listing-img-placeholder">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           Highway 60 Frontage Tract
@@ -2191,7 +2219,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.who-card, .why-item, .listing-card, .team-card, .serve-card, .eco-item, .process-step').forEach(el => {
+document.querySelectorAll('.who-card.why-item.listing-card.team-card.serve-card.eco-item.process-step').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';

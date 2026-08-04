@@ -85,7 +85,7 @@
 /wallis                                               /areas-wallis.html           301
 /wallis-tx                                            /areas-wallis.html           301
 /wallis-texas-real-estate                             /areas-wallis.html           301
-/areas-we-serve/fort-bend-county                      /areas-fort-bend-county.html 301
+/areas-we-serve/fort-bend-county                      /areas-fort-bend-county.html 200
 /areas/fort-bend-county                               /areas-fort-bend-county.html 301
 /fort-bend-county                                     /areas-fort-bend-county.html 301
 /fort-bend-county-tx                                  /areas-fort-bend-county.html 301
@@ -99,7 +99,7 @@
 /needville                                            /areas-needville.html        301
 /needville-tx                                         /areas-needville.html        301
 /needville-texas-real-estate                          /areas-needville.html        301
-/areas-we-serve/matagorda-county                      /areas-matagorda-county.html 301
+/areas-we-serve/matagorda-county                      /areas-matagorda-county.html 200
 /areas/matagorda-county                               /areas-matagorda-county.html 301
 /matagorda-county                                     /areas-matagorda-county.html 301
 /matagorda-county-tx                                  /areas-matagorda-county.html 301
@@ -109,7 +109,7 @@
 /bay-city                                             /areas-bay-city.html         301
 /bay-city-tx                                          /areas-bay-city.html         301
 /bay-city-texas-real-estate                           /areas-bay-city.html         301
-/areas-we-serve/matagorda-county/driftwood-shores     /areas-driftwood-shores.html 301
+/areas-we-serve/matagorda-county/driftwood-shores     /areas-driftwood-shores.html 200
 /areas/matagorda-county/driftwood-shores              /areas-driftwood-shores.html 301
 /areas/driftwood-shores                               /areas-driftwood-shores.html 301
 /driftwood-shores                                     /areas-driftwood-shores.html 301
@@ -172,7 +172,7 @@
 /breckenridge-tx                                      /areas-stephens-county.html  301
 /hilago                                               /areas-stephens-county.html  301
 /hilago-ranch-county                                  /areas-stephens-county.html  301
-/areas-we-serve/limestone-county                      /areas-limestone-county.html 301
+/areas-we-serve/limestone-county                      /areas-limestone-county.html 200
 /areas/limestone-county                               /areas-limestone-county.html 301
 /limestone-county                                     /areas-limestone-county.html 301
 /limestone-county-tx                                  /areas-limestone-county.html 301
@@ -194,14 +194,14 @@
 /lake-limestone                                       /areas-lake-limestone.html   301
 /lake-limestone-tx                                    /areas-lake-limestone.html   301
 /lake-limestone-texas-real-estate                     /areas-lake-limestone.html   301
-/areas-we-serve/limestone-county/thornton-tehuacana   /areas-thornton-tehuacana.html 301
+/areas-we-serve/limestone-county/thornton-tehuacana   /areas-thornton-tehuacana.html 200
 /areas/limestone-county/thornton-tehuacana            /areas-thornton-tehuacana.html 301
 /areas/thornton-tehuacana                             /areas-thornton-tehuacana.html 301
 /thornton-tehuacana                                   /areas-thornton-tehuacana.html 301
 /thornton                                             /areas-thornton-tehuacana.html 301
 /tehuacana                                            /areas-thornton-tehuacana.html 301
 
-/areas-we-serve/freestone-county                      /areas-freestone-county.html 301
+/areas-we-serve/freestone-county                      /areas-freestone-county.html 200
 /areas/freestone-county                               /areas-freestone-county.html 301
 /freestone-county                                     /areas-freestone-county.html 301
 /freestone-county-tx                                  /areas-freestone-county.html 301
@@ -211,7 +211,7 @@
 /fairfield                                            /areas-fairfield.html        301
 /fairfield-tx                                         /areas-fairfield.html        301
 /fairfield-texas-real-estate                          /areas-fairfield.html        301
-/areas-we-serve/freestone-county/richland-chambers    /areas-richland-chambers.html 301
+/areas-we-serve/freestone-county/richland-chambers    /areas-richland-chambers.html 200
 /areas/freestone-county/richland-chambers             /areas-richland-chambers.html 301
 /areas-we-serve/freestone-county/teague               /areas-teague.html           200
 /areas/freestone-county/teague                        /areas-teague.html           301
@@ -219,7 +219,7 @@
 /teague                                               /areas-teague.html           301
 /teague-tx                                            /areas-teague.html           301
 /teague-texas-real-estate                             /areas-teague.html           301
-/areas-we-serve/freestone-county/wortham-streetman    /areas-wortham-streetman.html 301
+/areas-we-serve/freestone-county/wortham-streetman    /areas-wortham-streetman.html 200
 /areas/freestone-county/wortham-streetman             /areas-wortham-streetman.html 301
 /areas/wortham-streetman                              /areas-wortham-streetman.html 301
 /wortham-streetman                                    /areas-wortham-streetman.html 301
@@ -258,13 +258,13 @@
 /areas/navarro-county/navarro-mills                   /areas-navarro-mills.html    301
 /areas/navarro-mills                                  /areas-navarro-mills.html    301
 /navarro-mills                                        /areas-navarro-mills.html    301
-/areas-we-serve/navarro-county/richland-chambers-navarro  /areas-richland-chambers-navarro.html 301
+/areas-we-serve/navarro-county/richland-chambers-navarro  /areas-richland-chambers-navarro.html 200
 /areas/navarro-county/richland-chambers-navarro       /areas-richland-chambers-navarro.html 301
 # Ambiguous bare slug — defaults to Freestone-side Richland-Chambers page
 /richland-chambers                                    /areas-richland-chambers.html 301
 
 # Colorado County — additional towns (garwood already above)
-/areas-we-serve/colorado-county/altair-sheridan-rock-island  /areas-altair-sheridan-rock-island.html 301
+/areas-we-serve/colorado-county/altair-sheridan-rock-island  /areas-altair-sheridan-rock-island.html 200
 /areas/colorado-county/altair-sheridan-rock-island    /areas-altair-sheridan-rock-island.html 301
 /areas/altair-sheridan-rock-island                    /areas-altair-sheridan-rock-island.html 301
 /altair-sheridan-rock-island                          /areas-altair-sheridan-rock-island.html 301
@@ -297,7 +297,7 @@
 /beasley                                              /areas-beasley.html          301
 /beasley-tx                                           /areas-beasley.html          301
 /beasley-texas-real-estate                            /areas-beasley.html          301
-/areas-we-serve/fort-bend-county/fairchilds-pleak     /areas-fairchilds-pleak.html 301
+/areas-we-serve/fort-bend-county/fairchilds-pleak     /areas-fairchilds-pleak.html 200
 /areas/fort-bend-county/fairchilds-pleak              /areas-fairchilds-pleak.html 301
 /areas/fairchilds-pleak                               /areas-fairchilds-pleak.html 301
 /fairchilds-pleak                                     /areas-fairchilds-pleak.html 301

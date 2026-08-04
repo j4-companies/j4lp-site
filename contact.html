@@ -36,7 +36,13 @@
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
     "opens": "08:00",
     "closes": "18:00"
   },
@@ -49,8 +55,10 @@
   ],
   "sameAs": [
     "https://www.facebook.com/j4legacyproperties",
-    "https://www.instagram.com/j4legacyproperties"
-  ]
+    "https://www.instagram.com/j4legacyproperties",
+    "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
+  ],
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk"
 }
 </script>
 <style>
@@ -609,15 +617,22 @@ ul { list-style: none; }
       <div class="section-label">Find Us</div>
       <h3 class="arvo">Our Office</h3>
       <div class="map-container">
+        <!-- Bound to the Google Business Profile by CID, so the pin renders the
+             actual J4 Legacy Properties listing (name, hours, reviews, photos)
+             instead of an anonymous marker. CID 9892196149404181987 =
+             ftid 0x864185d0e97eecbd:0x894823fc9db925e3,
+             Place ID ChIJvex-6dCFQYYR4yW5nfwjSIk. Verified against Google's own
+             record: J4 Legacy Properties, LLC, 3063 State Hwy 71, El Campo, TX
+             77437 at 29.1607969,-96.26023. -->
         <iframe
           class="map-iframe"
-          src="https://maps.google.com/maps?q=29.1607969%2C-96.26023&amp;ll=29.1607969%2C-96.26023&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+          src="https://maps.google.com/maps?cid=9892196149404181987&amp;output=embed"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="J4 Legacy Properties office location — 3063 SH 71 S, El Campo, TX 77437">
+          title="J4 Legacy Properties office location, 3063 SH 71 S, El Campo, TX 77437">
         </iframe>
-        <a href="https://maps.google.com/?q=3063+SH+71+S+El+Campo+TX+77437" target="_blank" rel="noopener" class="map-overlay-link">Open in Maps</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJvex-6dCFQYYR4yW5nfwjSIk" target="_blank" rel="noopener" class="map-overlay-link">Open in Maps</a>
       </div>
       <p class="map-address">
         3063 SH 71 S<br>
