@@ -460,7 +460,7 @@ ul { list-style: none; }
   <div class="mobile-contact">
     <a href="tel:8335435263">833-543-LAND</a><br>
     <a href="mailto:info@j4lp.com">info@j4lp.com</a><br>
-    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 SH 71 S, El Campo, TX 77437 (Office)
+    1379 County Road 408, El Campo, TX 77437 (Mailing)<br>3063 State Hwy 71, El Campo, TX 77437 (Office)
   </div>
 </div>
 
@@ -494,7 +494,7 @@ ul { list-style: none; }
     <div class="origin-timeline">
       <div class="timeline-item">
         <div class="timeline-year">1994</div>
-        <div class="timeline-content"><h4 class="arvo">Cuatro Starts Building Fences</h4><p>Cuatro Strack begins building fences for Texas ranch owners. Not as a stepping stone — as a calling. Ten years of fence work before the formal company forms.</p></div>
+        <div class="timeline-content"><h4 class="arvo">Cuatro Starts Building Fences</h4><p>Cuatro Strack begins building fences for Texas ranch owners. Not as a stepping stone, as a calling. Ten years of fence work before the formal company forms.</p></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2004</div>
@@ -502,7 +502,7 @@ ul { list-style: none; }
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2004-05</div>
-        <div class="timeline-content"><h4 class="arvo">First Investment Property</h4><p>The Stracks buy their first investment home — the seed of what becomes J4 Real Estate a decade later.</p></div>
+        <div class="timeline-content"><h4 class="arvo">First Investment Property</h4><p>The Stracks buy their first investment home, the seed of what becomes J4 Real Estate a decade later.</p></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2016</div>
@@ -514,7 +514,7 @@ ul { list-style: none; }
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2022</div>
-        <div class="timeline-content"><h4 class="arvo">J4 Prefab Homes Founded</h4><p>Manufactured home sales and placement — affordable home options for buyers placing a home on raw acreage they just bought.</p></div>
+        <div class="timeline-content"><h4 class="arvo">J4 Prefab Homes Founded</h4><p>Manufactured home sales and placement, affordable home options for buyers placing a home on raw acreage they just bought.</p></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2023</div>
@@ -846,7 +846,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') document.get
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
 }, { threshold: 0.07 });
-document.querySelectorAll('.animate, .company-card, .benefit-item, .timeline-item, .family-value').forEach(el => {
+document.querySelectorAll('.animate.company-card.benefit-item.timeline-item.family-value').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(16px)';
   el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';

@@ -71,6 +71,19 @@ serve(async (req) => {
       intent:         body.intent       || "",
     };
 
+    // Pass through any field this function doesn't name explicitly, so a new
+    // form on the site reaches GHL without needing this function redeployed.
+    // The seminar form's `seminar_date` and `sms_consent` are the first users of
+    // this; before it, an unlisted field was written to the `raw` column and
+    // then silently dropped on the way to the CRM. Existing keys above win, so
+    // this cannot change what current forms already send.
+    for (const [k, v] of Object.entries(body)) {
+      if (k in ghlPayload) continue;
+      if (v === null || v === undefined) continue;
+      if (typeof v === "object") continue; // keep the webhook payload flat
+      (ghlPayload as Record<string, unknown>)[k] = v;
+    }
+
     const ghlRes = await fetch(GHL_WEBHOOK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
