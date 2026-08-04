@@ -165,6 +165,20 @@ for p in PAGES:
 # place to a human and two different strings to a search engine, and a mismatch
 # between the site and the GBP is what splits local ranking signal. Google's
 # record (CID 9892196149404181987) reads "3063 State Hwy 71", so that is canonical.
+# A2P compliance: the GHL/LeadConnector chat widget must never sit on a page
+# that collects a phone number. Carriers treat the combination as an unvetted
+# SMS opt-in path and it puts the messaging registration at risk. Today no page
+# violates this, which is exactly when to add the check: the failure mode is
+# someone adding a phone field to a page that already has the widget, months
+# from now, with nothing watching.
+for p in PAGES:
+    h = read(p)
+    has_widget = "leadconnectorhq" in h or "communitymarketleader.com/widget" in h
+    has_phone = bool(re.search(r'type=["\']tel["\']|name=["\']phone["\']', h, re.I))
+    if has_widget and has_phone:
+        fail("a2p", f"{p}: GHL/CML widget on a page that collects a phone number "
+                    f"(A2P violation, see the AEO playbook compliance guardrails)")
+
 OFFICE_CANON = "3063 State Hwy 71"
 OFFICE_BAD = ["3063 SH 71 S", "3063 SH 71S", "3063 State Highway 71 S", "3063 S SH 71"]
 for p in PAGES:
