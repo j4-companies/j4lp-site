@@ -20,9 +20,31 @@ serve(async (req) => {
   try {
     const body = await req.json();
 
-    // Use SERVICE_ROLE_KEY custom secret for DB writes
-    const supabaseUrl = Deno.env.get("PROJECT_URL") ?? "";
-    const serviceKey = Deno.env.get("SERVICE_ROLE_KEY") ?? "";
+    // Credentials for the DB write.
+    //
+    // This function previously read ONLY the custom secrets PROJECT_URL and
+    // SERVICE_ROLE_KEY, while its own header comment claimed it used the
+    // Supabase defaults. When those custom secrets are unset, Deno.env.get
+    // returns undefined, `?? ""` turned that into empty strings, createClient
+    // accepted them, and every insert failed. The failure was invisible because
+    // the catch below only console.errors and the response still said success,
+    // so leads reached GHL and silently never reached Postgres. The leads table
+    // sat at zero rows while the site reported every submission as fine.
+    //
+    // Now: prefer the custom secrets if present, fall back to the platform
+    // defaults, which Supabase injects into every edge function automatically.
+    const supabaseUrl =
+      Deno.env.get("PROJECT_URL") || Deno.env.get("SUPABASE_URL") || "";
+    const serviceKey =
+      Deno.env.get("SERVICE_ROLE_KEY") || Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+
+    if (!supabaseUrl || !serviceKey) {
+      console.error(
+        "FATAL: no Supabase credentials available. Checked PROJECT_URL/SUPABASE_URL " +
+        "and SERVICE_ROLE_KEY/SUPABASE_SERVICE_ROLE_KEY. The lead will still be " +
+        "forwarded to GHL but will NOT be recorded in Postgres."
+      );
+    }
 
     const supabase = createClient(supabaseUrl, serviceKey, {
       auth: { persistSession: false }
@@ -52,6 +74,7 @@ serve(async (req) => {
     // Insert into Supabase
     const { error: dbError } = await supabase.from("leads").insert(lead);
     if (dbError) console.error("DB error:", JSON.stringify(dbError));
+    const stored = !dbError;
 
     // Forward to GHL
     const nameParts = (body.name || "").trim().split(" ");
@@ -92,8 +115,13 @@ serve(async (req) => {
 
     if (!ghlRes.ok) console.error("GHL error:", ghlRes.status);
 
+    // Still a 200 even if the DB write failed: GHL has the lead, so showing the
+    // visitor an error would only make them submit again and create duplicates.
+    // But `stored` and `forwarded` are reported explicitly so a failure is
+    // observable from outside instead of being swallowed. A silent success is
+    // how this went unnoticed until the leads table was found empty.
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ success: true, stored, forwarded: ghlRes.ok }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
     );
 
