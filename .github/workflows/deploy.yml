@@ -1,32 +1,105 @@
 name: Deploy to Netlify
 
-# Deploys the site to Netlify production on every merge to main.
-# Exists because Netlify's built-in git integration can't watch private
-# org-owned repos on the free plan. Requires the NETLIFY_AUTH_TOKEN
-# repo secret (Netlify personal access token).
+# How j4lp.com ships:
+#   merge to main   -> production deploy to www.j4lp.com
+#   open a PR       -> preview deploy at https://pr-<number>--j4lp.netlify.app
+#   manual re-run   -> Actions tab -> "Deploy to Netlify" -> Run workflow
+#
+# Netlify's own build system is intentionally switched OFF for this project.
+# The Netlify UI shows "Builds are stopped" and the "Trigger deploy" button is
+# greyed out. That is expected. This workflow is the only thing that publishes
+# the site, and it uploads the repo directly instead of asking Netlify to build.
+#
+# Do NOT click "Activate builds" in Netlify unless this workflow is removed at
+# the same time. Two systems publishing the same commit is how a site quietly
+# serves the wrong version.
+#
+# Requires the NETLIFY_AUTH_TOKEN repo secret (a Netlify personal access token).
+# If that token expires, every deploy here fails and www.j4lp.com silently stops
+# updating. GitHub emails the person who pushed when a run fails; do not ignore it.
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
-concurrency:
-  group: netlify-production
-  cancel-in-progress: false
+env:
+  NETLIFY_SITE_ID: 0b45a314-c78e-4893-988f-ea2a563b4bbe
 
 jobs:
-  deploy:
+  production:
+    # Push to main and manual runs. PRs are handled by the preview job below.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    concurrency:
+      group: netlify-production
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
       - name: Deploy to Netlify (production)
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: 0b45a314-c78e-4893-988f-ea2a563b4bbe
         run: |
           if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
             echo "::error::NETLIFY_AUTH_TOKEN secret is not set. Add it in repo Settings -> Secrets and variables -> Actions."
             exit 1
           fi
           npx --yes netlify-cli deploy --prod --dir . --message "GitHub Actions: ${GITHUB_SHA::7}"
+
+  preview:
+    # Draft deploy so a change can be looked at before it reaches www.j4lp.com.
+    # Skipped for PRs opened from forks: GitHub does not hand secrets to fork PRs,
+    # so the deploy could not authenticate and the job would only fail noisily.
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    concurrency:
+      group: netlify-preview-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy preview to Netlify
+        id: preview
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN secret is not set. Add it in repo Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          npx --yes netlify-cli deploy --dir . \
+            --alias "pr-${PR_NUMBER}" \
+            --message "PR #${PR_NUMBER}: ${GITHUB_SHA::7}"
+          echo "url=https://pr-${PR_NUMBER}--j4lp.netlify.app" >> "$GITHUB_OUTPUT"
+
+      - name: Post the preview link on the PR
+        uses: actions/github-script@v7
+        env:
+          PREVIEW_URL: ${{ steps.preview.outputs.url }}
+        with:
+          script: |
+            const marker = '<!-- netlify-preview -->';
+            const body = [
+              marker,
+              `Preview for this pull request: ${process.env.PREVIEW_URL}`,
+              '',
+              'This is a draft deploy. www.j4lp.com does not change until this PR is merged to main.',
+            ].join('\n');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
