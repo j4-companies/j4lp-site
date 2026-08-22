@@ -1,4 +1,6 @@
 # J4LP — Netlify Redirects
+/property-intake                              /property-intake/             301
+
 # Buying sub-pages: nav uses clean URLs, actual files have different names
 /buying/legacy-builders         /buying-legacy.html         301
 /buying/community-connectors    /buying-community.html      301
