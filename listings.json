@@ -8,9 +8,9 @@
         "Homestead",
         "Rosenberg"
       ],
-      "status": "active",
+      "status": "contract",
       "featured": false,
-      "badge": "Acreage",
+      "badge": "Under Contract",
       "badgeType": "ranch",
       "name": "Randon School Road Acreage",
       "price": 495000,
@@ -303,9 +303,9 @@
         "Investment",
         "Louise"
       ],
-      "status": "active",
+      "status": "contract",
       "featured": false,
-      "badge": "Farm Land",
+      "badge": "Under Contract",
       "badgeType": "ranch",
       "name": "FM 1300 Farm Tract",
       "price": 2620500,
