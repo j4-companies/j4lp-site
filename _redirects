@@ -472,8 +472,8 @@
 /east-bernard-homestead.html    /properties/east-bernard-homestead    301
 /richmond-cotton-farm           /properties/richmond-cotton-farm      301
 /richmond-cotton-farm.html      /properties/richmond-cotton-farm      301
-/limo-station-victoria          /properties/limo-station-victoria     301
-/limo-station-victoria.html     /properties/limo-station-victoria     301
+/limo-station-victoria                        /properties.html  301
+/limo-station-victoria.html                   /properties.html  301
 /horse-farm-property            /properties/horse-farm-property       301
 /horse-farm-property.html       /properties/horse-farm-property       301
 /mexia-commercial-property      /properties/mexia-commercial-property 301
@@ -568,3 +568,7 @@
 
 # Favicon
 /favicon.ico    /images/brand/favicon-32.png    200
+
+# Victoria delisted 2026-08-25 (listing agreement expired, property not active).
+# Property page removed in PR #50; send the old URL to the properties index.
+/properties/limo-station-victoria.html        /properties.html  301
