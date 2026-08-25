@@ -601,8 +601,45 @@ ul { list-style: none; }
       <p class="lora">No pressure, no pitch. Just a real conversation about your land goals and whether we're the right team to help you get there.</p>
     </div>
 
-    <div class="form-cta-block" style="padding:28px 20px;text-align:center;border:1px solid rgba(127,129,148,0.35);border-radius:8px;">
-  <p style="font-size:17px;font-weight:700;margin-bottom:14px;">Ready to talk land? Reach us direct.</p>
+    <form class="contact-form" id="j4lp-contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-phone">Phone</label>
+          <input type="tel" id="contact-phone" name="phone" placeholder="(xxx) xxx-xxxx" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-intent">I'm Interested In</label>
+          <select id="contact-intent" name="intent" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="buying">Buying land or a ranch</option>
+            <option value="selling">Selling land or a ranch</option>
+            <option value="both">Both</option>
+            <option value="not_sure">Not sure yet / just have a question</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Tell us a little about what you're looking for, or the property you have in mind." required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+      <p class="form-note">We respond same business day. No spam, ever.</p>
+    </form>
+
+    <div class="form-cta-block" style="padding:28px 20px;text-align:center;border:1px solid rgba(127,129,148,0.35);border-radius:8px;margin-top:32px;">
+  <p style="font-size:17px;font-weight:700;margin-bottom:14px;">Rather talk it through? Reach us direct.</p>
   <p style="margin-bottom:10px;">Call or text <a href="tel:+18335435263" style="color:inherit;font-weight:700;text-decoration:underline;">833-543-LAND (5263)</a></p>
   <p>Email <a href="mailto:info@j4lp.com" style="color:inherit;font-weight:700;text-decoration:underline;">info@j4lp.com</a></p>
 </div>
@@ -832,5 +869,6 @@ document.querySelectorAll('.agent-card, .who-card, .info-item').forEach(el => {
 </script>
 
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a29aa14fe9e3db82f856b52" data-source="WEB_USER"></script>
+<script src="forms.js"></script>
 </body>
 </html>

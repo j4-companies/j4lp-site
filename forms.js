@@ -153,6 +153,16 @@
         )
       );
     }
+
+    // General contact page.
+    const contactForm = document.querySelector("#j4lp-contact-form");
+    if (contactForm) {
+      contactForm.addEventListener("submit", e =>
+        handleSubmit(e, "contact",
+          "Someone from J4 Legacy Properties will be in touch same business day. If it's urgent, call or text 833-543-LAND."
+        )
+      );
+    }
   });
 
 })();
