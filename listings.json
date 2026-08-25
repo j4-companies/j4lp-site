@@ -822,95 +822,6 @@
       "keywords": "Fort Bend County farm land for sale, cotton farm Texas, Richmond TX agricultural land, 1031 exchange Texas farm, income producing farm land Houston area"
     },
     {
-      "id": "limo-station-victoria",
-      "slug": "limo-station-victoria",
-      "tags": [
-        "Commercial",
-        "Investment"
-      ],
-      "status": "active",
-      "featured": false,
-      "badge": "Commercial",
-      "badgeType": "investment",
-      "name": "Limo Station — Victoria",
-      "price": 450000,
-      "priceDisplay": "$450,000",
-      "priceContact": false,
-      "address": "Victoria, TX 77901",
-      "city": "Victoria",
-      "county": "Victoria County",
-      "state": "TX",
-      "video": "",
-      "zip": "77901",
-      "lat": 28.8053,
-      "lng": -97.0036,
-      "acreage": 0,
-      "acreageDisplay": "Commercial Lot",
-      "categories": [
-        "homes"
-      ],
-      "agent": "Harleigh Strack & Kayla Strack",
-      "agentInitials": "HS",
-      "agentPhone": "979-253-4837, 979-332-9246",
-      "heroImage": "images/listings/limo-station-victoria/hero.jpg",
-      "images": [
-        "images/listings/limo-station-victoria/photo-1.jpg",
-        "images/listings/limo-station-victoria/photo-2.jpg",
-        "images/listings/limo-station-victoria/photo-3.jpg",
-        "images/listings/limo-station-victoria/photo-4.jpg",
-        "images/listings/limo-station-victoria/photo-5.jpg",
-        "images/listings/limo-station-victoria/photo-6.jpg",
-        "images/listings/limo-station-victoria/photo-7.jpg",
-        "images/listings/limo-station-victoria/photo-8.jpg",
-        "images/listings/limo-station-victoria/photo-9.jpg",
-        "images/listings/limo-station-victoria/photo-10.jpg",
-        "images/listings/limo-station-victoria/photo-11.jpg",
-        "images/listings/limo-station-victoria/photo-12.jpg",
-        "images/listings/limo-station-victoria/photo-13.jpg",
-        "images/listings/limo-station-victoria/photo-14.jpg",
-        "images/listings/limo-station-victoria/photo-15.jpg",
-        "images/listings/limo-station-victoria/photo-16.jpg",
-        "images/listings/limo-station-victoria/photo-17.jpg",
-        "images/listings/limo-station-victoria/photo-18.jpg",
-        "images/listings/limo-station-victoria/photo-19.jpg",
-        "images/listings/limo-station-victoria/photo-20.jpg",
-        "images/listings/limo-station-victoria/photo-21.jpg",
-        "images/listings/limo-station-victoria/photo-22.jpg",
-        "images/listings/limo-station-victoria/photo-23.jpg",
-        "images/listings/limo-station-victoria/photo-24.jpg"
-      ],
-      "tagline": "Mixed-use commercial and residential property in Victoria, TX — listed at $450,000. A unique opportunity in a growing South Texas hub.",
-      "description": "A distinctive mixed-use property in Victoria, Texas. Combines commercial and residential potential in a single parcel. Victoria is a growing South Texas hub with strong economic fundamentals. Listed at $450,000. Contact J4 Legacy Properties for full property details and to schedule a walkthrough.",
-      "highlights": [
-        "Mixed-use commercial + residential",
-        "Victoria, TX — growing South Texas market",
-        "Unique property with strong upside",
-        "Listed at $450,000"
-      ],
-      "specs": [
-        {
-          "label": "Use",
-          "value": "Mixed-Use"
-        },
-        {
-          "label": "City",
-          "value": "Victoria"
-        },
-        {
-          "label": "County",
-          "value": "Victoria"
-        },
-        {
-          "label": "Type",
-          "value": "Commercial + Residential"
-        }
-      ],
-      "metaTitle": "Victoria TX Mixed-Use Commercial Property | $450,000",
-      "metaDescription": "Mixed-use commercial and residential property for sale in Victoria, Texas. Listed at $450,000 by J4 Legacy Properties.",
-      "schemaType": "CommercialProperty",
-      "keywords": "Victoria Texas commercial property, mixed use property Victoria TX, commercial real estate Victoria Texas, South Texas commercial property for sale"
-    },
-    {
       "id": "horse-farm-property",
       "slug": "horse-farm-property",
       "tags": [
@@ -1168,6 +1079,99 @@
       "metaDescription": "SOLD. A 25± acre estate in El Campo, Wharton County. 5,000 sq ft main house, barndominium, bunkhouse, pool, barn gym, stocked pond.",
       "schemaType": "SingleFamilyResidence",
       "keywords": "El Campo estate for sale, Wharton County luxury acreage, 25 acre estate Texas, El Campo TX ranch home, legacy property El Campo Texas"
+    },
+    {
+      "id": "211-white-wing-ln-sealy",
+      "slug": "211-white-wing-ln-sealy",
+      "tags": [
+        "Home"
+      ],
+      "status": "active",
+      "featured": false,
+      "badge": "Home",
+      "badgeType": "home",
+      "mls": "19869567",
+      "name": "211 White Wing Ln, Sealy",
+      "price": 299999,
+      "priceDisplay": "$299,999",
+      "priceContact": false,
+      "address": "211 White Wing Ln, Sealy, TX 77474",
+      "city": "Sealy",
+      "county": "Austin County",
+      "state": "TX",
+      "video": "",
+      "zip": "77474",
+      "lat": 29.7808,
+      "lng": -96.1572,
+      "acreage": 0.241,
+      "acreageDisplay": "0.241 Acres",
+      "categories": [
+        "homes"
+      ],
+      "agent": "Kayla Strack",
+      "agentInitials": "KS",
+      "agentPhone": "979-332-9246",
+      "heroImage": "images/listings/211-white-wing-ln-sealy/hero.jpg",
+      "images": [
+        "images/listings/211-white-wing-ln-sealy/photo-1.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-2.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-3.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-4.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-5.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-6.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-7.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-8.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-9.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-10.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-11.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-12.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-13.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-14.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-15.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-16.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-17.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-18.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-19.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-20.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-21.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-22.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-23.jpg",
+        "images/listings/211-white-wing-ln-sealy/photo-24.jpg"
+      ],
+      "tagline": "Four bedrooms, two baths, built in 2020 on a quarter acre in Sealy. Austin County living with I-10 out the front door.",
+      "description": "A 2020-built home at 211 White Wing Ln in Sealy, with 1,749 square feet, four bedrooms and two baths on a 0.241 acre lot. Sealy sits right on I-10 in Austin County, which puts Houston about an hour east and Columbus a short run west. That location is the whole point for a lot of families out here. You get room to breathe, a newer house that has not been worn in yet, and a commute that still works. Listed at $299,999. Call Kayla Strack at 979-332-9246 to walk it.",
+      "highlights": [
+        "4 bedrooms, 2 baths, 1,749 square feet",
+        "Built in 2020",
+        "0.241 acre lot",
+        "Sealy, Austin County, minutes from I-10"
+      ],
+      "specs": [
+        {
+          "label": "Beds / Baths",
+          "value": "4 / 2"
+        },
+        {
+          "label": "Sq Ft",
+          "value": "1,749"
+        },
+        {
+          "label": "Lot Sq Ft",
+          "value": "10,498"
+        },
+        {
+          "label": "Year Built",
+          "value": "2020"
+        },
+        {
+          "label": "County",
+          "value": "Austin"
+        }
+      ],
+      "metaTitle": "211 White Wing Ln, Sealy TX | 4 Bed Home | $299,999",
+      "metaDescription": "Four bedroom, two bath home built in 2020 in Sealy, Texas. 1,749 sq ft on a 0.241 acre lot in Austin County. Listed at $299,999 by J4 Legacy Properties.",
+      "schemaType": "SingleFamilyResidence",
+      "keywords": "Sealy TX homes for sale, Austin County Texas real estate, 211 White Wing Ln Sealy, 4 bedroom home Sealy TX, Sealy Texas house for sale near I-10"
     }
   ]
 }
