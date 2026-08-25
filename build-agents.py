@@ -117,7 +117,7 @@ AGENTS = [
         "meta_desc": "Harleigh Strack, Agent at J4 Legacy Properties. Texas A&M 2025 Ag Econ graduate (honors), founder of High Standards Power Solutions, commercial pilot and CFI through HS Flight Services. Farm and ranch real estate across Texas.",
         "bio_paragraphs": [
             "Growing up alongside her father, Cuatro Strack, the Broker of J4 Legacy Properties, Harleigh learned the value of integrity, hard work, and quality land from an early age. Her experience raising whitetail deer and Brahman cattle has given her an authentic understanding of what buyers and sellers need when investing in farm and ranch properties.",
-            "Harleigh graduated from Texas A&amp;M University in May 2025 with a Bachelor of Science in Agricultural Economics, with minors in Agribusiness Entrepreneurship and AgriFood Sales. She completed the Agricultural Economics Honors Program and earned the Distinguished Student Award in Spring 2024. While at A&amp;M, she served as President of the Women in Aviation Texas A&amp;M Chapter, Social Media Officer for the Agricultural Economics Society, and participated in Real Estate Aggies in Leadership.",
+            "Harleigh graduated from Texas A&amp;M University in May 2025 with a Bachelor of Science in Agricultural Economics, with minors in Agribusiness Entrepreneurship and AgriFood Sales. She completed the Agricultural Economics Honors Program and was named the 2025 Diane and M. Edward Reister 74 Agribusiness Entrepreneurship Program Entrepreneur of the Year. While at A&amp;M, she served as President of the Women in Aviation Texas A&amp;M Chapter, Social Media Officer for the Agricultural Economics Society, and participated in Real Estate Aggies in Leadership.",
             "Driven and accomplished, Harleigh has been pursuing her goals since she was young. She holds her Commercial Single and Multi-Engine Pilot's License and Certified Flight Instructor (CFI) certification, with over 500 total flight hours logged through her own aviation business, HS Flight Services, where she flies commercial pilot work and teaches ground school and flight instruction to private and commercial pilot students. She is also a licensed real estate agent and manufactured home salesperson.",
             "Harleigh is the founder of <a href=\"https://www.hspspower.com\" target=\"_blank\" rel=\"noopener\"><strong>High Standards Power Solutions, LLC</strong></a>, a backup generator sales, installation, and maintenance business serving Texas customers with reliable power solutions. She is also a real estate investor, a combination that reflects her ambition and her commitment to building things that last.",
         ],
@@ -127,7 +127,7 @@ AGENTS = [
             "Texas A&amp;M University, BS Agricultural Economics (May 2025)",
             "Minors: Agribusiness Entrepreneurship &amp; AgriFood Sales",
             "Agricultural Economics Honors Program",
-            "Distinguished Student Award (Spring 2024)",
+            "2025 Diane and M. Edward Reister 74 Agribusiness Entrepreneurship Program Entrepreneur of the Year",
             "Commercial Single &amp; Multi-Engine Pilot's License",
             "Certified Flight Instructor (CFI), 500+ total flight hours",
             "Texas Real Estate License #810470",
