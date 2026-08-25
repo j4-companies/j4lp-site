@@ -628,6 +628,83 @@ ul { list-style: none; }
           </select>
         </div>
       </div>
+      <div id="buying-fields" style="display:none;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-buyer-type">What Kind Of Buyer Are You?</label>
+            <select id="contact-buyer-type" name="buyer_type">
+              <option value="" disabled selected>Select one</option>
+              <option value="legacy_builder">Ranch or farm land (50+ acres)</option>
+              <option value="community_connector">Acreage home near town</option>
+              <option value="strategic_exchanger">1031 exchange replacement property</option>
+              <option value="not_sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-timeline">Timeline</label>
+            <select id="contact-timeline" name="timeline">
+              <option value="" disabled selected>Select one</option>
+              <option value="asap">ASAP</option>
+              <option value="1_3_months">1-3 months</option>
+              <option value="3_6_months">3-6 months</option>
+              <option value="6_12_months">6-12 months</option>
+              <option value="just_researching">Just researching</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label for="contact-budget">Budget</label>
+            <input type="text" id="contact-budget" name="budget" placeholder="e.g. $500,000 - $1,000,000">
+          </div>
+        </div>
+        <div class="checkbox-group">
+          <span class="checkbox-group-label">Counties You're Interested In</span>
+          <div class="checkbox-options">
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Wharton County"><span>Wharton County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Matagorda County"><span>Matagorda County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Austin County"><span>Austin County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Colorado County"><span>Colorado County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Lavaca County"><span>Lavaca County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Jackson County"><span>Jackson County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Fayette County"><span>Fayette County</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="counties" value="Anywhere in Texas"><span>Anywhere in Texas</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="form-group">
+          <label for="contact-agent-relationship">Are You Already Working With A Real Estate Agent?</label>
+          <select id="contact-agent-relationship" name="working_with_agent">
+            <option value="" disabled selected>Select one</option>
+            <option value="no">No</option>
+            <option value="yes_j4lp">Yes — a J4LP agent</option>
+            <option value="yes_outside">Yes — an outside agent</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group" id="j4lp-agent-field" style="display:none;">
+          <label for="contact-j4lp-agent">Which J4LP Agent?</label>
+          <select id="contact-j4lp-agent" name="j4lp_agent">
+            <option value="" disabled selected>Select one</option>
+            <option value="Cuatro Strack">Cuatro Strack</option>
+            <option value="Stephanie Strack">Stephanie Strack</option>
+            <option value="Sioux Smith">Sioux Smith</option>
+            <option value="Mason Abshire">Mason Abshire</option>
+            <option value="Alexa Emmons">Alexa Emmons</option>
+            <option value="Rozanna Roach">Rozanna Roach</option>
+            <option value="Cole Srubar">Cole Srubar</option>
+            <option value="Harleigh Strack">Harleigh Strack</option>
+            <option value="Kayla Strack">Kayla Strack</option>
+            <option value="Julia Velazquez">Julia Velazquez</option>
+          </select>
+        </div>
+        <div class="form-group" id="outside-agent-field" style="display:none;">
+          <label for="contact-outside-agent">Agent's Name</label>
+          <input type="text" id="contact-outside-agent" name="agent_name" placeholder="Their name">
+        </div>
+      </div>
       <div class="form-row single">
         <div class="form-group">
           <label for="contact-message">Message</label>
@@ -637,6 +714,42 @@ ul { list-style: none; }
       <button type="submit" class="btn-submit">Send Message</button>
       <p class="form-note">We respond same business day. No spam, ever.</p>
     </form>
+
+    <script>
+    (function() {
+      const intentSelect = document.getElementById('contact-intent');
+      const buyingFields = document.getElementById('buying-fields');
+      const buyerTypeSelect = document.getElementById('contact-buyer-type');
+
+      function toggleBuyingFields() {
+        const show = intentSelect.value === 'buying' || intentSelect.value === 'both';
+        buyingFields.style.display = show ? 'block' : 'none';
+        if (buyerTypeSelect) buyerTypeSelect.required = show;
+      }
+      if (intentSelect) {
+        intentSelect.addEventListener('change', toggleBuyingFields);
+        toggleBuyingFields();
+      }
+
+      const agentSelect = document.getElementById('contact-agent-relationship');
+      const j4lpAgentField = document.getElementById('j4lp-agent-field');
+      const outsideAgentField = document.getElementById('outside-agent-field');
+      const j4lpAgentSelect = document.getElementById('contact-j4lp-agent');
+      const outsideAgentInput = document.getElementById('contact-outside-agent');
+
+      function toggleAgentFields() {
+        const val = agentSelect.value;
+        j4lpAgentField.style.display = val === 'yes_j4lp' ? 'block' : 'none';
+        outsideAgentField.style.display = val === 'yes_outside' ? 'block' : 'none';
+        if (j4lpAgentSelect) j4lpAgentSelect.required = val === 'yes_j4lp';
+        if (outsideAgentInput) outsideAgentInput.required = val === 'yes_outside';
+      }
+      if (agentSelect) {
+        agentSelect.addEventListener('change', toggleAgentFields);
+        toggleAgentFields();
+      }
+    })();
+    </script>
 
     <div class="form-cta-block" style="padding:28px 20px;text-align:center;border:1px solid rgba(127,129,148,0.35);border-radius:8px;margin-top:32px;">
   <p style="font-size:17px;font-weight:700;margin-bottom:14px;">Rather talk it through? Reach us direct.</p>
