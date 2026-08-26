@@ -1,6 +1,80 @@
 {
   "listings": [
     {
+      "id": "socha-10-acres",
+      "slug": "socha-10-acres",
+      "tags": [
+        "Farm",
+        "Acreage",
+        "Elmaton"
+      ],
+      "status": "active",
+      "featured": false,
+      "badge": "Farm & Acreage",
+      "badgeType": "ranch",
+      "name": "10 Acres on FM 1095",
+      "price": 250000,
+      "priceDisplay": "$250,000",
+      "priceContact": false,
+      "address": "FM 1095, Elmaton, TX 77440",
+      "city": "Elmaton",
+      "county": "Matagorda County",
+      "state": "TX",
+      "video": "",
+      "zip": "77440",
+      "lat": 28.8445,
+      "lng": -96.0664,
+      "mapNote": "Map shows the general FM 1095 and Elmaton area. Exact tract boundaries and showing directions are available from the listing broker.",
+      "acreage": 10,
+      "acreageDisplay": "10.00 Acres",
+      "categories": [
+        "ranch"
+      ],
+      "agent": "Cuatro Strack",
+      "agentInitials": "CS",
+      "agentPhone": "979-541-7248",
+      "heroImage": "",
+      "images": [],
+      "tagline": "Ten acres of dry cropland on FM 1095 in Matagorda County, offered at $250,000 and zoned to Tidehaven ISD.",
+      "description": "Ten acres of agricultural ground on FM 1095 in the Elmaton area of Matagorda County. The Matagorda County Appraisal District classifies the tract as dry cropland and reflects an agricultural-use valuation. No improvements are shown in the appraisal record. The property is zoned to Tidehaven ISD and sits along the FM 1095 corridor between the Blessing and Collegeport areas. This is a clean-sized tract for a local farm operator, an adjoining owner, or a buyer looking for rural acreage in the Texas Gulf Coast region. The property does not have an assigned street number, so showings and property identification should use Property ID 16153 and the legal description. Buyer should independently verify acreage, legal and physical access, road frontage, survey, utilities, floodplain and wetlands status, restrictions, agricultural valuation, and suitability for the buyer's intended use.",
+      "highlights": [
+        "10.00 acres in Matagorda County",
+        "Located on FM 1095 in the Elmaton area",
+        "Classified as dry cropland by the Matagorda County Appraisal District",
+        "Agricultural-use valuation reflected in the 2026 appraisal record",
+        "Zoned to Tidehaven ISD",
+        "Property ID 16153, Geographic ID 0103-0000-0031A0",
+        "No improvements reflected in the appraisal record",
+        "Buyer to verify access, frontage, utilities, floodplain, wetlands, restrictions, survey, and intended use"
+      ],
+      "specs": [
+        {
+          "label": "Price",
+          "value": "$250,000"
+        },
+        {
+          "label": "Acreage",
+          "value": "10.00 Ac"
+        },
+        {
+          "label": "Land Class",
+          "value": "Dry Cropland"
+        },
+        {
+          "label": "School",
+          "value": "Tidehaven ISD"
+        },
+        {
+          "label": "County",
+          "value": "Matagorda"
+        }
+      ],
+      "metaTitle": "10 Acres for Sale on FM 1095 | Elmaton, Matagorda County",
+      "metaDescription": "10 acres of dry cropland for sale on FM 1095 near Elmaton in Matagorda County, Texas. Tidehaven ISD. Offered at $250,000.",
+      "schemaType": "LandForSale",
+      "keywords": "FM 1095 land for sale, Elmaton Texas acreage, Matagorda County land for sale, Tidehaven ISD acreage, 10 acres Texas Gulf Coast, dry cropland Matagorda County"
+    },
+    {
       "id": "randon-school-road",
       "slug": "randon-school-road",
       "tags": [
