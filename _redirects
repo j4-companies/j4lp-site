@@ -460,7 +460,7 @@
 /properties/edna-farm-293.html  /properties.html            301
 # Victoria delisted 2026-08-25 (listing agreement expired, property not active).
 # Must stay ABOVE the /properties/* wildcard below or it never fires.
-/properties/limo-station-victoria.html/properties.html            301
+/properties/limo-station-victoria.html  /properties.html  301
 
 # Old root listing pages — superseded by /properties/<slug> (301 for bookmarks/SEO)
 /hilago-ranch                   /properties/hilago-ranch              301
