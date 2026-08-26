@@ -259,6 +259,7 @@ ul { list-style: none; }
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
 }
+#tab-all .prop-card[data-category~="sold"] { display: none; }
 .prop-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.13);
@@ -905,7 +906,7 @@ ul { list-style: none; }
     <!-- TABS -->
     <div class="tabs-header" role="tablist">
       <button class="tab-btn active" data-tab="all" role="tab" aria-selected="true">
-        All Listings <span class="tab-count" id="count-all">10</span>
+        Available Listings <span class="tab-count" id="count-all">11</span>
       </button>
       <button class="tab-btn" data-tab="ranch" role="tab" aria-selected="false">
         Ranch &amp; Farm Land <span class="tab-count" id="count-ranch">4</span>
@@ -923,7 +924,7 @@ ul { list-style: none; }
 
     <!-- RESULTS BAR -->
     <div class="results-bar">
-      <p class="results-count">Showing <strong id="resultNum">10</strong> properties</p>
+      <p class="results-count">Showing <strong id="resultNum">11</strong> properties</p>
       <select class="sort-select" id="sortSelect">
         <option value="default">Featured First</option>
         <option value="price-high">Price: High to Low</option>
@@ -1586,14 +1587,15 @@ document.getElementById('hamburger').addEventListener('click', () => document.ge
 document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 
 // ===== TAB SYSTEM =====
-const allCards = document.querySelectorAll('#tab-all .prop-card');
+const allCards = Array.from(document.querySelectorAll('#tab-all .prop-card'));
+const availableCards = allCards.filter(card => !(card.dataset.category || '').split(/\s+/).includes('sold'));
 
-function buildFilteredGrid(gridId, category) {
+function buildFilteredGrid(gridId, category, sourceCards = availableCards) {
   const grid = document.getElementById(gridId);
   grid.innerHTML = '';
   let count = 0;
-  allCards.forEach(card => {
-    const cats = card.dataset.category || '';
+  sourceCards.forEach(card => {
+    const cats = (card.dataset.category || '').split(/\s+/);
     if (cats.includes(category)) {
       const clone = card.cloneNode(true);
       grid.appendChild(clone);
@@ -1607,7 +1609,9 @@ function buildFilteredGrid(gridId, category) {
 const ranchCount = buildFilteredGrid('grid-ranch', 'ranch');
 const homesCount = buildFilteredGrid('grid-homes', 'homes');
 const e1031Count = buildFilteredGrid('grid-1031', '1031');
-const soldCount = buildFilteredGrid('grid-sold', 'sold');
+const soldCount = buildFilteredGrid('grid-sold', 'sold', allCards);
+document.getElementById('count-all').textContent = availableCards.length;
+document.getElementById('resultNum').textContent = availableCards.length;
 document.getElementById('count-ranch').textContent = ranchCount;
 document.getElementById('count-homes').textContent = homesCount;
 document.getElementById('count-1031').textContent = e1031Count;
@@ -1622,7 +1626,7 @@ if (soldCount === 0) {
 // Tab switching
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
-const countMap = { all: allCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count, sold: soldCount };
+const countMap = { all: availableCards.length, ranch: ranchCount, homes: homesCount, '1031': e1031Count, sold: soldCount };
 
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {

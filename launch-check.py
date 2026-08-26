@@ -147,6 +147,71 @@ for p in PAGES:
         if marker in b:
             (fail if not is_noindex(h) else warn)("content", f"{p}: contains '{marker}'")
 
+# Homepage Featured Properties is labeled "Current Listings." A sold listing
+# here is a promotion error even when the property page itself is accurate.
+if os.path.exists("index.html") and os.path.exists("listings.json"):
+    home = read("index.html")
+    featured = re.search(
+        r"<!-- FEATURED LISTINGS -->(.*?)<!-- OFF-MARKET STRIP -->",
+        home,
+        re.S,
+    )
+    with open("listings.json", encoding="utf-8") as f:
+        listing_data = json.load(f)
+    statuses = {
+        item.get("slug"): str(item.get("status", "")).lower()
+        for item in listing_data.get("listings", [])
+    }
+    if not featured:
+        fail("featured", "index.html: Featured Properties section not found")
+    else:
+        slugs = re.findall(r'href="/properties/([^"/?#]+)', featured.group(1))
+        for slug in slugs:
+            status = statuses.get(slug)
+            if status == "sold":
+                fail("featured", f"index.html: sold listing '{slug}' appears in Featured Properties")
+            elif status is None:
+                fail("featured", f"index.html: featured listing '{slug}' is missing from listings.json")
+
+# The default Properties view must show available inventory only. Sold cards
+# stay in the source markup so the dedicated Sold tab can clone them, but they
+# must be hidden from the default grid and excluded from property-type tabs.
+if os.path.exists("properties.html") and os.path.exists("listings.json"):
+    properties_page = read("properties.html")
+    if not re.search(
+        r'#tab-all\s+\.prop-card\[data-category~="sold"\]\s*\{\s*display:\s*none;',
+        properties_page,
+    ):
+        fail("properties", "properties.html: sold cards are not hidden from the default Available Listings view")
+    if "const availableCards = allCards.filter" not in properties_page:
+        fail("properties", "properties.html: property-type tabs do not filter from available listings")
+
+    all_panel = re.search(
+        r'<div class="tab-panel active" id="tab-all">(.*?)</div><!-- end tab-all -->',
+        properties_page,
+        re.S,
+    )
+    if all_panel:
+        card_categories = {
+            slug: set(categories.split())
+            for categories, slug in re.findall(
+                r'<div class="prop-card[^>]*data-category="([^"]*)"[^>]*data-slug="([^"]+)"',
+                all_panel.group(1),
+            )
+        }
+        with open("listings.json", encoding="utf-8") as f:
+            property_listing_data = json.load(f)
+        listing_statuses = {
+            item.get("slug"): str(item.get("status", "")).lower()
+            for item in property_listing_data.get("listings", [])
+        }
+        for slug, categories in card_categories.items():
+            status = listing_statuses.get(slug)
+            if status == "sold" and "sold" not in categories:
+                fail("properties", f"properties.html: sold listing '{slug}' is missing its sold category")
+            elif status not in (None, "sold") and "sold" in categories:
+                fail("properties", f"properties.html: available listing '{slug}' is incorrectly categorized as sold")
+
 # ------------------------------------------------------- 6. NAP + licensure
 NAP = {
     "brokerage": "J4 Legacy Properties, LLC",
