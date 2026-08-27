@@ -585,5 +585,19 @@
 /areas-yoakum.html                                 /areas-we-serve/lavaca-county/yoakum  301
 /our-team.html                                     /our-team  301
 
+# Field Notes batch 2
+/blog/hallettsville-shiner-ag-exemption-basics    /blog-hallettsville-shiner-ag-exemption-basics.html    200
+/hallettsville-shiner-ag-exemption-basics    /blog/hallettsville-shiner-ag-exemption-basics    301
+/blog-hallettsville-shiner-ag-exemption-basics.html    /blog/hallettsville-shiner-ag-exemption-basics    301!
+/blog/stephens-county-high-fence-ranch-value    /blog-stephens-county-high-fence-ranch-value.html    200
+/stephens-county-high-fence-ranch-value    /blog/stephens-county-high-fence-ranch-value    301
+/blog-stephens-county-high-fence-ranch-value.html    /blog/stephens-county-high-fence-ranch-value    301!
+/blog/victoria-county-1031-buyer-demand    /blog-victoria-county-1031-buyer-demand.html    200
+/victoria-county-1031-buyer-demand    /blog/victoria-county-1031-buyer-demand    301
+/blog-victoria-county-1031-buyer-demand.html    /blog/victoria-county-1031-buyer-demand    301!
+/blog/el-campo-water-well-inspection-checklist    /blog-el-campo-water-well-inspection-checklist.html    200
+/el-campo-water-well-inspection-checklist    /blog/el-campo-water-well-inspection-checklist    301
+/blog-el-campo-water-well-inspection-checklist.html    /blog/el-campo-water-well-inspection-checklist    301!
+
 # Favicon
 /favicon.ico    /images/brand/favicon-32.png    200
