@@ -408,6 +408,18 @@
 /blog/texas-ranch-land-due-diligence    /blog-texas-ranch-land-due-diligence.html    200
 /texas-ranch-land-due-diligence    /blog/texas-ranch-land-due-diligence    301
 /blog-texas-ranch-land-due-diligence.html    /blog/texas-ranch-land-due-diligence    301!
+/blog/wharton-county-500k-land-guide    /blog-wharton-county-500k-land-guide.html    200
+/wharton-county-500k-land-guide    /blog/wharton-county-500k-land-guide    301
+/blog-wharton-county-500k-land-guide.html    /blog/wharton-county-500k-land-guide    301!
+/blog/bay-city-coastal-land-hurricane-risk    /blog-bay-city-coastal-land-hurricane-risk.html    200
+/bay-city-coastal-land-hurricane-risk    /blog/bay-city-coastal-land-hurricane-risk    301
+/blog-bay-city-coastal-land-hurricane-risk.html    /blog/bay-city-coastal-land-hurricane-risk    301!
+/blog/bellville-sealy-moving-from-houston    /blog-bellville-sealy-moving-from-houston.html    200
+/bellville-sealy-moving-from-houston    /blog/bellville-sealy-moving-from-houston    301
+/blog-bellville-sealy-moving-from-houston.html    /blog/bellville-sealy-moving-from-houston    301!
+/blog/columbus-eagle-lake-hunting-land-value    /blog-columbus-eagle-lake-hunting-land-value.html    200
+/columbus-eagle-lake-hunting-land-value    /blog/columbus-eagle-lake-hunting-land-value    301
+/blog-columbus-eagle-lake-hunting-land-value.html    /blog/columbus-eagle-lake-hunting-land-value    301!
 
 # Our Team: consolidate team.html into our-team.html (canonical /our-team).
 # Force flag (!) ensures redirect fires even if a stale team.html ever exists.
