@@ -14,8 +14,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/images/brand/favicon-180.png" />
-    <script src="/property-intake/reliability.js?v=20260829-4"></script>
-    <script src="/property-intake/experience.js?v=20260829-4" defer></script>
+    <style>
+      .j4-turnstile-host { display:flex; align-items:center; justify-content:center; min-height:65px; }
+      @media (max-width:900px) {
+        body { padding-bottom:300px; }
+        .j4-turnstile-host { grid-column:1/-1; }
+      }
+    </style>
+    <script src="/property-intake/reliability.js?v=20260829-5"></script>
+    <script src="/property-intake/experience.js?v=20260829-5" defer></script>
     <script>
       (() => {
         const endpoint = "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/submit-property-intake";
@@ -28,9 +35,11 @@
 
           const token = document.querySelector('[name="cf-turnstile-response"]')?.value || "";
           if (!token) {
+            window.j4PropertyTurnstileReady?.();
+            document.getElementById("j4lp-property-turnstile-host")?.scrollIntoView({ behavior: "smooth", block: "center" });
             return new Response(JSON.stringify({
               success: false,
-              error: "Please complete the security check before submitting."
+              error: "Complete the visible security check, then click Submit again."
             }), { status: 422, headers: { "Content-Type": "application/json" } });
           }
 
@@ -50,15 +59,11 @@
 
         window.j4PropertyTurnstileReady = () => {
           if (document.getElementById("j4lp-property-turnstile")) return;
-          const form = document.querySelector("form.intake-card");
-          const submit = [...document.querySelectorAll("button")]
-            .find((button) => button.textContent.trim() === "Submit property intake");
-          const actionButton = submit || form?.querySelector("button.primary-button");
-          if (!form || !actionButton) return;
+          const host = document.getElementById("j4lp-property-turnstile-host");
+          if (!host) return;
           const mount = document.createElement("div");
           mount.id = "j4lp-property-turnstile";
-          mount.style.cssText = "display:flex;justify-content:center;margin:0 12px;";
-          actionButton.before(mount);
+          host.append(mount);
           window.__j4PropertyTurnstileId = window.turnstile.render(mount, {
             sitekey,
             theme: "light",
@@ -84,7 +89,7 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=j4PropertyTurnstileReady&render=explicit" async defer></script>
     <script type="module" crossorigin src="/property-intake/assets/index-Dpp6lgAc.js"></script>
     <link rel="stylesheet" crossorigin href="/property-intake/assets/index-CC8qtr0l.css">
-    <link rel="stylesheet" href="/property-intake/experience.css">
+    <link rel="stylesheet" href="/property-intake/experience.css?v=20260829-5">
   </head>
   <body>
     <div id="root"></div>

@@ -149,10 +149,11 @@
     const copy = el("div", { className: "j4-save-copy" });
     copy.append(el("b", {}, "Need more time?")); copy.append(el("span", { id: "j4-save-status", className: "j4-save-status", "aria-live": "polite" }, "Your progress is automatically saved on this device."));
     const actions = el("div", { className: "j4-save-actions" });
+    const security = el("div", { id: "j4lp-property-turnstile-host", className: "j4-turnstile-host", "aria-label": "Security check" });
     const save = el("button", { type: "button", className: "j4-save-primary" }, "Save & Finish Later"); save.addEventListener("click", saveDraft);
     const resume = el("button", { type: "button" }, "Continue a Saved Intake"); resume.addEventListener("click", () => resumeDialog().showModal());
     const clear = el("button", { type: "button", className: "j4-clear-button" }, "Start Over & Clear This Device"); clear.addEventListener("click", startOver);
-    actions.append(save, resume, clear); bar.append(copy, actions); document.body.append(bar);
+    actions.append(security, save, resume, clear); bar.append(copy, actions); document.body.append(bar);
   }
 
   function enhanceCurrentView() {
