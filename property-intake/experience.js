@@ -36,6 +36,9 @@
     status.textContent = message;
     status.className = `j4-save-status ${kind}`.trim();
   }
+  function setTextIfChanged(node, text) {
+    if (node && node.textContent !== text) node.textContent = text;
+  }
   function resetTurnstile() {
     if (window.turnstile && window.__j4PropertyTurnstileId != null) window.turnstile.reset(window.__j4PropertyTurnstileId);
   }
@@ -161,7 +164,7 @@
     const heading = [...document.querySelectorAll("h1")].find((node) => /^Thank you,/i.test(node.textContent || ""));
     if (heading) {
       document.getElementById("j4-save-bar")?.remove();
-      heading.textContent = heading.textContent.replace(/Thank you,\s*(.+)\./i, (_, name) => `Thank you, ${smartTitle(name)}.`);
+      setTextIfChanged(heading, heading.textContent.replace(/Thank you,\s*(.+)\./i, (_, name) => `Thank you, ${smartTitle(name)}.`));
     }
     const viewLink = [...document.querySelectorAll("a")].find((node) => /View submitted intake/i.test(node.textContent || ""));
     if (viewLink) { viewLink.textContent = "View, Print, or Save My Full Answers"; viewLink.classList.add("j4-summary-primary"); }
@@ -173,7 +176,7 @@
       const value = term.nextElementSibling;
       if (!value) return;
       const suffix = /^County$/.test(term.textContent.trim()) && !/\bCounty$/i.test(value.textContent || "") ? " County" : "";
-      value.textContent = smartTitle(value.textContent) + suffix;
+      setTextIfChanged(value, smartTitle(value.textContent) + suffix);
     });
   }
 

@@ -32,6 +32,13 @@ test("page-wide observers batch form updates instead of rescanning on every muta
   assert.match(html, /getElementById\("j4lp-property-turnstile"\)\) return/);
 });
 
+test("completion-page capitalization is idempotent and cannot retrigger its observer forever", () => {
+  assert.match(experience, /function setTextIfChanged\(node, text\)/);
+  assert.match(experience, /node\.textContent !== text/);
+  assert.match(experience, /setTextIfChanged\(heading,/);
+  assert.match(experience, /setTextIfChanged\(value,/);
+});
+
 test("ZIP is visually ordered before County", () => {
   const zip = styles.indexOf('input[name="zip"]');
   const county = styles.indexOf('input[name="county"]');
