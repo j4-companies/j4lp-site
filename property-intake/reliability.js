@@ -80,7 +80,7 @@
     renderStatus();
   }
 
-  function secureSavedMessage(emailSent) {
+  function secureSavedMessage(emailSent, isNew = false) {
     const time = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
     if (emailSent === false) {
       const credentials = readCredentials();
@@ -89,7 +89,9 @@
         ? `Secure copy saved at ${time}, but the return-link email has not been confirmed. Keep this page open or copy this private return link: ${link}`
         : `Secure copy saved at ${time}, but the return-link email has not been confirmed.`;
     }
-    return `Secure copy saved at ${time}. A private return link was sent to the email provided.`;
+    return isNew
+      ? `Secure copy saved at ${time}. A private return link was sent to the email provided.`
+      : `Secure draft updated at ${time}. Use the private return link from your original email.`;
   }
 
   async function saveSnapshot(snapshot, keepalive = false) {
@@ -138,7 +140,7 @@
       if (result.isNew && window.turnstile && window.__j4PropertyTurnstileId != null) window.turnstile.reset(window.__j4PropertyTurnstileId);
       if (shouldRetryLink) returnLinkRetryCount += 1;
       if (!result.stored && (!response.ok || !result.success)) throw new Error(result.error || "The secure copy could not be saved.");
-      setStatus(secureSavedMessage(result.emailSent ?? readCredentials()?.emailSent));
+      setStatus(secureSavedMessage(result.emailSent ?? readCredentials()?.emailSent, result.isNew));
     } catch (error) {
       setStatus(`Your answers are still saved on this device, but the secure copy could not be updated. ${error instanceof Error ? error.message : "Please try again."}`);
     } finally {
@@ -217,7 +219,7 @@
       const result = await response.clone().json().catch(() => ({}));
       if (result.draftKey && result.resumeToken) storeCredentials(result, result.emailSent, requestBody.email);
       if (result.isNew && window.turnstile && window.__j4PropertyTurnstileId != null) window.turnstile.reset(window.__j4PropertyTurnstileId);
-      if (result.stored) setStatus(secureSavedMessage(result.emailSent ?? readCredentials()?.emailSent));
+      if (result.stored) setStatus(secureSavedMessage(result.emailSent ?? readCredentials()?.emailSent, result.isNew));
     }
     if (url === MANAGE_ENDPOINT && requestBody?.action === "loadDraft") {
       const result = await response.clone().json().catch(() => ({}));

@@ -89,7 +89,12 @@
     const result = await response.json().catch(() => ({}));
     if (!result.stored) return setStatus(result.error || "The secure copy could not be saved. Your answers remain on this device.", "error");
     const reference = result.draftReference || credentials()?.draftReference || "your draft reference";
-    setStatus(result.emailSent === false ? `Saved. Reference ${reference}. The email could not be confirmed, so keep this page open and try Save again.` : `Saved. Reference ${reference}. A private return link was emailed to ${email}.`, result.emailSent === false ? "warning" : "success");
+    const savedMessage = result.emailSent === false
+      ? `Saved. Reference ${reference}. The email could not be confirmed, so keep this page open and try Save again.`
+      : result.isNew
+        ? `Saved. Reference ${reference}. A private return link was emailed to ${email}.`
+        : `Draft updated. Reference ${reference}. Use the private return link from your original email.`;
+    setStatus(savedMessage, result.emailSent === false ? "warning" : "success");
     resetTurnstile();
     const emailField = document.querySelector('input[name="email"]');
     if (emailField && !emailField.value) setReactInput(emailField, email);
