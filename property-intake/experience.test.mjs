@@ -22,7 +22,7 @@ test("save, resume, clear-device, and final-summary controls are present", () =>
   assert.match(experience, /Start Over & Clear This Device/);
   assert.match(experience, /View, Print, or Save My Full Answers/);
   assert.match(experience, /The reference alone cannot open your answers/);
-  assert.match(experience, /Use the private return link from your original email/);
+  assert.match(experience, /Your original private return link still works and will open your latest saved answers/);
 });
 
 test("ZIP is visually ordered before County", () => {

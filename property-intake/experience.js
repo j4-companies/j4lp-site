@@ -93,7 +93,7 @@
       ? `Saved. Reference ${reference}. The email could not be confirmed, so keep this page open and try Save again.`
       : result.isNew
         ? `Saved. Reference ${reference}. A private return link was emailed to ${email}.`
-        : `Draft updated. Reference ${reference}. Use the private return link from your original email.`;
+        : `Draft updated. Reference ${reference}. Your original private return link still works and will open your latest saved answers.`;
     setStatus(savedMessage, result.emailSent === false ? "warning" : "success");
     resetTurnstile();
     const emailField = document.querySelector('input[name="email"]');
