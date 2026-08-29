@@ -1,0 +1,105 @@
+name: Property Intake Reliability Monitor
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: property-intake-reliability
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retry missing intake emails
+        id: retry
+        env:
+          INTAKE_MONITOR_SECRET: ${{ secrets.INTAKE_MONITOR_SECRET }}
+        shell: bash
+        run: |
+          if [ -z "$INTAKE_MONITOR_SECRET" ]; then
+            echo '{"success":false,"error":"INTAKE_MONITOR_SECRET is not configured"}' > response.json
+            echo "http_status=000" >> "$GITHUB_OUTPUT"
+            echo "unresolved=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          http_status=$(curl --silent --show-error \
+            --output response.json \
+            --write-out "%{http_code}" \
+            --request POST \
+            --header "x-intake-monitor-secret: $INTAKE_MONITOR_SECRET" \
+            "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/submit-property-intake?action=retryEmails" || true)
+
+          if ! jq empty response.json >/dev/null 2>&1; then
+            echo '{"success":false,"error":"Monitor returned a non-JSON response"}' > response.json
+          fi
+          unresolved=$(jq 'if .success == true then (.unresolved | length) else 1 end' response.json)
+          summary=$(jq -c '{success,checked,attempted,unresolved,error}' response.json)
+          {
+            echo "http_status=${http_status:-000}"
+            echo "unresolved=$unresolved"
+            echo "summary=$summary"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open, update, or close the independent failure alert
+        uses: actions/github-script@v7
+        env:
+          HTTP_STATUS: ${{ steps.retry.outputs.http_status }}
+          UNRESOLVED: ${{ steps.retry.outputs.unresolved }}
+          SUMMARY: ${{ steps.retry.outputs.summary }}
+        with:
+          script: |
+            const title = '[Lead Delivery] J4LP property intake email failure';
+            const { owner, repo } = context.repo;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'all', per_page: 100,
+            });
+            const existing = issues.find((issue) => !issue.pull_request && issue.title === title);
+            const unresolved = Number(process.env.UNRESOLVED || '1');
+            const healthy = process.env.HTTP_STATUS === '200' && unresolved === 0;
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+
+            if (healthy) {
+              if (existing && existing.state === 'open') {
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: existing.number,
+                  body: `Resolved automatically. The five-minute reconciliation found no stored intake missing either required email.\n\nRun: ${runUrl}`,
+                });
+                await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'closed' });
+              }
+              return;
+            }
+
+            const body = [
+              'A stored J4LP property intake is still missing its client receipt or internal alert, or the reconciliation check itself failed.',
+              '',
+              `HTTP status: ${process.env.HTTP_STATUS || 'unknown'}`,
+              `Unresolved count: ${unresolved}`,
+              `Result: \`${process.env.SUMMARY || 'No result'}\``,
+              '',
+              `Run: ${runUrl}`,
+              '',
+              'This alert is independent of Resend. Check Supabase `property_intakes.email_error` and the Resend delivery log before closing it manually.',
+            ].join('\n');
+
+            if (existing) {
+              if (existing.state !== 'open') {
+                await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'open' });
+              }
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body, labels: ['lead-delivery'] }).catch(async () => {
+                await github.rest.issues.create({ owner, repo, title, body });
+              });
+            }
+
+      - name: Fail the run when delivery is unresolved
+        if: steps.retry.outputs.http_status != '200' || steps.retry.outputs.unresolved != '0'
+        run: exit 1
