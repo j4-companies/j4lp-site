@@ -13,6 +13,55 @@
     <meta property="og:image" content="https://www.j4lp.com/property-intake/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/property-intake/favicon.svg" />
+    <script>
+      (() => {
+        const endpoint = "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/submit-property-intake";
+        const sitekey = "0x4AAAAAAEf5tLI9lkYWGs4C";
+        const originalFetch = window.fetch.bind(window);
+
+        window.fetch = async (input, init = {}) => {
+          const isSubmission = String(input) === endpoint && String(init.method || "GET").toUpperCase() === "POST";
+          if (!isSubmission) return originalFetch(input, init);
+
+          const token = document.querySelector('[name="cf-turnstile-response"]')?.value || "";
+          if (!token) {
+            return new Response(JSON.stringify({
+              success: false,
+              error: "Please complete the security check before submitting."
+            }), { status: 422, headers: { "Content-Type": "application/json" } });
+          }
+
+          let body;
+          try {
+            body = JSON.stringify({ ...JSON.parse(String(init.body || "{}")), turnstileToken: token });
+          } catch {
+            body = init.body;
+          }
+
+          const response = await originalFetch(input, { ...init, body });
+          if (!response.ok && window.turnstile && window.__j4PropertyTurnstileId != null) {
+            window.turnstile.reset(window.__j4PropertyTurnstileId);
+          }
+          return response;
+        };
+
+        window.j4PropertyTurnstileReady = () => {
+          const submit = [...document.querySelectorAll("button")]
+            .find((button) => button.textContent.trim() === "Submit property intake");
+          if (!submit || document.getElementById("j4lp-property-turnstile")) return;
+          const mount = document.createElement("div");
+          mount.id = "j4lp-property-turnstile";
+          mount.style.cssText = "display:flex;justify-content:center;margin:0 12px;";
+          submit.before(mount);
+          window.__j4PropertyTurnstileId = window.turnstile.render(mount, { sitekey, theme: "light" });
+        };
+
+        new MutationObserver(() => {
+          if (window.turnstile) window.j4PropertyTurnstileReady();
+        }).observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=j4PropertyTurnstileReady&render=explicit" async defer></script>
     <script type="module" crossorigin src="/property-intake/assets/index-Dpp6lgAc.js"></script>
     <link rel="stylesheet" crossorigin href="/property-intake/assets/index-CC8qtr0l.css">
   </head>
