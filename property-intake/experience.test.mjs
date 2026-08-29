@@ -14,6 +14,8 @@ test("the property-intake tab uses J4LP brand icons", () => {
   assert.match(html, /\/images\/brand\/favicon-180\.png/);
   assert.match(html, /experience\.js/);
   assert.match(html, /experience\.css/);
+  assert.match(html, /reliability\.js\?v=20260829-4/);
+  assert.match(html, /experience\.js\?v=20260829-4/);
 });
 
 test("save, resume, clear-device, and final-summary controls are present", () => {
