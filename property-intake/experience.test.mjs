@@ -14,8 +14,9 @@ test("the property-intake tab uses J4LP brand icons", () => {
   assert.match(html, /\/images\/brand\/favicon-180\.png/);
   assert.match(html, /experience\.js/);
   assert.match(html, /experience\.css/);
-  assert.match(html, /reliability\.js\?v=20260829-4/);
-  assert.match(html, /experience\.js\?v=20260829-4/);
+  assert.match(html, /reliability\.js\?v=20260829-5/);
+  assert.match(html, /experience\.js\?v=20260829-5/);
+  assert.match(html, /experience\.css\?v=20260829-5/);
 });
 
 test("save, resume, clear-device, and final-summary controls are present", () => {
@@ -32,6 +33,13 @@ test("page-wide observers batch form updates instead of rescanning on every muta
   assert.match(experience, /requestAnimationFrame/);
   assert.match(html, /turnstileMountQueued/);
   assert.match(html, /getElementById\("j4lp-property-turnstile"\)\) return/);
+});
+
+test("the security check lives in the persistent save bar through every form step", () => {
+  assert.match(experience, /id: "j4lp-property-turnstile-host"/);
+  assert.match(html, /getElementById\("j4lp-property-turnstile-host"\)/);
+  assert.doesNotMatch(html, /actionButton\.before\(mount\)/);
+  assert.match(html, /\.j4-turnstile-host/);
 });
 
 test("completion-page capitalization is idempotent and cannot retrigger its observer forever", () => {
