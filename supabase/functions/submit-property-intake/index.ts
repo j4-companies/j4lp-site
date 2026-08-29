@@ -81,7 +81,7 @@ const LABELS: Record<string, string> = {
 
 const SUMMARY_SECTIONS: Array<[string, string[]]> = [
   ["Request", ["requestType", "bpoPurpose", "neededBy", "referralSource"]],
-  ["Property and residence", ["address", "nearestTown", "county", "zip", "acreage", "acreageBasis", "propertyId", "legalDescription", "mapPin", "propertyType", "propertyTypeOther", "residenceStatus", "residenceCount", "residenceYearBuilt", "residenceSqFt", "residenceBeds", "residenceFullBaths", "residenceHalfBaths", "residenceStories", "residenceFoundation", "residenceConstruction", "residenceCondition", "residenceFeatures", "residenceUpdates", "tractCount", "propertyName"]],
+  ["Property and residence", ["address", "nearestTown", "zip", "county", "acreage", "acreageBasis", "propertyId", "legalDescription", "mapPin", "propertyType", "propertyTypeOther", "residenceStatus", "residenceCount", "residenceYearBuilt", "residenceSqFt", "residenceBeds", "residenceFullBaths", "residenceHalfBaths", "residenceStories", "residenceFoundation", "residenceConstruction", "residenceCondition", "residenceFeatures", "residenceUpdates", "tractCount", "propertyName"]],
   ["Ownership and use", ["deedOwner", "ownershipType", "acquisition", "inherited", "decisionMakers", "occupancy", "currentUse", "landUseDetails", "agStatus", "agUse", "agYears", "agConcerns", "leaseStatus", "leaseDetails"]],
   ["Access, water and utilities", ["accessType", "roadName", "frontage", "easements", "easementTypes", "easementDetails", "boundaryDetails", "restrictions", "surveyStatus", "surveyChanges", "surveyDetails", "waterSources", "wellCount", "wellDetails", "surfaceWaterDetails", "septicType", "septicDetails", "electric", "utilitiesDetails"]],
   ["Improvements and diligence", ["improvements", "improvementsDetails", "fencing", "roadCondition", "floodStatus", "floodDetails", "mineralRights", "rightsDetails", "titleConcerns", "environmentalConcerns", "knownDefects", "availableDocuments"]],
@@ -122,6 +122,21 @@ function corsHeaders(origin: string | null) {
 
 function text(value: unknown, max = 4000) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+function smartTitle(value: unknown, max = 200) {
+  const original = text(value, max).replace(/\s+/g, " ");
+  if (!original) return "";
+  const letters = original.replace(/[^A-Za-z]/g, "");
+  const hasUpper = /[A-Z]/.test(letters);
+  const hasLower = /[a-z]/.test(letters);
+  if (hasUpper && hasLower) return original;
+  return original.toLowerCase().replace(/(^|[\s'-])([a-z])/g, (_match, boundary, letter) => boundary + letter.toUpperCase());
+}
+
+function countyLabel(value: unknown) {
+  const county = smartTitle(value, 200).replace(/\s+County$/i, "");
+  return county ? `${county} County` : "County not provided";
 }
 
 function list(value: unknown, maxItems = 30) {
@@ -168,7 +183,7 @@ async function connectCrmLead(supabase: ReturnType<typeof createClient>, body: I
 
     let lead = emailLead || phoneLead;
     const matchMethod: "email" | "phone" | "created" = emailLead ? "email" : phoneLead ? "phone" : "created";
-    const fullName = `${text(body.firstName, 120)} ${text(body.lastName, 120)}`.trim();
+    const fullName = `${smartTitle(body.firstName, 120)} ${smartTitle(body.lastName, 120)}`.trim();
 
     if (!lead) {
       const newLead = {
@@ -379,17 +394,17 @@ async function retryMissingEmails() {
     await ensureViewAccess(supabase, row.id, viewToken, hashSalt);
     const { count: fileCount } = await supabase.from("property_intake_files").select("id", { count: "exact", head: true }).eq("intake_id", row.id);
     const viewUrl = `https://www.j4lp.com/property-intake/?submission=${encodeURIComponent(row.reference)}&token=${encodeURIComponent(viewToken)}`;
-    const fullName = `${text(row.first_name, 120)} ${text(row.last_name, 120)}`.trim();
+    const fullName = `${smartTitle(row.first_name, 120)} ${smartTitle(row.last_name, 120)}`.trim();
     const assignedEmail = text(row.assigned_agent_email, 320) || "stephanie@j4lp.com";
     const supervisorEmail = text(row.supervisor_email, 320) || null;
     const selectedAgent = text(row.selected_agent, 200);
     const agentName = selectedAgent || "Stephanie";
     const requested = resourcesHtml(body);
     const resources = requested ? `<h2 style="font-family:Georgia,serif;color:#500203;margin:28px 0 10px">Information you requested</h2><ul style="padding-left:20px;line-height:1.55">${requested}</ul>` : "";
-    const clientHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:30px;line-height:1.2;margin:28px 0 12px">We received your property intake.</h1><p style="line-height:1.65">Hi ${escapeHtml(text(row.first_name, 120))},</p><p style="line-height:1.65">Your answers are saved under reference <strong>${escapeHtml(row.reference)}</strong>. ${escapeHtml(agentName)} will review the property details and contact you using the methods you selected.</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:14px 20px;text-decoration:none">View my submitted intake${fileCount ? ` and ${fileCount} document${fileCount === 1 ? "" : "s"}` : ""}</a></p><p style="font-size:13px;color:#555">Keep this private link for your records. Uploaded documents are not attached to email.</p>${resources}<h2 style="font-family:Georgia,serif;color:#500203;margin:28px 0 10px">Your submitted answers</h2>${summaryHtml(body)}<p style="line-height:1.65;margin-top:28px">If something needs correcting, reply to this email or call 833-543-LAND.</p><p style="line-height:1.65">${escapeHtml(agentName)}<br>J4 Legacy Properties</p>`, `Property intake ${row.reference} received by J4 Legacy Properties.`);
+    const clientHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:30px;line-height:1.2;margin:28px 0 12px">We received your property intake.</h1><p style="line-height:1.65">Hi ${escapeHtml(smartTitle(row.first_name, 120))},</p><p style="line-height:1.65">Your answers are saved under reference <strong>${escapeHtml(row.reference)}</strong>. ${escapeHtml(agentName)} will review the property details and contact you using the methods you selected.</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:14px 20px;text-decoration:none">View my submitted intake${fileCount ? ` and ${fileCount} document${fileCount === 1 ? "" : "s"}` : ""}</a></p><p style="font-size:13px;color:#555">Keep this private link for your records. Uploaded documents are not attached to email.</p>${resources}<h2 style="font-family:Georgia,serif;color:#500203;margin:28px 0 10px">Your submitted answers</h2>${summaryHtml(body)}<p style="line-height:1.65;margin-top:28px">If something needs correcting, reply to this email or call 833-543-LAND.</p><p style="line-height:1.65">${escapeHtml(agentName)}<br>J4 Legacy Properties</p>`, `Property intake ${row.reference} received by J4 Legacy Properties.`);
     const urgent = text(row.timeline) === "As soon as possible" || text(row.is_1031) !== "No";
     const crmStatus = row.lead_id ? `Linked to the Leads tab (${text(row.crm_match_method)})` : `NOT LINKED — manual review needed${row.crm_sync_error ? `: ${text(row.crm_sync_error)}` : ""}`;
-    const internalHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:28px;line-height:1.2;margin:28px 0 12px">${urgent ? "Priority review: " : "New property intake: "}${escapeHtml(fullName)}</h1><p style="line-height:1.65"><strong>Reference:</strong> ${escapeHtml(row.reference)}<br><strong>CRM lead:</strong> ${escapeHtml(crmStatus)}<br><strong>Documents:</strong> ${fileCount || 0}<br><strong>Route:</strong> ${escapeHtml(selectedAgent || text(row.agent_relationship))}<br><strong>Property:</strong> ${escapeHtml(text(row.property_address))}, ${escapeHtml(text(row.nearest_town))}, ${escapeHtml(text(row.county))} County<br><strong>Request:</strong> ${escapeHtml(text(body.requestType))}<br><strong>Timing:</strong> ${escapeHtml(text(row.timeline))}<br><strong>1031:</strong> ${escapeHtml(text(row.is_1031))}${text(body.exchangeRole) ? `, ${escapeHtml(text(body.exchangeRole))}` : ""}<br><strong>Preferred contact:</strong> ${escapeHtml(text(body.contactMethod))} · ${escapeHtml(text(row.phone))} · ${escapeHtml(text(row.email))}</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:12px 18px;text-decoration:none">Open secure intake and documents</a></p>${summaryHtml(body)}`, `${urgent ? "Priority " : "New "}property intake ${row.reference} from ${fullName}.`);
+    const internalHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:28px;line-height:1.2;margin:28px 0 12px">${urgent ? "Priority review: " : "New property intake: "}${escapeHtml(fullName)}</h1><p style="line-height:1.65"><strong>Reference:</strong> ${escapeHtml(row.reference)}<br><strong>CRM lead:</strong> ${escapeHtml(crmStatus)}<br><strong>Documents:</strong> ${fileCount || 0}<br><strong>Route:</strong> ${escapeHtml(selectedAgent || text(row.agent_relationship))}<br><strong>Property:</strong> ${escapeHtml(text(row.property_address))}, ${escapeHtml(text(row.nearest_town))}, ${escapeHtml(countyLabel(row.county))}<br><strong>Request:</strong> ${escapeHtml(text(body.requestType))}<br><strong>Timing:</strong> ${escapeHtml(text(row.timeline))}<br><strong>1031:</strong> ${escapeHtml(text(row.is_1031))}${text(body.exchangeRole) ? `, ${escapeHtml(text(body.exchangeRole))}` : ""}<br><strong>Preferred contact:</strong> ${escapeHtml(text(body.contactMethod))} · ${escapeHtml(text(row.phone))} · ${escapeHtml(text(row.email))}</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:12px 18px;text-decoration:none">Open secure intake and documents</a></p>${summaryHtml(body)}`, `${urgent ? "Priority " : "New "}property intake ${row.reference} from ${fullName}.`);
     const internalRecipients = [...new Set(["stephanie@j4lp.com", assignedEmail, supervisorEmail].filter(Boolean))] as string[];
     const updates: Record<string, unknown> = {};
     const emailErrors: string[] = [];
@@ -410,7 +425,7 @@ async function retryMissingEmails() {
     if (retryInternal) {
       updates.internal_alert_retry_count = Number(row.internal_alert_retry_count || 0) + 1;
       try {
-        const sent = await sendResend(resendKey, { from: "J4 Legacy Properties <intake@j4lp.com>", to: internalRecipients, reply_to: text(row.email, 320), subject: `${!row.lead_id ? "CRM LINK REVIEW | " : urgent ? "PRIORITY | " : ""}New property intake | ${text(row.county)} County | ${fullName}`, html: internalHtml }, `property-intake/internal/${row.reference}`);
+        const sent = await sendResend(resendKey, { from: "J4 Legacy Properties <intake@j4lp.com>", to: internalRecipients, reply_to: text(row.email, 320), subject: `New Property Intake Form from J4 Legacy Properties | ${countyLabel(row.county)} | ${fullName}`, html: internalHtml }, `property-intake/internal/${row.reference}`);
         if (sent.id) {
           updates.internal_alert_id = sent.id;
           updates.internal_alert_sent_at = new Date().toISOString();
@@ -607,14 +622,14 @@ serve(async (req) => {
     const agentName = selectedAgent || "Stephanie";
     const requested = resourcesHtml(body);
     const resources = requested ? `<h2 style="font-family:Georgia,serif;color:#500203;margin:28px 0 10px">Information you requested</h2><ul style="padding-left:20px;line-height:1.55">${requested}</ul>` : "";
-    const clientHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:30px;line-height:1.2;margin:28px 0 12px">We received your property intake.</h1><p style="line-height:1.65">Hi ${escapeHtml(text(body.firstName, 120))},</p><p style="line-height:1.65">Your answers are saved under reference <strong>${escapeHtml(reference)}</strong>. ${escapeHtml(agentName)} will review the property details and contact you using the methods you selected.</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:14px 20px;text-decoration:none">View my submitted intake${fileCount ? ` and ${fileCount} document${fileCount === 1 ? "" : "s"}` : ""}</a></p><p style="font-size:13px;color:#555">Keep this private link for your records. Uploaded documents are not attached to email.</p>${resources}<h2 style="font-family:Georgia,serif;color:#500203;margin:28px 0 10px">Your submitted answers</h2>${summaryHtml(body)}<p style="line-height:1.65;margin-top:28px">If something needs correcting, reply to this email or call 833-543-LAND.</p><p style="line-height:1.65">${escapeHtml(agentName)}<br>J4 Legacy Properties</p>`, `Property intake ${reference} received by J4 Legacy Properties.`);
+    const clientHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:30px;line-height:1.2;margin:28px 0 12px">We received your property intake.</h1><p style="line-height:1.65">Hi ${escapeHtml(smartTitle(body.firstName, 120))},</p><p style="line-height:1.65">Your answers are saved under reference <strong>${escapeHtml(reference)}</strong>. ${escapeHtml(agentName)} will review the property details and contact you using the methods you selected.</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:14px 20px;text-decoration:none">View my submitted intake${fileCount ? ` and ${fileCount} document${fileCount === 1 ? "" : "s"}` : ""}</a></p><p style="font-size:13px;color:#555">Keep this private link for your records. Uploaded documents are not attached to email.</p>${resources}<h2 style="font-family:Georgia,serif;color:#500203;margin:28px 0 10px">Your submitted answers</h2>${summaryHtml(body)}<p style="line-height:1.65;margin-top:28px">If something needs correcting, reply to this email or call 833-543-LAND.</p><p style="line-height:1.65">${escapeHtml(agentName)}<br>J4 Legacy Properties</p>`, `Property intake ${reference} received by J4 Legacy Properties.`);
     const urgent = text(body.timeline) === "As soon as possible" || text(body.is1031) !== "No";
     const crmStatus = crm.leadId
       ? `Linked to the Leads tab (${crm.matchMethod})`
       : isTest
         ? "Test submission — no CRM lead created"
         : `NOT LINKED — manual review needed${crm.syncError ? `: ${crm.syncError}` : ""}`;
-    const internalHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:28px;line-height:1.2;margin:28px 0 12px">${urgent ? "Priority review: " : "New property intake: "}${escapeHtml(fullName)}</h1><p style="line-height:1.65"><strong>Reference:</strong> ${escapeHtml(reference)}<br><strong>CRM lead:</strong> ${escapeHtml(crmStatus)}<br><strong>Documents:</strong> ${fileCount || 0}<br><strong>Route:</strong> ${escapeHtml(selectedAgent || relationship)}<br><strong>Property:</strong> ${escapeHtml(text(body.address))}, ${escapeHtml(text(body.nearestTown))}, ${escapeHtml(text(body.county))} County<br><strong>Request:</strong> ${escapeHtml(text(body.requestType))}<br><strong>Timing:</strong> ${escapeHtml(text(body.timeline))}<br><strong>1031:</strong> ${escapeHtml(text(body.is1031))}${text(body.exchangeRole) ? `, ${escapeHtml(text(body.exchangeRole))}` : ""}<br><strong>Preferred contact:</strong> ${escapeHtml(text(body.contactMethod))} · ${escapeHtml(text(body.phone))} · ${escapeHtml(normalizedEmail)}</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:12px 18px;text-decoration:none">Open secure intake and documents</a></p>${summaryHtml(body)}`, `${urgent ? "Priority " : "New "}property intake ${reference} from ${fullName}.`);
+    const internalHtml = emailFrame(`<h1 style="font-family:Georgia,serif;font-size:28px;line-height:1.2;margin:28px 0 12px">${urgent ? "Priority review: " : "New property intake: "}${escapeHtml(fullName)}</h1><p style="line-height:1.65"><strong>Reference:</strong> ${escapeHtml(reference)}<br><strong>CRM lead:</strong> ${escapeHtml(crmStatus)}<br><strong>Documents:</strong> ${fileCount || 0}<br><strong>Route:</strong> ${escapeHtml(selectedAgent || relationship)}<br><strong>Property:</strong> ${escapeHtml(text(body.address))}, ${escapeHtml(text(body.nearestTown))}, ${escapeHtml(countyLabel(body.county))}<br><strong>Request:</strong> ${escapeHtml(text(body.requestType))}<br><strong>Timing:</strong> ${escapeHtml(text(body.timeline))}<br><strong>1031:</strong> ${escapeHtml(text(body.is1031))}${text(body.exchangeRole) ? `, ${escapeHtml(text(body.exchangeRole))}` : ""}<br><strong>Preferred contact:</strong> ${escapeHtml(text(body.contactMethod))} · ${escapeHtml(text(body.phone))} · ${escapeHtml(normalizedEmail)}</p><p><a href="${viewUrl}" style="display:inline-block;background:#500203;color:#fff;padding:12px 18px;text-decoration:none">Open secure intake and documents</a></p>${summaryHtml(body)}`, `${urgent ? "Priority " : "New "}property intake ${reference} from ${fullName}.`);
 
     const internalRecipients = [...new Set(["stephanie@j4lp.com", assignedEmail, supervisorEmail].filter(Boolean))] as string[];
     let clientReceiptId: string | null = null;
@@ -625,7 +640,7 @@ serve(async (req) => {
       clientReceiptId = sent.id || null;
     } catch (error) { emailErrors.push(`Client receipt: ${error instanceof Error ? error.message : String(error)}`); }
     try {
-      const sent = await sendResend(resendKey, { from: "J4 Legacy Properties <intake@j4lp.com>", to: internalRecipients, reply_to: normalizedEmail, subject: `${!crm.leadId && !isTest ? "CRM LINK REVIEW | " : urgent ? "PRIORITY | " : ""}New property intake | ${text(body.county)} County | ${fullName}`, html: internalHtml }, `property-intake/internal/${reference}`);
+      const sent = await sendResend(resendKey, { from: "J4 Legacy Properties <intake@j4lp.com>", to: internalRecipients, reply_to: normalizedEmail, subject: `New Property Intake Form from J4 Legacy Properties | ${countyLabel(body.county)} | ${fullName}`, html: internalHtml }, `property-intake/internal/${reference}`);
       internalAlertId = sent.id || null;
     } catch (error) { emailErrors.push(`Internal alert: ${error instanceof Error ? error.message : String(error)}`); }
 

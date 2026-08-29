@@ -22,6 +22,14 @@ function randomToken() {
   return Array.from(bytes).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 function validEmail(value: unknown) { return /^\S+@\S+\.\S+$/.test(String(value || "").trim()); }
+function draftReference(draftKey: string, date = new Date()) {
+  const stamp = date.toISOString().slice(2, 10).replace(/-/g, "");
+  return `DRAFT-${stamp}-${draftKey.replace(/-/g, "").slice(0, 6).toUpperCase()}`;
+}
+function normalizeDraftReference(value: unknown) {
+  const reference = String(value || "").trim().toUpperCase();
+  return /^DRAFT-\d{6}-[A-F0-9]{6}$/.test(reference) ? reference : "";
+}
 function safeName(name: string) { return name.replace(/[^a-zA-Z0-9._-]+/g, "-").slice(-120) || "document"; }
 function cleanPayload(value: unknown) {
   const payload = value && typeof value === "object" ? { ...(value as Record<string, unknown>) } : {};
@@ -80,12 +88,48 @@ serve(async (req) => {
     const raw = await req.text();
     if (new TextEncoder().encode(raw).byteLength > 220_000) return reply(origin, { success: false, error: "Request is too large" }, 413);
     const body = JSON.parse(raw);
+    if (body.action === "requestResumeLink") {
+      const email = String(body.email || "").trim().toLowerCase();
+      const reference = normalizeDraftReference(body.draftReference);
+      const neutral = { success: true, message: "If that reference and email match an active draft, a fresh private return link was emailed." };
+      const requestIp = req.headers.get("cf-connecting-ip") || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+      if (!validEmail(email) || !reference) return reply(origin, neutral);
+      if (!(await verifyTurnstile(body.turnstileToken, requestIp))) return reply(origin, { success: false, error: "Complete the security check before requesting a return link." }, 403);
+      const { data: draft, error: lookupError } = await db.from("property_intake_drafts")
+        .select("id,draft_key,email,status,expires_at,resume_token_hash,return_link_attempted_at,return_link_attempt_count")
+        .eq("draft_reference", reference).eq("email", email).maybeSingle();
+      if (lookupError) throw lookupError;
+      if (!draft || draft.status !== "draft" || new Date(draft.expires_at) <= new Date()) return reply(origin, neutral);
+      const attemptedAt = draft.return_link_attempted_at ? new Date(draft.return_link_attempted_at).getTime() : 0;
+      const attempts = Number(draft.return_link_attempt_count || 0);
+      if (attemptedAt > Date.now() - 60_000 || attempts >= 8) return reply(origin, neutral);
+      const resend = Deno.env.get("RESEND_API_KEY") || "";
+      if (!resend) { console.error("Resume-link email is not configured"); return reply(origin, neutral); }
+      const token = randomToken();
+      const tokenHash = await hashToken(token, salt);
+      const resumeUrl = `https://www.j4lp.com/property-intake/?draft=${encodeURIComponent(draft.draft_key)}&token=${encodeURIComponent(token)}`;
+      const now = new Date().toISOString();
+      const { data: rotated, error: rotateError } = await db.from("property_intake_drafts").update({ resume_token_hash: tokenHash, return_link_attempted_at: now, return_link_attempt_count: attempts + 1 }).eq("id", draft.id).eq("resume_token_hash", draft.resume_token_hash).select("id").maybeSingle();
+      if (rotateError) throw rotateError;
+      if (!rotated) return reply(origin, neutral);
+      const mail = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${resend}`, "Content-Type": "application/json", "Idempotency-Key": `property-intake-resume/${draft.draft_key}/${attempts + 1}` }, body: JSON.stringify({ from: "J4 Legacy Properties <intake@j4lp.com>", to: [email], subject: `Return to your J4LP property intake | ${reference}`, html: `<div style="font-family:Arial,sans-serif;max-width:620px;margin:auto"><h1 style="font-family:Georgia,serif;color:#500203">Your property intake is ready.</h1><p>Draft reference: <strong>${reference}</strong></p><p>Use this fresh private link to return to your saved answers. It expires when the draft expires.</p><p><a style="display:inline-block;background:#500203;color:white;padding:14px 20px;text-decoration:none" href="${resumeUrl}">Continue my property intake</a></p><p>Keep this link private. The reference number by itself cannot open your information.</p></div>` }) });
+      const mailResult = await mail.json().catch(() => ({})) as { id?: string };
+      if (!mail.ok || !mailResult.id) {
+        await db.from("property_intake_drafts").update({ resume_token_hash: draft.resume_token_hash, return_link_email_error: `Resend ${mail.status}: ${JSON.stringify(mailResult).slice(0, 1000)}`, return_link_delivery_status: "failed" }).eq("id", draft.id).eq("resume_token_hash", tokenHash);
+        console.error("Resume-link email failed", mail.status, mailResult);
+        return reply(origin, neutral);
+      }
+      await db.from("property_intake_drafts").update({ return_link_email_id: mailResult.id, return_link_sent_at: now, return_link_email_error: null, return_link_delivery_status: "sent" }).eq("id", draft.id).eq("resume_token_hash", tokenHash);
+      return reply(origin, neutral);
+    }
+
     if (body.action === "saveDraft") {
       const email = String(body.email || "").trim().toLowerCase();
       if (!validEmail(email)) return reply(origin, { success: false, error: "Enter a valid email address before saving." }, 400);
       let draftKey = String(body.draftKey || "");
       let token = String(body.resumeToken || "");
       let draftId = "";
+      let friendlyReference = "";
       let isNew = false;
       let returnLinkSentAt: string | null = null;
       let returnLinkAttemptedAt: string | null = null;
@@ -95,9 +139,10 @@ serve(async (req) => {
       const requestIpHash = await hashToken(requestIp, salt);
       if (draftKey && token) {
         const tokenHash = await hashToken(token, salt);
-        const { data: existing } = await db.from("property_intake_drafts").select("id,email,status,expires_at,return_link_sent_at,return_link_attempted_at,return_link_attempt_count").eq("draft_key", draftKey).eq("resume_token_hash", tokenHash).maybeSingle();
+        const { data: existing } = await db.from("property_intake_drafts").select("id,email,status,expires_at,draft_reference,return_link_sent_at,return_link_attempted_at,return_link_attempt_count").eq("draft_key", draftKey).eq("resume_token_hash", tokenHash).maybeSingle();
         if (!existing || existing.status !== "draft" || new Date(existing.expires_at) <= new Date() || String(existing.email).toLowerCase() !== email) return reply(origin, { success: false, error: "This draft link is invalid, expired, or belongs to a different email address." }, 403);
         draftId = existing.id;
+        friendlyReference = existing.draft_reference;
         returnLinkSentAt = existing.return_link_sent_at;
         returnLinkAttemptedAt = existing.return_link_attempted_at;
         returnLinkAttemptCount = Number(existing.return_link_attempt_count || 0);
@@ -114,20 +159,20 @@ serve(async (req) => {
         if (ipRecent.error) throw ipRecent.error;
         if ((emailRecent.count || 0) >= 3 || (ipRecent.count || 0) >= 10) return reply(origin, { success: false, error: "Too many recent save-link requests. Your answers remain saved on this device." }, 429);
         isNew = true;
-        draftKey = crypto.randomUUID(); token = randomToken();
-        const { data: created, error } = await db.from("property_intake_drafts").insert({ draft_key: draftKey, resume_token_hash: await hashToken(token, salt), email, payload: cleanPayload(body.payload), current_step: Math.max(0, Math.min(7, Number(body.currentStep) || 0)), expires_at: expiresAt, request_ip_hash: requestIpHash }).select("id").single();
+        draftKey = crypto.randomUUID(); token = randomToken(); friendlyReference = draftReference(draftKey);
+        const { data: created, error } = await db.from("property_intake_drafts").insert({ draft_key: draftKey, draft_reference: friendlyReference, resume_token_hash: await hashToken(token, salt), email, payload: cleanPayload(body.payload), current_step: Math.max(0, Math.min(7, Number(body.currentStep) || 0)), expires_at: expiresAt, request_ip_hash: requestIpHash }).select("id").single();
         if (error) throw error; draftId = created.id;
       }
       const resumeUrl = `https://www.j4lp.com/property-intake/?draft=${encodeURIComponent(draftKey)}&token=${encodeURIComponent(token)}`;
       const shouldSendLink = isNew || body.resendReturnLink === true || !returnLinkSentAt;
-      if (!shouldSendLink) return reply(origin, { success: true, stored: true, emailSent: true, isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId });
-      if (!isNew && returnLinkAttemptedAt && new Date(returnLinkAttemptedAt).getTime() > Date.now() - 60_000) return reply(origin, { success: false, stored: true, emailSent: Boolean(returnLinkSentAt), error: "Wait one minute before requesting another return-link email.", draftKey, resumeToken: token, expiresAt, resumeUrl, draftId }, 429);
-      if (!isNew && returnLinkAttemptCount >= 5) return reply(origin, { success: false, stored: true, emailSent: Boolean(returnLinkSentAt), error: "The return-link email limit has been reached. Your secure draft is still saved.", draftKey, resumeToken: token, expiresAt, resumeUrl, draftId }, 429);
+      if (!shouldSendLink) return reply(origin, { success: true, stored: true, emailSent: true, isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId, draftReference: friendlyReference });
+      if (!isNew && returnLinkAttemptedAt && new Date(returnLinkAttemptedAt).getTime() > Date.now() - 60_000) return reply(origin, { success: false, stored: true, emailSent: Boolean(returnLinkSentAt), error: "Wait one minute before requesting another return-link email.", draftKey, resumeToken: token, expiresAt, resumeUrl, draftId, draftReference: friendlyReference }, 429);
+      if (!isNew && returnLinkAttemptCount >= 5) return reply(origin, { success: false, stored: true, emailSent: Boolean(returnLinkSentAt), error: "The return-link email limit has been reached. Your secure draft is still saved.", draftKey, resumeToken: token, expiresAt, resumeUrl, draftId, draftReference: friendlyReference }, 429);
 
       const resend = Deno.env.get("RESEND_API_KEY") || "";
-      if (!resend) return reply(origin, { success: false, stored: true, emailSent: false, error: "Your secure draft was saved, but email is temporarily unavailable.", isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId }, 502);
+      if (!resend) return reply(origin, { success: false, stored: true, emailSent: false, error: "Your secure draft was saved, but email is temporarily unavailable.", isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId, draftReference: friendlyReference }, 502);
 
-      const mail = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${resend}`, "Content-Type": "application/json", "Idempotency-Key": `property-intake-draft/${draftKey}` }, body: JSON.stringify({ from: "J4 Legacy Properties <intake@j4lp.com>", to: [email], subject: "Return to your J4LP property intake", html: `<div style="font-family:Arial,sans-serif;max-width:620px;margin:auto"><h1 style="font-family:Georgia,serif;color:#500203">Your property intake is saved.</h1><p>Use the private link below to return to your answers and documents. The link expires in 30 days.</p><p><a style="display:inline-block;background:#500203;color:white;padding:14px 20px;text-decoration:none" href="${resumeUrl}">Continue my property intake</a></p><p>Keep this link private. Drafts are not sent to the J4LP team as leads until you submit the intake.</p></div>` }) });
+      const mail = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${resend}`, "Content-Type": "application/json", "Idempotency-Key": `property-intake-draft/${draftKey}` }, body: JSON.stringify({ from: "J4 Legacy Properties <intake@j4lp.com>", to: [email], subject: `Return to your J4LP property intake | ${friendlyReference}`, html: `<div style="font-family:Arial,sans-serif;max-width:620px;margin:auto"><h1 style="font-family:Georgia,serif;color:#500203">Your property intake is saved.</h1><p>Draft reference: <strong>${friendlyReference}</strong></p><p>Use the private link below to return to your answers and documents. The link expires in 30 days.</p><p><a style="display:inline-block;background:#500203;color:white;padding:14px 20px;text-decoration:none" href="${resumeUrl}">Continue my property intake</a></p><p>Keep this link private. Drafts are not sent to the J4LP team as leads until you submit the intake.</p></div>` }) });
       const mailResult = await mail.json().catch(() => ({})) as { id?: string; message?: string; name?: string };
       const now = new Date().toISOString();
       const emailError = mail.ok && mailResult.id ? null : `Resend ${mail.status}: ${JSON.stringify(mailResult).slice(0, 1000)}`;
@@ -140,13 +185,13 @@ serve(async (req) => {
         return_link_delivery_status: mail.ok && mailResult.id ? "sent" : "failed",
       }).eq("id", draftId);
       if (statusError) console.error("Draft email-status update failed", statusError);
-      if (emailError) return reply(origin, { success: false, stored: true, emailSent: false, error: "Your secure draft was saved, but the return-link email could not be confirmed. Keep this page open and try Save again.", isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId }, 502);
-      return reply(origin, { success: true, stored: true, emailSent: true, isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId });
+      if (emailError) return reply(origin, { success: false, stored: true, emailSent: false, error: "Your secure draft was saved, but the return-link email could not be confirmed. Keep this page open and try Save again.", isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId, draftReference: friendlyReference }, 502);
+      return reply(origin, { success: true, stored: true, emailSent: true, isNew, draftKey, resumeToken: token, expiresAt, resumeUrl, draftId, draftReference: friendlyReference });
     }
 
     if (body.action === "loadDraft" || body.action === "deleteFile") {
       const tokenHash = await hashToken(String(body.resumeToken || ""), salt);
-      const { data: draft } = await db.from("property_intake_drafts").select("id,email,payload,current_step,status,expires_at").eq("draft_key", String(body.draftKey || "")).eq("resume_token_hash", tokenHash).maybeSingle();
+      const { data: draft } = await db.from("property_intake_drafts").select("id,email,payload,current_step,status,expires_at,draft_reference").eq("draft_key", String(body.draftKey || "")).eq("resume_token_hash", tokenHash).maybeSingle();
       if (!draft || draft.status !== "draft" || new Date(draft.expires_at) <= new Date()) return reply(origin, { success: false, error: "This draft link is invalid or expired." }, 403);
       if (body.action === "deleteFile") {
         const { data: file } = await db.from("property_intake_files").select("id,storage_path").eq("id", String(body.fileId || "")).eq("draft_id", draft.id).maybeSingle();
@@ -156,7 +201,7 @@ serve(async (req) => {
         return reply(origin, { success: true });
       }
       const { data: files } = await db.from("property_intake_files").select("id,original_name,content_type,size_bytes,created_at").eq("draft_id", draft.id).order("created_at");
-      return reply(origin, { success: true, payload: draft.payload, currentStep: draft.current_step, expiresAt: draft.expires_at, files: files || [] });
+      return reply(origin, { success: true, payload: draft.payload, currentStep: draft.current_step, expiresAt: draft.expires_at, draftReference: draft.draft_reference, files: files || [] });
     }
 
     if (body.action === "loadSubmission") {

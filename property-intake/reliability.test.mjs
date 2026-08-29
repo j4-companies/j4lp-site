@@ -95,6 +95,7 @@ test("a stored draft keeps its credentials even when the return email fails", as
       emailSent: false,
       draftKey: "11111111-1111-4111-8111-111111111111",
       resumeToken: "resume-token",
+      draftReference: "DRAFT-260829-111111",
       expiresAt: "2026-09-28T15:00:00.000Z",
       error: "Return email failed",
     },
@@ -107,6 +108,7 @@ test("a stored draft keeps its credentials even when the return email fails", as
   const saved = JSON.parse(harness.window.localStorage.getItem(SERVER_KEY));
   assert.equal(saved.draftKey, "11111111-1111-4111-8111-111111111111");
   assert.equal(saved.emailSent, false);
+  assert.equal(saved.draftReference, "DRAFT-260829-111111");
   assert.match(harness.note.textContent, /secure copy saved/i);
 });
 
