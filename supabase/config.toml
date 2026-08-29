@@ -1,0 +1,13 @@
+project_id = "rqnvfruyhkkmsqvzqdli"
+
+[functions.submit-property-intake]
+verify_jwt = false
+
+[functions.manage-property-intake]
+verify_jwt = false
+
+[functions.resend-intake-webhook]
+verify_jwt = false
+
+[functions.maintain-property-intake]
+verify_jwt = false

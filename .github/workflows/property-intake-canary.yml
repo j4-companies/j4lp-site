@@ -1,0 +1,112 @@
+name: Property Intake Weekly Canary
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit marked storage and notification canary
+        id: canary
+        env:
+          INTAKE_MONITOR_SECRET: ${{ secrets.INTAKE_MONITOR_SECRET }}
+        shell: bash
+        run: |
+          submission_key=$(uuidgen | tr '[:upper:]' '[:lower:]')
+          jq -n --arg submissionKey "$submission_key" '{
+            requestType: "Potential listing consultation",
+            address: "MONITORING TEST - NO REAL PROPERTY",
+            nearestTown: "El Campo",
+            county: "Wharton",
+            zip: "77437",
+            acreage: "1",
+            acreageBasis: "Owner estimate",
+            propertyType: ["Farm or ranch land"],
+            residenceStatus: "No residence",
+            deedOwner: "J4LP Monitoring Test",
+            ownershipType: "Individual",
+            occupancy: "Vacant",
+            currentUse: ["Other or unknown"],
+            agStatus: "No",
+            leaseStatus: "No",
+            accessType: ["Public road frontage"],
+            easements: "Unknown",
+            waterSources: ["Unknown"],
+            septicType: "Unknown",
+            surveyStatus: "Unknown",
+            floodStatus: "Unknown",
+            mineralRights: "Unknown",
+            timeline: "I am planning ahead",
+            is1031: "No",
+            firstName: "J4LP",
+            lastName: "Monitoring Test",
+            email: "stephanie@j4lp.com",
+            phone: "979-637-0211",
+            contactMethod: "Email",
+            contactPermissions: ["Email"],
+            agentRelationship: "No",
+            consent: true,
+            acknowledgement: true,
+            testMode: true,
+            sourceUrl: "https://www.j4lp.com/property-intake/",
+            submissionKey: $submissionKey
+          }' > payload.json
+
+          http_status=$(curl --silent --show-error \
+            --output response.json \
+            --write-out "%{http_code}" \
+            --request POST \
+            --header "Content-Type: application/json" \
+            --header "x-intake-monitor-secret: $INTAKE_MONITOR_SECRET" \
+            --data @payload.json \
+            "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/submit-property-intake?action=canary" || true)
+          if ! jq empty response.json >/dev/null 2>&1; then
+            echo '{"success":false,"error":"Canary returned a non-JSON response"}' > response.json
+          fi
+          healthy=$(jq -r '(.success == true and .stored == true and .receiptSent == true and .internalAlertSent == true and (.reference | startswith("TEST-")))' response.json)
+          summary=$(jq -c '{success,stored,reference,receiptSent,internalAlertSent,error}' response.json)
+          {
+            echo "http_status=${http_status:-000}"
+            echo "healthy=$healthy"
+            echo "summary=$summary"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open or close independent canary alert
+        uses: actions/github-script@v7
+        env:
+          HTTP_STATUS: ${{ steps.canary.outputs.http_status }}
+          HEALTHY: ${{ steps.canary.outputs.healthy }}
+          SUMMARY: ${{ steps.canary.outputs.summary }}
+        with:
+          script: |
+            const title = '[Lead Delivery] J4LP property intake canary failure';
+            const { owner, repo } = context.repo;
+            const issues = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'all', per_page: 100 });
+            const existing = issues.find((issue) => !issue.pull_request && issue.title === title);
+            const healthy = process.env.HTTP_STATUS === '200' && process.env.HEALTHY === 'true';
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            if (healthy) {
+              if (existing?.state === 'open') {
+                await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body: `Resolved by a successful storage-and-notification canary.\n\nRun: ${runUrl}` });
+                await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'closed' });
+              }
+              return;
+            }
+            const body = `The weekly marked intake did not prove storage plus both required emails.\n\nHTTP status: ${process.env.HTTP_STATUS}\nResult: \`${process.env.SUMMARY}\`\n\nRun: ${runUrl}`;
+            if (existing) {
+              if (existing.state !== 'open') await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'open' });
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body });
+            }
+
+      - name: Fail when the canary is incomplete
+        if: steps.canary.outputs.http_status != '200' || steps.canary.outputs.healthy != 'true'
+        run: exit 1

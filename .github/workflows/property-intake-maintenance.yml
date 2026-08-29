@@ -1,0 +1,67 @@
+name: Property Intake Draft Cleanup
+
+on:
+  schedule:
+    - cron: "20 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove expired drafts and temporary records
+        id: cleanup
+        env:
+          INTAKE_MONITOR_SECRET: ${{ secrets.INTAKE_MONITOR_SECRET }}
+        shell: bash
+        run: |
+          http_status=$(curl --silent --show-error \
+            --output response.json \
+            --write-out "%{http_code}" \
+            --request POST \
+            --header "x-intake-monitor-secret: $INTAKE_MONITOR_SECRET" \
+            "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/maintain-property-intake" || true)
+          if ! jq empty response.json >/dev/null 2>&1; then
+            echo '{"success":false,"error":"Maintenance returned a non-JSON response"}' > response.json
+          fi
+          healthy=$(jq -r '.success == true' response.json)
+          summary=$(jq -c '.' response.json)
+          {
+            echo "http_status=${http_status:-000}"
+            echo "healthy=$healthy"
+            echo "summary=$summary"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open or close maintenance alert
+        uses: actions/github-script@v7
+        env:
+          HTTP_STATUS: ${{ steps.cleanup.outputs.http_status }}
+          HEALTHY: ${{ steps.cleanup.outputs.healthy }}
+          SUMMARY: ${{ steps.cleanup.outputs.summary }}
+        with:
+          script: |
+            const title = '[Lead Delivery] J4LP property intake maintenance failure';
+            const { owner, repo } = context.repo;
+            const issues = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'all', per_page: 100 });
+            const existing = issues.find((issue) => !issue.pull_request && issue.title === title);
+            const healthy = process.env.HTTP_STATUS === '200' && process.env.HEALTHY === 'true';
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            if (healthy) {
+              if (existing?.state === 'open') await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'closed' });
+              return;
+            }
+            const body = `Expired-draft cleanup failed.\n\nResult: \`${process.env.SUMMARY}\`\n\nRun: ${runUrl}`;
+            if (existing) {
+              if (existing.state !== 'open') await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'open' });
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body });
+            }
+
+      - name: Fail when cleanup is unhealthy
+        if: steps.cleanup.outputs.http_status != '200' || steps.cleanup.outputs.healthy != 'true'
+        run: exit 1

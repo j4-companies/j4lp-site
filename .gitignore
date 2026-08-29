@@ -20,3 +20,6 @@ dist/
 
 # Netlify local
 .netlify/
+
+# Supabase CLI connection cache (project source lives outside this folder)
+supabase/.temp/*

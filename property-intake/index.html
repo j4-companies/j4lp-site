@@ -13,6 +13,7 @@
     <meta property="og:image" content="https://www.j4lp.com/property-intake/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/property-intake/favicon.svg" />
+    <script src="/property-intake/reliability.js"></script>
     <script>
       (() => {
         const endpoint = "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/submit-property-intake";
@@ -46,14 +47,20 @@
         };
 
         window.j4PropertyTurnstileReady = () => {
+          const form = document.querySelector("form.intake-card");
           const submit = [...document.querySelectorAll("button")]
             .find((button) => button.textContent.trim() === "Submit property intake");
-          if (!submit || document.getElementById("j4lp-property-turnstile")) return;
+          const actionButton = submit || form?.querySelector("button.primary-button");
+          if (!form || !actionButton || document.getElementById("j4lp-property-turnstile")) return;
           const mount = document.createElement("div");
           mount.id = "j4lp-property-turnstile";
           mount.style.cssText = "display:flex;justify-content:center;margin:0 12px;";
-          submit.before(mount);
-          window.__j4PropertyTurnstileId = window.turnstile.render(mount, { sitekey, theme: "light" });
+          actionButton.before(mount);
+          window.__j4PropertyTurnstileId = window.turnstile.render(mount, {
+            sitekey,
+            theme: "light",
+            callback: () => window.dispatchEvent(new Event("j4lp-turnstile-ready")),
+          });
         };
 
         new MutationObserver(() => {
