@@ -50,6 +50,7 @@
     nativeSetItem.call(window.localStorage, SERVER_DRAFT_KEY, JSON.stringify({
       draftKey: result.draftKey,
       resumeToken: result.resumeToken,
+      draftReference: result.draftReference || readCredentials()?.draftReference || "",
       expiresAtMs,
       emailSent: emailSent ?? readCredentials()?.emailSent ?? false,
       email: String(email || readCredentials()?.email || "").trim().toLowerCase(),
@@ -222,7 +223,7 @@
       const result = await response.clone().json().catch(() => ({}));
       if (response.ok && result.success) {
         resumePending = false;
-        storeCredentials({ ...requestBody, expiresAt: result.expiresAt }, true, result.payload?.email);
+        storeCredentials({ ...requestBody, draftReference: result.draftReference, expiresAt: result.expiresAt }, true, result.payload?.email);
         window.history.replaceState({}, "", `${window.location.pathname}${window.location.hash || ""}`);
         window.setTimeout(() => pendingSnapshot && scheduleServerSave(250), 0);
       }
