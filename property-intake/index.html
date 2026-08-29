@@ -49,11 +49,12 @@
         };
 
         window.j4PropertyTurnstileReady = () => {
+          if (document.getElementById("j4lp-property-turnstile")) return;
           const form = document.querySelector("form.intake-card");
           const submit = [...document.querySelectorAll("button")]
             .find((button) => button.textContent.trim() === "Submit property intake");
           const actionButton = submit || form?.querySelector("button.primary-button");
-          if (!form || !actionButton || document.getElementById("j4lp-property-turnstile")) return;
+          if (!form || !actionButton) return;
           const mount = document.createElement("div");
           mount.id = "j4lp-property-turnstile";
           mount.style.cssText = "display:flex;justify-content:center;margin:0 12px;";
@@ -65,8 +66,18 @@
           });
         };
 
+        let turnstileMountQueued = false;
+        const queueTurnstileMount = () => {
+          if (turnstileMountQueued) return;
+          turnstileMountQueued = true;
+          window.requestAnimationFrame(() => {
+            turnstileMountQueued = false;
+            if (window.turnstile) window.j4PropertyTurnstileReady();
+          });
+        };
+
         new MutationObserver(() => {
-          if (window.turnstile) window.j4PropertyTurnstileReady();
+          queueTurnstileMount();
         }).observe(document.documentElement, { childList: true, subtree: true });
       })();
     </script>

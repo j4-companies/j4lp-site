@@ -65,6 +65,11 @@ function makeHarness(responses = []) {
   return { window, calls, note, honeypot };
 }
 
+test("status observer batches repeated DOM mutations into an animation frame", () => {
+  assert.match(SOURCE, /function queueStatusRender\(\)/);
+  assert.match(SOURCE, /new MutationObserver\(queueStatusRender\)/);
+});
+
 test("autofilled honeypot is removed and cannot create a false completion", async () => {
   const harness = makeHarness([{ status: 200, body: { success: true, stored: true } }]);
   const response = await harness.window.fetch(SUBMIT, {

@@ -17,6 +17,7 @@
   let statusText = "Your progress is saved on this device.";
   let returnLinkRetryCount = 0;
   let resumePending = new URLSearchParams(window.location.search).has("draft");
+  let statusRenderQueued = false;
 
   function cleanPayload(payload) {
     const clean = { ...(payload || {}) };
@@ -78,6 +79,15 @@
   function setStatus(message) {
     statusText = message;
     renderStatus();
+  }
+
+  function queueStatusRender() {
+    if (statusRenderQueued) return;
+    statusRenderQueued = true;
+    window.requestAnimationFrame(() => {
+      statusRenderQueued = false;
+      renderStatus();
+    });
   }
 
   function secureSavedMessage(emailSent, isNew = false) {
@@ -251,5 +261,5 @@
     if (document.visibilityState === "hidden" && pendingSnapshot) saveSnapshot(pendingSnapshot, true);
   });
   window.addEventListener("j4lp-turnstile-ready", () => pendingSnapshot && scheduleServerSave(100));
-  new MutationObserver(renderStatus).observe(document.documentElement, { childList: true, subtree: true });
+  new MutationObserver(queueStatusRender).observe(document.documentElement, { childList: true, subtree: true });
 })();
