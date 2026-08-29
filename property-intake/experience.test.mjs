@@ -25,6 +25,13 @@ test("save, resume, clear-device, and final-summary controls are present", () =>
   assert.match(experience, /Your original private return link still works and will open your latest saved answers/);
 });
 
+test("page-wide observers batch form updates instead of rescanning on every mutation", () => {
+  assert.match(experience, /function queueEnhancement\(\)/);
+  assert.match(experience, /requestAnimationFrame/);
+  assert.match(html, /turnstileMountQueued/);
+  assert.match(html, /getElementById\("j4lp-property-turnstile"\)\) return/);
+});
+
 test("ZIP is visually ordered before County", () => {
   const zip = styles.indexOf('input[name="zip"]');
   const county = styles.indexOf('input[name="county"]');

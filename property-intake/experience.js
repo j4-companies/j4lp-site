@@ -4,6 +4,7 @@
   const MANAGE_ENDPOINT = "https://rqnvfruyhkkmsqvzqdli.supabase.co/functions/v1/manage-property-intake";
   const LOCAL_KEY = "j4lp-property-intake-autosave-v1";
   const SERVER_KEY = "j4lp-property-intake-server-draft-v1";
+  let enhancementQueued = false;
 
   const el = (tag, attrs = {}, text = "") => {
     const node = document.createElement(tag);
@@ -176,6 +177,15 @@
     });
   }
 
-  new MutationObserver(enhanceCurrentView).observe(document.documentElement, { childList: true, subtree: true });
+  function queueEnhancement() {
+    if (enhancementQueued) return;
+    enhancementQueued = true;
+    window.requestAnimationFrame(() => {
+      enhancementQueued = false;
+      enhanceCurrentView();
+    });
+  }
+
+  new MutationObserver(queueEnhancement).observe(document.documentElement, { childList: true, subtree: true });
   document.addEventListener("DOMContentLoaded", enhanceCurrentView);
 })();
