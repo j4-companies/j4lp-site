@@ -91,7 +91,7 @@
     }
     return isNew
       ? `Secure copy saved at ${time}. A private return link was sent to the email provided.`
-      : `Secure draft updated at ${time}. Use the private return link from your original email.`;
+      : `Secure draft updated at ${time}. Your original private return link still works and will open your latest saved answers.`;
   }
 
   async function saveSnapshot(snapshot, keepalive = false) {
