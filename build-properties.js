@@ -570,6 +570,7 @@ ul { list-style: none; }
   .spec-item { min-width: 45%; }
 }
 </style>
+<script defer src="/site-head.js"></script>
 </head>
 <body>
 
