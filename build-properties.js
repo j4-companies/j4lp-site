@@ -53,7 +53,7 @@ function buildSchema(l) {
     "description": l.description,
     "keywords": (l.tags && l.tags.length ? l.tags.join(', ') + (l.keywords ? ', ' + l.keywords : '') : (l.keywords || '')),
     "url": `https://www.j4lp.com/properties/${l.slug}.html`,
-    "image": l.heroImage ? `https://www.j4lp.com/${l.heroImage}` : '',
+    "image": l.heroImage ? `https://www.j4lp.com/${l.heroImage}` : undefined,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": l.address,
@@ -607,7 +607,7 @@ ul { list-style: none; }
         <a href="/buying/off-market">Off-Market Access</a>
       </div>
     </li>
-    <li><a href="/selling">Selling</a></li>
+    <li class="dropdown"><a href="/selling">Selling</a><div class="dropdown-menu"><a href="/selling">Seller Services</a><a href="/property-intake/">Property Intake &amp; Valuation Request</a></div></li>
     <li class="dropdown">
       <a href="/areas-we-serve">Areas We Serve</a>
       <div class="dropdown-menu dropdown-menu-counties">
@@ -745,6 +745,7 @@ ul { list-style: none; }
     <a href="/properties">Properties</a>
     <a href="/buying">Buying</a>
     <a href="/selling">Selling</a>
+    <a href="/property-intake/">Property Intake &amp; Valuation Request</a>
     <a href="/areas-we-serve">Areas We Serve</a>
     <a href="/our-team">Our Team</a>
     <a href="/resources">Resources</a>
