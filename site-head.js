@@ -1,4 +1,4 @@
-// J4 Legacy Properties — shared head behavior (analytics)
+// J4 Legacy Properties — shared head behavior (analytics + advertising)
 // Loaded as a defer script on every page.
 //
 // ONE copy of the GA4 tag for the whole site. Deliberately not pasted into each
@@ -13,8 +13,29 @@
 //
 // window.gtag is exposed globally so forms.js can fire conversion events later.
 // No conversion events are wired yet — that is a separate decision.
+//
+// PRIVACY CONSTRAINT — do not change without changing the policy first.
+// privacy.html section 4 (published 2026-08-31) states that the name, email
+// address and phone number entered in a form on this site are NOT sent to
+// Google or Meta for advertising. That means:
+//   * fbq('init') is called with the pixel ID ONLY — never a user-data object.
+//   * Automatic Advanced Matching must stay OFF on the pixel in Events Manager.
+//   * Conversions API was deliberately left off when the dataset was created.
+// Turning any of those on makes a published privacy policy false. If advertising
+// needs them later, the policy paragraph gets rewritten first.
 
 (function () {
+  // ── Meta Pixel — J4 Legacy Properties (1387308910256306) ──
+  // No second argument to fbq('init') = no manual advanced matching. See above.
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+  s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1387308910256306');
+  fbq('track', 'PageView');
+
   // ── Google Analytics 4 — J4 Legacy Properties property (552122505) ──
   var GA4_ID = 'G-HKGXS4B10C';
   var ga = document.createElement('script');
