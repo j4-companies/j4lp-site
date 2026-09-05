@@ -1,0 +1,46 @@
+name: Blog Publication Check
+
+on:
+  pull_request:
+    paths:
+      - 'blog*.html'
+      - 'blog/**'
+      - 'images/blog/**'
+      - '_redirects'
+      - 'sitemap.xml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-blog-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate generated blog package
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")
+          articles=$(printf '%s\n' "$changed" | grep -E '^(blog/[^/]+\.html|blog-[^/]+\.html)$' || true)
+          test -n "$articles" || { echo 'No generated blog article found.'; exit 1; }
+          test "$(printf '%s\n' "$articles" | sed '/^$/d' | wc -l | tr -d ' ')" = "1" || { echo 'A publication PR must contain exactly one article.'; exit 1; }
+          article=$(printf '%s\n' "$articles" | head -1)
+          grep -q 'data-blog-plan-key=' "$article"
+          grep -q 'rel="canonical"' "$article"
+          grep -q '"BlogPosting"' "$article"
+          grep -q 'og:image' "$article"
+          if grep -Eqi '\b(TBD|TODO|LOREM IPSUM|PLACEHOLDER)\b' "$article"; then
+            echo 'Placeholder text found in article.'
+            exit 1
+          fi
+          plan_key=$(sed -n 's/.*data-blog-plan-key="\([^"]*\)".*/\1/p' "$article" | head -1)
+          test -n "$plan_key"
+          grep -q "AUTO BLOG $plan_key" blog.html
+          grep -q "AUTO BLOG $plan_key" _redirects
+          grep -q "AUTO BLOG $plan_key" sitemap.xml
+          image=$(printf '%s\n' "$changed" | grep -E '^images/blog/[^/]+\.(jpg|jpeg|png|webp)$' || true)
+          test -n "$image" || { echo 'No publication image found in images/blog.'; exit 1; }
