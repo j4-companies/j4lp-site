@@ -491,8 +491,13 @@
 /limo-station-victoria.html                   /properties.html  301
 /horse-farm-property            /properties/horse-farm-property       301
 /horse-farm-property.html       /properties/horse-farm-property       301
-/mexia-commercial-property      /properties/mexia-commercial-property 301
-/mexia-commercial-property.html /properties/mexia-commercial-property 301
+# Mexia (1824 W Hwy 84, Alexa Emmons) delisted 2026-09-08. TXR-1301 listing
+# agreement ran 2025-06-25 to 2026-07-27 and was not extended. Tract 1 closed
+# 2026-03. Remaining tracts may relist; restore these entries if so.
+# Must stay ABOVE the /properties/* wildcard below or it never fires.
+/properties/mexia-commercial-property.html  /properties.html  301
+/mexia-commercial-property                  /properties.html  301
+/mexia-commercial-property.html             /properties.html  301
 /randon-school-road             /properties/randon-school-road        301
 /randon-school-road.html        /properties/randon-school-road        301
 /211-white-wing-ln-sealy        /properties/211-white-wing-ln-sealy   301
