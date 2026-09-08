@@ -485,8 +485,14 @@
 /danevang-investment.html       /properties/danevang-investment       301
 /east-bernard-homestead         /properties/east-bernard-homestead    301
 /east-bernard-homestead.html    /properties/east-bernard-homestead    301
-/richmond-cotton-farm           /properties/richmond-cotton-farm      301
-/richmond-cotton-farm.html      /properties/richmond-cotton-farm      301
+# Richmond (Urbanek, 7403 FM 361, Sioux Smith) delisted 2026-09-08. TXR-1201
+# listing agreement ran 2025-07-25 to 2026-07-25 and was not extended, so there
+# is no current written authority to advertise it. A KB Home contract is working
+# in the deal folder; if it is under contract or the agreement is renewed this
+# comes back. Must stay ABOVE the /properties/* wildcard or it never fires.
+/properties/richmond-cotton-farm.html  /properties.html  301
+/richmond-cotton-farm                  /properties.html  301
+/richmond-cotton-farm.html             /properties.html  301
 /limo-station-victoria                        /properties.html  301
 /limo-station-victoria.html                   /properties.html  301
 /horse-farm-property            /properties/horse-farm-property       301
