@@ -24,6 +24,26 @@ function stripDashes(s) {
 }
 
 // Badge color map
+// ── helpers ───────────────────────────────────────────────────────────────
+// esc(): listings.json is hand-maintained, so any field can contain a raw & < >.
+// Interpolating those straight into HTML produces invalid markup — e.g. the
+// badge "Farm & Acreage" was emitting a bare ampersand. Escape anything from
+// the data file that lands in an HTML text node.
+function esc(v) {
+  return String(v == null ? '' : v)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// acreage(): acreageDisplay is inconsistent in listings.json. Some entries carry
+// their own unit ("10.00 Acres", "5,885 Sq Ft Lot", "Multiple Tract Sizes"),
+// others are bare numbers ("2,544.03", "60", "400±"). Blindly appending a unit
+// gave "10.00 Acres Ac" and "Multiple Tract Sizes Ac". Only append when the
+// value is a bare number.
+function acreage(v, unit) {
+  const raw = String(v == null ? '' : v).trim();
+  return /^[\d.,\s±+-]+$/.test(raw) && raw !== '' ? `${esc(raw)} ${unit}` : esc(raw);
+}
+
 const badgeColors = {
   ranch:      '#500203',
   home:       '#2a5298',
@@ -230,7 +250,7 @@ function buildRelated(current, all) {
               ? `<img src="../${l.heroImage}" alt="${l.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
               : ''}
             <div class="related-img-ph" ${l.heroImage ? 'style="display:none"' : ''}>${l.name}</div>
-            <span class="related-badge" style="background:${badgeColors[l.badgeType] || '#500203'}">${l.badge}</span>
+            <span class="related-badge" style="background:${badgeColors[l.badgeType] || '#500203'}">${esc(l.badge)}</span>
           </div>
           <div class="related-body">
             <div class="related-price">${l.priceDisplay}</div>
@@ -773,14 +793,14 @@ ${statusBanner}
 <!-- HERO IMAGE -->
 <div class="prop-hero">
   ${l.heroImage
-    ? `<img src="../${l.heroImage}" alt="${l.name} — ${l.acreageDisplay} acres in ${l.county}, TX" loading="eager">
-       <div class="hero-badges"><span class="hero-badge">${l.badge}</span>${heroStatusBadge}</div>`
+    ? `<img src="../${l.heroImage}" alt="${esc(l.name)} — ${acreage(l.acreageDisplay, 'acres')} in ${esc(l.county)}, TX" loading="eager">
+       <div class="hero-badges"><span class="hero-badge">${esc(l.badge)}</span>${heroStatusBadge}</div>`
     : `<div class="prop-hero-ph">
-         <div class="ph-icon">${l.acreageDisplay} Ac</div>
+         <div class="ph-icon">${acreage(l.acreageDisplay, 'Ac')}</div>
          <p>${l.name} · ${l.county}, TX</p>
          <p style="font-size:11px;margin-top:4px">Photos available — call 833-543-LAND</p>
        </div>
-       <div class="hero-badges"><span class="hero-badge">${l.badge}</span>${heroStatusBadge}</div>`
+       <div class="hero-badges"><span class="hero-badge">${esc(l.badge)}</span>${heroStatusBadge}</div>`
   }
 </div>
 
