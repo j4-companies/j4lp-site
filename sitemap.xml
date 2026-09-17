@@ -648,4 +648,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- AUTO BLOG 2026-09-J4LP-0617-02 -->
+  <url>
+    <loc>https://www.j4lp.com/blog/selling-ranch-land-wharton-county-prelisting-checklist</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.j4lp.com/images/blog/selling-ranch-land-wharton-county-prelisting-checklist.webp</image:loc>
+      <image:title>Selling Ranch Land in Wharton County: What Should Be Ready Before Listing?</image:title>
+    </image:image>
+  </url>
 </urlset>

@@ -612,3 +612,7 @@
 
 # Favicon
 /favicon.ico    /images/brand/favicon-32.png    200
+# AUTO BLOG 2026-09-J4LP-0617-02
+/blog/selling-ranch-land-wharton-county-prelisting-checklist    /blog-selling-ranch-land-wharton-county-prelisting-checklist.html    200
+/selling-ranch-land-wharton-county-prelisting-checklist    /blog/selling-ranch-land-wharton-county-prelisting-checklist    301
+/blog-selling-ranch-land-wharton-county-prelisting-checklist.html    /blog/selling-ranch-land-wharton-county-prelisting-checklist    301!
