@@ -670,4 +670,15 @@
       <image:title>2026 Hunting Rule Changes Belong in the Ranch File</image:title>
     </image:image>
   </url>
+  <!-- AUTO BLOG 2026-09-J4LP-1017-18 -->
+  <url>
+    <loc>https://www.j4lp.com/blog/1031-exchange-emergency-records-checklist</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.j4lp.com/images/blog/1031-exchange-emergency-records-checklist.jpg</image:loc>
+      <image:title>Storm-Proof Your 1031 Exchange File Before the Clock Gets Tight</image:title>
+    </image:image>
+  </url>
 </urlset>
