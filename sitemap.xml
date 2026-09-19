@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.j4lp.com/areas-we-serve/colorado-county/altair-sheridan-rock-island</loc>
     <lastmod>2026-08-04</lastmod>
@@ -680,5 +680,53 @@
       <image:loc>https://www.j4lp.com/images/blog/1031-exchange-emergency-records-checklist.jpg</image:loc>
       <image:title>Storm-Proof Your 1031 Exchange File Before the Clock Gets Tight</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/bay-city-coastal-land-hurricane-risk</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/bellville-sealy-moving-from-houston</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/columbus-eagle-lake-hunting-land-value</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/el-campo-water-well-inspection-checklist</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/hallettsville-shiner-ag-exemption-basics</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/stephens-county-high-fence-ranch-value</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/victoria-county-1031-buyer-demand</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.j4lp.com/blog/wharton-county-500k-land-guide</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
