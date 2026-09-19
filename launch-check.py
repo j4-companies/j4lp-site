@@ -119,6 +119,14 @@ for p in PAGES:
 # ------------------------------------------------------------ 4. sitemap
 if os.path.exists("sitemap.xml"):
     sm = read("sitemap.xml")
+    # Must parse as XML. An undeclared prefix (the blog publisher's <image:image>
+    # with no xmlns:image) makes crawlers reject the whole file, and it shipped
+    # that way 2026-09-17 with every other check green.
+    try:
+        import xml.dom.minidom
+        xml.dom.minidom.parseString(sm.encode("utf-8"))
+    except Exception as e:
+        fail("sitemap", f"sitemap.xml is not well-formed XML: {e}")
     locs = re.findall(r"<loc>(.*?)</loc>", sm)
     if len(locs) != len(set(locs)):
         dupe = [u for u, n in Counter(locs).items() if n > 1]
